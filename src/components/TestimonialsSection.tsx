@@ -1,5 +1,3 @@
-
-
 const TestimonialsSection = () => {
   const testimonials = [
     {

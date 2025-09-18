@@ -4,7 +4,6 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
-
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,9 +32,9 @@ const ContactSection = () => {
       <div className="container-custom">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Working With <span className="gradient-text">Us</span>
-          </h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              Working With <span className="gradient-text">Us</span>
+            </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We pride ourselves on being a business savvy media house that understands 
               that we need to deliver what matters to our customers.
