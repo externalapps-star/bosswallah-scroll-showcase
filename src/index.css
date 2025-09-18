@@ -44,25 +44,9 @@
     --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%) 0%, hsl(8 83% 47%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
 
-    /* Media company specific colors */
-    --media-orange: 14 100% 57%;
-    --media-red: 8 83% 47%;
-    --media-dark: 220 13% 18%;
-    --media-light: 220 14% 96%;
-
     /* Shadows with brand colors */
     --shadow-brand: 0 10px 30px -10px hsl(14 100% 57% / 0.25);
     --shadow-soft: 0 4px 20px -4px hsl(220 13% 18% / 0.1);
-
-    /* Typography scale */
-    --font-size-hero: 3.5rem;
-    --font-size-xl: 2.25rem;
-    --font-size-lg: 1.5rem;
-    --font-size-base: 1rem;
-
-    /* Professional spacing */
-    --section-padding: 6rem;
-    --container-padding: 2rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -133,7 +117,9 @@
   html {
     scroll-behavior: smooth;
   }
+}
 
+@layer components {
   /* Professional section spacing */
   .section-padding {
     @apply py-24 px-4;
@@ -150,5 +136,19 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Custom shadow utilities */
+  .shadow-brand {
+    box-shadow: var(--shadow-brand);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* Gradient backgrounds */
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
   }
 }
