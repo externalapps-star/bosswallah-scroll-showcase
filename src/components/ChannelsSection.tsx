@@ -182,12 +182,12 @@ const ChannelsSection = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Main": return "bg-primary/10 text-primary border-primary/20";
-      case "Farming": return "bg-green-100 text-green-700 border-green-200";
-      case "Business": return "bg-purple-100 text-purple-700 border-purple-200";
-      case "Academy": return "bg-blue-100 text-blue-700 border-blue-200";
-      case "Finance": return "bg-yellow-100 text-yellow-700 border-yellow-200";
-      case "App": return "bg-orange-100 text-orange-700 border-orange-200";
-      default: return "bg-gray-100 text-gray-700 border-gray-200";
+      case "Farming": return "bg-green-500/10 text-green-700 dark:text-green-400 border-green-500/20";
+      case "Business": return "bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20";
+      case "Academy": return "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20";
+      case "Finance": return "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20";
+      case "App": return "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20";
+      default: return "bg-muted text-muted-foreground border-border";
     }
   };
 

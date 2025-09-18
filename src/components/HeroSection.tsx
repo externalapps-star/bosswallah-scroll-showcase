@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import heroVideoBg from "@/assets/hero-video-bg.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Theme Toggle */}
+      <ThemeToggle />
+      
       {/* Background Video/Montage */}
       <div 
         className="absolute inset-0 z-0"

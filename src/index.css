@@ -151,4 +151,9 @@
   .bg-gradient-subtle {
     background: var(--gradient-subtle);
   }
+
+  /* Dark mode gradient subtle override */
+  .dark .bg-gradient-subtle {
+    background: linear-gradient(180deg, hsl(220 13% 18%) 0%, hsl(220 13% 22%) 100%);
+  }
 }
