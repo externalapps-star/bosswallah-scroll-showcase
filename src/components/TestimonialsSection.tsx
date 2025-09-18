@@ -32,19 +32,6 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* Client Logos Section */}
-        <div className="mb-16">
-          <div className="bg-card rounded-3xl p-8 shadow-soft border border-border">
-            <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">
-              Trusted by Leading Brands
-            </h3>
-            <div className="max-w-4xl mx-auto text-center">
-              <p className="text-muted-foreground">
-                Working with major brands across e-commerce, fintech, healthcare, and more
-              </p>
-            </div>
-          </div>
-        </div>
 
         {/* Testimonials Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
