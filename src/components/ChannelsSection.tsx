@@ -213,53 +213,70 @@ const ChannelsSection = () => {
                 className="group cursor-pointer"
                 onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
               >
-                <div className={`bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 group-hover:scale-105 border h-full flex flex-col ${
-                  isSelected ? 'border-primary shadow-brand ring-2 ring-primary/20' : 'border-border'
+                <div className={`relative overflow-hidden bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-700 group-hover:scale-105 border border-white/20 h-full flex flex-col ${
+                  isSelected ? 'border-primary/50 shadow-2xl ring-2 ring-primary/30 bg-gradient-to-br from-primary/10 to-accent/5' : 'hover:border-primary/30'
                 }`}>
-                  <div className="text-center flex-1">
-                    {/* Icon Container */}
-                    <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300 ${
-                      isSelected ? 'scale-110' : ''
-                    }`}>
+                  {/* Animated Background Gradient */}
+                  <div className={`absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${
+                    isSelected ? 'opacity-100' : ''
+                  }`}></div>
+                  
+                  {/* Floating Dots Decoration */}
+                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse"></div>
+                  <div className="absolute top-8 right-8 w-1 h-1 bg-accent/40 rounded-full animate-pulse delay-300"></div>
+                  
+                  <div className="relative z-10 text-center flex-1">
+                    {/* Icon Container with Enhanced Styling */}
+                    <div className={`relative w-28 h-28 mx-auto mb-8 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-all duration-500 shadow-lg ${
+                      isSelected ? 'scale-110 shadow-xl' : ''
+                    } before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/20 before:to-transparent before:opacity-0 before:group-hover:opacity-100 before:transition-opacity before:duration-300`}>
+                      {/* Glow Effect */}
+                      <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${
+                        platform.name === 'YouTube' ? 'from-red-400/20 to-red-600/20' :
+                        platform.name === 'Facebook' ? 'from-blue-400/20 to-blue-600/20' :
+                        'from-pink-400/20 to-purple-600/20'
+                      } opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`}></div>
+                      
                       {platform.image ? (
                         <img 
                           src={platform.image} 
                           alt={`${platform.name} logo`}
-                          className={`w-16 h-16 object-contain ${isSelected ? 'scale-110' : ''} transition-transform`}
+                          className={`relative z-10 w-16 h-16 object-contain ${isSelected ? 'scale-110' : ''} transition-transform duration-500 drop-shadow-lg`}
                         />
                       ) : (
                         <IconComponent 
                           size={64}
-                          className={`${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform`}
+                          className={`relative z-10 ${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform duration-500 drop-shadow-lg`}
                         />
                       )}
                     </div>
                     
-                    {/* Platform Name */}
-                    <h3 className={`text-2xl font-bold mb-4 transition-colors ${
-                      isSelected ? 'text-primary' : 'text-foreground group-hover:text-primary'
+                    {/* Platform Name with Enhanced Typography */}
+                    <h3 className={`text-2xl font-bold mb-4 transition-all duration-300 ${
+                      isSelected ? 'text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent' : 'text-foreground group-hover:text-primary'
                     }`}>
                       {platform.name}
                     </h3>
                     
-                    {/* Channel Count */}
-                    <div className={`text-sm font-semibold mb-4 rounded-full px-4 py-2 inline-block transition-colors ${
-                      isSelected ? 'text-primary bg-primary/20' : 'text-primary bg-primary/10'
+                    {/* Channel Count with Modern Badge */}
+                    <div className={`relative inline-block text-sm font-semibold mb-6 rounded-full px-6 py-3 transition-all duration-300 backdrop-blur-sm ${
+                      isSelected ? 'text-primary bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 shadow-lg' : 'text-primary bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40'
                     }`}>
-                      {platform.totalChannels}
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent"></div>
+                      <span className="relative z-10">{platform.totalChannels}</span>
                     </div>
                     
-                    {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+                    {/* Description with Better Styling */}
+                    <p className="text-muted-foreground leading-relaxed mb-8 text-base">
                       {platform.description}
                     </p>
                     
-                    {/* CTA */}
-                    <div className={`flex items-center justify-center font-semibold transition-colors ${
-                      isSelected ? 'text-accent' : 'text-primary group-hover:text-accent'
+                    {/* Enhanced CTA Button */}
+                    <div className={`inline-flex items-center justify-center font-semibold px-6 py-3 rounded-2xl transition-all duration-300 backdrop-blur-sm ${
+                      isSelected ? 'text-white bg-gradient-to-r from-primary to-accent shadow-lg' : 'text-primary bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 group-hover:from-primary/20 group-hover:to-accent/20 group-hover:border-primary/40 group-hover:shadow-md'
                     }`}>
                       {isSelected ? 'Hide Channels' : 'View All Channels'}
-                      <ArrowRight size={18} className={`ml-2 transition-transform ${
+                      <ArrowRight size={18} className={`ml-2 transition-transform duration-300 ${
                         isSelected ? 'rotate-90' : 'group-hover:translate-x-1'
                       }`} />
                     </div>
