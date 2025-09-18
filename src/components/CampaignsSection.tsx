@@ -1,63 +1,81 @@
+import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
+import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
+import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
+import revenueIcon from "@/assets/revenue-icon.jpg";
+
 const CampaignsSection = () => {
   const campaigns = [
     {
       title: "India Entry Program",
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah...",
-      features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"]
+      features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
+      icon: indiaEntryIcon
     },
     {
       title: "Intense Event Based Program",
       description: "Companies that want to create an intense 3 month campaign...",
-      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"]
+      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
+      icon: eventCampaignIcon
     },
     {
       title: "Brand Building Campaigns",
       description: "Younger brands engage Boss Wallah for long term sustained campaigns...",
-      features: ["Long-term Strategy", "Brand Identity", "Community Building", "Sustained Growth"]
+      features: ["Long-term Strategy", "Brand Identity", "Community Building", "Sustained Growth"],
+      icon: brandBuildingIcon
     },
     {
       title: "Revenue Generation Campaigns",
       description: "Given Boss Wallah's strength in reaching middle-income audiences...",
-      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"]
+      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
+      icon: revenueIcon
     }
   ];
 
   return (
     <section id="campaigns" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Marketing <span className="gradient-text">Campaigns</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Tailored strategies for every business goal and market segment
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {campaigns.map((campaign, index) => (
             <div
               key={campaign.title}
-              className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border h-full flex flex-col"
+              className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-border h-full flex flex-col"
             >
-              <div className="flex items-start space-x-4">
+              <div className="flex items-start space-x-6">
+                {/* Campaign Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold">
-                    {index + 1}
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
+                    <img 
+                      src={campaign.icon} 
+                      alt={campaign.title}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                 </div>
+                
+                {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-lg font-bold mb-2 text-foreground">
+                  <h3 className="text-xl font-bold mb-3 text-foreground">
                     {campaign.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
+                  <p className="text-muted-foreground mb-6 leading-relaxed">
                     {campaign.description}
                   </p>
-                  <div className="space-y-1">
+                  
+                  {/* Features */}
+                  <div className="space-y-2">
                     {campaign.features.map((feature) => (
-                      <div key={feature} className="flex items-center space-x-2">
-                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
-                        <span className="text-xs text-muted-foreground">{feature}</span>
+                      <div key={feature} className="flex items-center space-x-3">
+                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
+                        <span className="text-sm text-muted-foreground">{feature}</span>
                       </div>
                     ))}
                   </div>

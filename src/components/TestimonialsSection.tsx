@@ -1,3 +1,5 @@
+import clientLogos from "@/assets/client-logos.jpg";
+
 const TestimonialsSection = () => {
   const testimonials = [
     {
@@ -23,37 +25,54 @@ const TestimonialsSection = () => {
   return (
     <section id="testimonials" className="section-padding bg-background">
       <div className="container-custom">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Customer <span className="gradient-text">Speak</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Hear from brands that have achieved remarkable success with our campaigns
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Client Logos Section */}
+        <div className="mb-16">
+          <div className="bg-card rounded-3xl p-8 shadow-soft border border-border">
+            <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">
+              Trusted by Leading Brands
+            </h3>
+            <div className="max-w-4xl mx-auto">
+              <img 
+                src={clientLogos} 
+                alt="Client logos representing various trusted brands"
+                className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border h-full flex flex-col"
+              className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-border h-full flex flex-col"
             >
               {/* Rating */}
-              <div className="flex space-x-1 mb-4">
+              <div className="flex space-x-1 mb-6">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <div key={i} className="w-4 h-4 text-accent">★</div>
+                  <div key={i} className="w-5 h-5 text-accent text-lg">★</div>
                 ))}
               </div>
 
               {/* Quote */}
-              <blockquote className="text-sm text-muted-foreground mb-4 leading-relaxed italic flex-1">
+              <blockquote className="text-muted-foreground mb-6 leading-relaxed italic flex-1 text-lg">
                 "{testimonial.quote}"
               </blockquote>
 
               {/* Author */}
-              <div className="border-t border-border pt-4 mt-auto">
-                <div className="font-semibold text-foreground text-sm">{testimonial.author}</div>
-                <div className="text-xs text-muted-foreground">{testimonial.company}</div>
+              <div className="border-t border-border pt-6 mt-auto">
+                <div className="font-semibold text-foreground">{testimonial.author}</div>
+                <div className="text-sm text-muted-foreground">{testimonial.company}</div>
               </div>
             </div>
           ))}

@@ -1,42 +1,44 @@
 import { Button } from "@/components/ui/button";
-import heroBackground from "@/assets/hero-background.jpg";
+import heroVideoBg from "@/assets/hero-video-bg.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
+      {/* Background Video/Montage */}
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${heroBackground})`,
+          backgroundImage: `url(${heroVideoBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/80"></div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-black/70"></div>
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 text-center text-white">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Boss Wallah Media
-        </h1>
-        <p className="text-xl md:text-2xl mb-4 font-medium">
-          India's Leading Social Media & Production Platform
-        </p>
-        <p className="text-lg md:text-xl mb-12 opacity-90 max-w-3xl mx-auto">
-          Powering brand impact at scale across regional markets.
-        </p>
-        <Button 
-          variant="hero" 
-          size="lg"
-          className="text-lg px-12 py-6 h-auto"
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          Discover Our Story
-        </Button>
+      <div className="container-custom relative z-10 text-center text-white px-6">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
+            Boss Wallah Media
+          </h1>
+          <p className="text-2xl md:text-3xl mb-6 font-light">
+            India's Leading Social Media & Production Platform
+          </p>
+          <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
+            Powering brand impact at scale across regional markets.
+          </p>
+          <Button 
+            variant="hero" 
+            size="lg"
+            className="text-lg px-16 py-8 h-auto font-semibold"
+            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          >
+            Discover Our Story
+          </Button>
+        </div>
       </div>
 
       {/* Scroll indicator */}

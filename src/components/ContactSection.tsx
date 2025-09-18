@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
+import teamStudio from "@/assets/team-studio.jpg";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -30,18 +31,29 @@ const ContactSection = () => {
   return (
     <section id="contact" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
               Working <span className="gradient-text">With Us</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We pride ourselves on being a business savvy media house that understands 
               that we need to deliver what matters to our customers.
             </p>
+            
+            {/* Team/Studio Image */}
+            <div className="max-w-4xl mx-auto mb-16">
+              <div className="rounded-3xl overflow-hidden shadow-brand">
+                <img 
+                  src={teamStudio} 
+                  alt="Boss Wallah Media team and studio environment"
+                  className="w-full h-auto"
+                />
+              </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Contact info and CTA */}
             <div>
               <h3 className="text-2xl font-bold mb-6 text-foreground">
