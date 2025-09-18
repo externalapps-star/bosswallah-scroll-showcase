@@ -3,16 +3,22 @@ import { Phone } from "lucide-react";
 
 const FloatingCallButton = () => {
   return (
-    <div className="fixed bottom-6 right-6 z-50">
-      <Button 
-        variant="cta" 
-        size="lg"
-        className="rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 animate-pulse hover:animate-none px-6 py-3 h-auto"
-        onClick={() => window.open('https://calendly.com/bosswallah', '_blank')}
-      >
-        <Phone className="w-5 h-5 mr-2" />
-        Book a Call
-      </Button>
+    <div className="fixed bottom-8 right-8 z-50">
+      <div className="relative">
+        {/* Animated ring effect */}
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent animate-ping opacity-75"></div>
+        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-accent animate-pulse opacity-50"></div>
+        
+        <Button 
+          variant="cta" 
+          size="lg"
+          className="relative rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 px-8 py-4 h-auto text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none border-2 border-white/20"
+          onClick={() => window.open('https://calendly.com/bosswallah', '_blank')}
+        >
+          <Phone className="w-6 h-6 mr-3 animate-bounce" />
+          Book a Call
+        </Button>
+      </div>
     </div>
   );
 };
