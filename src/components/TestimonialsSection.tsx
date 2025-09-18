@@ -1,3 +1,5 @@
+import clientLogos from "@/assets/client-logos.jpg";
+
 const TestimonialsSection = () => {
   const testimonials = [
     {
@@ -56,7 +58,22 @@ const TestimonialsSection = () => {
                 <div className="text-xs text-muted-foreground">{testimonial.company}</div>
               </div>
             </div>
-          ))}
+            ))}
+        </div>
+
+        {/* Client Logos Section */}
+        <div className="mt-12">
+          <div className="text-center mb-6">
+            <h3 className="text-xl font-semibold text-foreground mb-2">Trusted by Leading Brands</h3>
+            <p className="text-sm text-muted-foreground">Join our portfolio of successful brand partnerships</p>
+          </div>
+          <div className="bg-card rounded-2xl p-6 border border-border shadow-soft">
+            <img 
+              src={clientLogos}
+              alt="Client Brand Logos"
+              className="w-full h-20 object-contain opacity-60 hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
         </div>
       </div>
     </section>

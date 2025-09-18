@@ -1,24 +1,33 @@
+import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
+import eventProgramIcon from "@/assets/event-program-icon.jpg";
+import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
+import revenueIcon from "@/assets/revenue-icon.jpg";
+
 const CampaignsSection = () => {
   const campaigns = [
     {
       title: "India Entry Program",
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah...",
-      features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"]
+      features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
+      icon: indiaEntryIcon
     },
     {
       title: "Intense Event Based Program",
       description: "Companies that want to create an intense 3 month campaign...",
-      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"]
+      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
+      icon: eventProgramIcon
     },
     {
       title: "Brand Building Campaigns",
       description: "Younger brands engage Boss Wallah for long term sustained campaigns...",
-      features: ["Long-term Strategy", "Brand Identity", "Community Building", "Sustained Growth"]
+      features: ["Long-term Strategy", "Brand Identity", "Community Building", "Sustained Growth"],
+      icon: brandBuildingIcon
     },
     {
       title: "Revenue Generation Campaigns",
       description: "Given Boss Wallah's strength in reaching middle-income audiences...",
-      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"]
+      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
+      icon: revenueIcon
     }
   ];
 
@@ -42,8 +51,12 @@ const CampaignsSection = () => {
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold">
-                    {index + 1}
+                  <div className="w-16 h-16 rounded-xl flex items-center justify-center bg-background shadow-soft border border-border overflow-hidden">
+                    <img 
+                      src={campaign.icon}
+                      alt={campaign.title}
+                      className="w-10 h-10 object-contain"
+                    />
                   </div>
                 </div>
                 <div className="flex-1">
