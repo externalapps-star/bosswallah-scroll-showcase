@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import youtubeLogo from "@/assets/youtube-logo.png";
 
 const ChannelsSection = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
@@ -11,10 +12,11 @@ const ChannelsSection = () => {
     {
       name: "YouTube",
       icon: Youtube,
+      image: youtubeLogo,
       description: "High-quality video content across multiple languages with millions of subscribers",
       totalChannels: "16 Channels",
       color: "text-red-600",
-      bgColor: "bg-red-50",
+      bgColor: "bg-white",
       id: "youtube"
     },
     {
@@ -215,10 +217,18 @@ const ChannelsSection = () => {
                     <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300 ${
                       isSelected ? 'scale-110' : ''
                     }`}>
-                      <IconComponent 
-                        size={56}
-                        className={`${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform`}
-                      />
+                      {platform.image ? (
+                        <img 
+                          src={platform.image} 
+                          alt={`${platform.name} logo`}
+                          className={`w-14 h-14 object-contain ${isSelected ? 'scale-110' : ''} transition-transform`}
+                        />
+                      ) : (
+                        <IconComponent 
+                          size={56}
+                          className={`${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform`}
+                        />
+                      )}
                     </div>
                     
                     {/* Platform Name */}
@@ -269,7 +279,15 @@ const ChannelsSection = () => {
                       return (
                         <>
                           <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${platform?.bgColor}`}>
-                            {IconComponent && <IconComponent size={32} className={platform.color} />}
+                            {platform?.image ? (
+                              <img 
+                                src={platform.image} 
+                                alt={`${platform.name} logo`}
+                                className="w-10 h-10 object-contain"
+                              />
+                            ) : (
+                              IconComponent && <IconComponent size={32} className={platform.color} />
+                            )}
                           </div>
                           <div>
                             <h3 className="text-3xl font-bold text-foreground">
@@ -321,7 +339,15 @@ const ChannelsSection = () => {
                                 const IconComponent = platform?.icon;
                                 return (
                                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${platform?.bgColor}`}>
-                                    {IconComponent && <IconComponent size={20} className={platform.color} />}
+                                    {platform?.image ? (
+                                      <img 
+                                        src={platform.image} 
+                                        alt={`${platform.name} logo`}
+                                        className="w-6 h-6 object-contain"
+                                      />
+                                    ) : (
+                                      IconComponent && <IconComponent size={20} className={platform.color} />
+                                    )}
                                   </div>
                                 );
                               })()}
