@@ -1,7 +1,12 @@
-import { Youtube, Facebook, Instagram, ArrowRight } from "lucide-react";
+import { Youtube, Facebook, Instagram, ArrowRight, ExternalLink, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ChannelsSection = () => {
+  const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
+
   const platforms = [
     {
       name: "YouTube",
@@ -10,7 +15,7 @@ const ChannelsSection = () => {
       totalChannels: "16 Channels",
       color: "text-red-600",
       bgColor: "bg-red-50",
-      link: "/channels/youtube"
+      id: "youtube"
     },
     {
       name: "Facebook", 
@@ -19,7 +24,7 @@ const ChannelsSection = () => {
       totalChannels: "15 Pages",
       color: "text-blue-600",
       bgColor: "bg-blue-50",
-      link: "/channels/facebook"
+      id: "facebook"
     },
     {
       name: "Instagram",
@@ -28,9 +33,157 @@ const ChannelsSection = () => {
       totalChannels: "15 Profiles",
       color: "text-pink-600",
       bgColor: "bg-pink-50",
-      link: "/channels/instagram"
+      id: "instagram"
     },
   ];
+
+  // Channel data
+  const channelData = {
+    youtube: [
+      {
+        language: "Telugu",
+        channels: [
+          { name: "Boss Wallah Telugu", url: "https://www.youtube.com/@bosswallahtelugu", category: "Main" },
+          { name: "Boss Wallah Farming Telugu", url: "https://www.youtube.com/@bosswallahfarmingtelugu", category: "Farming" },
+          { name: "Boss Wallah Academy Telugu", url: "https://www.youtube.com/@bosswallahAcademytelugu", category: "Academy" }
+        ]
+      },
+      {
+        language: "Tamil",
+        channels: [
+          { name: "Boss Wallah Tamil", url: "https://www.youtube.com/@bosswallahtamil", category: "Main" },
+          { name: "Boss Wallah Farming Tamil", url: "https://www.youtube.com/@bosswallahfarmingtamil", category: "Farming" },
+          { name: "Boss Wallah Academy Tamil", url: "https://www.youtube.com/@bosswallahAcademytamil", category: "Academy" }
+        ]
+      },
+      {
+        language: "Kannada",
+        channels: [
+          { name: "Boss Wallah Kannada", url: "https://www.youtube.com/@bosswallahkannada", category: "Main" },
+          { name: "Boss Wallah Farming Kannada", url: "https://www.youtube.com/@bosswallahfarmingkannada", category: "Farming" },
+          { name: "Boss Wallah Academy Kannada", url: "https://www.youtube.com/@bosswallahAcademykannada", category: "Academy" }
+        ]
+      },
+      {
+        language: "Hindi",
+        channels: [
+          { name: "Boss Wallah Hindi", url: "https://www.youtube.com/@bosswallahhindi", category: "Main" },
+          { name: "Boss Wallah Farming Hindi", url: "https://www.youtube.com/@bosswallahfarminghindi", category: "Farming" },
+          { name: "Boss Wallah Academy Hindi", url: "https://www.youtube.com/@bosswallahAcademyhindi", category: "Academy" }
+        ]
+      },
+      {
+        language: "English",
+        channels: [
+          { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main" },
+          { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming" },
+          { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy" }
+        ]
+      },
+      {
+        language: "Malayalam",
+        channels: [
+          { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
+        ]
+      }
+    ],
+    facebook: [
+      {
+        language: "Telugu",
+        channels: [
+          { name: "Boss Wallah Telugu", url: "https://www.facebook.com/bosswallahtelugu", category: "Main" },
+          { name: "Boss Wallah Farming Telugu", url: "https://www.facebook.com/bosswallahfarmingtelugu", category: "Farming" },
+          { name: "Boss Wallah Business Telugu", url: "https://www.facebook.com/bosswallahbusinesstelugu", category: "Business" }
+        ]
+      },
+      {
+        language: "Tamil",
+        channels: [
+          { name: "Boss Wallah Tamil", url: "https://www.facebook.com/bosswallahtamil", category: "Main" },
+          { name: "Boss Wallah Farming Tamil", url: "https://www.facebook.com/bosswallahfarmingtamil", category: "Farming" },
+          { name: "Boss Wallah Business Tamil", url: "https://www.facebook.com/bosswallahbusinesstamil", category: "Business" }
+        ]
+      },
+      {
+        language: "Kannada",
+        channels: [
+          { name: "Boss Wallah Money Kannada", url: "https://www.facebook.com/bosswallahmoneykannada", category: "Finance" },
+          { name: "Boss Wallah Farming Kannada", url: "https://www.facebook.com/bosswallahfarmingkannada", category: "Farming" },
+          { name: "Boss Wallah Business Kannada", url: "https://www.facebook.com/bosswallahbusinesskannada", category: "Business" }
+        ]
+      },
+      {
+        language: "Hindi",
+        channels: [
+          { name: "Boss Wallah Hindi", url: "https://www.facebook.com/bosswallahhindi", category: "Main" },
+          { name: "Boss Wallah Farming Hindi", url: "https://www.facebook.com/bosswallahfarminghindi", category: "Farming" },
+          { name: "Boss Wallah Business Hindi", url: "https://www.facebook.com/bosswallahbusinesshindi", category: "Business" }
+        ]
+      },
+      {
+        language: "English",
+        channels: [
+          { name: "Boss Wallah English", url: "https://www.facebook.com/bosswallahenglish", category: "Main" },
+          { name: "Boss Wallah Farming English", url: "https://www.facebook.com/bosswallahfarmingenglish", category: "Farming" },
+          { name: "Boss Wallah Business English", url: "https://www.facebook.com/bosswallahbusinessenglish", category: "Business" }
+        ]
+      }
+    ],
+    instagram: [
+      {
+        language: "Telugu",
+        channels: [
+          { name: "Boss Wallah Telugu", url: "https://www.instagram.com/bosswallah.telugu", category: "Main" },
+          { name: "Boss Wallah Farming Telugu", url: "https://www.instagram.com/bosswallahfarmingtelugu", category: "Farming" },
+          { name: "Boss Wallah Business Telugu", url: "https://www.instagram.com/bosswallahbusinesstelugu", category: "Business" }
+        ]
+      },
+      {
+        language: "Tamil",
+        channels: [
+          { name: "Boss Wallah Tamil", url: "https://www.instagram.com/bosswallah.tamil", category: "Main" },
+          { name: "Boss Wallah Farming Tamil", url: "https://www.instagram.com/bosswallahfarmingtamil", category: "Farming" },
+          { name: "Boss Wallah Business Tamil", url: "https://www.instagram.com/bosswallahbusinesstamil", category: "Business" }
+        ]
+      },
+      {
+        language: "Kannada",
+        channels: [
+          { name: "Ffreedom App Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "App" },
+          { name: "Farming Kannada Ffreedom", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
+          { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
+        ]
+      },
+      {
+        language: "Hindi",
+        channels: [
+          { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" },
+          { name: "Farming Hindi Boss Wallah", url: "https://www.instagram.com/farminghindibosswallah", category: "Farming" },
+          { name: "Boss Wallah Business Hindi", url: "https://www.instagram.com/bosswallahbusinesshindi", category: "Business" }
+        ]
+      },
+      {
+        language: "English",
+        channels: [
+          { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" },
+          { name: "Boss Wallah Farming English", url: "https://www.instagram.com/bosswallahfarmingenglish/", category: "Farming" },
+          { name: "Boss Wallah Business English", url: "https://www.instagram.com/bosswallahbusinessenglish/", category: "Business" }
+        ]
+      }
+    ]
+  };
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case "Main": return "bg-primary/10 text-primary border-primary/20";
+      case "Farming": return "bg-green-100 text-green-700 border-green-200";
+      case "Business": return "bg-purple-100 text-purple-700 border-purple-200";
+      case "Academy": return "bg-blue-100 text-blue-700 border-blue-200";
+      case "Finance": return "bg-yellow-100 text-yellow-700 border-yellow-200";
+      case "App": return "bg-orange-100 text-orange-700 border-orange-200";
+      default: return "bg-gray-100 text-gray-700 border-gray-200";
+    }
+  };
 
   return (
     <section id="channels" className="section-padding bg-background">
@@ -47,29 +200,38 @@ const ChannelsSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {platforms.map((platform) => {
             const IconComponent = platform.icon;
+            const isSelected = selectedPlatform === platform.id;
             return (
               <div
                 key={platform.name}
                 className="group cursor-pointer"
-                onClick={() => window.open(platform.link, '_self')}
+                onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
               >
-                <div className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 group-hover:scale-105 border border-border h-full flex flex-col">
+                <div className={`bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 group-hover:scale-105 border h-full flex flex-col ${
+                  isSelected ? 'border-primary shadow-brand ring-2 ring-primary/20' : 'border-border'
+                }`}>
                   <div className="text-center flex-1">
                     {/* Icon Container */}
-                    <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300 ${
+                      isSelected ? 'scale-110' : ''
+                    }`}>
                       <IconComponent 
                         size={56}
-                        className={`${platform.color}`}
+                        className={`${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform`}
                       />
                     </div>
                     
                     {/* Platform Name */}
-                    <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className={`text-2xl font-bold mb-4 transition-colors ${
+                      isSelected ? 'text-primary' : 'text-foreground group-hover:text-primary'
+                    }`}>
                       {platform.name}
                     </h3>
                     
                     {/* Channel Count */}
-                    <div className="text-sm font-semibold text-primary mb-4 bg-primary/10 rounded-full px-4 py-2 inline-block">
+                    <div className={`text-sm font-semibold mb-4 rounded-full px-4 py-2 inline-block transition-colors ${
+                      isSelected ? 'text-primary bg-primary/20' : 'text-primary bg-primary/10'
+                    }`}>
                       {platform.totalChannels}
                     </div>
                     
@@ -79,9 +241,13 @@ const ChannelsSection = () => {
                     </p>
                     
                     {/* CTA */}
-                    <div className="flex items-center justify-center text-primary font-semibold group-hover:text-accent transition-colors">
-                      View All Channels
-                      <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <div className={`flex items-center justify-center font-semibold transition-colors ${
+                      isSelected ? 'text-accent' : 'text-primary group-hover:text-accent'
+                    }`}>
+                      {isSelected ? 'Hide Channels' : 'View All Channels'}
+                      <ArrowRight size={18} className={`ml-2 transition-transform ${
+                        isSelected ? 'rotate-90' : 'group-hover:translate-x-1'
+                      }`} />
                     </div>
                   </div>
                 </div>
@@ -89,6 +255,99 @@ const ChannelsSection = () => {
             );
           })}
         </div>
+
+        {/* Channel Details Panel */}
+        {selectedPlatform && (
+          <div className="mt-16 animate-in slide-in-from-top-10 duration-500">
+            <Card className="border-primary/20 shadow-brand bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="flex items-center space-x-4">
+                    {(() => {
+                      const platform = platforms.find(p => p.id === selectedPlatform);
+                      const IconComponent = platform?.icon;
+                      return (
+                        <>
+                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${platform?.bgColor}`}>
+                            {IconComponent && <IconComponent size={32} className={platform.color} />}
+                          </div>
+                          <div>
+                            <h3 className="text-3xl font-bold text-foreground">
+                              {platform?.name} <span className="gradient-text">Channels</span>
+                            </h3>
+                            <p className="text-muted-foreground">
+                              {platform?.totalChannels.toLowerCase()} across multiple languages
+                            </p>
+                          </div>
+                        </>
+                      );
+                    })()}
+                  </div>
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setSelectedPlatform(null)}
+                    className="hover:bg-destructive/10 hover:text-destructive"
+                  >
+                    <X size={20} />
+                  </Button>
+                </div>
+
+                <Tabs defaultValue={channelData[selectedPlatform as keyof typeof channelData]?.[0]?.language} className="w-full">
+                  <TabsList className="grid w-full grid-cols-5 lg:grid-cols-6 mb-8 bg-muted/50">
+                    {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup) => (
+                      <TabsTrigger
+                        key={languageGroup.language}
+                        value={languageGroup.language}
+                        className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
+                      >
+                        {languageGroup.language}
+                      </TabsTrigger>
+                    ))}
+                  </TabsList>
+
+                  {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup) => (
+                    <TabsContent key={languageGroup.language} value={languageGroup.language} className="mt-0">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {languageGroup.channels.map((channel) => (
+                          <div
+                            key={channel.name}
+                            className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 group cursor-pointer hover:scale-105"
+                            onClick={() => window.open(channel.url, '_blank')}
+                          >
+                            <div className="flex items-start justify-between mb-4">
+                              {(() => {
+                                const platform = platforms.find(p => p.id === selectedPlatform);
+                                const IconComponent = platform?.icon;
+                                return (
+                                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${platform?.bgColor}`}>
+                                    {IconComponent && <IconComponent size={20} className={platform.color} />}
+                                  </div>
+                                );
+                              })()}
+                              <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(channel.category)}`}>
+                                {channel.category}
+                              </div>
+                            </div>
+                            
+                            <h4 className="font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                              {channel.name}
+                            </h4>
+                            
+                            <div className="flex items-center text-primary font-medium text-sm group-hover:text-accent transition-colors">
+                              Visit Channel
+                              <ExternalLink size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </TabsContent>
+                  ))}
+                </Tabs>
+              </CardContent>
+            </Card>
+          </div>
+        )}
 
         <div className="text-center mt-12">
           <p className="text-muted-foreground text-lg">
