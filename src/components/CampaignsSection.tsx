@@ -25,8 +25,8 @@ const CampaignsSection = () => {
   return (
     <section id="campaigns" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
             Marketing <span className="gradient-text">Campaigns</span>
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -34,30 +34,30 @@ const CampaignsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {campaigns.map((campaign, index) => (
             <div
               key={campaign.title}
-              className="bg-card rounded-2xl p-8 shadow-soft hover:shadow-brand transition-all duration-300 border border-border"
+              className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border h-full flex flex-col"
             >
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold text-xl">
+                  <div className="w-10 h-10 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center text-white font-bold">
                     {index + 1}
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
+                  <h3 className="text-lg font-bold mb-2 text-foreground">
                     {campaign.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-muted-foreground mb-4 leading-relaxed text-sm">
                     {campaign.description}
                   </p>
-                  <div className="space-y-2">
+                  <div className="space-y-1">
                     {campaign.features.map((feature) => (
                       <div key={feature} className="flex items-center space-x-2">
-                        <div className="w-2 h-2 bg-primary rounded-full"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></div>
+                        <span className="text-xs text-muted-foreground">{feature}</span>
                       </div>
                     ))}
                   </div>
