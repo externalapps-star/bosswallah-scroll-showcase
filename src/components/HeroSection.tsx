@@ -15,7 +15,7 @@ const HeroSection = () => {
         }}
       >
         {/* Dark overlay for better text readability */}
-        <div className="absolute inset-0 bg-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 to-accent/70"></div>
       </div>
 
       {/* Content */}
