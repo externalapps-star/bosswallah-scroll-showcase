@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import youtubeLogo from "@/assets/youtube-logo.png";
+import facebookLogo from "@/assets/facebook-logo.png";
+import instagramLogo from "@/assets/instagram-logo.png";
 
 const ChannelsSection = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
@@ -22,19 +24,21 @@ const ChannelsSection = () => {
     {
       name: "Facebook", 
       icon: Facebook,
+      image: facebookLogo,
       description: "Engaging social content and community building across regional markets",
       totalChannels: "15 Pages",
       color: "text-blue-600",
-      bgColor: "bg-blue-50",
+      bgColor: "bg-white",
       id: "facebook"
     },
     {
       name: "Instagram",
       icon: Instagram,
+      image: instagramLogo,
       description: "Visual storytelling and brand experiences with authentic regional content", 
       totalChannels: "15 Profiles",
       color: "text-pink-600",
-      bgColor: "bg-pink-50",
+      bgColor: "bg-white",
       id: "instagram"
     },
   ];
@@ -221,11 +225,11 @@ const ChannelsSection = () => {
                         <img 
                           src={platform.image} 
                           alt={`${platform.name} logo`}
-                          className={`w-14 h-14 object-contain ${isSelected ? 'scale-110' : ''} transition-transform`}
+                          className={`w-16 h-16 object-contain ${isSelected ? 'scale-110' : ''} transition-transform`}
                         />
                       ) : (
                         <IconComponent 
-                          size={56}
+                          size={64}
                           className={`${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform`}
                         />
                       )}
@@ -283,7 +287,7 @@ const ChannelsSection = () => {
                               <img 
                                 src={platform.image} 
                                 alt={`${platform.name} logo`}
-                                className="w-10 h-10 object-contain"
+                                className="w-12 h-12 object-contain"
                               />
                             ) : (
                               IconComponent && <IconComponent size={32} className={platform.color} />
@@ -343,7 +347,7 @@ const ChannelsSection = () => {
                                       <img 
                                         src={platform.image} 
                                         alt={`${platform.name} logo`}
-                                        className="w-6 h-6 object-contain"
+                                        className="w-8 h-8 object-contain"
                                       />
                                     ) : (
                                       IconComponent && <IconComponent size={20} className={platform.color} />
