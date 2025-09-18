@@ -3,9 +3,9 @@ import AboutSection from "@/components/AboutSection";
 import ChannelsSection from "@/components/ChannelsSection";
 import CampaignsSection from "@/components/CampaignsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-import ContactSection from "@/components/ContactSection";
 import NewsSection from "@/components/NewsSection";
 import Footer from "@/components/Footer";
+import FloatingCallButton from "@/components/FloatingCallButton";
 
 const Index = () => {
   return (
@@ -15,9 +15,9 @@ const Index = () => {
       <ChannelsSection />
       <CampaignsSection />
       <TestimonialsSection />
-      <ContactSection />
       <NewsSection />
       <Footer />
+      <FloatingCallButton />
     </div>
   );
 };
