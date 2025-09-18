@@ -36,7 +36,7 @@ const ChannelsSection = () => {
     <section id="channels" className="section-padding bg-background">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Our Social Media <span className="gradient-text">Channels</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

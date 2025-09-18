@@ -1,4 +1,4 @@
-import clientLogos from "@/assets/client-logos.jpg";
+
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -26,7 +26,7 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="section-padding bg-background">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Customer <span className="gradient-text">Speak</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -40,12 +40,10 @@ const TestimonialsSection = () => {
             <h3 className="text-center text-lg font-semibold text-muted-foreground mb-6">
               Trusted by Leading Brands
             </h3>
-            <div className="max-w-4xl mx-auto">
-              <img 
-                src={clientLogos} 
-                alt="Client logos representing various trusted brands"
-                className="w-full h-auto opacity-60 hover:opacity-100 transition-opacity duration-300"
-              />
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="text-muted-foreground">
+                Working with major brands across e-commerce, fintech, healthcare, and more
+              </p>
             </div>
           </div>
         </div>

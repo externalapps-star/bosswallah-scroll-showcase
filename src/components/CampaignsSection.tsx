@@ -35,7 +35,7 @@ const CampaignsSection = () => {
     <section id="campaigns" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Marketing <span className="gradient-text">Campaigns</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
