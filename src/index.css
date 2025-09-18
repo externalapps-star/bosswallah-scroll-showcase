@@ -120,9 +120,9 @@
 }
 
 @layer components {
-  /* Professional section spacing - reduced */
+  /* Compact section spacing for viewport fit */
   .section-padding {
-    @apply py-16 px-4;
+    @apply py-12 px-4;
   }
 
   /* Container for consistent content width */

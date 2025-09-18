@@ -1,15 +1,15 @@
 const AboutSection = () => {
   return (
-    <section id="about" className="section-padding bg-gradient-subtle">
+    <section id="about" className="section-padding bg-gradient-subtle border-t-4 border-primary/20">
       <div className="container-custom">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
               About <span className="gradient-text">Boss Wallah Media</span>
             </h2>
             
-            <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+            <div className="text-lg leading-relaxed space-y-4 text-muted-foreground">
               <p>
                 Boss Wallah Media is India's leading social media and production platform, 
                 powering brand impact at scale across regional markets. With a dynamic community 
@@ -36,31 +36,31 @@ const AboutSection = () => {
           </div>
 
           {/* Visual Stats Grid/Infographic */}
-          <div className="space-y-8">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="space-y-6">
+            <div className="grid grid-cols-2 gap-4">
               {/* Followers */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+              <div className="bg-card rounded-3xl p-6 shadow-soft border border-border text-center">
                 <div className="text-5xl font-bold gradient-text mb-2">18M+</div>
                 <div className="text-muted-foreground font-medium">Followers</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Monthly Views */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+              <div className="bg-card rounded-3xl p-6 shadow-soft border border-border text-center">
                 <div className="text-5xl font-bold gradient-text mb-2">330M+</div>
                 <div className="text-muted-foreground font-medium">Monthly Views</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Studios */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+              <div className="bg-card rounded-3xl p-6 shadow-soft border border-border text-center">
                 <div className="text-5xl font-bold gradient-text mb-2">6</div>
                 <div className="text-muted-foreground font-medium">Full-Scale Studios</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Videos Weekly */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+              <div className="bg-card rounded-3xl p-6 shadow-soft border border-border text-center">
                 <div className="text-5xl font-bold gradient-text mb-2">200+</div>
                 <div className="text-muted-foreground font-medium">Videos Weekly</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
