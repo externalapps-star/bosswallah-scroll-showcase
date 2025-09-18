@@ -203,88 +203,108 @@ const ChannelsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {platforms.map((platform) => {
-            const IconComponent = platform.icon;
-            const isSelected = selectedPlatform === platform.id;
-            return (
-              <div
-                key={platform.name}
-                className="group cursor-pointer"
-                onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
-              >
-                <div className={`relative overflow-hidden bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-700 group-hover:scale-105 border border-white/20 h-full flex flex-col ${
-                  isSelected ? 'border-primary/50 shadow-2xl ring-2 ring-primary/30 bg-gradient-to-br from-primary/10 to-accent/5' : 'hover:border-primary/30'
-                }`}>
-                  {/* Animated Background Gradient */}
-                  <div className={`absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${
-                    isSelected ? 'opacity-100' : ''
-                  }`}></div>
-                  
-                  {/* Floating Dots Decoration */}
-                  <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse"></div>
-                  <div className="absolute top-8 right-8 w-1 h-1 bg-accent/40 rounded-full animate-pulse delay-300"></div>
-                  
-                  <div className="relative z-10 text-center flex-1">
-                    {/* Icon Container with Enhanced Styling */}
-                    <div className={`relative w-28 h-28 mx-auto mb-8 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-all duration-500 shadow-lg ${
-                      isSelected ? 'scale-110 shadow-xl' : ''
-                    } before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/20 before:to-transparent before:opacity-0 before:group-hover:opacity-100 before:transition-opacity before:duration-300`}>
-                      {/* Glow Effect */}
-                      <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${
-                        platform.name === 'YouTube' ? 'from-red-400/20 to-red-600/20' :
-                        platform.name === 'Facebook' ? 'from-blue-400/20 to-blue-600/20' :
-                        'from-pink-400/20 to-purple-600/20'
-                      } opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm`}></div>
+        {/* Enhanced Grid with Aesthetic Background */}
+        <div className="relative">
+          {/* Background Pattern */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
+          
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-12 max-w-7xl mx-auto p-8">
+            {platforms.map((platform) => {
+              const IconComponent = platform.icon;
+              const isSelected = selectedPlatform === platform.id;
+              return (
+                <div
+                  key={platform.name}
+                  className="group cursor-pointer transform transition-all duration-500"
+                  onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
+                >
+                  <div className={`relative overflow-hidden bg-gradient-to-br from-card/80 to-card/40 backdrop-blur-xl rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-all duration-700 group-hover:scale-105 border border-white/20 h-full flex flex-col ${
+                    isSelected ? 'border-primary/50 shadow-2xl ring-2 ring-primary/30 bg-gradient-to-br from-primary/10 to-accent/5 scale-105' : 'hover:border-primary/30'
+                  }`}>
+                    {/* Animated Background Gradient */}
+                    <div className={`absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ${
+                      isSelected ? 'opacity-100' : ''
+                    }`}></div>
+                    
+                    {/* Floating Dots Decoration */}
+                    <div className="absolute top-4 right-4 w-2 h-2 bg-primary/30 rounded-full animate-pulse"></div>
+                    <div className="absolute top-8 right-8 w-1 h-1 bg-accent/40 rounded-full animate-pulse delay-300"></div>
+                    
+                    <div className="relative z-10 text-center flex-1">
+                      {/* Enhanced Icon Container - More Prominent When Selected */}
+                      <div className={`relative mx-auto mb-8 rounded-3xl flex items-center justify-center ${platform.bgColor} transition-all duration-500 shadow-lg ${
+                        isSelected ? 'w-36 h-36 scale-110 shadow-2xl ring-4 ring-primary/20' : 'w-28 h-28 group-hover:scale-110'
+                      } before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:from-white/20 before:to-transparent before:opacity-0 before:group-hover:opacity-100 before:transition-opacity before:duration-300`}>
+                        {/* Enhanced Glow Effect - More Intense When Selected */}
+                        <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br transition-opacity duration-500 blur-sm ${
+                          platform.name === 'YouTube' ? 'from-red-400/30 to-red-600/30' :
+                          platform.name === 'Facebook' ? 'from-blue-400/30 to-blue-600/30' :
+                          'from-pink-400/30 to-purple-600/30'
+                        } ${isSelected ? 'opacity-100 blur-md' : 'opacity-0 group-hover:opacity-100'}`}></div>
+                        
+                        {/* Pulsing Ring Effect for Selected State */}
+                        {isSelected && (
+                          <div className={`absolute inset-0 rounded-3xl border-2 animate-pulse ${
+                            platform.name === 'YouTube' ? 'border-red-400/50' :
+                            platform.name === 'Facebook' ? 'border-blue-400/50' :
+                            'border-pink-400/50'
+                          }`}></div>
+                        )}
+                        
+                        {platform.image ? (
+                          <img 
+                            src={platform.image} 
+                            alt={`${platform.name} logo`}
+                            className={`relative z-10 object-contain transition-all duration-500 drop-shadow-2xl ${
+                              isSelected ? 'w-20 h-20 scale-110 animate-pulse' : 'w-16 h-16'
+                            }`}
+                          />
+                        ) : (
+                          <IconComponent 
+                            size={isSelected ? 80 : 64}
+                            className={`relative z-10 ${platform.color} transition-all duration-500 drop-shadow-2xl ${
+                              isSelected ? 'scale-110 animate-pulse' : ''
+                            }`}
+                          />
+                        )}
+                      </div>
                       
-                      {platform.image ? (
-                        <img 
-                          src={platform.image} 
-                          alt={`${platform.name} logo`}
-                          className={`relative z-10 w-16 h-16 object-contain ${isSelected ? 'scale-110' : ''} transition-transform duration-500 drop-shadow-lg`}
-                        />
-                      ) : (
-                        <IconComponent 
-                          size={64}
-                          className={`relative z-10 ${platform.color} ${isSelected ? 'scale-110' : ''} transition-transform duration-500 drop-shadow-lg`}
-                        />
-                      )}
-                    </div>
-                    
-                    {/* Platform Name with Enhanced Typography */}
-                    <h3 className={`text-2xl font-bold mb-4 transition-all duration-300 ${
-                      isSelected ? 'text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent' : 'text-foreground group-hover:text-primary'
-                    }`}>
-                      {platform.name}
-                    </h3>
-                    
-                    {/* Channel Count with Modern Badge */}
-                    <div className={`relative inline-block text-sm font-semibold mb-6 rounded-full px-6 py-3 transition-all duration-300 backdrop-blur-sm ${
-                      isSelected ? 'text-primary bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 shadow-lg' : 'text-primary bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40'
-                    }`}>
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent"></div>
-                      <span className="relative z-10">{platform.totalChannels}</span>
-                    </div>
-                    
-                    {/* Description with Better Styling */}
-                    <p className="text-muted-foreground leading-relaxed mb-8 text-base">
-                      {platform.description}
-                    </p>
-                    
-                    {/* Enhanced CTA Button */}
-                    <div className={`inline-flex items-center justify-center font-semibold px-6 py-3 rounded-2xl transition-all duration-300 backdrop-blur-sm ${
-                      isSelected ? 'text-white bg-gradient-to-r from-primary to-accent shadow-lg' : 'text-primary bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 group-hover:from-primary/20 group-hover:to-accent/20 group-hover:border-primary/40 group-hover:shadow-md'
-                    }`}>
-                      {isSelected ? 'Hide Channels' : 'View All Channels'}
-                      <ArrowRight size={18} className={`ml-2 transition-transform duration-300 ${
-                        isSelected ? 'rotate-90' : 'group-hover:translate-x-1'
-                      }`} />
+                      {/* Platform Name with Enhanced Typography */}
+                      <h3 className={`text-2xl font-bold mb-4 transition-all duration-300 ${
+                        isSelected ? 'text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent text-3xl' : 'text-foreground group-hover:text-primary'
+                      }`}>
+                        {platform.name}
+                      </h3>
+                      
+                      {/* Channel Count with Modern Badge */}
+                      <div className={`relative inline-block text-sm font-semibold mb-6 rounded-full px-6 py-3 transition-all duration-300 backdrop-blur-sm ${
+                        isSelected ? 'text-primary bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 shadow-lg scale-110' : 'text-primary bg-primary/10 border border-primary/20 group-hover:bg-primary/20 group-hover:border-primary/40'
+                      }`}>
+                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/10 to-transparent"></div>
+                        <span className="relative z-10">{platform.totalChannels}</span>
+                      </div>
+                      
+                      {/* Description with Better Styling */}
+                      <p className="text-muted-foreground leading-relaxed mb-8 text-base">
+                        {platform.description}
+                      </p>
+                      
+                      {/* Enhanced CTA Button */}
+                      <div className={`inline-flex items-center justify-center font-semibold px-6 py-3 rounded-2xl transition-all duration-300 backdrop-blur-sm ${
+                        isSelected ? 'text-white bg-gradient-to-r from-primary to-accent shadow-lg scale-105' : 'text-primary bg-gradient-to-r from-primary/10 to-accent/10 border border-primary/20 group-hover:from-primary/20 group-hover:to-accent/20 group-hover:border-primary/40 group-hover:shadow-md'
+                      }`}>
+                        {isSelected ? 'Hide Channels' : 'View All Channels'}
+                        <ArrowRight size={18} className={`ml-2 transition-transform duration-300 ${
+                          isSelected ? 'rotate-90' : 'group-hover:translate-x-1'
+                        }`} />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
         {/* Channel Details Panel */}
