@@ -1,21 +1,19 @@
 import { Button } from "@/components/ui/button";
 import heroBackground from "@/assets/hero-background.jpg";
-import heroVideoBg from "@/assets/hero-video-bg.jpg";
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Video/Montage */}
-      <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `url(${heroVideoBg})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundRepeat: 'no-repeat'
-          }}
-        />
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-accent/80"></div>
       </div>

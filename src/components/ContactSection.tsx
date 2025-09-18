@@ -3,7 +3,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
-import teamImage from "@/assets/team-image.jpg";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -40,22 +39,6 @@ const ContactSection = () => {
               We pride ourselves on being a business savvy media house that understands 
               that we need to deliver what matters to our customers.
             </p>
-          </div>
-
-          {/* Team Image */}
-          <div className="mb-12">
-            <div className="relative rounded-2xl overflow-hidden shadow-brand max-w-4xl mx-auto">
-              <img 
-                src={teamImage}
-                alt="Boss Wallah Media Team"
-                className="w-full h-64 md:h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent"></div>
-              <div className="absolute bottom-4 left-4 text-white">
-                <h3 className="text-xl font-bold mb-1">Meet Our Team</h3>
-                <p className="text-sm opacity-90">60+ Creative Professionals Ready to Power Your Brand</p>
-              </div>
-            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">

@@ -1,5 +1,4 @@
 import { Youtube, Facebook, Instagram } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 const ChannelsSection = () => {
   const channels = [
@@ -24,15 +23,6 @@ const ChannelsSection = () => {
       link: "#", // Replace with actual Instagram profile links
       color: "text-pink-600"
     },
-  ];
-
-  const languageChannels = [
-    { name: "Telugu", preview: "Regional content for Telugu audience", subscribers: "5.2M" },
-    { name: "Tamil", preview: "Engaging Tamil language content", subscribers: "3.8M" },
-    { name: "Kannada", preview: "Kannada content for local markets", subscribers: "2.4M" },
-    { name: "Hindi", preview: "Hindi content for pan-India reach", subscribers: "4.1M" },
-    { name: "English", preview: "Global English content", subscribers: "1.9M" },
-    { name: "Malayalam", preview: "Malayalam regional content", subscribers: "1.2M" },
   ];
 
   return (
@@ -80,31 +70,10 @@ const ChannelsSection = () => {
           })}
         </div>
 
-        {/* Language Channel Carousel */}
-        <div className="mt-12">
-          <h3 className="text-2xl font-bold text-center mb-6 text-foreground">
-            Channel Previews by <span className="gradient-text">Language</span>
-          </h3>
-          <Carousel className="w-full max-w-5xl mx-auto">
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {languageChannels.map((channel) => (
-                <CarouselItem key={channel.name} className="pl-2 md:pl-4 basis-full sm:basis-1/2 lg:basis-1/3">
-                  <div className="bg-card rounded-xl p-4 shadow-soft border border-border h-full hover:shadow-brand transition-all duration-300">
-                    <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 rounded-lg mb-3 flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="text-2xl font-bold text-primary mb-1">{channel.name}</div>
-                        <div className="text-sm text-muted-foreground">{channel.subscribers} subscribers</div>
-                      </div>
-                    </div>
-                    <h4 className="font-semibold text-foreground mb-2">{channel.name} Channel</h4>
-                    <p className="text-sm text-muted-foreground">{channel.preview}</p>
-                  </div>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
-          </Carousel>
+        <div className="text-center mt-10">
+          <p className="text-muted-foreground">
+            Available in <strong className="text-primary">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
+          </p>
         </div>
       </div>
     </section>
