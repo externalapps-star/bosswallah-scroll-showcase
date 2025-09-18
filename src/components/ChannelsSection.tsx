@@ -33,18 +33,21 @@ const ChannelsSection = () => {
   ];
 
   return (
-    <section id="channels" className="section-padding bg-background border-t-4 border-accent/20">
+    <section id="channels" className="section-padding-tight bg-muted/30 border-t-2 border-accent/30">
       <div className="container-custom">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center space-x-2 bg-gradient-accent text-white px-4 py-2 rounded-full text-sm mb-3">
+            <span className="font-semibold">Multi-Platform</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Our Social Media <span className="gradient-text">Channels</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Connect with millions across multiple platforms and languages
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto">
           {platforms.map((platform) => {
             const IconComponent = platform.icon;
             return (
@@ -53,35 +56,35 @@ const ChannelsSection = () => {
                 className="group cursor-pointer"
                 onClick={() => window.open(platform.link, '_self')}
               >
-                <div className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 group-hover:scale-105 border border-border h-full flex flex-col">
+                <div className="bg-gradient-card rounded-2xl p-6 shadow-soft hover:shadow-glow transition-all duration-500 group-hover:scale-105 border border-primary/30 h-full flex flex-col">
                   <div className="text-center flex-1">
                     {/* Icon Container */}
-                    <div className={`w-24 h-24 mx-auto mb-6 rounded-3xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 mx-auto mb-4 rounded-2xl flex items-center justify-center ${platform.bgColor} group-hover:scale-110 transition-transform duration-300`}>
                       <IconComponent 
-                        size={56}
+                        size={32}
                         className={`${platform.color}`}
                       />
                     </div>
                     
                     {/* Platform Name */}
-                    <h3 className="text-2xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-lg font-bold mb-3 text-foreground group-hover:gradient-text transition-colors">
                       {platform.name}
                     </h3>
                     
                     {/* Channel Count */}
-                    <div className="text-sm font-semibold text-primary mb-4 bg-primary/10 rounded-full px-4 py-2 inline-block">
+                    <div className="text-xs font-semibold text-white mb-3 bg-gradient-primary rounded-full px-3 py-1 inline-block">
                       {platform.totalChannels}
                     </div>
                     
                     {/* Description */}
-                    <p className="text-muted-foreground leading-relaxed mb-6">
+                    <p className="text-muted-foreground leading-relaxed mb-4 text-sm">
                       {platform.description}
                     </p>
                     
                     {/* CTA */}
-                    <div className="flex items-center justify-center text-primary font-semibold group-hover:text-accent transition-colors">
-                      View All Channels
-                      <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                    <div className="flex items-center justify-center text-primary font-semibold group-hover:text-accent transition-colors text-sm">
+                      View Channels
+                      <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </div>
                 </div>
@@ -90,9 +93,9 @@ const ChannelsSection = () => {
           })}
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground text-lg">
-            Available in <strong className="text-primary">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
+        <div className="text-center mt-8">
+          <p className="text-muted-foreground text-sm">
+            Available in <strong className="gradient-text">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
           </p>
         </div>
       </div>

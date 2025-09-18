@@ -29,52 +29,60 @@ const NewsSection = () => {
   ];
 
   return (
-    <section id="news" className="section-padding bg-background border-t-4 border-accent/20">
+    <section id="news" className="section-padding-tight bg-card border-t-2 border-primary/30">
       <div className="container-custom">
-        <div className="text-center mb-8">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+        <div className="text-center mb-6">
+          <div className="inline-flex items-center space-x-2 bg-gradient-primary text-white px-4 py-2 rounded-full text-sm mb-3">
+            <span className="w-2 h-2 bg-white rounded-full animate-pulse"></span>
+            <span className="font-semibold">Latest Updates</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
             Latest <span className="gradient-text">News</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with our company developments and industry insights
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Stay updated with our company developments and insights
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {newsItems.map((item, index) => (
             <article
               key={index}
-              className="bg-card rounded-2xl overflow-hidden shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer"
+              className={`bg-gradient-card rounded-2xl overflow-hidden shadow-soft hover:shadow-glow transition-all duration-300 border group cursor-pointer ${
+                index === 0 ? 'border-primary/30' : index === 1 ? 'border-accent/30' : 'border-highlight/30'
+              }`}
             >
               {/* Thumbnail */}
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-32 overflow-hidden">
                 <img 
                   src={item.thumbnail} 
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute top-4 left-4">
-                  <span className="inline-block bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-2 left-2">
+                  <span className={`inline-block text-white px-2 py-1 rounded-full text-xs font-medium ${
+                    index === 0 ? 'bg-gradient-primary' : index === 1 ? 'bg-gradient-accent' : 'bg-highlight'
+                  }`}>
                     {item.category}
                   </span>
                 </div>
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <time className="text-sm text-muted-foreground block mb-3">
+              <div className="p-4">
+                <time className="text-xs text-muted-foreground block mb-2">
                   {item.date}
                 </time>
                 
-                <h3 className="text-xl font-bold mb-4 text-foreground group-hover:text-primary transition-colors">
+                <h3 className="text-sm font-bold mb-2 text-foreground group-hover:gradient-text transition-colors leading-tight">
                   {item.title}
                 </h3>
                 
-                <p className="text-muted-foreground leading-relaxed mb-4">
+                <p className="text-muted-foreground leading-relaxed mb-3 text-xs">
                   {item.excerpt}
                 </p>
                 
-                <div className="text-primary font-semibold group-hover:text-accent transition-colors">
+                <div className="text-primary font-semibold group-hover:text-accent transition-colors text-xs">
                   Read More →
                 </div>
               </div>
@@ -82,8 +90,8 @@ const NewsSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
+        <div className="text-center mt-8">
+          <Button variant="outline" className="border-primary/30 hover:bg-primary/10 text-primary">
             View All News
           </Button>
         </div>

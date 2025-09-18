@@ -47,6 +47,15 @@
     /* Shadows with brand colors */
     --shadow-brand: 0 10px 30px -10px hsl(14 100% 57% / 0.25);
     --shadow-soft: 0 4px 20px -4px hsl(220 13% 18% / 0.1);
+    --shadow-glow: 0 0 40px hsl(14 100% 57% / 0.15);
+    
+    /* Additional brand gradients */
+    --gradient-accent: linear-gradient(135deg, hsl(24 95% 53%), hsl(14 100% 57%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    
+    /* Brand highlight colors */
+    --highlight: 24 95% 53%;
+    --highlight-foreground: 0 0% 100%;
 
     --sidebar-background: 0 0% 98%;
 
@@ -120,9 +129,14 @@
 }
 
 @layer components {
-  /* Compact section spacing for viewport fit */
+  /* Compact section spacing for viewport fit at 100% zoom */
   .section-padding {
-    @apply py-12 px-4;
+    @apply py-8 px-4;
+  }
+  
+  /* Tighter section spacing for full viewport sections */
+  .section-padding-tight {
+    @apply py-6 px-4;
   }
 
   /* Container for consistent content width */
@@ -150,5 +164,26 @@
   /* Gradient backgrounds */
   .bg-gradient-subtle {
     background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+  
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  /* Brand accent elements */
+  .brand-accent {
+    @apply bg-accent text-accent-foreground;
+  }
+  
+  .brand-highlight {
+    @apply bg-highlight text-highlight-foreground;
   }
 }
