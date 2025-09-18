@@ -28,125 +28,138 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding-tight bg-muted/30 border-t-2 border-accent/30">
+    <section id="contact" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-6">
-            <div className="inline-flex items-center space-x-2 bg-gradient-accent text-white px-4 py-2 rounded-full text-sm mb-3">
-              <span className="font-semibold">Let's Connect</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Working With <span className="gradient-text">Us</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-              We pride ourselves on being a business savvy media house
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              We pride ourselves on being a business savvy media house that understands 
+              that we need to deliver what matters to our customers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left side - Contact info and CTA */}
             <div>
-              <h3 className="text-xl font-bold mb-4 text-foreground">
+              <h3 className="text-2xl font-bold mb-6 text-foreground">
                 Ready to Transform Your Brand?
               </h3>
-              <p className="text-sm text-muted-foreground mb-6">
-                Let's discuss how Boss Wallah Media can help you achieve your marketing goals.
+              <p className="text-lg text-muted-foreground mb-8">
+                Let's discuss how Boss Wallah Media can help you achieve your marketing goals 
+                across India's diverse regional markets.
               </p>
               
-              <div className="space-y-3 mb-6">
+              <div className="space-y-4 mb-8">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary rounded-full"></div>
-                  <span className="text-muted-foreground text-sm">18M+ engaged audience</span>
+                  <span className="text-muted-foreground">18M+ engaged audience across platforms</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-accent rounded-full"></div>
-                  <span className="text-muted-foreground text-sm">330M+ monthly views</span>
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-muted-foreground">330M+ monthly video views</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-2 h-2 bg-highlight rounded-full"></div>
-                  <span className="text-muted-foreground text-sm">6 languages expertise</span>
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className="text-muted-foreground">6 languages and regional expertise</span>
                 </div>
               </div>
 
               <Button 
                 variant="cta" 
                 size="lg"
-                className="text-base px-6 py-3 h-auto mb-4 bg-gradient-primary text-white hover:opacity-90"
+                className="text-lg px-8 py-6 h-auto mb-6"
                 onClick={() => window.open('https://calendly.com/bosswallah', '_blank')}
               >
                 Book a Call
               </Button>
             </div>
 
-            {/* Right side - Compact contact form */}
-            <div className="bg-gradient-card rounded-2xl p-6 shadow-glow border border-primary/30">
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-sm">Name *</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="mt-1 h-10"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="company" className="text-sm">Company *</Label>
-                    <Input
-                      id="company"
-                      name="company"
-                      required
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="mt-1 h-10"
-                    />
-                  </div>
+            {/* Right side - Contact form */}
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <Label htmlFor="name">Name *</Label>
+                  <Input
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="mt-2"
+                  />
                 </div>
 
                 <div>
-                  <Label htmlFor="problem" className="text-sm">Marketing Challenge</Label>
+                  <Label htmlFor="company">Company Name *</Label>
+                  <Input
+                    id="company"
+                    name="company"
+                    required
+                    value={formData.company}
+                    onChange={handleInputChange}
+                    className="mt-2"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="problem">Marketing Problem (Optional)</Label>
                   <Textarea
                     id="problem"
                     name="problem"
                     value={formData.problem}
                     onChange={handleInputChange}
-                    className="mt-1"
-                    rows={2}
-                    placeholder="Brief description..."
+                    className="mt-2"
+                    rows={3}
+                    placeholder="Tell us about your marketing challenges..."
                   />
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <Label htmlFor="budget" className="text-sm">Budget</Label>
+                    <Label htmlFor="budget">Budget (Optional)</Label>
                     <Input
                       id="budget"
                       name="budget"
                       value={formData.budget}
                       onChange={handleInputChange}
-                      className="mt-1 h-10"
-                      placeholder="₹5-10 Lakhs"
+                      className="mt-2"
+                      placeholder="e.g. ₹5-10 Lakhs"
                     />
                   </div>
+
                   <div>
-                    <Label htmlFor="startDate" className="text-sm">Start Date</Label>
+                    <Label htmlFor="startDate">Expected Start Date (Optional)</Label>
                     <Input
                       id="startDate"
                       name="startDate"
                       type="date"
                       value={formData.startDate}
                       onChange={handleInputChange}
-                      className="mt-1 h-10"
+                      className="mt-2"
                     />
                   </div>
                 </div>
 
+                <div>
+                  <Label htmlFor="agency">Current Marketing Agency (Optional)</Label>
+                  <Input
+                    id="agency"
+                    name="agency"
+                    value={formData.agency}
+                    onChange={handleInputChange}
+                    className="mt-2"
+                    placeholder="Do you currently work with any agency?"
+                  />
+                </div>
+
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-accent text-white hover:opacity-90 h-10"
+                  variant="default" 
+                  size="lg"
+                  className="w-full"
                 >
                   Submit Inquiry
                 </Button>
