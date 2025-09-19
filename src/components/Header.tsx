@@ -116,7 +116,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden md:flex items-center space-x-3">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -140,12 +140,12 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Start Campaign CTA */}
+              {/* Submit Enquiry CTA */}
               <Button 
-                onClick={() => scrollToSection('channels')}
+                onClick={() => scrollToSection('contact')}
                 className="flex items-center gap-2"
               >
-                {t('nav.startCampaign')}
+                {t('nav.submitEnquiry')}
               </Button>
 
               {/* Login Button */}
@@ -215,15 +215,15 @@ const Header = () => {
                   {t('nav.news')}
                 </button>
                 
-                {/* Mobile Start Campaign CTA */}
+                {/* Mobile Submit Enquiry CTA */}
                 <Button 
                   onClick={() => {
-                    scrollToSection('channels');
+                    scrollToSection('contact');
                     setIsMobileMenuOpen(false);
                   }}
                   className="mx-4 mb-2"
                 >
-                  {t('nav.startCampaign')}
+                  {t('nav.submitEnquiry')}
                 </Button>
                 
                 <div className="px-4 py-2 border-t border-border">

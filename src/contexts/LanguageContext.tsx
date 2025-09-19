@@ -49,7 +49,7 @@ const translations = {
     'nav.campaigns': 'Campaigns',
     'nav.brandReviews': 'Brand Reviews',
     'nav.news': 'News',
-    'nav.startCampaign': 'Start a Campaign',
+    'nav.submitEnquiry': 'Submit Enquiry',
     'nav.login': 'Login',
     
     // Hero Section
@@ -148,7 +148,7 @@ const translations = {
     'nav.campaigns': 'अभियान',
     'nav.brandReviews': 'ब्रांड समीक्षा',
     'nav.news': 'समाचार',
-    'nav.startCampaign': 'अभियान शुरू करें',
+    'nav.submitEnquiry': 'पूछताछ भेजें',
     'nav.login': 'लॉगिन',
     
     // Hero Section
@@ -247,7 +247,7 @@ const translations = {
     'nav.campaigns': 'मोहिमा',
     'nav.brandReviews': 'ब्रँड पुनरावलोकने',
     'nav.news': 'बातम्या',
-    'nav.startCampaign': 'मोहीम सुरू करा',
+    'nav.submitEnquiry': 'चौकशी सबमिट करा',
     'nav.login': 'लॉगिन',
     
     // Hero Section
@@ -346,7 +346,7 @@ const translations = {
     'nav.campaigns': 'અભિયાન',
     'nav.brandReviews': 'બ્રાન્ડ સમીક્ષા',
     'nav.news': 'સમાચાર',
-    'nav.startCampaign': 'અભિયાન શરૂ કરો',
+    'nav.submitEnquiry': 'પૂછપરછ સબમિટ કરો',
     'nav.login': 'લૉગિન',
     
     // Hero Section
