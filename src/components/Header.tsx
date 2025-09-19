@@ -62,10 +62,12 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Fixed Theme Toggle - Always Visible */}
-      <div className={`fixed right-4 z-50 transition-all duration-300 ${isVisible ? 'top-20' : 'top-4'}`}>
-        <ThemeToggle />
-      </div>
+      {/* Fixed Theme Toggle - Only visible when nav is hidden */}
+      {!isVisible && (
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
+      )}
 
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
@@ -155,6 +157,9 @@ const Header = () => {
                 <User className="h-4 w-4" />
                 {t('nav.login')}
               </Button>
+
+              {/* Theme Toggle */}
+              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
@@ -251,11 +256,16 @@ const Header = () => {
                       setIsLoginModalOpen(true);
                       setIsMobileMenuOpen(false);
                     }}
-                    className="w-full justify-start gap-2"
+                    className="w-full justify-start gap-2 mb-2"
                   >
                     <User className="h-4 w-4" />
                     {t('nav.login')}
                   </Button>
+
+                  {/* Mobile Theme Toggle */}
+                  <div className="flex justify-start">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </nav>
             </div>
