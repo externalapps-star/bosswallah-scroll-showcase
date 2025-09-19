@@ -2,18 +2,22 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Globe, User, Menu, X } from "lucide-react";
 import LoginModal from "@/components/LoginModal";
+import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
+
 const Header = () => {
-  const {
-    language,
-    setLanguage,
-    t
-  } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.getElementById('home');
@@ -23,69 +27,102 @@ const Header = () => {
         setIsVisible(scrollPosition > heroHeight * 0.8);
       }
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  const languages: Array<{
-    code: Language;
-    name: string;
-    nativeName: string;
-  }> = [{
-    code: 'en',
-    name: 'English',
-    nativeName: 'English'
-  }, {
-    code: 'hi',
-    name: 'Hindi',
-    nativeName: 'हिन्दी'
-  }, {
-    code: 'mr',
-    name: 'Marathi',
-    nativeName: 'मराठी'
-  }, {
-    code: 'gu',
-    name: 'Gujarati',
-    nativeName: 'ગુજરાતી'
-  }];
+
+  const languages: Array<{ code: Language; name: string; nativeName: string }> = [
+    { code: 'en', name: 'English', nativeName: 'English' },
+    { code: 'hi', name: 'Hindi', nativeName: 'हिन्दी' },
+    { code: 'mr', name: 'Marathi', nativeName: 'मराठी' },
+    { code: 'gu', name: 'Gujarati', nativeName: 'ગુજરાતી' },
+  ];
+
   const currentLanguage = languages.find(lang => lang.code === language);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth'
-      });
+      element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
-  return <>
+
+  return (
+    <>
       {/* Fixed Logo - Always Visible */}
       <div className="fixed top-4 left-4 z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            
-          </div>
-          <h1 className="text-xl font-bold gradient-text">
-            Boss Wallah
-          </h1>
+        <div className="flex items-center gap-3">
+          <img 
+            src={bossWallahLogo} 
+            alt="Boss Wallah" 
+            className="h-10 w-auto"
+          />
         </div>
       </div>
 
-      {/* Fixed Theme Toggle - Always Visible */}
-      <div className="fixed top-4 right-4 z-50">
-        <ThemeToggle />
-      </div>
+      {/* Fixed Theme Toggle - Only visible when nav is hidden */}
+      {!isVisible && (
+        <div className="fixed top-4 right-4 z-50">
+          <ThemeToggle />
+        </div>
+      )}
 
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Spacer for logo */}
-            <div className="w-48"></div>
+            {/* Logo space */}
+            <div className="flex items-center">
+              <img 
+                src={bossWallahLogo} 
+                alt="Boss Wallah" 
+                className="h-8 w-auto"
+              />
+            </div>
 
             {/* Desktop Navigation */}
-            
+            <nav className="hidden md:flex items-center space-x-8">
+              <button 
+                onClick={() => scrollToSection('home')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.home')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('about')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.aboutUs')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('channels')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.channels')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('campaigns')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.campaigns')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.brandReviews')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('news')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.news')}
+              </button>
+            </nav>
 
-            {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-4">
+            {/* Desktop Actions - Right aligned */}
+            <div className="hidden md:flex items-center space-x-3 ml-auto">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -95,60 +132,104 @@ const Header = () => {
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="bg-background border-border z-50">
-                  {languages.map(lang => <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)} className={`cursor-pointer ${language === lang.code ? 'bg-accent text-accent-foreground' : ''}`}>
+                  {languages.map((lang) => (
+                    <DropdownMenuItem
+                      key={lang.code}
+                      onClick={() => setLanguage(lang.code)}
+                      className={`cursor-pointer ${
+                        language === lang.code ? 'bg-accent text-accent-foreground' : ''
+                      }`}
+                    >
                       {lang.nativeName}
-                    </DropdownMenuItem>)}
+                    </DropdownMenuItem>
+                  ))}
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              {/* Start Campaign CTA */}
-              <Button onClick={() => scrollToSection('channels')} className="flex items-center gap-2">
-                {t('nav.startCampaign')}
+              {/* Submit Enquiry CTA */}
+              <Button 
+                onClick={() => scrollToSection('contact')}
+                className="flex items-center gap-2"
+              >
+                {t('nav.submitEnquiry')}
               </Button>
 
               {/* Login Button */}
-              <Button variant="outline" onClick={() => setIsLoginModalOpen(true)} className="flex items-center gap-2">
+              <Button 
+                variant="outline"
+                onClick={() => setIsLoginModalOpen(true)}
+                className="flex items-center gap-2"
+              >
                 <User className="h-4 w-4" />
                 {t('nav.login')}
               </Button>
+
+              {/* Theme Toggle */}
+              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
-              <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
             </div>
           </div>
 
           {/* Mobile Menu */}
-          {isMobileMenuOpen && <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
+          {isMobileMenuOpen && (
+            <div className="md:hidden py-4 border-t border-border bg-background/95 backdrop-blur-md">
               <nav className="flex flex-col space-y-4">
-                <button onClick={() => scrollToSection('home')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('home')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.home')}
                 </button>
-                <button onClick={() => scrollToSection('about')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('about')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.aboutUs')}
                 </button>
-                <button onClick={() => scrollToSection('channels')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('channels')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.channels')}
                 </button>
-                <button onClick={() => scrollToSection('campaigns')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('campaigns')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.campaigns')}
                 </button>
-                <button onClick={() => scrollToSection('testimonials')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('testimonials')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.brandReviews')}
                 </button>
-                <button onClick={() => scrollToSection('news')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => scrollToSection('news')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
                   {t('nav.news')}
                 </button>
                 
-                {/* Mobile Start Campaign CTA */}
-                <Button onClick={() => {
-              scrollToSection('channels');
-              setIsMobileMenuOpen(false);
-            }} className="mx-4 mb-2">
-                  {t('nav.startCampaign')}
+                {/* Mobile Submit Enquiry CTA */}
+                <Button 
+                  onClick={() => {
+                    scrollToSection('contact');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="mx-4 mb-2"
+                >
+                  {t('nav.submitEnquiry')}
                 </Button>
                 
                 <div className="px-4 py-2 border-t border-border">
@@ -161,27 +242,49 @@ const Header = () => {
                       </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent className="bg-background border-border z-50">
-                      {languages.map(lang => <DropdownMenuItem key={lang.code} onClick={() => setLanguage(lang.code)} className={`cursor-pointer ${language === lang.code ? 'bg-accent text-accent-foreground' : ''}`}>
+                      {languages.map((lang) => (
+                        <DropdownMenuItem
+                          key={lang.code}
+                          onClick={() => setLanguage(lang.code)}
+                          className={`cursor-pointer ${
+                            language === lang.code ? 'bg-accent text-accent-foreground' : ''
+                          }`}
+                        >
                           {lang.nativeName}
-                        </DropdownMenuItem>)}
+                        </DropdownMenuItem>
+                      ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
 
                   {/* Mobile Login Button */}
-                  <Button onClick={() => {
-                setIsLoginModalOpen(true);
-                setIsMobileMenuOpen(false);
-              }} className="w-full justify-start gap-2">
+                  <Button 
+                    onClick={() => {
+                      setIsLoginModalOpen(true);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="w-full justify-start gap-2 mb-2"
+                  >
                     <User className="h-4 w-4" />
                     {t('nav.login')}
                   </Button>
+
+                  {/* Mobile Theme Toggle */}
+                  <div className="flex justify-start">
+                    <ThemeToggle />
+                  </div>
                 </div>
               </nav>
-            </div>}
+            </div>
+          )}
         </div>
       </header>
 
-      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
-    </>;
+      <LoginModal 
+        isOpen={isLoginModalOpen} 
+        onClose={() => setIsLoginModalOpen(false)} 
+      />
+    </>
+  );
 };
+
 export default Header;
