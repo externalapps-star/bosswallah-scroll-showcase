@@ -39,12 +39,9 @@ const ContactSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            {/* Left side - Contact info and CTA */}
-            
-
-            {/* Right side - Contact form */}
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border">
+          <div className="flex justify-center">
+            {/* Centered Contact form */}
+            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border max-w-2xl w-full">
               {!isSubmitted ? <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="name">Name *</Label>
@@ -79,7 +76,7 @@ const ContactSection = () => {
                   </div>
 
                   <Button type="submit" variant="default" size="lg" className="w-full">
-                    Submit Inquiry
+                    DONE
                   </Button>
                 </form> : <div className="text-center py-8">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
