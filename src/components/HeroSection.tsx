@@ -74,7 +74,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Our Story
@@ -82,7 +82,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Our Work
@@ -90,7 +90,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 See the Impact
@@ -98,7 +98,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Latest News
