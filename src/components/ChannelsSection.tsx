@@ -439,11 +439,13 @@ const ChannelsSection = () => {
           </div>
         )}
 
-        <div className="text-center mt-12">
-          <p className="text-muted-foreground text-lg">
-            Available in <strong className="text-primary">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
-          </p>
-        </div>
+        {!selectedPlatform && (
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground text-lg">
+              Available in <strong className="text-primary">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
+            </p>
+          </div>
+        )}
       </div>
     </section>
   );
