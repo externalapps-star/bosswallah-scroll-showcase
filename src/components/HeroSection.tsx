@@ -75,6 +75,14 @@ const HeroSection = () => {
                 variant="outline" 
                 size="lg"
                 className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Our Story
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Our Work
@@ -83,9 +91,9 @@ const HeroSection = () => {
                 variant="outline" 
                 size="lg"
                 className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Our Story
+                See the Impact
               </Button>
               <Button 
                 variant="outline" 
@@ -95,22 +103,17 @@ const HeroSection = () => {
               >
                 Latest News
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Customer Reviews
-              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
+      <div 
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+      >
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center hover:border-white/70 transition-colors">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
         </div>
       </div>
