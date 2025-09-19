@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe, User, Menu, X } from "lucide-react";
 import LoginModal from "@/components/LoginModal";
-import bossWallahLogo from "@/assets/boss-wallah-logo.png";
+import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
