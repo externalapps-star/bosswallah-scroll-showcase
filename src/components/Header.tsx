@@ -63,7 +63,7 @@ const Header = () => {
       </div>
 
       {/* Fixed Theme Toggle - Always Visible */}
-      <div className="fixed top-4 right-4 z-50">
+      <div className={`fixed right-4 z-50 transition-all duration-300 ${isVisible ? 'top-20' : 'top-4'}`}>
         <ThemeToggle />
       </div>
 
