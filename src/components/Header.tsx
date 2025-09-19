@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
@@ -15,6 +15,21 @@ const Header = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        const heroHeight = heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+        setIsVisible(scrollPosition > heroHeight * 0.8);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const languages: Array<{ code: Language; name: string; nativeName: string }> = [
     { code: 'en', name: 'English', nativeName: 'English' },
@@ -26,23 +41,52 @@ const Header = () => {
   const currentLanguage = languages.find(lang => lang.code === language);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
+    let targetId = sectionId;
+    
+    // Map navigation items to actual section IDs
+    if (sectionId === 'testimonials') {
+      // Since TestimonialsSection doesn't have an ID, scroll to services section
+      targetId = 'services';
+    } else if (sectionId === 'news') {
+      // Scroll to where NewsSection is rendered
+      targetId = 'services'; // Will need to add news ID later
+    }
+    
+    const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    } else if (sectionId === 'testimonials' || sectionId === 'news') {
+      // If sections don't have IDs, scroll to a position based on viewport height
+      const sections = ['home', 'about', 'services'];
+      const baseHeight = window.innerHeight;
+      let scrollPosition = 0;
+      
+      if (sectionId === 'testimonials') {
+        scrollPosition = baseHeight * 2.5; // After services
+      } else if (sectionId === 'news') {
+        scrollPosition = baseHeight * 3; // After testimonials
+      }
+      
+      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
 
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center">
-              <h1 className="text-xl font-bold gradient-text">
-                Boss Wallah
-              </h1>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                  <span className="text-primary-foreground font-bold text-sm">BW</span>
+                </div>
+                <h1 className="text-xl font-bold gradient-text">
+                  Boss Wallah
+                </h1>
+              </div>
             </div>
 
             {/* Desktop Navigation */}
@@ -57,19 +101,31 @@ const Header = () => {
                 onClick={() => scrollToSection('about')}
                 className="text-foreground hover:text-primary transition-colors"
               >
-                {t('nav.about')}
+                {t('nav.aboutUs')}
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
                 className="text-foreground hover:text-primary transition-colors"
               >
-                {t('nav.services')}
+                {t('nav.channels')}
               </button>
               <button 
-                onClick={() => scrollToSection('contact')}
+                onClick={() => scrollToSection('services')}
                 className="text-foreground hover:text-primary transition-colors"
               >
-                {t('nav.contact')}
+                {t('nav.campaigns')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('testimonials')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.brandReviews')}
+              </button>
+              <button 
+                onClick={() => scrollToSection('news')}
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                {t('nav.news')}
               </button>
             </nav>
 
@@ -100,8 +156,17 @@ const Header = () => {
 
               <ThemeToggle />
 
+              {/* Start Campaign CTA */}
+              <Button 
+                onClick={() => scrollToSection('services')}
+                className="flex items-center gap-2"
+              >
+                {t('nav.startCampaign')}
+              </Button>
+
               {/* Login Button */}
               <Button 
+                variant="outline"
                 onClick={() => setIsLoginModalOpen(true)}
                 className="flex items-center gap-2"
               >
@@ -137,20 +202,43 @@ const Header = () => {
                   onClick={() => scrollToSection('about')}
                   className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
-                  {t('nav.about')}
+                  {t('nav.aboutUs')}
                 </button>
                 <button 
                   onClick={() => scrollToSection('services')}
                   className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
-                  {t('nav.services')}
+                  {t('nav.channels')}
                 </button>
                 <button 
-                  onClick={() => scrollToSection('contact')}
+                  onClick={() => scrollToSection('services')}
                   className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
-                  {t('nav.contact')}
+                  {t('nav.campaigns')}
                 </button>
+                <button 
+                  onClick={() => scrollToSection('testimonials')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.brandReviews')}
+                </button>
+                <button 
+                  onClick={() => scrollToSection('news')}
+                  className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
+                >
+                  {t('nav.news')}
+                </button>
+                
+                {/* Mobile Start Campaign CTA */}
+                <Button 
+                  onClick={() => {
+                    scrollToSection('services');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="mx-4 mb-2"
+                >
+                  {t('nav.startCampaign')}
+                </Button>
                 
                 <div className="px-4 py-2 border-t border-border">
                   {/* Mobile Language Selector */}

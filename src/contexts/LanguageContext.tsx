@@ -44,9 +44,12 @@ const translations = {
   en: {
     // Navigation
     'nav.home': 'Home',
-    'nav.about': 'About',
-    'nav.services': 'Services',
-    'nav.contact': 'Contact',
+    'nav.aboutUs': 'About Us',
+    'nav.channels': 'Channels',
+    'nav.campaigns': 'Campaigns',
+    'nav.brandReviews': 'Brand Reviews',
+    'nav.news': 'News',
+    'nav.startCampaign': 'Start a Campaign',
     'nav.login': 'Login',
     
     // Hero Section
@@ -140,9 +143,12 @@ const translations = {
   hi: {
     // Navigation
     'nav.home': 'होम',
-    'nav.about': 'हमारे बारे में',
-    'nav.services': 'सेवाएं',
-    'nav.contact': 'संपर्क',
+    'nav.aboutUs': 'हमारे बारे में',
+    'nav.channels': 'चैनल',
+    'nav.campaigns': 'अभियान',
+    'nav.brandReviews': 'ब्रांड समीक्षा',
+    'nav.news': 'समाचार',
+    'nav.startCampaign': 'अभियान शुरू करें',
     'nav.login': 'लॉगिन',
     
     // Hero Section
@@ -236,9 +242,12 @@ const translations = {
   mr: {
     // Navigation
     'nav.home': 'मुख्यपृष्ठ',
-    'nav.about': 'आमच्याबद्दल',
-    'nav.services': 'सेवा',
-    'nav.contact': 'संपर्क',
+    'nav.aboutUs': 'आमच्याबद्दल',
+    'nav.channels': 'चॅनेल',
+    'nav.campaigns': 'मोहिमा',
+    'nav.brandReviews': 'ब्रँड पुनरावलोकने',
+    'nav.news': 'बातम्या',
+    'nav.startCampaign': 'मोहीम सुरू करा',
     'nav.login': 'लॉगिन',
     
     // Hero Section
@@ -332,9 +341,12 @@ const translations = {
   gu: {
     // Navigation
     'nav.home': 'મુખ્ય',
-    'nav.about': 'અમારા વિશે',
-    'nav.services': 'સેવાઓ',
-    'nav.contact': 'સંપર્ક',
+    'nav.aboutUs': 'અમારા વિશે',
+    'nav.channels': 'ચેનલ',
+    'nav.campaigns': 'અભિયાન',
+    'nav.brandReviews': 'બ્રાન્ડ સમીક્ષા',
+    'nav.news': 'સમાચાર',
+    'nav.startCampaign': 'અભિયાન શરૂ કરો',
     'nav.login': 'લૉગિન',
     
     // Hero Section
