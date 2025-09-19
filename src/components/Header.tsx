@@ -79,7 +79,7 @@ const Header = () => {
           <ThemeToggle />
         </div>}
 
-      <header className={`fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-md border-b border-border shadow-sm transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <header className={`fixed top-0 left-0 right-0 z-40 bg-orange-50/95 backdrop-blur-md border-b border-orange-100 shadow-sm transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Left spacer */}
