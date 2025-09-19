@@ -33,7 +33,7 @@ const ContactSection = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Working With <span className="gradient-text">Us</span>
+              Let's Start <span className="gradient-text">Talking</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We pride ourselves on being a business savvy media house that understands 

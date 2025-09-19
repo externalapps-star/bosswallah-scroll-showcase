@@ -41,53 +41,37 @@ const Header = () => {
   const currentLanguage = languages.find(lang => lang.code === language);
 
   const scrollToSection = (sectionId: string) => {
-    let targetId = sectionId;
-    
-    // Map navigation items to actual section IDs
-    if (sectionId === 'testimonials') {
-      // Since TestimonialsSection doesn't have an ID, scroll to services section
-      targetId = 'services';
-    } else if (sectionId === 'news') {
-      // Scroll to where NewsSection is rendered
-      targetId = 'services'; // Will need to add news ID later
-    }
-    
-    const element = document.getElementById(targetId);
+    const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
-    } else if (sectionId === 'testimonials' || sectionId === 'news') {
-      // If sections don't have IDs, scroll to a position based on viewport height
-      const sections = ['home', 'about', 'services'];
-      const baseHeight = window.innerHeight;
-      let scrollPosition = 0;
-      
-      if (sectionId === 'testimonials') {
-        scrollPosition = baseHeight * 2.5; // After services
-      } else if (sectionId === 'news') {
-        scrollPosition = baseHeight * 3; // After testimonials
-      }
-      
-      window.scrollTo({ top: scrollPosition, behavior: 'smooth' });
     }
     setIsMobileMenuOpen(false);
   };
 
   return (
     <>
-      <header className={`fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      {/* Fixed Logo - Always Visible */}
+      <div className="fixed top-4 left-4 z-50">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+            <span className="text-primary-foreground font-bold text-sm">BW</span>
+          </div>
+          <h1 className="text-xl font-bold gradient-text">
+            Boss Wallah
+          </h1>
+        </div>
+      </div>
+
+      {/* Fixed Theme Toggle - Always Visible */}
+      <div className="fixed top-4 right-4 z-50">
+        <ThemeToggle />
+      </div>
+
+      <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <div className="flex items-center">
-              <div className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-sm">BW</span>
-                </div>
-                <h1 className="text-xl font-bold gradient-text">
-                  Boss Wallah
-                </h1>
-              </div>
-            </div>
+            {/* Spacer for logo */}
+            <div className="w-48"></div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -104,13 +88,13 @@ const Header = () => {
                 {t('nav.aboutUs')}
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('channels')}
                 className="text-foreground hover:text-primary transition-colors"
               >
                 {t('nav.channels')}
               </button>
               <button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('campaigns')}
                 className="text-foreground hover:text-primary transition-colors"
               >
                 {t('nav.campaigns')}
@@ -154,11 +138,9 @@ const Header = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <ThemeToggle />
-
               {/* Start Campaign CTA */}
               <Button 
-                onClick={() => scrollToSection('services')}
+                onClick={() => scrollToSection('channels')}
                 className="flex items-center gap-2"
               >
                 {t('nav.startCampaign')}
@@ -177,7 +159,6 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
               <Button
                 variant="ghost"
                 size="sm"
@@ -205,13 +186,13 @@ const Header = () => {
                   {t('nav.aboutUs')}
                 </button>
                 <button 
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection('channels')}
                   className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
                   {t('nav.channels')}
                 </button>
                 <button 
-                  onClick={() => scrollToSection('services')}
+                  onClick={() => scrollToSection('campaigns')}
                   className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors"
                 >
                   {t('nav.campaigns')}
@@ -232,7 +213,7 @@ const Header = () => {
                 {/* Mobile Start Campaign CTA */}
                 <Button 
                   onClick={() => {
-                    scrollToSection('services');
+                    scrollToSection('channels');
                     setIsMobileMenuOpen(false);
                   }}
                   className="mx-4 mb-2"

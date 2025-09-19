@@ -5,6 +5,7 @@ import ChannelsSection from "@/components/ChannelsSection";
 import CampaignsSection from "@/components/CampaignsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsSection from "@/components/NewsSection";
+import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
 
@@ -18,15 +19,22 @@ const Index = () => {
       <div id="about">
         <AboutSection />
       </div>
-      <div id="services">
+      <div id="channels">
         <ChannelsSection />
+      </div>
+      <div id="campaigns">
         <CampaignsSection />
       </div>
-      <TestimonialsSection />
-      <NewsSection />
-      <div id="contact">
-        <Footer />
+      <div id="testimonials">
+        <TestimonialsSection />
       </div>
+      <div id="news">
+        <NewsSection />
+      </div>
+      <div id="contact">
+        <ContactSection />
+      </div>
+      <Footer />
       <FloatingCallButton />
     </div>
   );
