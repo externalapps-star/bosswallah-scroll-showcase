@@ -60,7 +60,7 @@ const Header = () => {
   };
   return <>
       {/* Fixed Logo - Always Visible */}
-      <div className="fixed top-4 left-4 z-50">
+      <div className="fixed top-2 left-4 z-50">
         <div className="flex items-center gap-3">
           <img src={bossWallahLogo} alt="Boss Wallah" className="h-10 w-auto" />
         </div>
