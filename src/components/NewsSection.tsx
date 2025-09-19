@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import newsExpansion from "@/assets/news-expansion.jpg";
 import newsMilestone from "@/assets/news-milestone.jpg";
 import newsPartnership from "@/assets/news-partnership.jpg";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
 
 const NewsSection = () => {
   const newsItems = [
@@ -93,23 +94,41 @@ const NewsSection = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+  const [isDragging, setIsDragging] = useState(false);
+  const carouselRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!isAutoPlaying || isDragging) return;
+    
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % newsItems.length);
-    }, 3000);
+    }, 4000);
 
     return () => clearInterval(interval);
-  }, [newsItems.length]);
+  }, [newsItems.length, isAutoPlaying, isDragging]);
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % newsItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length);
+  };
+
+  const toggleAutoPlay = () => {
+    setIsAutoPlaying(!isAutoPlaying);
+  };
 
   const getVisibleItems = () => {
     const items = [];
-    for (let i = 0; i < 5; i++) {
-      const index = (currentIndex + i) % newsItems.length;
+    for (let i = -2; i <= 2; i++) {
+      const index = (currentIndex + i + newsItems.length) % newsItems.length;
       items.push({
         ...newsItems[index],
-        isMiddle: i === 2,
-        position: i
+        isCenter: i === 0,
+        position: i,
+        offset: i
       });
     }
     return items;
@@ -127,91 +146,129 @@ const NewsSection = () => {
           </p>
         </div>
 
-        {/* Auto-scrolling news carousel */}
-        <div className="flex justify-center items-center">
-          <div className="flex gap-4 items-center overflow-hidden w-full max-w-7xl">
-            {getVisibleItems().map((item, index) => (
-              <article
-                key={`${item.date}-${index}`}
-                className={`
-                  relative bg-card rounded-2xl overflow-hidden shadow-soft border transition-all duration-700 cursor-pointer flex-shrink-0
-                  ${item.isMiddle ? 
-                    'w-80 h-96 scale-110 z-10 border-4 border-primary' : 
-                    'w-64 h-80 border-border hover:shadow-brand'
-                  }
-                  ${item.position < 2 ? 'opacity-60' : ''}
-                  ${item.position > 2 ? 'opacity-60' : ''}
-                `}
-                style={{
-                  transform: item.isMiddle ? 'scale(1.1)' : 'scale(1)',
-                }}
-              >
-                {/* Snake-like animated border for middle card */}
-                {item.isMiddle && (
-                  <div className="absolute inset-0 rounded-2xl pointer-events-none">
-                    <div 
-                      className="absolute inset-0 rounded-2xl"
-                      style={{
-                        background: `
-                          conic-gradient(
-                            from 0deg at 50% 50%,
-                            hsl(var(--primary)) 0deg,
-                            hsl(var(--accent)) 60deg,
-                            hsl(var(--primary)) 120deg,
-                            hsl(var(--accent)) 180deg,
-                            hsl(var(--primary)) 240deg,
-                            hsl(var(--accent)) 300deg,
-                            hsl(var(--primary)) 360deg
-                          )
-                        `,
-                        animation: 'spin 3s linear infinite',
-                        padding: '2px',
-                        WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                        WebkitMaskComposite: 'xor',
-                        maskComposite: 'exclude'
-                      }}
-                    />
-                  </div>
-                )}
+        {/* Enhanced news carousel with manual controls */}
+        <div className="relative">
+          {/* Navigation Controls */}
+          <div className="flex justify-center items-center mb-6 gap-4">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={prevSlide}
+              className="rounded-full hover:bg-primary hover:text-white"
+            >
+              <ChevronLeft className="h-4 w-4" />
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={toggleAutoPlay}
+              className="flex items-center gap-2 rounded-full"
+            >
+              {isAutoPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+              {isAutoPlaying ? 'Pause' : 'Play'}
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={nextSlide}
+              className="rounded-full hover:bg-primary hover:text-white"
+            >
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          </div>
 
-                {/* Thumbnail */}
-                <div className={`relative overflow-hidden ${item.isMiddle ? 'h-52' : 'h-40'}`}>
-                  <img 
-                    src={item.thumbnail} 
-                    alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-block bg-primary/90 text-white px-3 py-1 rounded-full text-sm font-medium">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
+          {/* Carousel Container */}
+          <div 
+            ref={carouselRef}
+            className="relative flex justify-center items-center perspective-1000"
+            style={{ height: '480px' }}
+          >
+            {getVisibleItems().map((item, index) => {
+              const scale = item.isCenter ? 1.15 : 0.85;
+              const opacity = Math.abs(item.offset) <= 1 ? (item.isCenter ? 1 : 0.7) : 0.4;
+              const translateX = item.offset * 280;
+              const rotateY = item.offset * -15;
+              const zIndex = item.isCenter ? 20 : 10 - Math.abs(item.offset);
+              
+              return (
+                <article
+                  key={`${item.date}-${item.offset}`}
+                  className="absolute bg-card rounded-2xl overflow-hidden shadow-soft border border-border cursor-pointer transition-all duration-700 ease-out w-72"
+                  style={{
+                    transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
+                    opacity: opacity,
+                    zIndex: zIndex,
+                    transformStyle: 'preserve-3d'
+                  }}
+                  onClick={() => setCurrentIndex((currentIndex + item.offset + newsItems.length) % newsItems.length)}
+                >
+                  {/* Enhanced animated border for center card */}
+                  {item.isCenter && (
+                    <>
+                      {/* Gradient border animation */}
+                      <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x opacity-75"></div>
+                      
+                      {/* Pulsing glow effect */}
+                      <div className="absolute -inset-2 rounded-2xl bg-primary/20 animate-pulse blur-sm"></div>
+                      
+                      {/* Rotating particles */}
+                      <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                        <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-ping"></div>
+                        <div className="absolute bottom-2 left-2 w-1 h-1 bg-accent rounded-full animate-ping animation-delay-500"></div>
+                        <div className="absolute top-1/2 left-0 w-1 h-4 bg-gradient-to-b from-transparent via-primary to-transparent animate-pulse"></div>
+                        <div className="absolute top-0 left-1/2 w-4 h-1 bg-gradient-to-r from-transparent via-accent to-transparent animate-pulse animation-delay-300"></div>
+                      </div>
+                    </>
+                  )}
 
-                {/* Content */}
-                <div className={`p-4 ${item.isMiddle ? 'p-6' : 'p-4'}`}>
-                  <time className="text-xs text-muted-foreground block mb-2">
-                    {item.date}
-                  </time>
-                  
-                  <h3 className={`font-bold mb-3 text-foreground transition-colors ${
-                    item.isMiddle ? 'text-lg' : 'text-base'
-                  }`}>
-                    {item.title}
-                  </h3>
-                  
-                  <p className={`text-muted-foreground leading-relaxed mb-3 ${
-                    item.isMiddle ? 'text-sm' : 'text-xs'
-                  }`}>
-                    {item.excerpt}
-                  </p>
-                  
-                  <div className="text-primary font-semibold text-xs hover:text-accent transition-colors">
-                    Read More →
+                  {/* Card content with relative positioning to stay above border effects */}
+                  <div className="relative bg-card rounded-2xl overflow-hidden">
+                    {/* Thumbnail */}
+                    <div className="relative h-48 overflow-hidden">
+                      <img 
+                        src={item.thumbnail} 
+                        alt={item.title}
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4">
+                        <span className="inline-block bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
+                          {item.category}
+                        </span>
+                      </div>
+                      
+                      {/* Gradient overlay for better text readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="p-6">
+                      <time className="text-sm text-muted-foreground block mb-3">
+                        {item.date}
+                      </time>
+                      
+                      <h3 className="text-lg font-bold mb-4 text-foreground hover:text-primary transition-colors line-clamp-2">
+                        {item.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-3">
+                        {item.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <div className="text-primary font-semibold hover:text-accent transition-colors cursor-pointer">
+                          Read More →
+                        </div>
+                        {item.isCenter && (
+                          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </div>
 
