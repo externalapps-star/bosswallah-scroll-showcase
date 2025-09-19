@@ -331,7 +331,11 @@ const ChannelsSection = () => {
         {/* Channel Details Panel */}
         {selectedPlatform && (
           <div className="mt-16 animate-in slide-in-from-top-10 duration-500">
-            <Card className="border-primary/20 shadow-brand bg-gradient-to-br from-card to-card/50 backdrop-blur-sm">
+            <Card className={`shadow-brand bg-gradient-to-br backdrop-blur-sm ${
+              selectedPlatform === 'youtube' ? 'border-red-500/40 from-red-500/5 via-card/90 to-red-600/5' :
+              selectedPlatform === 'facebook' ? 'border-blue-500/40 from-blue-500/5 via-card/90 to-blue-600/5' :
+              'border-pink-500/40 from-pink-500/5 via-card/90 to-purple-600/5'
+            }`}>
               <CardContent className="p-8">
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center space-x-4">
@@ -390,33 +394,31 @@ const ChannelsSection = () => {
                     <TabsContent key={languageGroup.language} value={languageGroup.language} className="mt-0">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {languageGroup.channels.map((channel) => (
-                          <div
-                            key={channel.name}
-                            className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 group cursor-pointer hover:scale-105"
-                            onClick={() => window.open(channel.url, '_blank')}
-                          >
-                            <div className="flex items-start justify-between mb-4">
-                              {(() => {
-                                const platform = platforms.find(p => p.id === selectedPlatform);
-                                const IconComponent = platform?.icon;
-                                return (
-                                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${platform?.bgColor}`}>
-                                    {platform?.image ? (
-                                      <img 
-                                        src={platform.image} 
-                                        alt={`${platform.name} logo`}
-                                        className="w-8 h-8 object-contain"
-                                      />
-                                    ) : (
-                                      IconComponent && <IconComponent size={20} className={platform.color} />
-                                    )}
+                            <div
+                              key={channel.name}
+                              className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 group cursor-pointer hover:scale-105"
+                              onClick={() => window.open(channel.url, '_blank')}
+                            >
+                              <div className="flex items-start justify-between mb-4">
+                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${
+                                  selectedPlatform === 'youtube' ? 'bg-red-100 dark:bg-red-900/20' :
+                                  selectedPlatform === 'facebook' ? 'bg-blue-100 dark:bg-blue-900/20' :
+                                  'bg-pink-100 dark:bg-pink-900/20'
+                                }`}>
+                                  <div className={`w-8 h-6 rounded-sm flex items-center justify-center text-xs font-bold ${
+                                    selectedPlatform === 'youtube' ? 'bg-red-600 text-white' :
+                                    selectedPlatform === 'facebook' ? 'bg-blue-600 text-white' :
+                                    'bg-gradient-to-br from-pink-500 to-purple-600 text-white'
+                                  }`}>
+                                    {selectedPlatform === 'youtube' ? 'YT' :
+                                     selectedPlatform === 'facebook' ? 'FB' :
+                                     'IG'}
                                   </div>
-                                );
-                              })()}
-                              <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(channel.category)}`}>
-                                {channel.category}
+                                </div>
+                                <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(channel.category)}`}>
+                                  {channel.category}
+                                </div>
                               </div>
-                            </div>
                             
                             <h4 className="font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
                               {channel.name}
