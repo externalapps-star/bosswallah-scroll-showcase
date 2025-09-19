@@ -59,22 +59,22 @@ const HeroSection = () => {
           </p>
           
           {/* Primary CTA */}
-          <div className="flex flex-col items-center gap-6 mb-8">
+          <div className="flex flex-col items-center gap-8 mb-8">
             <Button 
               variant="hero" 
               size="lg"
-              className="text-lg px-16 py-8 h-auto font-semibold"
+              className="text-lg px-16 py-8 h-auto font-semibold transform hover:scale-105 transition-all duration-300"
               onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
             >
               Explore Our Channels
             </Button>
             
-            {/* Secondary CTAs */}
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            {/* Secondary CTAs Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
               <Button 
                 variant="outline" 
                 size="lg"
-                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
+                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 View Our Work
@@ -82,7 +82,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
+                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Our Story
@@ -90,10 +90,18 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Get Started
+                Latest News
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white/20 hover:border-white/60 backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Customer Reviews
               </Button>
             </div>
           </div>
