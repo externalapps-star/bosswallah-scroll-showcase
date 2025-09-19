@@ -43,6 +43,9 @@
     --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(8 83% 47%));
     --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%) 0%, hsl(8 83% 47%) 100%);
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    
+    /* Section separators */
+    --gradient-separator: linear-gradient(90deg, transparent 0%, hsl(220 13% 91%) 50%, transparent 100%);
 
     /* Shadows with brand colors */
     --shadow-brand: 0 10px 30px -10px hsl(14 100% 57% / 0.25);
@@ -223,5 +226,36 @@
   /* Dropdown menu background fixes */
   .dropdown-menu-content {
     @apply bg-background border-border z-50 !important;
+  }
+  
+  /* Section separators for better visual differentiation */
+  .section-separator {
+    position: relative;
+  }
+  
+  .section-separator::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 1px;
+    background: var(--gradient-separator);
+  }
+  
+  .section-divider {
+    @apply relative;
+  }
+  
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gradient-separator);
+    opacity: 0.5;
   }
 }
