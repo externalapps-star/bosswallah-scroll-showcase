@@ -149,7 +149,7 @@ const NewsSection = () => {
         {/* Enhanced news carousel with manual controls */}
         <div className="relative">
           {/* Navigation Controls */}
-          <div className="flex justify-center items-center mb-6 gap-4">
+          <div className="flex justify-center items-center mb-12 gap-4">
             <Button
               variant="outline"
               size="icon"
