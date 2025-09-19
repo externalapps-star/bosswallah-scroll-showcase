@@ -18,30 +18,30 @@ const HeroSection = () => {
           backgroundRepeat: 'no-repeat'
         }}
       >
-        {/* Enhanced overlay with glitters and light effects */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/80 via-primary/60 to-accent/70">
-          {/* Animated light particles */}
+        {/* Enhanced overlay with softer, more comfortable opacity */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/50 to-accent/60">
+          {/* Subtle animated light particles */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/40 rounded-full animate-pulse blur-sm"></div>
-            <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-accent/60 rounded-full animate-bounce delay-100 blur-sm"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-primary/30 rounded-full animate-ping delay-200"></div>
-            <div className="absolute top-1/2 right-1/4 w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse delay-300 blur-sm"></div>
-            <div className="absolute bottom-1/3 right-1/2 w-2 h-2 bg-accent/40 rounded-full animate-bounce delay-500"></div>
-            <div className="absolute top-2/3 left-1/2 w-1 h-1 bg-white/60 rounded-full animate-ping delay-700 blur-sm"></div>
+            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse blur-sm"></div>
+            <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-accent/30 rounded-full animate-bounce delay-100 blur-sm"></div>
+            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-primary/20 rounded-full animate-ping delay-200"></div>
+            <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white/25 rounded-full animate-pulse delay-300 blur-sm"></div>
+            <div className="absolute bottom-1/3 right-1/2 w-1 h-1 bg-accent/25 rounded-full animate-bounce delay-500"></div>
+            <div className="absolute top-2/3 left-1/2 w-0.5 h-0.5 bg-white/30 rounded-full animate-ping delay-700 blur-sm"></div>
           </div>
           
-          {/* Floating glitter effect */}
+          {/* Minimal floating glitter effect */}
           <div className="absolute inset-0">
-            <div className="absolute top-20 left-20 w-0.5 h-0.5 bg-white/70 rounded-full animate-pulse blur-sm opacity-80"></div>
-            <div className="absolute top-32 right-24 w-0.5 h-0.5 bg-accent/80 rounded-full animate-bounce delay-150 opacity-60"></div>
-            <div className="absolute bottom-40 left-32 w-1 h-1 bg-primary/50 rounded-full animate-ping delay-300 opacity-70"></div>
-            <div className="absolute top-48 right-40 w-0.5 h-0.5 bg-white/90 rounded-full animate-pulse delay-400 blur-sm"></div>
-            <div className="absolute bottom-24 right-16 w-0.5 h-0.5 bg-accent/70 rounded-full animate-bounce delay-600 opacity-80"></div>
-            <div className="absolute top-60 left-48 w-1 h-1 bg-white/40 rounded-full animate-ping delay-800 opacity-60"></div>
+            <div className="absolute top-20 left-20 w-0.5 h-0.5 bg-white/30 rounded-full animate-pulse blur-sm opacity-40"></div>
+            <div className="absolute top-32 right-24 w-0.5 h-0.5 bg-accent/40 rounded-full animate-bounce delay-150 opacity-30"></div>
+            <div className="absolute bottom-40 left-32 w-0.5 h-0.5 bg-primary/30 rounded-full animate-ping delay-300 opacity-35"></div>
+            <div className="absolute top-48 right-40 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-400 blur-sm opacity-25"></div>
+            <div className="absolute bottom-24 right-16 w-0.5 h-0.5 bg-accent/35 rounded-full animate-bounce delay-600 opacity-40"></div>
+            <div className="absolute top-60 left-48 w-0.5 h-0.5 bg-white/25 rounded-full animate-ping delay-800 opacity-30"></div>
           </div>
           
-          {/* Subtle shimmer overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent animate-pulse"></div>
+          {/* Very subtle shimmer overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/2 to-transparent animate-pulse opacity-50"></div>
         </div>
       </div>
 
