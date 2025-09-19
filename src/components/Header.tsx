@@ -72,7 +72,7 @@ const Header = () => {
         </div>}
 
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-        <div className="container-custom mx-auto px-4">
+        <div className="container-custom px-4">
           <div className="flex items-center justify-between h-16">
             {/* Left spacer */}
             <div className="flex-1"></div>

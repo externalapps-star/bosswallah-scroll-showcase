@@ -125,9 +125,9 @@
     @apply py-16 px-4;
   }
 
-  /* Container for full width content with consistent padding */
+  /* Container for centered content with proper alignment */
   .container-custom {
-    @apply w-full px-4 md:px-6 lg:px-8;
+    @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
   }
 
   /* Hero gradient text effect */
