@@ -67,7 +67,7 @@ const Header = () => {
       </div>
 
       {/* Fixed Theme Toggle - Only visible when nav is hidden */}
-      {!isVisible && <div className="fixed top-4 right-4 z-50">
+      {!isVisible && <div className="fixed top-2 right-4 z-50">
           <ThemeToggle />
         </div>}
 
@@ -102,7 +102,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Actions - Right aligned */}
-            <div className="hidden md:flex items-center space-x-3 ml-auto">
+            <div className="hidden md:flex items-center space-x-2 ml-auto">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
