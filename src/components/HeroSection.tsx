@@ -65,13 +65,13 @@ const HeroSection = () => {
               variant="hero" 
               size="lg"
               className="text-lg px-16 py-8 h-auto font-semibold transform hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              {t('hero.cta')}
+              Start Campaign
             </Button>
             
             {/* Secondary CTAs Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-4xl">
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full max-w-5xl">
               <Button 
                 variant="outline" 
                 size="lg"
@@ -79,6 +79,14 @@ const HeroSection = () => {
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Our Story
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Explore Channels
               </Button>
               <Button 
                 variant="outline" 
