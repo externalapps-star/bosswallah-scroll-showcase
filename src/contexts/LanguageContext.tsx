@@ -56,7 +56,7 @@ const translations = {
     'hero.title': 'BOSS WALLAH MEDIA',
     'hero.subtitle': 'India\'s Leading Media House',
     'hero.description': 'Creating powerful digital campaigns that drive engagement, build brands, and deliver measurable results across all social media platforms.',
-    'hero.cta': 'Start Your Campaign',
+    'hero.cta': 'Explore Channels',
     'hero.watchVideo': 'Watch Our Story',
     
     // About Section
@@ -155,7 +155,7 @@ const translations = {
     'hero.title': 'बॉस वल्लाह मीडिया',
     'hero.subtitle': 'भारत का अग्रणी मीडिया हाउस',
     'hero.description': 'शक्तिशाली डिजिटल अभियान बनाना जो जुड़ाव बढ़ाते हैं, ब्रांड्स का निर्माण करते हैं, और सभी सोशल मीडिया प्लेटफॉर्म पर मापने योग्य परिणाम देते हैं।',
-    'hero.cta': 'अपना अभियान शुरू करें',
+    'hero.cta': 'चैनल एक्सप्लोर करें',
     'hero.watchVideo': 'हमारी कहानी देखें',
     
     // About Section
@@ -254,7 +254,7 @@ const translations = {
     'hero.title': 'बॉस वल्लाह मीडिया',
     'hero.subtitle': 'भारताचे आघाडीचे मीडिया हाउस',
     'hero.description': 'शक्तिशाली डिजिटल मोहिमा तयार करणे जे सहभाग वाढवतात, ब्रँड तयार करतात आणि सर्व सोशल मीडिया प्लॅटफॉर्मवर मोजता येतील असे परिणाम देतात.',
-    'hero.cta': 'तुमची मोहीम सुरू करा',
+    'hero.cta': 'चॅनेल एक्सप्लोर करा',
     'hero.watchVideo': 'आमची कहाणी पहा',
     
     // About Section
@@ -353,7 +353,7 @@ const translations = {
     'hero.title': 'બોસ વલ્લાહ મીડિયા',
     'hero.subtitle': 'ભારતનું અગ્રણી મીડિયા હાઉસ',
     'hero.description': 'શક્તિશાળી ડિજિટલ અભિયાનો બનાવવા જે જોડાણ વધારે છે, બ્રાંડ્સ બનાવે છે, અને તમામ સોશિયલ મીડિયા પ્લેટફોર્મ પર માપી શકાય તેવા પરિણામો આપે છે.',
-    'hero.cta': 'તમારું અભિયાન શરૂ કરો',
+    'hero.cta': 'ચેનલ એક્સપ્લોર કરો',
     'hero.watchVideo': 'અમારી વાર્તા જુઓ',
     
     // About Section
