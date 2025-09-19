@@ -73,24 +73,36 @@ const Header = () => {
 
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
-          <div className="hidden md:grid md:grid-cols-3 items-center h-16">
-            {/* Left Section - Home and News */}
-            <nav className="flex items-center space-x-6 justify-start">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo space */}
+            <div className="flex items-center">
+              
+            </div>
+
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center space-x-8">
               <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.home')}
+              </button>
+              <button onClick={() => scrollToSection('about')} className="text-foreground hover:text-primary transition-colors">
+                {t('nav.aboutUs')}
+              </button>
+              <button onClick={() => scrollToSection('channels')} className="text-foreground hover:text-primary transition-colors">
+                {t('nav.channels')}
+              </button>
+              <button onClick={() => scrollToSection('campaigns')} className="text-foreground hover:text-primary transition-colors">
+                {t('nav.campaigns')}
+              </button>
+              <button onClick={() => scrollToSection('testimonials')} className="text-foreground hover:text-primary transition-colors">
+                {t('nav.brandReviews')}
               </button>
               <button onClick={() => scrollToSection('news')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.news')}
               </button>
             </nav>
 
-            {/* Center Section - Logo */}
-            <div className="flex items-center justify-center">
-              <img src={bossWallahLogo} alt="Boss Wallah" className="h-10 w-auto" />
-            </div>
-
-            {/* Right Section - Language, Actions, Theme */}
-            <div className="flex items-center space-x-2 justify-end">
+            {/* Desktop Actions - Right aligned */}
+            <div className="hidden md:flex items-center space-x-2 ml-auto">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -121,11 +133,8 @@ const Header = () => {
               <ThemeToggle />
             </div>
 
-            {/* Mobile Layout */}
-            <div className="md:hidden flex items-center justify-between h-16">
-              <div className="flex items-center">
-                <img src={bossWallahLogo} alt="Boss Wallah" className="h-8 w-auto" />
-              </div>
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center space-x-2">
               <Button variant="ghost" size="sm" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                 {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
               </Button>
@@ -137,6 +146,18 @@ const Header = () => {
               <nav className="flex flex-col space-y-4">
                 <button onClick={() => scrollToSection('home')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
                   {t('nav.home')}
+                </button>
+                <button onClick={() => scrollToSection('about')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                  {t('nav.aboutUs')}
+                </button>
+                <button onClick={() => scrollToSection('channels')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                  {t('nav.channels')}
+                </button>
+                <button onClick={() => scrollToSection('campaigns')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                  {t('nav.campaigns')}
+                </button>
+                <button onClick={() => scrollToSection('testimonials')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
+                  {t('nav.brandReviews')}
                 </button>
                 <button onClick={() => scrollToSection('news')} className="text-left px-4 py-2 text-foreground hover:text-primary transition-colors">
                   {t('nav.news')}
