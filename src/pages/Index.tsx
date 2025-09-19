@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ChannelsSection from "@/components/ChannelsSection";
@@ -10,13 +11,22 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <HeroSection />
-      <AboutSection />
-      <ChannelsSection />
-      <CampaignsSection />
+      <Header />
+      <div id="home">
+        <HeroSection />
+      </div>
+      <div id="about">
+        <AboutSection />
+      </div>
+      <div id="services">
+        <ChannelsSection />
+        <CampaignsSection />
+      </div>
       <TestimonialsSection />
       <NewsSection />
-      <Footer />
+      <div id="contact">
+        <Footer />
+      </div>
       <FloatingCallButton />
     </div>
   );

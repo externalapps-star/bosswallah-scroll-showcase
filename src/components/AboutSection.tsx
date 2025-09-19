@@ -1,4 +1,8 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 const AboutSection = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="section-padding bg-gradient-subtle">
       <div className="container-custom">
@@ -6,22 +10,17 @@ const AboutSection = () => {
           {/* Text Content */}
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
-              About <span className="gradient-text">Boss Wallah Media</span>
+              {t('about.title')}
             </h2>
             
             <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
               <p>
-                Boss Wallah Media is India's leading social media and production platform, 
-                powering brand impact at scale across regional markets. With a dynamic community 
-                of <strong className="text-primary">18M+ followers</strong> and <strong className="text-primary">330M+ monthly views</strong> on 
-                YouTube, Facebook, and Instagram, Boss Wallah Media delivers integrated campaigns, 
-                production services, and influencer-style content for sectors like finance, health, 
-                tech, e-commerce, and digital products.
+                {t('about.description')}
               </p>
               
               <p>
-                Operating <strong className="text-accent">six full-scale studios</strong> with <strong className="text-accent">60+ anchors</strong>, 
-                editors, and creative talent, the company produces over <strong className="text-accent">200 videos weekly</strong> in 
+                Boss Wallah Media operates <strong className="text-accent">six full-scale studios</strong> with <strong className="text-accent">60+ anchors</strong>, 
+                editors, and creative talent, producing over <strong className="text-accent">200 videos weekly</strong> in 
                 Telugu, Tamil, Kannada, Hindi, English and Malayalam. Trusted by large and small 
                 Indian and international brands, Boss Wallah Media ensures campaigns deliver 
                 measurable ROI.

@@ -177,4 +177,9 @@
   .rotate-y-6 {
     transform: rotateY(6deg);
   }
+
+  /* Dropdown menu background fixes */
+  .dropdown-menu-content {
+    @apply bg-background border-border z-50 !important;
+  }
 }

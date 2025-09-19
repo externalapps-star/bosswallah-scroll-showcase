@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Theme Toggle */}
-      <ThemeToggle />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Theme Toggle - removed since it's now in header */}
       
       {/* Background Video/Montage */}
       <div 
@@ -49,13 +50,13 @@ const HeroSection = () => {
       <div className="container-custom relative z-10 text-center text-white px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight">
-            Boss Wallah Media
+            {t('hero.title')}
           </h1>
           <p className="text-2xl md:text-3xl mb-6 font-light">
-            India's Leading Social Media & Production Platform
+            {t('hero.subtitle')}
           </p>
           <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
-            Powering brand impact at scale across regional markets.
+            {t('hero.description')}
           </p>
           
           {/* Primary CTA */}
@@ -66,7 +67,7 @@ const HeroSection = () => {
               className="text-lg px-16 py-8 h-auto font-semibold transform hover:scale-105 transition-all duration-300"
               onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              Explore Our Channels
+              {t('hero.cta')}
             </Button>
             
             {/* Secondary CTAs Grid */}
