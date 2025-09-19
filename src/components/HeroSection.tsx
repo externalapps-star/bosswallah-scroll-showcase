@@ -57,14 +57,46 @@ const HeroSection = () => {
           <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
             Powering brand impact at scale across regional markets.
           </p>
-          <Button 
-            variant="hero" 
-            size="lg"
-            className="text-lg px-16 py-8 h-auto font-semibold"
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-          >
-            Discover Our Story
-          </Button>
+          
+          {/* Primary CTA */}
+          <div className="flex flex-col items-center gap-6 mb-8">
+            <Button 
+              variant="hero" 
+              size="lg"
+              className="text-lg px-16 py-8 h-auto font-semibold"
+              onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Explore Our Channels
+            </Button>
+            
+            {/* Secondary CTAs */}
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
+                onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                View Our Work
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Our Story
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 px-8 py-3 backdrop-blur-sm"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Get Started
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
 
