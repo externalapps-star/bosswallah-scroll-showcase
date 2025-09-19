@@ -193,7 +193,7 @@ const ChannelsSection = () => {
 
   return (
     <section id="channels" className="section-padding bg-background">
-      <div className="container-custom">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
             Our Social Media <span className="gradient-text">Channels</span>
@@ -220,10 +220,10 @@ const ChannelsSection = () => {
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
                   {/* Modern Card with 3D Transform */}
-                  <div className={`relative overflow-hidden bg-gradient-to-br from-background/90 via-background/70 to-background/50 backdrop-blur-2xl rounded-2xl transition-all duration-700 border h-full flex flex-col transform-gpu ${
+                  <div className={`relative overflow-hidden bg-gradient-to-br from-card/95 via-card/90 to-card/85 backdrop-blur-2xl rounded-3xl transition-all duration-700 border-2 h-full flex flex-col transform-gpu shadow-brand ${
                     isSelected 
-                      ? 'shadow-2xl border-primary/40 scale-105 rotate-y-6 bg-gradient-to-br from-primary/5 via-background/80 to-accent/5' 
-                      : 'shadow-lg border-border/50 group-hover:scale-105 group-hover:shadow-xl group-hover:border-primary/30 group-hover:-rotate-y-2'
+                      ? 'shadow-2xl border-primary/60 scale-105 rotate-y-6 bg-gradient-to-br from-primary/10 via-card/90 to-accent/10 shadow-[0_20px_40px_-10px_hsl(var(--primary)/0.4)]' 
+                      : 'shadow-xl border-primary/20 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-primary/40 group-hover:-rotate-y-2 hover:shadow-[0_15px_35px_-5px_hsl(var(--primary)/0.25)]'
                   }`}>
                     
                     {/* Animated Background Effects */}
@@ -260,14 +260,14 @@ const ChannelsSection = () => {
                         }}></div>
                         
                         {/* Main Icon Container */}
-                        <div className={`relative w-20 h-20 rounded-full flex items-center justify-center transition-all duration-500 ${platform.bgColor} ${
-                          isSelected ? 'shadow-2xl' : 'shadow-lg group-hover:shadow-xl'
+                        <div className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-500 bg-gradient-to-br from-white to-gray-50 border-2 border-white/20 ${
+                          isSelected ? 'shadow-2xl scale-110' : 'shadow-xl group-hover:shadow-2xl group-hover:scale-105'
                         }`}>
                           {/* Glow Effect */}
-                          <div className={`absolute inset-0 rounded-full blur-md opacity-0 group-hover:opacity-60 transition-opacity duration-500 ${
-                            platform.name === 'YouTube' ? 'bg-red-400/40' :
-                            platform.name === 'Facebook' ? 'bg-blue-400/40' :
-                            'bg-pink-400/40'
+                          <div className={`absolute inset-0 rounded-full blur-lg opacity-0 group-hover:opacity-70 transition-opacity duration-500 ${
+                            platform.name === 'YouTube' ? 'bg-red-500/50' :
+                            platform.name === 'Facebook' ? 'bg-blue-500/50' :
+                            'bg-pink-500/50'
                           } ${isSelected ? 'opacity-80' : ''}`}></div>
                           
                           {platform.image ? (
@@ -275,12 +275,12 @@ const ChannelsSection = () => {
                               src={platform.image} 
                               alt={`${platform.name} logo`}
                               className={`relative z-10 object-contain transition-all duration-500 ${
-                                isSelected ? 'w-12 h-12 drop-shadow-2xl' : 'w-10 h-10 group-hover:scale-110'
+                                isSelected ? 'w-20 h-20 drop-shadow-2xl' : 'w-16 h-16 group-hover:scale-110'
                               }`}
                             />
                           ) : (
                             <IconComponent 
-                              size={isSelected ? 48 : 40}
+                              size={isSelected ? 64 : 56}
                               className={`relative z-10 ${platform.color} transition-all duration-500 ${
                                 isSelected ? 'drop-shadow-2xl' : 'group-hover:scale-110'
                               }`}
