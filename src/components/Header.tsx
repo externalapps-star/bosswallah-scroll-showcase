@@ -32,21 +32,29 @@ const Header = () => {
     name: string;
     nativeName: string;
   }> = [{
-    code: 'en',
-    name: 'English',
-    nativeName: 'English'
+    code: 'te',
+    name: 'Telugu',
+    nativeName: 'తెలుగు'
+  }, {
+    code: 'ta',
+    name: 'Tamil',
+    nativeName: 'தமிழ்'
+  }, {
+    code: 'kn',
+    name: 'Kannada',
+    nativeName: 'ಕನ್ನಡ'
   }, {
     code: 'hi',
     name: 'Hindi',
     nativeName: 'हिन्दी'
   }, {
-    code: 'mr',
-    name: 'Marathi',
-    nativeName: 'मराठी'
+    code: 'en',
+    name: 'English',
+    nativeName: 'English'
   }, {
-    code: 'gu',
-    name: 'Gujarati',
-    nativeName: 'ગુજરાતી'
+    code: 'ml',
+    name: 'Malayalam',
+    nativeName: 'മലയാളം'
   }];
   const currentLanguage = languages.find(lang => lang.code === language);
   const scrollToSection = (sectionId: string) => {

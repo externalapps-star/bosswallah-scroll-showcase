@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type Language = 'en' | 'hi' | 'mr' | 'gu';
+export type Language = 'te' | 'ta' | 'kn' | 'hi' | 'en' | 'ml';
 
 interface LanguageContextType {
   language: Language;
@@ -39,8 +39,401 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   );
 };
 
-// Translation dictionary
+// Complete translation dictionary for all 6 languages
 const translations = {
+  te: {
+    // Navigation
+    'nav.home': 'హోమ్',
+    'nav.aboutUs': 'మా గురించి',
+    'nav.channels': 'చానెల్స్',
+    'nav.campaigns': 'ప్రచారాలు',
+    'nav.brandReviews': 'బ్రాండ్ రివ్యూలు',
+    'nav.news': 'వార్తలు',
+    'nav.submitEnquiry': 'విచారణ పంపండి',
+    'nav.login': 'లాగిన్',
+    
+    // Hero Section
+    'hero.title': 'బాస్ వల్లా మీడియా',
+    'hero.subtitle': 'భారత యొక్క ప్రముఖ మీడియా హౌస్',
+    'hero.description': 'అన్ని సోషల్ మీడియా ప్లాట్‌ఫారమ్‌లలో ఎంగేజ్‌మెంట్ పెంచే, బ్రాండ్‌లను నిర్మించే మరియు కొలవగల ఫలితాలను అందించే శక్తివంతమైన డిజిటల్ ప్రచారాలను సృష్టిస్తాము.',
+    'hero.cta': 'చానెల్స్ అన్వేషించండి',
+    'hero.watchVideo': 'మా కథ చూడండి',
+    
+    // About Section
+    'about.title': 'బాస్ వల్లా గురించి',
+    'about.subtitle': 'మీ విజయమే మా మిషన్',
+    'about.description': 'మేము సమగ్ర డిజిటల్ మార్కెటింగ్ సొల్యూషన్స్‌లో ప్రత్యేకత కలిగిన డైనమిక్ మీడియా హౌస్. కంటెంట్ క్రియేషన్ నుండి క్యాంపెయిన్ మేనేజ్‌మెంట్ వరకు, బ్రాండ్‌లకు శక్తివంతమైన ఆన్‌లైన్ ఉనికిని స్థాపించడంలో మేము సహాయపడతాము.',
+    'about.experience': 'సంవత్సరాల అనుభవం',
+    'about.campaigns': 'విజయవంతమైన ప్రచారాలు',
+    'about.clients': 'సంతోషకర ఖాతాదారులు',
+    'about.reach': 'మిలియన్+ రీచ్',
+    
+    // Channels Section  
+    'channels.title': 'మా చానెల్స్',
+    'channels.subtitle': 'మల్టీ-ప్లాట్‌ఫారమ్ ఎక్సలెన్స్',
+    'channels.youtube.title': 'యూట్యూబ్ మార్కెటింగ్',
+    'channels.youtube.desc': 'ప్రొఫెషనల్ వీడియో కంటెంట్ మరియు చానెల్ మేనేజ్‌మెంట్',
+    'channels.facebook.title': 'ఫేస్‌బుక్ ప్రచారాలు',
+    'channels.facebook.desc': 'లక్ష్యంగా చేసుకున్ న ప్రకటనలు మరియు కమ్యూనిటీ నిర్మాణం',
+    'channels.instagram.title': 'ఇన్‌స్టాగ్రామ్ గ్రోత్',
+    'channels.instagram.desc': 'విజువల్ స్టోరీటెలింగ్ మరియు ఇన్‌ఫ్లుయెన్సర్ పార్టనర్‌షిప్స్',
+    'channels.exploreChannel': 'చానెల్ అన్వేషించండి',
+    
+    // Services Section
+    'services.title': 'మా సేవలు',
+    'services.subtitle': 'సమగ్ర డిజిటల్ పరిష్కారాలు',
+    'services.brandBuilding': 'బ్రాండ్ నిర్మాణం',
+    'services.brandDesc': 'సంపూర్ణ బ్రాండ్ గుర్తింపు మరియు స్థానికరణ వ్యూహాలు',
+    'services.eventCampaign': 'ఈవెంట్ ప్రచారాలు',
+    'services.eventDesc': 'ఎండ్-టు-ఎండ్ ఈవెంట్ ప్రమోషన్ మరియు నిర్వహణ',
+    'services.indiaEntry': 'భారత మార్కెట్ ప్రవేశం',
+    'services.indiaDesc': 'అంతర్జాతీయ బ్రాండ్ల కోసం వ్యూహాత్మక మార్కెట్ ప్రవేశం',
+    'services.revenueGrowth': 'ఆదాయ వృద్ధి',
+    'services.revenueDesc': 'వ్యాపార విస్తరణ కోసం డేటా ఆధారిత వ్యూహాలు',
+    
+    // Testimonials
+    'testimonials.title': 'మా క్లయింట్లు ఏమంటున్నారు',
+    'testimonials.subtitle': 'విజయ కథలు',
+    
+    // News Section
+    'news.title': 'తాజా వార్తలు',
+    'news.subtitle': 'నవీకరణలు పొందండి',
+    'news.readMore': 'మరింత చదవండి',
+    
+    // Contact Section
+    'contact.title': 'సంప్రదించండి',
+    'contact.subtitle': 'మీ ప్రయాణం ప్రారంభించడానికి సిద్ధంగా ఉన్నారా?',
+    'contact.phone': 'ఇప్పుడే కాల్ చేయండి',
+    'contact.email': 'ఇమెయిల్ పంపండి',
+    'contact.whatsapp': 'వాట్సాస్అప్',
+    
+    // Footer
+    'footer.description': 'అసాధారణమైన డిజిటల్ మార్కెటింగ్ సొల్యూషన్స్ అందించే భారత యొక్క ప్రముఖ మీడియా హౌస్.',
+    'footer.quickLinks': 'శీఘ్ర లింక్‌లు',
+    'footer.services': 'సేవలు',
+    'footer.contact': 'సంప్రదింపు వివరాలు',
+    'footer.followUs': 'మాకు ఫాలో చేయండి',
+    'footer.rights': 'అన్ని హక్కులు రిజర్వ్ చేయబడ్డాయి.',
+    
+    // Login Modal
+    'login.title': 'బాస్ వల్లా లోకి స్వాగతం',
+    'login.subtitle': 'కొనసాగించడానికి సైన్ ఇన్ చేయండి',
+    'login.email': 'ఇమెయిల్ చిరునామా',
+    'login.phone': 'ఫోన్ నంబర్',
+    'login.password': 'పాస్వర్డ్',
+    'login.forgotPassword': 'పాస్వర్డ్ మర్చిపోయారా?',
+    'login.signIn': 'సైన్ ఇన్',
+    'login.noAccount': 'ఖాతా లేరు?',
+    'login.signUp': 'సైన్ అప్',
+    'login.continueWith': 'లేదా తో కొనసాగించండి',
+    'login.emailTab': 'ఇమెయిల్',
+    'login.phoneTab': 'ఫోన్',
+    'login.enterEmail': 'మీ ఇమెయిల్ చిరునామా నమోదు చేయండి',
+    'login.enterPhone': 'మీ ఫోన్ నంబర్ నమోదు చేయండి',
+    'login.enterPassword': 'మీ పాస్వర్డ్ నమోదు చేయండి',
+    
+    // Language Selector
+    'language.select': 'భాషను ఎంచుకోండి',
+    'language.english': 'English',
+    'language.hindi': 'हिन्दी',
+    'language.marathi': 'मराठी',
+    'language.gujarati': 'ગુજરાતી',
+  },
+  ta: {
+    // Navigation
+    'nav.home': 'முகப்பு',
+    'nav.aboutUs': 'எங்களைப் பற்றி',
+    'nav.channels': 'சேனல்கள்',
+    'nav.campaigns': 'பிரச்சாரங்கள்',
+    'nav.brandReviews': 'பிராண்ட் மதிப்புரைகள்',
+    'nav.news': 'செய்திகள்',
+    'nav.submitEnquiry': 'விசாரணை அனுப்பவும்',
+    'nav.login': 'உள்நுழைவு',
+    
+    // Hero Section
+    'hero.title': 'பாஸ் வல்லா மீடியா',
+    'hero.subtitle': 'இந்தியாவின் முன்னணி மீடியா ஹவுஸ்',
+    'hero.description': 'அனைத்து சமூக ஊடக தளங்களிலும் ஈடுபாட்டை அதிகரிக்கும், பிராண்டுகளை உருவாக்கும் மற்றும் அளவிடக்கூடிய முடிவுகளை வழங்கும் சக்திவாய்ந்த டிஜிட்டல் பிரச்சாரங்களை உருவாக்குகிறோம்.',
+    'hero.cta': 'சேனல்களை ஆராயுங்கள்',
+    'hero.watchVideo': 'எங்கள் கதையைப் பாருங்கள்',
+    
+    // About Section
+    'about.title': 'பாஸ் வல்லா பற்றி',
+    'about.subtitle': 'உங்கள் வெற்றி எங்கள் பணி',
+    'about.description': 'நாங்கள் விரிவான டிஜிட்டல் மார்க்கெட்டிங் தீர்வுகளில் சிறப்பு பெற்ற ஒரு இயக்கமுள்ள மீடியா ஹவுஸ். உள்ளடக்க உருவாக்கம் முதல் பிரச்சார மேலாண்மை வரை, பிராண்டுகளுக்கு வலுவான ஆன்லைன் இருப்பை நிறுவ உதவுகிறோம்.',
+    'about.experience': 'ஆண்டுகள் அனுபவம்',
+    'about.campaigns': 'வெற்றிகரமான பிரச்சாரங்கள்',
+    'about.clients': 'மகிழ்ச்சியான வாடிக்கையாளர்கள்',
+    'about.reach': 'மில்லியன்+ அடைவு',
+    
+    // Channels Section
+    'channels.title': 'எங்கள் சேனல்கள்',
+    'channels.subtitle': 'பல தள சிறப்பு',
+    'channels.youtube.title': 'யூடியூப் மார்க்கெட்டிங்',
+    'channels.youtube.desc': 'தொழில்முறை வீடியோ உள்ளடக்கம் மற்றும் சேனல் மேலாண்மை',
+    'channels.facebook.title': 'பேஸ்புக் பிரச்சாரங்கள்',
+    'channels.facebook.desc': 'இலக்கு விளம்பரங்கள் மற்றும் சமூக கட்டமைப்பு',
+    'channels.instagram.title': 'இன்ஸ்டாகிராம் வளர்ச்சி',
+    'channels.instagram.desc': 'காட்சி கதை சொல்லல் மற்றும் பாதிப்பாளர்கள் கூட்டாண்மை',
+    'channels.exploreChannel': 'சேனலை ஆராயுங்கள்',
+    
+    // Services Section
+    'services.title': 'எங்கள் சேவைகள்',
+    'services.subtitle': 'விரிவான டிஜிட்டல் தீர்வுகள்',
+    'services.brandBuilding': 'பிராண்ட் கட்டமைப்பு',
+    'services.brandDesc': 'முழுமையான பிராண்ட் அடையாளம் மற்றும் நிலைநிறுத்தல் திட்டங்கள்',
+    'services.eventCampaign': 'நிகழ்ச்சி பிரச்சாரங்கள்',
+    'services.eventDesc': 'முழுமையான நிகழ்ச்சி விளம்பரம் மற்றும் மேலாண்மை',
+    'services.indiaEntry': 'இந்தியா சந்தை நுழைவு',
+    'services.indiaDesc': 'சர்வதேச பிராண்டுகளுக்கான திட்டமிடப்பட்ட சந்தை நுழைவு',
+    'services.revenueGrowth': 'வருமான வளர்ச்சி',
+    'services.revenueDesc': 'வணிக விரிவாக்கத்திற்கான தரவுத்தள திட்டங்கள்',
+    
+    // Testimonials
+    'testimonials.title': 'எங்கள் வாடிக்கையாளர்கள் என்ன சொல்கிறார்கள்',
+    'testimonials.subtitle': 'வெற்றி கதைகள்',
+    
+    // News Section
+    'news.title': 'சமீபத்திய செய்திகள்',
+    'news.subtitle': 'புதுப்பிப்புகளைப் பெறுங்கள்',
+    'news.readMore': 'மேலும் படிக்க',
+    
+    // Contact Section
+    'contact.title': 'தொடர்பு கொள்ளவும்',
+    'contact.subtitle': 'உங்கள் பயணத்தைத் தொடங்க தயாரா?',
+    'contact.phone': 'இப்போது அழைக்கவும்',
+    'contact.email': 'மின்னஞ்சல் அனுப்பவும்',
+    'contact.whatsapp': 'வாட்ஸ்அப்',
+    
+    // Footer
+    'footer.description': 'சிறந்த டிஜிட்டல் மார்க்கெட்டிங் தீர்வுகளை வழங்கும் இந்தியாவின் முன்னணி மீடியா ஹவுஸ்.',
+    'footer.quickLinks': 'விரைவு இணைப்புகள்',
+    'footer.services': 'சேவைகள்',
+    'footer.contact': 'தொடர்பு தகவல்',
+    'footer.followUs': 'எங்களை பின்தொடரவும்',
+    'footer.rights': 'அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.',
+    
+    // Login Modal
+    'login.title': 'பாஸ் வல்லா வரவேற்கிறது',
+    'login.subtitle': 'தொடர sign in செய்யவும்',
+    'login.email': 'மின்னஞ்சல் முகவரி',
+    'login.phone': 'தொலைபேசி எண்',
+    'login.password': 'கடவுச்சொல்',
+    'login.forgotPassword': 'கடவுச்சொல் மறந்துவிட்டீர்களா?',
+    'login.signIn': 'உள்நுழைய',
+    'login.noAccount': 'கணக்கு இல்லை?',
+    'login.signUp': 'பதிவு செய்யவும்',
+    'login.continueWith': 'அல்லது தொடரவும்',
+    'login.emailTab': 'மின்னஞ்சல்',
+    'login.phoneTab': 'தொலைபேசி',
+    'login.enterEmail': 'உங்கள் மின்னஞ்சல் முகவரியை உள்ளிடவும்',
+    'login.enterPhone': 'உங்கள் தொலைபேசி எண்ணை உள்ளிடவும்',
+    'login.enterPassword': 'உங்கள் கடவுச்சொல்லை உள்ளிடவும்',
+    
+    // Language Selector
+    'language.select': 'மொழியை தேர்ந்தெடுக்கவும்',
+    'language.english': 'English',
+    'language.hindi': 'हिन्दी',
+    'language.marathi': 'मराठी',
+    'language.gujarati': 'ગુજરાતી',
+  },
+  kn: {
+    // Navigation  
+    'nav.home': 'ಮುಖ್ಯಪುಟ',
+    'nav.aboutUs': 'ನಮ್ಮ ಬಗ್ಗೆ',
+    'nav.channels': 'ಚಾನೆಲ್‌ಗಳು',
+    'nav.campaigns': 'ಪ್ರಚಾರಗಳು',
+    'nav.brandReviews': 'ಬ್ರಾಂಡ್ ವಿಮರ್ಶೆಗಳು',
+    'nav.news': 'ಸುದ್ದಿ',
+    'nav.submitEnquiry': 'ವಿಚಾರಣೆ ಸಲ್ಲಿಸಿ',
+    'nav.login': 'ಲಾಗಿನ್',
+    
+    // Hero Section
+    'hero.title': 'ಬಾಸ್ ವಲ್ಲಾ ಮೀಡಿಯಾ',
+    'hero.subtitle': 'ಭಾರತದ ಪ್ರಮುಖ ಮೀಡಿಯಾ ಹೌಸ್',
+    'hero.description': 'ಎಲ್ಲಾ ಸಾಮಾಜಿಕ ಮಾಧ್ಯಮ ವೇದಿಕೆಗಳಲ್ಲಿ ತೊಡಗಿಸಿಕೊಳ್ಳುವಿಕೆಯನ್ನು ಹೆಚ್ಚಿಸುವ, ಬ್ರಾಂಡ್‌ಗಳನ್ನು ನಿರ್ಮಿಸುವ ಮತ್ತು ಅಳೆಯಬಹುದಾದ ಫಲಿತಾಂಶಗಳನ್ನು ನೀಡುವ ಶಕ್ತಿಶಾಲಿ ಡಿಜಿಟಲ್ ಪ್ರಚಾರಗಳನ್ನು ರಚಿಸುತ್ತೇವೆ.',
+    'hero.cta': 'ಚಾನೆಲ್‌ಗಳನ್ನು ಅನ್ವೇಷಿಸಿ',
+    'hero.watchVideo': 'ನಮ್ಮ ಕಥೆ ನೋಡಿ',
+    
+    // About Section
+    'about.title': 'ಬಾಸ್ ವಲ್ಲಾ ಬಗ್ಗೆ',
+    'about.subtitle': 'ನಿಮ್ಮ ಯಶಸ್ಸು ನಮ್ಮ ಗುರಿ',
+    'about.description': 'ನಾವು ಸಮಗ್ರ ಡಿಜಿಟಲ್ ಮಾರ್ಕೆಟಿಂಗ್ ಪರಿಹಾರಗಳಲ್ಲಿ ಪರಿಣತಿ ಹೊಂದಿರುವ ಚುರುಕಾದ ಮೀಡಿಯಾ ಹೌಸ್. ವಿಷಯ ಸೃಷ್ಟಿಯಿಂದ ಪ್ರಚಾರ ನಿರ್ವಹಣೆಯವರೆಗೆ, ಬ್ರಾಂಡ್‌ಗಳಿಗೆ ಬಲವಾದ ಆನ್‌ಲೈನ್ ಹಾಜರಾತಿ ಸ್ಥಾಪಿಸಲು ಸಹಾಯ ಮಾಡುತ್ತೇವೆ.',
+    'about.experience': 'ವರ್ಷಗಳ ಅನುಭವ',
+    'about.campaigns': 'ಯಶಸ್ವಿ ಪ್ರಚಾರಗಳು',
+    'about.clients': 'ಸಂತೋಷಕರ ಗ್ರಾಹಕರು',
+    'about.reach': 'ಮಿಲಿಯನ್+ ತಲುಪುವಿಕೆ',
+    
+    // Channels Section
+    'channels.title': 'ನಮ್ಮ ಚಾನೆಲ್‌ಗಳು',
+    'channels.subtitle': 'ಬಹು-ಮಾಧ್ಯಮ ಶ್ರೇಷ್ಠತೆ',
+    'channels.youtube.title': 'ಯೂಟ್ಯೂಬ್ ಮಾರ್ಕೆಟಿಂಗ್',
+    'channels.youtube.desc': 'ವೃತ್ತಿಪರ ವೀಡಿಯೊ ವಿಷಯ ಮತ್ತು ಚಾನೆಲ್ ನಿರ್ವಹಣೆ',
+    'channels.facebook.title': 'ಫೇಸ್ಬುಕ್ ಪ್ರಚಾರಗಳು',
+    'channels.facebook.desc': 'ಲಕ್ಷ್ಯಿತ ಜಾಹೀರಾತುಗಳು ಮತ್ತು ಸಮುದಾಯ ನಿರ್ಮಾಣ',
+    'channels.instagram.title': 'ಇನ್‌ಸ್ಟಾಗ್ರಾಮ್ ವೃದ್ಧಿ',
+    'channels.instagram.desc': 'ದೃಶ್ಯ ಕಥನ ಮತ್ತು ಪ್ರಭಾವಶಾಲಿ ಸಹಭಾಗಿತ್ವಗಳು',
+    'channels.exploreChannel': 'ಚಾನೆಲ್ ಅನ್ವೇಷಿಸಿ',
+    
+    // Services Section
+    'services.title': 'ನಮ್ಮ ಸೇವೆಗಳು',
+    'services.subtitle': 'ಸಮಗ್ರ ಡಿಜಿಟಲ್ ಪರಿಹಾರಗಳು',
+    'services.brandBuilding': 'ಬ್ರಾಂಡ್ ನಿರ್ಮಾಣ',
+    'services.brandDesc': 'ಪೂರ್ಣ ಬ್ರಾಂಡ್ ಗುರುತು ಮತ್ತು ಸ್ಥಾನಮಾನ ತಂತ್ರಗಳು',
+    'services.eventCampaign': 'ಕಾರ್ಯಕ್ರಮ ಪ್ರಚಾರಗಳು',
+    'services.eventDesc': 'ಎಂಡ್-ಟು-ಎಂಡ್ ಕಾರ್ಯಕ್ರಮ ಪ್ರಚಾರ ಮತ್ತು ನಿರ್ವಹಣೆ',
+    'services.indiaEntry': 'ಭಾರತ ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ',
+    'services.indiaDesc': 'ಅಂತರರಾಷ್ಟ್ರೀಯ ಬ್ರಾಂಡ್‌ಗಳಿಗೆ ತಂತ್ರಜ್ಞಾನದ ಮಾರುಕಟ್ಟೆ ಪ್ರವೇಶ',
+    'services.revenueGrowth': 'ಆದಾಯ ವೃದ್ಧಿ',
+    'services.revenueDesc': 'ವ್ಯಾಪಾರ ವಿಸ್ತರಣೆಗೆ ಡೇಟಾ ಚಾಲಿತ ತಂತ್ರಗಳು',
+    
+    // Testimonials
+    'testimonials.title': 'ನಮ್ಮ ಗ್ರಾಹಕರು ಏನು ಹೇಳುತ್ತಾರೆ',
+    'testimonials.subtitle': 'ಯಶಸ್ಸಿನ ಕಥೆಗಳು',
+    
+    // News Section
+    'news.title': 'ಇತ್ತೀಚಿನ ಸುದ್ದಿ',
+    'news.subtitle': 'ನವೀಕರಣಗಳನ್ನು ಪಡೆಯಿರಿ',
+    'news.readMore': 'ಇನ್ನಷ್ಟು ಓದಿ',
+    
+    // Contact Section
+    'contact.title': 'ಸಂಪರ್ಕದಲ್ಲಿರಿ',
+    'contact.subtitle': 'ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಪ್ರಾರಂಭಿಸಲು ಸಿದ್ಧರಿದ್ದೀರಾ?',
+    'contact.phone': 'ಈಗ ಕರೆ ಮಾಡಿ',
+    'contact.email': 'ಇಮೇಲ್ ಕಳುಹಿಸಿ',
+    'contact.whatsapp': 'ವಾಟ್ಸ್‌ಆಪ್',
+    
+    // Footer
+    'footer.description': 'ಅಸಾಧಾರಣ ಡಿಜಿಟಲ್ ಮಾರ್ಕೆಟಿಂಗ್ ಪರಿಹಾರಗಳನ್ನು ಒದಗಿಸುವ ಭಾರತದ ಪ್ರಮುಖ ಮೀಡಿಯಾ ಹೌಸ್.',
+    'footer.quickLinks': 'ತ್ವರಿತ ಲಿಂಕ್‌ಗಳು',
+    'footer.services': 'ಸೇವೆಗಳು',
+    'footer.contact': 'ಸಂಪರ್ಕ ಮಾಹಿತಿ',
+    'footer.followUs': 'ನಮಗೆ ಅನುಸರಿಸಿ',
+    'footer.rights': 'ಎಲ್ಲಾ ಹಕ್ಕುಗಳು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.',
+    
+    // Login Modal
+    'login.title': 'ಬಾಸ್ ವಲ್ಲಾ ಗೆ ಸ್ವಾಗತ',
+    'login.subtitle': 'ಮುಂದುವರೆಯಲು ಸೈನ್ ಇನ್ ಮಾಡಿ',
+    'login.email': 'ಇಮೇಲ್ ವಿಳಾಸ',
+    'login.phone': 'ದೂರವಾಣಿ ಸಂಖ್ಯೆ',
+    'login.password': 'ಪಾಸ್ವರ್ಡ್',
+    'login.forgotPassword': 'ಪಾಸ್ವರ್ಡ್ ಮರೆತಿರಾ?',
+    'login.signIn': 'ಸೈನ್ ಇನ್',
+    'login.noAccount': 'ಖಾತೆ ಇಲ್ಲವೇ?',
+    'login.signUp': 'ಸೈನ್ ಅಪ್',
+    'login.continueWith': 'ಅಥವಾ ಮುಂದುವರೆಯಿರಿ',
+    'login.emailTab': 'ಇಮೇಲ್',
+    'login.phoneTab': 'ದೂರವಾಣಿ',
+    'login.enterEmail': 'ನಿಮ್ಮ ಇಮೇಲ್ ವಿಳಾಸವನ್ನು ನಮೂದಿಸಿ',
+    'login.enterPhone': 'ನಿಮ್ಮ ದೂರವಾಣಿ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ',
+    'login.enterPassword': 'ನಿಮ್ಮ ಪಾಸ್ವರ್ಡ್ ಅನ್ನು ನಮೂದಿಸಿ',
+    
+    // Language Selector
+    'language.select': 'ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ',
+    'language.english': 'English',
+    'language.hindi': 'हिन्दी',
+    'language.marathi': 'मराठी',
+    'language.gujarati': 'ગુજરાતી',
+  },
+
+  hi: {
+    // Navigation
+    'nav.home': 'होम',
+    'nav.aboutUs': 'हमारे बारे में',
+    'nav.channels': 'चैनल',
+    'nav.campaigns': 'अभियान',
+    'nav.brandReviews': 'ब्रांड समीक्षा',
+    'nav.news': 'समाचार',
+    'nav.submitEnquiry': 'पूछताछ भेजें',
+    'nav.login': 'लॉगिन',
+    
+    // Hero Section
+    'hero.title': 'बॉस वल्लाह मीडिया',
+    'hero.subtitle': 'भारत का अग्रणी मीडिया हाउस',
+    'hero.description': 'शक्तिशाली डिजिटल अभियान बनाना जो जुड़ाव बढ़ाते हैं, ब्रांड्स का निर्माण करते हैं, और सभी सोशल मीडिया प्लेटफॉर्म पर मापने योग्य परिणाम देते हैं।',
+    'hero.cta': 'चैनल एक्सप्लोर करें',
+    'hero.watchVideo': 'हमारी कहानी देखें',
+    
+    // About Section  
+    'about.title': 'बॉस वल्लाह के बारे में',
+    'about.subtitle': 'आपकी सफलता हमारा मिशन है',
+    'about.description': 'हम एक गतिशील मीडिया हाउस हैं जो व्यापक डिजिटल मार्केटिंग समाधानों में विशेषज्ञता रखते हैं। कंटेंट निर्माण से लेकर अभियान प्रबंधन तक, हम ब्रांड्स को एक मजबूत ऑनलाइन उपस्थिति स्थापित करने में मदद करते हैं।',
+    'about.experience': 'वर्षों का अनुभव',
+    'about.campaigns': 'सफल अभियान',
+    'about.clients': 'खुश ग्राहक',
+    'about.reach': 'मिलियन+ पहुंच',
+    
+    // Channels Section
+    'channels.title': 'हमारे चैनल',
+    'channels.subtitle': 'मल्टी-प्लेटफॉर्म उत्कृष्टता',
+    'channels.youtube.title': 'यूट्यूब मार्केटिंग',
+    'channels.youtube.desc': 'पेशेवर वीडियो कंटेंट और चैनल प्रबंधन',
+    'channels.facebook.title': 'फेसबुक अभियान',
+    'channels.facebook.desc': 'लक्षित विज्ञापन और समुदायिक निर्माण',
+    'channels.instagram.title': 'इंस्टाग्राम ग्रोथ',
+    'channels.instagram.desc': 'विज़ुअल स्टोरीटेलिंग और प्रभावशाली साझेदारी',
+    'channels.exploreChannel': 'चैनल एक्सप्लोर करें',
+    
+    // Services Section
+    'services.title': 'हमारी सेवाएं',
+    'services.subtitle': 'व्यापक डिजिटल समाधान',
+    'services.brandBuilding': 'ब्रांड निर्माण',
+    'services.brandDesc': 'पूर्ण ब्रांड पहचान और पोजिशनिंग रणनीतियां',
+    'services.eventCampaign': 'इवेंट अभियान',
+    'services.eventDesc': 'एंड-टू-एंड इवेंट प्रमोशन और प्रबंधन',
+    'services.indiaEntry': 'भारत मार्केट एंट्री',
+    'services.indiaDesc': 'अंतर्राष्ट्रीय ब्रांड्स के लिए रणनीतिक बाजार प्रवेश',
+    'services.revenueGrowth': 'राजस्व वृद्धि',
+    'services.revenueDesc': 'व्यावसायिक विस्तार के लिए डेटा-संचालित रणनीतियां',
+    
+    // Testimonials
+    'testimonials.title': 'हमारे ग्राहक क्या कहते हैं',
+    'testimonials.subtitle': 'सफलता की कहानियां',
+    
+    // News Section
+    'news.title': 'नवीनतम समाचार',
+    'news.subtitle': 'अपडेट रहें',
+    'news.readMore': 'और पढ़ें',
+    
+    // Contact Section
+    'contact.title': 'संपर्क में रहें',
+    'contact.subtitle': 'अपनी यात्रा शुरू करने के लिए तैयार हैं?',
+    'contact.phone': 'अभी कॉल करें',
+    'contact.email': 'ईमेल भेजें',
+    'contact.whatsapp': 'व्हाट्सऐप',
+    
+    // Footer
+    'footer.description': 'भारत का अग्रणी मीडिया हाउस जो असाधारण डिजिटल मार्केटिंग समाधान प्रदान करता है।',
+    'footer.quickLinks': 'त्वरित लिंक',
+    'footer.services': 'सेवाएं',
+    'footer.contact': 'संपर्क जानकारी',
+    'footer.followUs': 'हमें फॉलो करें',
+    'footer.rights': 'सभी अधिकार सुरक्षित।',
+    
+    // Login Modal
+    'login.title': 'बॉस वल्लाह में आपका स्वागत है',
+    'login.subtitle': 'जारी रखने के लिए साइन इन करें',
+    'login.email': 'ईमेल पता',
+    'login.phone': 'फोन नंबर',
+    'login.password': 'पासवर्ड',
+    'login.forgotPassword': 'पासवर्ड भूल गए?',
+    'login.signIn': 'साइन इन',
+    'login.noAccount': 'कोई खाता नहीं है?',
+    'login.signUp': 'साइन अप',
+    'login.continueWith': 'या के साथ जारी रखें',
+    'login.emailTab': 'ईमेल',
+    'login.phoneTab': 'फोन',
+    'login.enterEmail': 'अपना ईमेल पता दर्ज करें',
+    'login.enterPhone': 'अपना फोन नंबर दर्ज करें',
+    'login.enterPassword': 'अपना पासवर्ड दर्ज करें',
+    
+    // Language Selector
+    'language.select': 'भाषा चुनें',
+    'language.english': 'English',
+    'language.hindi': 'हिन्दी',
+    'language.marathi': 'मराठी',
+    'language.gujarati': 'ગુજરાતી',
+  },
   en: {
     // Navigation
     'nav.home': 'Home',
@@ -139,298 +532,99 @@ const translations = {
     'language.marathi': 'मराठी',
     'language.gujarati': 'ગુજરાતી',
   },
-  
-  hi: {
+  ml: {
     // Navigation
-    'nav.home': 'होम',
-    'nav.aboutUs': 'हमारे बारे में',
-    'nav.channels': 'चैनल',
-    'nav.campaigns': 'अभियान',
-    'nav.brandReviews': 'ब्रांड समीक्षा',
-    'nav.news': 'समाचार',
-    'nav.submitEnquiry': 'पूछताछ भेजें',
-    'nav.login': 'लॉगिन',
+    'nav.home': 'ഹോം',
+    'nav.aboutUs': 'ഞങ്ങളെ കുറിച്ച്',
+    'nav.channels': 'ചാനലുകൾ',
+    'nav.campaigns': 'കാമ്പെയ്‌നുകൾ',
+    'nav.brandReviews': 'ബ്രാൻഡ് റിവ്യൂകൾ',
+    'nav.news': 'വാർത്തകൾ',
+    'nav.submitEnquiry': 'അന്വേഷണം സമർപ്പിക്കുക',
+    'nav.login': 'ലോഗിൻ',
     
     // Hero Section
-    'hero.title': 'बॉस वल्लाह मीडिया',
-    'hero.subtitle': 'भारत का अग्रणी मीडिया हाउस',
-    'hero.description': 'शक्तिशाली डिजिटल अभियान बनाना जो जुड़ाव बढ़ाते हैं, ब्रांड्स का निर्माण करते हैं, और सभी सोशल मीडिया प्लेटफॉर्म पर मापने योग्य परिणाम देते हैं।',
-    'hero.cta': 'चैनल एक्सप्लोर करें',
-    'hero.watchVideo': 'हमारी कहानी देखें',
+    'hero.title': 'ബോസ് വല്ലാ മീഡിയ',
+    'hero.subtitle': 'ഇന്ത്യയിലെ മുൻനിര മീഡിയ ഹൗസ്',
+    'hero.description': 'എല്ലാ സോഷ്യൽ മീഡിയ പ്ലാറ്റ്‌ഫോമുകളിലും ഇടപെടൽ വർധിപ്പിക്കുന്ന, ബ്രാൻഡുകൾ നിർമ്മിക്കുന്ന, അളക്കാവുന്ന ഫലങ്ങൾ നൽകുന്ന ശക്തമായ ഡിജിറ്റൽ കാമ്പെയ്‌നുകൾ സൃഷ്ടിക്കുന്നു.',
+    'hero.cta': 'ചാനലുകൾ പര്യവേക്ഷണം ചെയ്യുക',
+    'hero.watchVideo': 'ഞങ്ങളുടെ കഥ കാണുക',
     
     // About Section
-    'about.title': 'बॉस वल्लाह के बारे में',
-    'about.subtitle': 'आपकी सफलता हमारा मिशन है',
-    'about.description': 'हम एक गतिशील मीडिया हाउस हैं जो व्यापक डिजिटल मार्केटिंग समाधानों में विशेषज्ञता रखते हैं। कंटेंट निर्माण से लेकर अभियान प्रबंधन तक, हम ब्रांड्स को एक मजबूत ऑनलाइन उपस्थिति स्थापित करने में मदद करते हैं।',
-    'about.experience': 'वर्षों का अनुभव',
-    'about.campaigns': 'सफल अभियान',
-    'about.clients': 'खुश ग्राहक',
-    'about.reach': 'मिलियन+ पहुंच',
+    'about.title': 'ബോസ് വല്ലാ കുറിച്ച്',
+    'about.subtitle': 'നിങ്ങളുടെ വിജയം ഞങ്ങളുടെ ദൗത്യം',
+    'about.description': 'നാം സമഗ്ര ഡിജിറ്റൽ മാർക്കറ്റിംഗ് പരിഹാരങ്ങളിൽ വിദഗ്ധതയുള്ള ഒരു സജീവ മീഡിയ ഹൗസ് ആണ്. ഉള്ളടക്കം സൃഷ്ടി മുതൽ കാമ്പെയ്ൻ മാനേജ്മെന്റ് വരെ, ബ്രാൻഡുകൾക്ക് ശക്തമായ ഓൺലൈൻ സാന്നിധ്യം സ്ഥാപിക്കാൻ സഹായിക്കുന്നു.',
+    'about.experience': 'വർഷങ്ങളുടെ അനുഭവം',
+    'about.campaigns': 'വിജയകരമായ കാമ്പെയ്‌നുകൾ',
+    'about.clients': 'സന്തോഷമുള്ള ക്ലയന്റുകൾ',
+    'about.reach': 'മില്യൺ+ എത്തുക',
     
     // Channels Section
-    'channels.title': 'हमारे चैनल',
-    'channels.subtitle': 'मल्टी-प्लेटफॉर्म उत्कृष्टता',
-    'channels.youtube.title': 'यूट्यूब मार्केटिंग',
-    'channels.youtube.desc': 'पेशेवर वीडियो कंटेंट और चैनल प्रबंधन',
-    'channels.facebook.title': 'फेसबुक अभियान',
-    'channels.facebook.desc': 'लक्षित विज्ञापन और समुदायिक निर्माण',
-    'channels.instagram.title': 'इंस्टाग्राम ग्रोथ',
-    'channels.instagram.desc': 'विज़ुअल स्टोरीटेलिंग और प्रभावशाली साझेदारी',
-    'channels.exploreChannel': 'चैनल एक्सप्लोर करें',
+    'channels.title': 'ഞങ്ങളുടെ ചാനലുകൾ',
+    'channels.subtitle': 'മൾട്ടി-പ്ലാറ്റ്ഫോം മികവ്',
+    'channels.youtube.title': 'യൂട്യൂബ് മാർക്കറ്റിംഗ്',
+    'channels.youtube.desc': 'പ്രൊഫഷണൽ വീഡിയോ ഉള്ളടക്കം, ചാനൽ മാനേജ്മെന്റ്',
+    'channels.facebook.title': 'ഫേസ്ബുക്ക് കാമ്പെയ്‌നുകൾ',
+    'channels.facebook.desc': 'ലക്ഷ്യമിട്ട പരസ്യങ്ങൾ, കമ്മ്യൂണിറ്റി നിർമ്മാണം',
+    'channels.instagram.title': 'ഇൻസ്റ്റാഗ്രാം വളർച്ച',
+    'channels.instagram.desc': 'വിഷ്വൽ സ്റ്റോറി ടെല്ലിംഗ്, ഇൻഫ്ലുവൻസർ പങ്കാളിത്തം',
+    'channels.exploreChannel': 'ചാനൽ പര്യവേക്ഷണം ചെയ്യുക',
     
     // Services Section
-    'services.title': 'हमारी सेवाएं',
-    'services.subtitle': 'व्यापक डिजिटल समाधान',
-    'services.brandBuilding': 'ब्रांड निर्माण',
-    'services.brandDesc': 'पूर्ण ब्रांड पहचान और पोजिशनिंग रणनीतियां',
-    'services.eventCampaign': 'इवेंट अभियान',
-    'services.eventDesc': 'एंड-टू-एंड इवेंट प्रमोशन और प्रबंधन',
-    'services.indiaEntry': 'भारत मार्केट एंट्री',
-    'services.indiaDesc': 'अंतर्राष्ट्रीय ब्रांड्स के लिए रणनीतिक बाजार प्रवेश',
-    'services.revenueGrowth': 'राजस्व वृद्धि',
-    'services.revenueDesc': 'व्यावसायिक विस्तार के लिए डेटा-संचालित रणनीतियां',
+    'services.title': 'ഞങ്ങളുടെ സേവനങ്ങൾ',
+    'services.subtitle': 'സമഗ്ര ഡിജിറ്റൽ പരിഹാരങ്ങൾ',
+    'services.brandBuilding': 'ബ്രാൻഡ് നിർമ്മാണം',
+    'services.brandDesc': 'പൂർണ്ണ ബ്രാൻഡ് ഐഡന്റിറ്റി, പൊസിഷനിംഗ് തന്ത്രങ്ങൾ',
+    'services.eventCampaign': 'ഇവന്റ് കാമ്പെയ്‌നുകൾ',
+    'services.eventDesc': 'എൻഡ്-ടു-എൻഡ് ഇവന്റ് പ്രമോഷൻ, മാനേജ്മെന്റ്',
+    'services.indiaEntry': 'ഇന്ത്യ മാർക്കറ്റ് എൻട്രി',
+    'services.indiaDesc': 'അന്താരാഷ്ട്ര ബ്രാൻഡുകൾക്കുള്ള തന്ത്രപരമായ മാർക്കറ്റ് പ്രവേശനം',
+    'services.revenueGrowth': 'വരുമാന വർദ്ധന',
+    'services.revenueDesc': 'ബിസിനസ് വിപുലീകരണത്തിനുള്ള ഡാറ്റാ-ചാലിത തന്ത്രങ്ങൾ',
     
     // Testimonials
-    'testimonials.title': 'हमारे ग्राहक क्या कहते हैं',
-    'testimonials.subtitle': 'सफलता की कहानियां',
+    'testimonials.title': 'ഞങ്ങളുടെ ക്ലയന്റുകൾ പറയുന്നത്',
+    'testimonials.subtitle': 'വിജയ കഥകൾ',
     
     // News Section
-    'news.title': 'नवीनतम समाचार',
-    'news.subtitle': 'अपडेट रहें',
-    'news.readMore': 'और पढ़ें',
+    'news.title': 'അടുത്തകാല വാർത്തകൾ',
+    'news.subtitle': 'അപ്ഡേറ്റുകൾ നേടുക',
+    'news.readMore': 'കൂടുതൽ വായിക്കുക',
     
     // Contact Section
-    'contact.title': 'संपर्क में रहें',
-    'contact.subtitle': 'अपनी यात्रा शुरू करने के लिए तैयार हैं?',
-    'contact.phone': 'अभी कॉल करें',
-    'contact.email': 'ईमेल भेजें',
-    'contact.whatsapp': 'व्हाट्सऐप',
+    'contact.title': 'ബന്ധപ്പെടുക',
+    'contact.subtitle': 'നിങ്ങളുടെ യാത്ര ആരംഭിക്കാൻ തയ്യാറാണോ?',
+    'contact.phone': 'ഇപ്പോൾ വിളിക്കുക',
+    'contact.email': 'ഇമെയിൽ അയയ്ക്കുക',
+    'contact.whatsapp': 'വാട്ട്‌സ്ആപ്പ്',
     
     // Footer
-    'footer.description': 'भारत का अग्रणी मीडिया हाउस जो असाधारण डिजिटल मार्केटिंग समाधान प्रदान करता है।',
-    'footer.quickLinks': 'त्वरित लिंक',
-    'footer.services': 'सेवाएं',
-    'footer.contact': 'संपर्क जानकारी',
-    'footer.followUs': 'हमें फॉलो करें',
-    'footer.rights': 'सभी अधिकार सुरक्षित।',
+    'footer.description': 'അസാധാരണ ഡിജിറ്റൽ മാർക്കറ്റിംഗ് പരിഹാരങ്ങൾ നൽകുന്ന ഇന്ത്യയിലെ മുൻനിര മീഡിയ ഹൗസ്.',
+    'footer.quickLinks': 'ക്വിക്ക് ലിങ്കുകൾ',
+    'footer.services': 'സേവനങ്ങൾ',
+    'footer.contact': 'ബന്ധപ്പെടാനുള്ള വിവരങ്ങൾ',
+    'footer.followUs': 'ഞങ്ങളെ പിന്തുടരുക',
+    'footer.rights': 'എല്ലാ അവകാശങ്ങളും സംരക്ഷിച്ചിരിക്കുന്നു.',
     
     // Login Modal
-    'login.title': 'बॉस वल्लाह में आपका स्वागत है',
-    'login.subtitle': 'जारी रखने के लिए साइन इन करें',
-    'login.email': 'ईमेल पता',
-    'login.phone': 'फोन नंबर',
-    'login.password': 'पासवर्ड',
-    'login.forgotPassword': 'पासवर्ड भूल गए?',
-    'login.signIn': 'साइन इन',
-    'login.noAccount': 'कोई खाता नहीं है?',
-    'login.signUp': 'साइन अप',
-    'login.continueWith': 'या के साथ जारी रखें',
-    'login.emailTab': 'ईमेल',
-    'login.phoneTab': 'फोन',
-    'login.enterEmail': 'अपना ईमेल पता दर्ज करें',
-    'login.enterPhone': 'अपना फोन नंबर दर्ज करें',
-    'login.enterPassword': 'अपना पासवर्ड दर्ज करें',
+    'login.title': 'ബോസ് വല്ലാ-യിലേക്ക് സ്വാഗതം',
+    'login.subtitle': 'തുടര സൈൻ ഇൻ ചെയ്യുക',
+    'login.email': 'ഇമെയിൽ വിലാസം',
+    'login.phone': 'ഫോൺ നമ്പർ',
+    'login.password': 'പാസ്‌വേഡ്',
+    'login.forgotPassword': 'പാസ്‌വേഡ് മറന്നോ?',
+    'login.signIn': 'സൈൻ ഇൻ',
+    'login.noAccount': 'അക്കൗണ്ട് ഇല്ലേ?',
+    'login.signUp': 'സൈൻ അപ്പ്',
+    'login.continueWith': 'അല്ലെങ്കിൽ തുടരണം',
+    'login.emailTab': 'ഇമെയിൽ',
+    'login.phoneTab': 'ഫോൺ',
+    'login.enterEmail': 'നിങ്ങളുടെ ഇമെയിൽ വിലാസം നൽകുക',
+    'login.enterPhone': 'നിങ്ങളുടെ ഫോൺ നമ്പർ നൽകുക',
+    'login.enterPassword': 'നിങ്ങളുടെ പാസ്‌വേഡ് നൽകുക',
     
     // Language Selector
-    'language.select': 'भाषा चुनें',
-    'language.english': 'English',
-    'language.hindi': 'हिन्दी',
-    'language.marathi': 'मराठी',
-    'language.gujarati': 'ગુજરાતી',
-  },
-  
-  mr: {
-    // Navigation
-    'nav.home': 'मुख्यपृष्ठ',
-    'nav.aboutUs': 'आमच्याबद्दल',
-    'nav.channels': 'चॅनेल',
-    'nav.campaigns': 'मोहिमा',
-    'nav.brandReviews': 'ब्रँड पुनरावलोकने',
-    'nav.news': 'बातम्या',
-    'nav.submitEnquiry': 'चौकशी सबमिट करा',
-    'nav.login': 'लॉगिन',
-    
-    // Hero Section
-    'hero.title': 'बॉस वल्लाह मीडिया',
-    'hero.subtitle': 'भारताचे आघाडीचे मीडिया हाउस',
-    'hero.description': 'शक्तिशाली डिजिटल मोहिमा तयार करणे जे सहभाग वाढवतात, ब्रँड तयार करतात आणि सर्व सोशल मीडिया प्लॅटफॉर्मवर मोजता येतील असे परिणाम देतात.',
-    'hero.cta': 'चॅनेल एक्सप्लोर करा',
-    'hero.watchVideo': 'आमची कहाणी पहा',
-    
-    // About Section
-    'about.title': 'बॉस वल्लाह बद्दल',
-    'about.subtitle': 'तुमचे यश आमचे ध्येय आहे',
-    'about.description': 'आम्ही एक गतिशील मीडिया हाउस आहोत जो सर्वसमावेशक डिजिटल मार्केटिंग समाधानांमध्ये विशेषज्ञता करते. कंटेंट निर्मितीपासून ते मोहीम व्यवस्थापनापर्यंत, आम्ही ब्रँडना मजबूत ऑनलाइन उपस्थिती स्थापित करण्यास मदत करतो.',
-    'about.experience': 'वर्षांचा अनुभव',
-    'about.campaigns': 'यशस्वी मोहिमा',
-    'about.clients': 'आनंदी ग्राहक',
-    'about.reach': 'दशलक्ष+ पोहोच',
-    
-    // Channels Section
-    'channels.title': 'आमचे चॅनेल',
-    'channels.subtitle': 'मल्टी-प्लॅटफॉर्म उत्कृष्टता',
-    'channels.youtube.title': 'यूट्यूब मार्केटिंग',
-    'channels.youtube.desc': 'व्यावसायिक व्हिडिओ कंटेंट आणि चॅनेल व्यवस्थापन',
-    'channels.facebook.title': 'फेसबुक मोहिमा',
-    'channels.facebook.desc': 'लक्ष्यित जाहिराती आणि समुदाय निर्माण',
-    'channels.instagram.title': 'इन्स्टाग्राम वाढ',
-    'channels.instagram.desc': 'व्हिज्युअल स्टोरीटेलिंग आणि प्रभावशाली भागीदारी',
-    'channels.exploreChannel': 'चॅनेल एक्सप्लोर करा',
-    
-    // Services Section
-    'services.title': 'आमच्या सेवा',
-    'services.subtitle': 'सर्वसमावेशक डिजिटल समाधाने',
-    'services.brandBuilding': 'ब्रँड निर्माण',
-    'services.brandDesc': 'संपूर्ण ब्रँड ओळख आणि पोजिशनिंग धोरणे',
-    'services.eventCampaign': 'इव्हेंट मोहिमा',
-    'services.eventDesc': 'एंड-टू-एंड इव्हेंट प्रमोशन आणि व्यवस्थापन',
-    'services.indiaEntry': 'भारत मार्केट एन्ट्री',
-    'services.indiaDesc': 'आंतरराष्ट्रीय ब्रँडसाठी धोरणात्मक बाजार प्रवेश',
-    'services.revenueGrowth': 'महसूल वाढ',
-    'services.revenueDesc': 'व्यावसायिक विस्तारासाठी डेटा-चालित धोरणे',
-    
-    // Testimonials
-    'testimonials.title': 'आमचे ग्राहक काय म्हणतात',
-    'testimonials.subtitle': 'यशाच्या कथा',
-    
-    // News Section
-    'news.title': 'नवीनतम बातम्या',
-    'news.subtitle': 'अपडेट राहा',
-    'news.readMore': 'अधिक वाचा',
-    
-    // Contact Section
-    'contact.title': 'संपर्कात राहा',
-    'contact.subtitle': 'तुमचा प्रवास सुरू करण्यास तयार आहात?',
-    'contact.phone': 'आता कॉल करा',
-    'contact.email': 'ईमेल पाठवा',
-    'contact.whatsapp': 'व्हाट्सअ‍ॅप',
-    
-    // Footer
-    'footer.description': 'भारताचे आघाडीचे मीडिया हाउस जे अपवादात्मक डिजिटल मार्केटिंग समाधाने प्रदान करते.',
-    'footer.quickLinks': 'त्वरित दुवे',
-    'footer.services': 'सेवा',
-    'footer.contact': 'संपर्क माहिती',
-    'footer.followUs': 'आम्हाला फॉलो करा',
-    'footer.rights': 'सर्व हक्क राखीव.',
-    
-    // Login Modal
-    'login.title': 'बॉस वल्लाह मध्ये आपले स्वागत आहे',
-    'login.subtitle': 'सुरू ठेवण्यासाठी साइन इन करा',
-    'login.email': 'ईमेल पत्ता',
-    'login.phone': 'फोन नंबर',
-    'login.password': 'पासवर्ड',
-    'login.forgotPassword': 'पासवर्ड विसरलात?',
-    'login.signIn': 'साइन इन',
-    'login.noAccount': 'खाते नाही?',
-    'login.signUp': 'साइन अप',
-    'login.continueWith': 'किंवा सह सुरू ठेवा',
-    'login.emailTab': 'ईमेल',
-    'login.phoneTab': 'फोन',
-    'login.enterEmail': 'तुमचा ईमेल पत्ता टाका',
-    'login.enterPhone': 'तुमचा फोन नंबर टाका',
-    'login.enterPassword': 'तुमचा पासवर्ड टाका',
-    
-    // Language Selector
-    'language.select': 'भाषा निवडा',
-    'language.english': 'English',
-    'language.hindi': 'हिन्दी',
-    'language.marathi': 'मराठी',
-    'language.gujarati': 'ગુજરાતી',
-  },
-  
-  gu: {
-    // Navigation
-    'nav.home': 'મુખ્ય',
-    'nav.aboutUs': 'અમારા વિશે',
-    'nav.channels': 'ચેનલ',
-    'nav.campaigns': 'અભિયાન',
-    'nav.brandReviews': 'બ્રાન્ડ સમીક્ષા',
-    'nav.news': 'સમાચાર',
-    'nav.submitEnquiry': 'પૂછપરછ સબમિટ કરો',
-    'nav.login': 'લૉગિન',
-    
-    // Hero Section
-    'hero.title': 'બોસ વલ્લાહ મીડિયા',
-    'hero.subtitle': 'ભારતનું અગ્રણી મીડિયા હાઉસ',
-    'hero.description': 'શક્તિશાળી ડિજિટલ અભિયાનો બનાવવા જે જોડાણ વધારે છે, બ્રાંડ્સ બનાવે છે, અને તમામ સોશિયલ મીડિયા પ્લેટફોર્મ પર માપી શકાય તેવા પરિણામો આપે છે.',
-    'hero.cta': 'ચેનલ એક્સપ્લોર કરો',
-    'hero.watchVideo': 'અમારી વાર્તા જુઓ',
-    
-    // About Section
-    'about.title': 'બોસ વલ્લાહ વિશે',
-    'about.subtitle': 'તમારી સફળતા અમારું મિશન છે',
-    'about.description': 'અમે એક ગતિશીલ મીડિયા હાઉસ છીએ જે વ્યાપક ડિજિટલ માર્કેટિંગ સોલ્યુશન્સમાં વિશેષતા ધરાવે છે. કન્ટેન્ટ નિર્માણથી લઈને અભિયાન વ્યવસ્થાપન સુધી, અમે બ્રાંડ્સને મજબૂત ઓનલાઇન હાજરી સ્થાપિત કરવામાં મદદ કરીએ છીએ.',
-    'about.experience': 'વર્ષોનો અનુભવ',
-    'about.campaigns': 'સફળ અભિયાનો',
-    'about.clients': 'ખુશ ગ્રાહકો',
-    'about.reach': 'મિલિયન+ પહોંચ',
-    
-    // Channels Section
-    'channels.title': 'અમારા ચેનલ્સ',
-    'channels.subtitle': 'મલ્ટિ-પ્લેટફોર્મ ઉત્કૃષ્ટતા',
-    'channels.youtube.title': 'યૂટ્યુબ માર્કેટિંગ',
-    'channels.youtube.desc': 'વ્યાવસાયિક વિડિયો કન્ટેન્ટ અને ચેનલ વ્યવસ્થાપન',
-    'channels.facebook.title': 'ફેસબુક અભિયાનો',
-    'channels.facebook.desc': 'લક્ષ્યાંકિત જાહેરાતો અને સમુદાય નિર્માણ',
-    'channels.instagram.title': 'ઇન્સ્ટાગ્રામ વૃદ્ધિ',
-    'channels.instagram.desc': 'વિઝ્યુઅલ સ્ટોરીટેલિંગ અને પ્રભાવશાળી ભાગીદારી',
-    'channels.exploreChannel': 'ચેનલ શોધો',
-    
-    // Services Section
-    'services.title': 'અમારી સેવાઓ',
-    'services.subtitle': 'વ્યાપક ડિજિટલ સોલ્યુશન્સ',
-    'services.brandBuilding': 'બ્રાંડ બિલ્ડિંગ',
-    'services.brandDesc': 'સંપૂર્ણ બ્રાંડ ઓળખ અને પોઝિશનિંગ વ્યૂહરચનાઓ',
-    'services.eventCampaign': 'ઇવેન્ટ અભિયાનો',
-    'services.eventDesc': 'એન્ડ-ટુ-એન્ડ ઇવેન્ટ પ્રમોશન અને વ્યવસ્થાપન',
-    'services.indiaEntry': 'ભારત માર્કેટ એન્ટ્રી',
-    'services.indiaDesc': 'આંતરરાષ્ટ્રીય બ્રાંડ્સ માટે વ્યૂહાત્મક માર્કેટ પ્રવેશ',
-    'services.revenueGrowth': 'રેવન્યુ વૃદ્ધિ',
-    'services.revenueDesc': 'બિઝનેસ વિસ્તરણ માટે ડેટા-સંચાલિત વ્યૂહરચનાઓ',
-    
-    // Testimonials
-    'testimonials.title': 'અમારા ગ્રાહકો શું કહે છે',
-    'testimonials.subtitle': 'સફળતાની વાર્તાઓ',
-    
-    // News Section
-    'news.title': 'નવીનતમ સમાચાર',
-    'news.subtitle': 'અપડેટ રહો',
-    'news.readMore': 'વધુ વાંચો',
-    
-    // Contact Section
-    'contact.title': 'સંપર્કમાં રહો',
-    'contact.subtitle': 'તમારી યાત્રા શરૂ કરવા તૈયાર છો?',
-    'contact.phone': 'હમણાં કૉલ કરો',
-    'contact.email': 'ઇમેઇલ મોકલો',
-    'contact.whatsapp': 'વ્હોટ્સએપ',
-    
-    // Footer
-    'footer.description': 'ભારતનું અગ્રણી મીડિયા હાઉસ જે અસાધારણ ડિજિટલ માર્કેટિંગ સોલ્યુશન્સ પ્રદાન કરે છે.',
-    'footer.quickLinks': 'ઝડપી લિંક્સ',
-    'footer.services': 'સેવાઓ',
-    'footer.contact': 'સંપર્ક માહિતી',
-    'footer.followUs': 'અમને ફોલો કરો',
-    'footer.rights': 'તમામ અધિકારો આરક્ષિત.',
-    
-    // Login Modal
-    'login.title': 'બોસ વલ્લાહમાં આપનું સ્વાગત છે',
-    'login.subtitle': 'ચાલુ રાખવા માટે સાઇન ઇન કરો',
-    'login.email': 'ઇમેઇલ સરનામું',
-    'login.phone': 'ફોન નંબર',
-    'login.password': 'પાસવર્ડ',
-    'login.forgotPassword': 'પાસવર્ડ ભૂલી ગયા?',
-    'login.signIn': 'સાઇન ઇન',
-    'login.noAccount': 'કોઈ એકાઉન્ટ નથી?',
-    'login.signUp': 'સાઇન અપ',
-    'login.continueWith': 'અથવા સાથે ચાલુ રાખો',
-    'login.emailTab': 'ઇમેઇલ',
-    'login.phoneTab': 'ફોન',
-    'login.enterEmail': 'તમારું ઇમેઇલ સરનામું દાખલ કરો',
-    'login.enterPhone': 'તમારો ફોન નંબર દાખલ કરો',
-    'login.enterPassword': 'તમારો પાસવર્ડ દાખલ કરો',
-    
-    // Language Selector
-    'language.select': 'ભાષા પસંદ કરો',
+    'language.select': 'ഭാഷ തിരഞ്ഞെടുക്കുക',
     'language.english': 'English',
     'language.hindi': 'हिन्दी',
     'language.marathi': 'मराठी',
