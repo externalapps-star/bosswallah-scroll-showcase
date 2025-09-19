@@ -221,43 +221,25 @@ const ChannelsSection = () => {
                 >
                   {/* Modern Card with 3D Transform */}
                   <div className={`relative overflow-hidden bg-gradient-to-br from-card/95 via-card/90 to-card/85 backdrop-blur-2xl rounded-3xl transition-all duration-700 border-2 h-full flex flex-col transform-gpu shadow-brand ${
-                    isSelected 
-                      ? 'shadow-2xl border-primary/60 scale-105 rotate-y-6 bg-gradient-to-br from-primary/10 via-card/90 to-accent/10 shadow-[0_20px_40px_-10px_hsl(var(--primary)/0.4)]' 
-                      : 'shadow-xl border-primary/20 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-primary/40 group-hover:-rotate-y-2 hover:shadow-[0_15px_35px_-5px_hsl(var(--primary)/0.25)]'
+                    platform.name === 'YouTube' ? (
+                      isSelected 
+                        ? 'shadow-2xl border-red-500/80 scale-105 rotate-y-6 bg-gradient-to-br from-red-500/10 via-card/90 to-red-600/10 shadow-[0_20px_40px_-10px_hsl(0_100%_50%/0.4)]' 
+                        : 'shadow-xl border-red-500/40 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-red-500/60 group-hover:-rotate-y-2 hover:shadow-[0_15px_35px_-5px_hsl(0_100%_50%/0.25)]'
+                    ) : platform.name === 'Facebook' ? (
+                      isSelected 
+                        ? 'shadow-2xl border-blue-500/80 scale-105 rotate-y-6 bg-gradient-to-br from-blue-500/10 via-card/90 to-blue-600/10 shadow-[0_20px_40px_-10px_hsl(221_83%_53%/0.4)]' 
+                        : 'shadow-xl border-blue-500/40 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-blue-500/60 group-hover:-rotate-y-2 hover:shadow-[0_15px_35px_-5px_hsl(221_83%_53%/0.25)]'
+                    ) : (
+                      isSelected 
+                        ? 'shadow-2xl border-pink-500/80 scale-105 rotate-y-6 bg-gradient-to-br from-pink-500/10 via-card/90 to-purple-600/10 shadow-[0_20px_40px_-10px_hsl(330_81%_60%/0.4)]' 
+                        : 'shadow-xl border-pink-500/40 group-hover:scale-105 group-hover:shadow-2xl group-hover:border-pink-500/60 group-hover:-rotate-y-2 hover:shadow-[0_15px_35px_-5px_hsl(330_81%_60%/0.25)]'
+                    )
                   }`}>
-                    
-                    {/* Animated Background Effects */}
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                      <div className={`absolute inset-0 bg-gradient-to-br ${
-                        platform.name === 'YouTube' ? 'from-red-500/10 via-transparent to-red-600/5' :
-                        platform.name === 'Facebook' ? 'from-blue-500/10 via-transparent to-blue-600/5' :
-                        'from-pink-500/10 via-transparent to-purple-600/5'
-                      } animate-pulse`}></div>
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
-                    </div>
-
-                    {/* Floating Elements */}
-                    <div className="absolute top-6 right-6 w-3 h-3 bg-primary/20 rounded-full animate-ping"></div>
-                    <div className="absolute top-4 right-4 w-2 h-2 bg-accent/30 rounded-full animate-pulse delay-500"></div>
-                    <div className="absolute bottom-8 left-6 w-1 h-1 bg-primary/40 rounded-full animate-bounce delay-1000"></div>
-
                     <div className="relative z-10 p-8 flex flex-col items-center text-center h-full">
                       {/* Icon Section with Enhanced Design */}
                       <div className={`relative mb-6 transition-all duration-500 ${
                         isSelected ? 'scale-110' : 'group-hover:scale-105'
                       }`}>
-                        {/* Animated Ring */}
-                        <div className={`absolute inset-0 rounded-full border-2 border-dashed transition-all duration-700 ${
-                          platform.name === 'YouTube' ? 'border-red-400/30' :
-                          platform.name === 'Facebook' ? 'border-blue-400/30' :
-                          'border-pink-400/30'
-                        } ${isSelected ? 'animate-spin border-primary/50' : 'animate-pulse'}`} style={{
-                          width: '100px',
-                          height: '100px',
-                          left: '50%',
-                          top: '50%',
-                          transform: 'translate(-50%, -50%)'
-                        }}></div>
                         
                         {/* Main Icon Container */}
                         <div className={`relative w-28 h-28 rounded-full flex items-center justify-center transition-all duration-500 bg-gradient-to-br from-white to-gray-50 border-2 border-white/20 ${
