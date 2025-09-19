@@ -74,13 +74,11 @@ const Header = () => {
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo space */}
-            <div className="flex items-center">
-              
-            </div>
+            {/* Left spacer */}
+            <div className="flex-1"></div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation - Center aligned */}
+            <nav className="hidden md:flex items-center justify-center space-x-8 flex-1">
               <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.home')}
               </button>
@@ -101,8 +99,8 @@ const Header = () => {
               </button>
             </nav>
 
-            {/* Desktop Actions - Right aligned */}
-            <div className="hidden md:flex items-center space-x-2 ml-auto">
+            {/* Desktop Actions - Extreme right */}
+            <div className="hidden md:flex items-center space-x-2 flex-1 justify-end">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
