@@ -59,13 +59,6 @@ const Header = () => {
     setIsMobileMenuOpen(false);
   };
   return <>
-      {/* Fixed Logo - Always Visible */}
-      <div className="fixed top-4 left-4 z-50">
-        <div className="flex items-center gap-3">
-          <img src={bossWallahLogo} alt="Boss Wallah" className="h-10 w-auto" />
-        </div>
-      </div>
-
       {/* Fixed Theme Toggle - Only visible when nav is hidden */}
       {!isVisible && <div className="fixed top-4 right-4 z-50">
           <ThemeToggle />
@@ -74,13 +67,8 @@ const Header = () => {
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Logo space */}
-            <div className="flex items-center">
-              
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
+            {/* Left Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
               <button onClick={() => scrollToSection('home')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.home')}
               </button>
@@ -90,6 +78,15 @@ const Header = () => {
               <button onClick={() => scrollToSection('channels')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.channels')}
               </button>
+            </nav>
+
+            {/* Centered Logo */}
+            <div className="flex items-center">
+              <img src={bossWallahLogo} alt="Boss Wallah" className="h-10 w-auto" />
+            </div>
+
+            {/* Right Navigation */}
+            <nav className="hidden md:flex items-center space-x-6">
               <button onClick={() => scrollToSection('campaigns')} className="text-foreground hover:text-primary transition-colors">
                 {t('nav.campaigns')}
               </button>
@@ -102,7 +99,7 @@ const Header = () => {
             </nav>
 
             {/* Desktop Actions - Right aligned */}
-            <div className="hidden md:flex items-center space-x-3 ml-auto">
+            <div className="hidden md:flex items-center space-x-3">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
