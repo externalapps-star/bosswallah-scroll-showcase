@@ -47,9 +47,15 @@ const CampaignsSection = () => {
           {campaigns.map((campaign, index) => (
             <div
               key={campaign.title}
-              className="bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border border-border h-full flex flex-col"
+              className="group relative bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col hover:bg-gradient-to-br hover:from-orange-50/80 hover:to-amber-50/60 dark:hover:from-orange-950/30 dark:hover:to-amber-950/20 overflow-hidden"
             >
-              <div className="flex items-start space-x-6">
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
+                  <div className="w-full h-full bg-card rounded-3xl"></div>
+                </div>
+              </div>
+              <div className="relative z-10 flex items-start space-x-6">
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
                   <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
