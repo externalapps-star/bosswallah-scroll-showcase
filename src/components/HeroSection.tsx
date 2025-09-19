@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import heroVideoBg from "@/assets/hero-video-bg.jpg";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   return (
@@ -12,7 +12,7 @@ const HeroSection = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${heroVideoBg})`,
+          backgroundImage: `url(${heroBackground})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
