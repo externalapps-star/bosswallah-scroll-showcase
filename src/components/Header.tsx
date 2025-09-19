@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Globe, User, Menu, X } from "lucide-react";
 import LoginModal from "@/components/LoginModal";
+import bossWallahLogo from "@/assets/boss-wallah-logo.png";
 
 const Header = () => {
   const { language, setLanguage, t } = useLanguage();
@@ -52,13 +53,12 @@ const Header = () => {
     <>
       {/* Fixed Logo - Always Visible */}
       <div className="fixed top-4 left-4 z-50">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-sm">BW</span>
-          </div>
-          <h1 className="text-xl font-bold gradient-text">
-            Boss Wallah
-          </h1>
+        <div className="flex items-center gap-3">
+          <img 
+            src={bossWallahLogo} 
+            alt="Boss Wallah" 
+            className="h-10 w-auto"
+          />
         </div>
       </div>
 
@@ -72,8 +72,14 @@ const Header = () => {
       <header className={`fixed top-0 left-0 right-0 z-40 bg-background/80 backdrop-blur-md border-b border-border transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="container-custom mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Spacer for logo */}
-            <div className="w-48"></div>
+            {/* Logo space */}
+            <div className="flex items-center">
+              <img 
+                src={bossWallahLogo} 
+                alt="Boss Wallah" 
+                className="h-8 w-auto"
+              />
+            </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
@@ -115,8 +121,8 @@ const Header = () => {
               </button>
             </nav>
 
-            {/* Desktop Actions */}
-            <div className="hidden md:flex items-center space-x-3">
+            {/* Desktop Actions - Right aligned */}
+            <div className="hidden md:flex items-center space-x-3 ml-auto">
               {/* Language Selector */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
