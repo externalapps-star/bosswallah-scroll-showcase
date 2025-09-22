@@ -114,7 +114,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-12 px-4 py-4 space-y-3">
+            <div className="mx-12 px-4 py-4 space-y-3 pt-6">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-4 items-start mb-6">
                 <div className="relative w-32 h-32 overflow-hidden rounded-lg flex-shrink-0">
@@ -148,12 +148,10 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               </div>
 
               {/* Article Content */}
-              <div className="prose max-w-none">
-                {news.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="mb-4 text-foreground leading-relaxed text-sm">
-                    {paragraph}
-                  </p>
-                ))}
+              <div className="prose max-w-none line-clamp-12">
+                <p className="text-foreground leading-relaxed text-sm">
+                  {news.content}
+                </p>
               </div>
 
               {/* Insights Box */}
