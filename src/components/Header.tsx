@@ -126,13 +126,13 @@ const Header = () => {
 
               {/* Submit Enquiry CTA */}
               <Button onClick={() => scrollToSection('contact')} className="flex items-center gap-2">
-                {t('nav.submitEnquiry')}
+                Start a campaign
               </Button>
 
               {/* Login Button */}
               <Button variant="outline" onClick={() => setIsLoginModalOpen(true)} className="flex items-center gap-2">
                 <User className="h-4 w-4" />
-                {t('nav.login')}
+                go to our official website
               </Button>
 
               {/* Theme Toggle */}
@@ -174,7 +174,7 @@ const Header = () => {
               scrollToSection('contact');
               setIsMobileMenuOpen(false);
             }} className="mx-4 mb-2">
-                  {t('nav.submitEnquiry')}
+                  Start a campaign
                 </Button>
                 
                 <div className="px-4 py-2 border-t border-border">
@@ -199,7 +199,7 @@ const Header = () => {
                 setIsMobileMenuOpen(false);
               }} className="w-full justify-start gap-2 mb-2">
                     <User className="h-4 w-4" />
-                    {t('nav.login')}
+                    go to our official website
                   </Button>
 
                   {/* Mobile Theme Toggle */}
