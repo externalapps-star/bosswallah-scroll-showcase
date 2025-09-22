@@ -104,7 +104,15 @@ const InstagramPage = () => {
                     <div
                       key={channel.name}
                       className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer"
-                      onClick={() => window.open(channel.url, '_blank')}
+                      onClick={() => {
+                        const link = document.createElement('a');
+                        link.href = channel.url;
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer';
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                      }}
                     >
                       <div className="flex items-start justify-between mb-4">
                         <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
