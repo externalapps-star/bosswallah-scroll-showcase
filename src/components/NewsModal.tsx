@@ -117,7 +117,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             <div className="mx-16 px-4 py-6 space-y-4">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-4 items-start mb-6">
-                <div className="relative w-32 h-24 overflow-hidden rounded-lg flex-shrink-0">
+                <div className={`relative w-32 overflow-hidden rounded-lg flex-shrink-0 ${news.title.length > 50 ? 'h-32' : 'h-16'}`}>
                   <img 
                     src={news.thumbnail} 
                     alt={news.title}
