@@ -82,7 +82,7 @@ const NewsModal = ({
             variant="ghost" 
             size="icon" 
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full border border-orange-200 hover:bg-orange-50 transition-all duration-300 text-black"
+            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full border border-orange-200 transition-all duration-300 text-black"
           >
             <X size={16} />
           </Button>
