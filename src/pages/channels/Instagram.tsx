@@ -44,8 +44,8 @@ const InstagramPage = () => {
       language: "English",
       channels: [
         { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" },
-        { name: "Boss Wallah Farming English", url: "https://www.instagram.com/bosswallahfarmingenglish/", category: "Farming" },
-        { name: "Boss Wallah Business English", url: "https://www.instagram.com/bosswallahbusinessenglish/", category: "Business" }
+        { name: "Boss Wallah Farming English", url: "https://www.instagram.com/bosswallahfarmingenglish", category: "Farming" },
+        { name: "Boss Wallah Business English", url: "https://www.instagram.com/bosswallahbusinessenglish", category: "Business" }
       ]
     }
   ];
