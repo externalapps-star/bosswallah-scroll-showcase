@@ -77,8 +77,8 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 overflow-hidden">
-        <div className="relative bg-card">
+      <DialogContent className="max-w-4xl w-[90vw] h-[85vh] p-0 overflow-hidden fixed-size">
+        <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
           {onPrevious && (
             <Button
@@ -112,9 +112,9 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             <X size={16} />
           </Button>
 
-          <ScrollArea className="max-h-[85vh]">
+          <ScrollArea className="flex-1">
             {/* Featured Image */}
-            <div className="relative w-full h-32 md:h-40 overflow-hidden">
+            <div className="relative w-full h-40 overflow-hidden flex-shrink-0">
               <img 
                 src={news.thumbnail} 
                 alt={news.title}
@@ -123,19 +123,19 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             </div>
 
             {/* Content */}
-            <div className="mx-12 px-4 md:px-6 py-4 space-y-3">
+            <div className="mx-16 px-4 py-6 space-y-4">
               {/* Title */}
-              <h1 className="text-xl md:text-2xl font-bold mb-3 text-foreground leading-tight">
+              <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight text-center">
                 {news.title}
               </h1>
 
               {/* Meta Info */}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
+              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
                 <span>{formatDate(news.date)}</span>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap justify-center gap-2 mb-4">
                 {news.tags.map((tag, index) => (
                   <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
                     {tag}
@@ -144,25 +144,25 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               </div>
 
               {/* Article Content */}
-              <div className="prose max-w-none">
+              <div className="prose max-w-none text-center">
                 {news.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="mb-3 text-foreground leading-relaxed text-sm">
+                  <p key={index} className="mb-4 text-foreground leading-relaxed text-sm">
                     {paragraph}
                   </p>
                 ))}
               </div>
 
               {/* Insights Box */}
-              <div className="mt-6 p-3 bg-muted/50 rounded-lg border-l-4 border-primary">
-                <h3 className="font-semibold text-foreground mb-2 text-sm">INSIGHTS</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+              <div className="mt-6 p-4 bg-muted/50 rounded-lg border-l-4 border-primary">
+                <h3 className="font-semibold text-foreground mb-2 text-sm text-center">INSIGHTS</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed text-center">
                   {news.excerpt}
                 </p>
               </div>
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between mx-12 px-4 md:px-6 py-4 border-t bg-muted/30">
+            <div className="flex items-center justify-between mx-16 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Button
                   variant="outline"
