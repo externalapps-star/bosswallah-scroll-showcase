@@ -71,6 +71,12 @@ const ChannelsSection = () => {
         ]
       },
       {
+        language: "Malayalam",
+        channels: [
+          { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
+        ]
+      },
+      {
         language: "Hindi",
         channels: [
           { name: "Boss Wallah Hindi", url: "https://www.youtube.com/@bosswallahhindi", category: "Main" },
@@ -84,12 +90,6 @@ const ChannelsSection = () => {
           { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main" },
           { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming" },
           { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy" }
-        ]
-      },
-      {
-        language: "Malayalam",
-        channels: [
-          { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
         ]
       }
     ],
@@ -116,6 +116,12 @@ const ChannelsSection = () => {
           { name: "Boss Wallah Money Kannada", url: "https://www.facebook.com/bosswallahmoneykannada", category: "Finance" },
           { name: "Boss Wallah Farming Kannada", url: "https://www.facebook.com/bosswallahfarmingkannada", category: "Farming" },
           { name: "Boss Wallah Business Kannada", url: "https://www.facebook.com/bosswallahbusinesskannada", category: "Business" }
+        ]
+      },
+      {
+        language: "Malayalam",
+        channels: [
+          { name: "Boss Wallah Malayalam", url: "https://www.facebook.com/bosswallahmalayalam", category: "Main" }
         ]
       },
       {
@@ -158,6 +164,12 @@ const ChannelsSection = () => {
           { name: "Ffreedom App Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "App" },
           { name: "Farming Kannada Ffreedom", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
           { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
+        ]
+      },
+      {
+        language: "Malayalam",
+        channels: [
+          { name: "Boss Wallah Malayalam", url: "https://www.instagram.com/bosswallahmalayalam", category: "Main" }
         ]
       },
       {
