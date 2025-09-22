@@ -85,7 +85,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-background/90 hover:bg-background shadow-lg"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1 animate-pulse"
             >
               <ChevronLeft size={20} />
             </Button>
@@ -96,7 +96,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-background/90 hover:bg-background shadow-lg"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-pulse"
             >
               <ChevronRight size={20} />
             </Button>
@@ -112,9 +112,9 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             <X size={18} />
           </Button>
 
-          <ScrollArea className="max-h-[95vh]">
+          <ScrollArea className="max-h-[90vh]">
             {/* Featured Image */}
-            <div className="relative w-full h-64 md:h-80 overflow-hidden">
+            <div className="relative w-full h-48 md:h-64 overflow-hidden">
               <img 
                 src={news.thumbnail} 
                 alt={news.title}
@@ -123,7 +123,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             </div>
 
             {/* Content */}
-            <div className="p-6 md:p-8">
+            <div className="p-4 md:p-6 space-y-4">
               {/* Title */}
               <h1 className="text-2xl md:text-3xl font-bold mb-4 text-foreground leading-tight">
                 {news.title}
