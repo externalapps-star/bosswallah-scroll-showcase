@@ -278,7 +278,7 @@ const NewsSection = () => {
                 variant="outline" 
                 size="lg"
                 onClick={() => setShowMore(true)}
-                className="group border-orange-200 hover:border-orange-300 hover:bg-orange-50"
+                className="group border-orange-200"
               >
                 <BookOpen size={18} className="mr-2" />
                 View All
