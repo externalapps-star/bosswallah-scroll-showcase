@@ -78,6 +78,14 @@ const NewsModal = ({
             </Button>}
 
           {/* Close Button */}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={onClose} 
+            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full border border-orange-200 hover:bg-orange-50 transition-all duration-300"
+          >
+            <X size={16} />
+          </Button>
 
           <ScrollArea className="flex-1">
             {/* Content */}
