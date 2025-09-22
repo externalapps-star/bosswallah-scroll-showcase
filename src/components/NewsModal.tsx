@@ -77,7 +77,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-[90vw] h-[85vh] p-0 overflow-hidden fixed-size">
+      <DialogContent className="max-w-3xl w-[85vw] h-[80vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
           {onPrevious && (
@@ -114,7 +114,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-16 px-4 py-6 space-y-4">
+            <div className="mx-12 px-4 py-4 space-y-3">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-4 items-start mb-6">
                 <div className="relative w-32 h-32 overflow-hidden rounded-lg flex-shrink-0">
