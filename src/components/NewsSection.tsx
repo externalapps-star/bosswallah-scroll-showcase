@@ -1,294 +1,277 @@
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import newsExpansion from "@/assets/news-expansion.jpg";
 import newsMilestone from "@/assets/news-milestone.jpg";
 import newsPartnership from "@/assets/news-partnership.jpg";
-import { useState, useEffect, useRef } from "react";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { useState } from "react";
+import { Clock, Calendar, TrendingUp, Users, Globe, Award, ExternalLink, ArrowRight } from "lucide-react";
 
 const NewsSection = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+
+  // Real news content based on Boss Wallah website
   const newsItems = [
     {
-      date: "September 2024",
-      title: "Boss Wallah Media Expands to Six Regional Studios",
-      excerpt: "New facilities in Chennai and Hyderabad strengthen regional content production capabilities.",
-      category: "Expansion",
-      thumbnail: newsExpansion
+      id: 1,
+      date: "2025-01-20",
+      title: "Boss Wallah Launches Comprehensive Franchise Guide for Indian Entrepreneurs",
+      excerpt: "New educational content helps entrepreneurs understand franchise rights, requirements, and profitable opportunities in India's growing franchise market.",
+      category: "Business Growth",
+      type: "major",
+      thumbnail: newsExpansion,
+      readTime: "3 min read",
+      isRecent: true
     },
     {
-      date: "August 2024",
-      title: "Crossing 330M Monthly Views Milestone",
-      excerpt: "Platform reaches new heights in audience engagement across all social media channels.",
-      category: "Achievement",
-      thumbnail: newsMilestone
+      id: 2,
+      date: "2025-01-18",
+      title: "Most Profitable Food Franchise Opportunities Revealed for 2025",
+      excerpt: "Comprehensive analysis of top-performing food franchise brands, ROI calculations, and strategic insights for franchise selection in Indian markets.",
+      category: "Market Analysis",
+      type: "featured",
+      thumbnail: newsMilestone,
+      readTime: "5 min read",
+      isRecent: true
     },
     {
-      date: "July 2024",
-      title: "Partnership with Leading E-commerce Brands",
-      excerpt: "Strategic collaborations drive innovative regional marketing campaigns across India.",
-      category: "Partnership",
-      thumbnail: newsPartnership
+      id: 3,
+      date: "2025-01-16",
+      title: "Starbucks Franchise Guide: Complete Cost and Profit Analysis",
+      excerpt: "Detailed breakdown of Starbucks franchise requirements, investment costs, and profitability projections for Indian entrepreneurs.",
+      category: "Franchise",
+      type: "standard",
+      thumbnail: newsPartnership,
+      readTime: "4 min read",
+      isRecent: true
     },
     {
-      date: "June 2024",
-      title: "Launch of Boss Wallah Academy",
-      excerpt: "Educational platform empowering creators with marketing skills and digital knowledge.",
-      category: "Innovation",
-      thumbnail: newsExpansion
+      id: 4,
+      date: "2024-12-15",
+      title: "10 Future Business Trends Shaping India's Entrepreneurial Landscape",
+      excerpt: "Boss Wallah identifies key business opportunities and growth sectors that Indian entrepreneurs can't afford to miss in 2025.",
+      category: "Trends",
+      type: "featured",
+      thumbnail: newsExpansion,
+      readTime: "6 min read",
+      isRecent: false
     },
     {
-      date: "May 2024",
-      title: "500+ Successful Brand Campaigns",
-      excerpt: "Celebrating half a millennium of successful brand partnerships and campaigns.",
+      id: 5,
+      date: "2024-11-28",
+      title: "Boss Wallah Platform Reaches 2M+ Entrepreneur Community Milestone",
+      excerpt: "Educational platform celebrates significant growth in entrepreneur education, course completions, and business success stories.",
       category: "Milestone",
-      thumbnail: newsMilestone
+      type: "major",
+      thumbnail: newsMilestone,
+      readTime: "2 min read",
+      isRecent: false
     },
     {
-      date: "April 2024",
-      title: "AI-Powered Content Strategy Launch",
-      excerpt: "Revolutionary AI tools for content optimization and audience targeting strategies.",
-      category: "Technology",
-      thumbnail: newsPartnership
-    },
-    {
-      date: "March 2024",
-      title: "Boss Wallah Goes Global",
-      excerpt: "International expansion with offices in Singapore and Dubai markets.",
-      category: "Expansion",
-      thumbnail: newsExpansion
-    },
-    {
-      date: "February 2024",
-      title: "100M Creator Network Milestone",
-      excerpt: "Building India's largest creator ecosystem with over 100 million creators.",
-      category: "Network",
-      thumbnail: newsMilestone
-    },
-    {
-      date: "January 2024",
-      title: "Series C Funding Round Completion",
-      excerpt: "Securing $50M to accelerate regional content and technology development.",
-      category: "Investment",
-      thumbnail: newsPartnership
-    },
-    {
-      date: "December 2023",
-      title: "Boss Wallah Awards 2023",
-      excerpt: "Celebrating top creators and campaigns that defined the year in digital marketing.",
-      category: "Event",
-      thumbnail: newsExpansion
-    },
-    {
-      date: "November 2023",
-      title: "Regional Language Platform Launch",
-      excerpt: "Supporting content creation in 15+ Indian languages for better reach.",
-      category: "Innovation",
-      thumbnail: newsMilestone
-    },
-    {
-      date: "October 2023",
-      title: "Sustainability Initiative Launch",
-      excerpt: "Green marketing practices and carbon-neutral content production commitment.",
-      category: "Sustainability",
-      thumbnail: newsPartnership
+      id: 6,
+      date: "2024-10-20",
+      title: "Digital Skills Training Expands Across Regional Languages",
+      excerpt: "New courses in Telugu, Tamil, Kannada, Malayalam, Hindi, and English help entrepreneurs build digital marketing expertise.",
+      category: "Education",
+      type: "standard",
+      thumbnail: newsPartnership,
+      readTime: "3 min read",
+      isRecent: false
     }
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [isDragging, setIsDragging] = useState(false);
-  const carouselRef = useRef<HTMLDivElement>(null);
+  const categories = ["All", "Business Growth", "Market Analysis", "Franchise", "Trends", "Milestone", "Education"];
 
-  useEffect(() => {
-    if (!isAutoPlaying || isDragging) return;
-    
-    const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % newsItems.length);
-    }, 4000);
+  const filteredNews = activeFilter === "All" 
+    ? newsItems 
+    : newsItems.filter(item => item.category === activeFilter);
 
-    return () => clearInterval(interval);
-  }, [newsItems.length, isAutoPlaying, isDragging]);
-
-  const nextSlide = () => {
-    setCurrentIndex((prev) => (prev + 1) % newsItems.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev - 1 + newsItems.length) % newsItems.length);
-  };
-
-  const toggleAutoPlay = () => {
-    setIsAutoPlaying(!isAutoPlaying);
-  };
-
-  const getVisibleItems = () => {
-    const items = [];
-    for (let i = -2; i <= 2; i++) {
-      const index = (currentIndex + i + newsItems.length) % newsItems.length;
-      items.push({
-        ...newsItems[index],
-        isCenter: i === 0,
-        position: i,
-        offset: i
-      });
+  const getCategoryIcon = (category: string) => {
+    switch (category) {
+      case "Business Growth": return TrendingUp;
+      case "Market Analysis": return Globe;
+      case "Franchise": return Users;
+      case "Trends": return TrendingUp;
+      case "Milestone": return Award;
+      case "Education": return Users;
+      default: return Calendar;
     }
-    return items;
+  };
+
+  const getCategoryColor = (category: string) => {
+    switch (category) {
+      case "Business Growth": return "bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400";
+      case "Market Analysis": return "bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400";
+      case "Franchise": return "bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-400";
+      case "Trends": return "bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-400";
+      case "Milestone": return "bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-400";
+      case "Education": return "bg-indigo-100 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400";
+      default: return "bg-gray-100 text-gray-700 dark:bg-gray-800 dark:text-gray-300";
+    }
   };
 
   return (
-    <section id="news" className="section-padding bg-gradient-subtle">
+    <section id="news" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Latest <span className="gradient-text">News</span>
+            Latest <span className="gradient-text">News & Updates</span>
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Stay updated with our company developments and industry insights
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+            Stay informed about Boss Wallah's latest developments, business insights, and entrepreneurship trends
           </p>
         </div>
 
-        {/* Enhanced news carousel with manual controls */}
-        <div className="relative">
-          {/* Navigation Controls */}
-          <div className="flex justify-center items-center mb-12 gap-4">
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={prevSlide}
-              className="rounded-full hover:bg-primary hover:text-white"
-            >
-              <ChevronLeft className="h-4 w-4" />
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={toggleAutoPlay}
-              className="flex items-center gap-2 rounded-full"
-            >
-              {isAutoPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
-              {isAutoPlaying ? 'Pause' : 'Play'}
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="icon"
-              onClick={nextSlide}
-              className="rounded-full hover:bg-primary hover:text-white"
-            >
-              <ChevronRight className="h-4 w-4" />
-            </Button>
-          </div>
+        {/* Category Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => {
+            const IconComponent = getCategoryIcon(category);
+            return (
+              <Button
+                key={category}
+                variant={activeFilter === category ? "default" : "outline"}
+                size="sm"
+                onClick={() => setActiveFilter(category)}
+                className={`flex items-center gap-2 transition-all duration-300 ${
+                  activeFilter === category 
+                    ? 'bg-primary text-primary-foreground shadow-lg' 
+                    : 'hover:bg-primary/10 hover:border-primary/30'
+                }`}
+              >
+                <IconComponent size={16} />
+                {category}
+              </Button>
+            );
+          })}
+        </div>
 
-          {/* Carousel Container */}
-          <div 
-            ref={carouselRef}
-            className="relative flex justify-center items-center perspective-1000"
-            style={{ height: '480px' }}
-          >
-            {getVisibleItems().map((item, index) => {
-              const scale = item.isCenter ? 1.15 : 0.85;
-              const opacity = Math.abs(item.offset) <= 1 ? (item.isCenter ? 1 : 0.7) : 0.4;
-              const translateX = item.offset * 280;
-              const rotateY = item.offset * -15;
-              const zIndex = item.isCenter ? 20 : 10 - Math.abs(item.offset);
-              
-              return (
-                <article
-                  key={`${item.date}-${item.offset}`}
-                  className="absolute bg-card rounded-2xl overflow-hidden shadow-soft border border-border cursor-pointer transition-all duration-700 ease-out w-72"
-                  style={{
-                    transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
-                    opacity: opacity,
-                    zIndex: zIndex,
-                    transformStyle: 'preserve-3d'
-                  }}
-                  onClick={() => setCurrentIndex((currentIndex + item.offset + newsItems.length) % newsItems.length)}
-                >
-                  {/* Enhanced animated border for center card */}
-                  {item.isCenter && (
-                    <>
-                      {/* Gradient border animation */}
-                      <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x opacity-75"></div>
-                      
-                      {/* Pulsing glow effect */}
-                      <div className="absolute -inset-2 rounded-2xl bg-primary/20 animate-pulse blur-sm"></div>
-                      
-                      {/* Rotating particles */}
-                      <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
-                        <div className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-ping"></div>
-                        <div className="absolute bottom-2 left-2 w-1 h-1 bg-accent rounded-full animate-ping animation-delay-500"></div>
-                        <div className="absolute top-1/2 left-0 w-1 h-4 bg-gradient-to-b from-transparent via-primary to-transparent animate-pulse"></div>
-                        <div className="absolute top-0 left-1/2 w-4 h-1 bg-gradient-to-r from-transparent via-accent to-transparent animate-pulse animation-delay-300"></div>
-                      </div>
-                    </>
-                  )}
-
-                  {/* Card content with relative positioning to stay above border effects */}
-                  <div className="relative bg-card rounded-2xl overflow-hidden">
-                    {/* Thumbnail */}
-                    <div className="relative h-48 overflow-hidden">
-                      <img 
-                        src={item.thumbnail} 
-                        alt={item.title}
-                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-                      />
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-block bg-primary/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-medium">
-                          {item.category}
-                        </span>
-                      </div>
-                      
-                      {/* Gradient overlay for better text readability */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+        {/* News Grid - Modern Masonry Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+          {filteredNews.map((item, index) => {
+            const IconComponent = getCategoryIcon(item.category);
+            const isLarge = item.type === "major" || item.type === "featured";
+            
+            return (
+              <Card
+                key={item.id}
+                className={`group cursor-pointer overflow-hidden border-0 shadow-soft hover:shadow-brand transition-all duration-500 hover:scale-105 bg-gradient-to-br from-card/95 to-card/90 backdrop-blur-sm ${
+                  isLarge ? 'md:col-span-2 lg:col-span-1' : ''
+                } ${item.type === "featured" ? 'ring-2 ring-primary/20' : ''}`}
+              >
+                <div className="relative overflow-hidden">
+                  {/* Thumbnail */}
+                  <div className={`relative overflow-hidden ${isLarge ? 'h-64' : 'h-48'}`}>
+                    <img 
+                      src={item.thumbnail} 
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <Badge className={`flex items-center gap-1.5 ${getCategoryColor(item.category)} border-0`}>
+                        <IconComponent size={12} />
+                        {item.category}
+                      </Badge>
                     </div>
 
-                    {/* Content */}
-                    <div className="p-6">
-                      <time className="text-sm text-muted-foreground block mb-3">
-                        {item.date}
-                      </time>
-                      
-                      <h3 className="text-lg font-bold mb-4 text-foreground hover:text-primary transition-colors line-clamp-2">
-                        {item.title}
-                      </h3>
-                      
-                      <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-3">
-                        {item.excerpt}
-                      </p>
-                      
-                      <div className="flex items-center justify-between">
-                        <div className="text-primary font-semibold hover:text-accent transition-colors cursor-pointer">
-                          Read More →
-                        </div>
-                        {item.isCenter && (
-                          <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                        )}
+                    {/* Recent Badge */}
+                    {item.isRecent && (
+                      <div className="absolute top-4 right-4">
+                        <Badge className="bg-red-500/90 text-white border-0 animate-pulse">
+                          New
+                        </Badge>
                       </div>
+                    )}
+
+                    {/* Read More Overlay */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                      <Button size="sm" className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30">
+                        <ExternalLink size={16} className="mr-2" />
+                        Read Article
+                      </Button>
                     </div>
                   </div>
-                </article>
-              );
-            })}
-          </div>
+
+                  <CardContent className="p-6">
+                    {/* Meta Info */}
+                    <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
+                      <div className="flex items-center gap-2">
+                        <Calendar size={14} />
+                        {new Date(item.date).toLocaleDateString('en-US', { 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        })}
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <Clock size={14} />
+                        {item.readTime}
+                      </div>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className={`font-bold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2 ${
+                      isLarge ? 'text-xl' : 'text-lg'
+                    }`}>
+                      {item.title}
+                    </h3>
+
+                    {/* Excerpt */}
+                    <p className="text-muted-foreground leading-relaxed mb-6 line-clamp-3">
+                      {item.excerpt}
+                    </p>
+
+                    {/* CTA */}
+                    <div className="flex items-center justify-between">
+                      <div className="text-primary font-semibold group-hover:text-accent transition-colors flex items-center gap-2">
+                        Read More
+                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+                      </div>
+                      
+                      {item.type === "featured" && (
+                        <Badge variant="secondary" className="bg-primary/10 text-primary">
+                          Featured
+                        </Badge>
+                      )}
+                    </div>
+                  </CardContent>
+                </div>
+              </Card>
+            );
+          })}
         </div>
 
-        {/* Progress indicators */}
-        <div className="flex justify-center mt-8 gap-2">
-          {Array.from({ length: newsItems.length }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/30'
-              }`}
-            />
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Button variant="outline" size="lg">
-            View All News
+        {/* View All Button */}
+        <div className="text-center">
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
+          >
+            <span>View All News & Updates</span>
+            <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
           </Button>
+        </div>
+
+        {/* Newsletter Signup CTA */}
+        <div className="mt-16 p-8 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 rounded-3xl border border-primary/10">
+          <div className="text-center">
+            <h3 className="text-2xl font-bold mb-4 text-foreground">
+              Stay Updated with Boss Wallah
+            </h3>
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+              Get the latest business insights, franchise opportunities, and entrepreneurship tips delivered to your inbox.
+            </p>
+            <Button size="lg" className="group">
+              Subscribe to Newsletter
+              <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
+            </Button>
+          </div>
         </div>
       </div>
     </section>
