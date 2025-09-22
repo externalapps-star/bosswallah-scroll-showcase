@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
-import { Globe, User, Menu, X } from "lucide-react";
+import { Globe, User, Menu, X, ExternalLink } from "lucide-react";
 import LoginModal from "@/components/LoginModal";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 const Header = () => {
@@ -129,10 +129,14 @@ const Header = () => {
                 Start a campaign
               </Button>
 
-              {/* Login Button */}
-              <Button variant="outline" onClick={() => setIsLoginModalOpen(true)} className="flex items-center gap-2">
-                <User className="h-4 w-4" />
-                go to our official website
+              {/* Official Website Button */}
+              <Button 
+                variant="outline" 
+                onClick={() => window.open('https://bosswallah.com', '_blank')} 
+                className="flex items-center gap-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Official website
               </Button>
 
               {/* Theme Toggle */}
@@ -193,13 +197,17 @@ const Header = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
 
-                  {/* Mobile Login Button */}
-                  <Button onClick={() => {
-                setIsLoginModalOpen(true);
-                setIsMobileMenuOpen(false);
-              }} className="w-full justify-start gap-2 mb-2">
-                    <User className="h-4 w-4" />
-                    go to our official website
+                  {/* Mobile Official Website Button */}
+                  <Button 
+                    onClick={() => {
+                      window.open('https://bosswallah.com', '_blank');
+                      setIsMobileMenuOpen(false);
+                    }} 
+                    className="w-full justify-start gap-2 mb-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200"
+                    variant="outline"
+                  >
+                    <ExternalLink className="h-4 w-4" />
+                    Official website
                   </Button>
 
                   {/* Mobile Theme Toggle */}
