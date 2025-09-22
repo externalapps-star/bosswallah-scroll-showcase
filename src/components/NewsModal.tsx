@@ -85,7 +85,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onPrevious}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300"
             >
               <ChevronLeft size={16} />
             </Button>
@@ -96,7 +96,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onNext}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300"
             >
               <ChevronRight size={16} />
             </Button>
