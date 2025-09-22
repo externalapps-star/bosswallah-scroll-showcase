@@ -85,7 +85,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1 animate-[pulse_3s_ease-in-out_infinite]"
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1 animate-pulse"
             >
               <ChevronLeft size={20} />
             </Button>
@@ -96,7 +96,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-[pulse_3s_ease-in-out_infinite]"
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-pulse"
             >
               <ChevronRight size={20} />
             </Button>
@@ -123,19 +123,19 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             </div>
 
             {/* Content */}
-            <div className="p-4 md:p-6 mx-8 md:mx-12 space-y-4 text-center">
+            <div className="p-4 md:p-6 space-y-4">
               {/* Title */}
               <h1 className="text-2xl md:text-3xl font-bold mb-4 text-foreground leading-tight">
                 {news.title}
               </h1>
 
               {/* Meta Info */}
-              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
                 <span>{formatDate(news.date)}</span>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {news.tags.map((tag, index) => (
                   <Badge key={index} variant="secondary" className="text-xs px-3 py-1">
                     {tag}
@@ -162,7 +162,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-center p-6 pt-0 border-t bg-muted/30 gap-4">
+            <div className="flex items-center justify-between p-6 pt-0 border-t bg-muted/30">
               <div className="flex items-center gap-2">
                 <Button
                   variant="outline"
