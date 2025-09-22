@@ -1,400 +1,242 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import newsExpansion from "@/assets/news-expansion.jpg";
-import newsMilestone from "@/assets/news-milestone.jpg";
-import newsPartnership from "@/assets/news-partnership.jpg";
+import NewsModal from "./NewsModal";
 import { useState } from "react";
 import { 
   Clock, 
   Calendar, 
-  TrendingUp, 
-  Users, 
-  Globe, 
-  Award, 
-  ExternalLink, 
+  User, 
   ArrowRight, 
-  Youtube, 
-  Instagram, 
-  Facebook,
   BookOpen,
-  Briefcase,
-  Zap,
-  Filter
+  ExternalLink
 } from "lucide-react";
 
 const NewsSection = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
-  const [viewMode, setViewMode] = useState("featured"); // 'featured' or 'all'
+  const [selectedNews, setSelectedNews] = useState<any>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
   // Real Boss Wallah news content from their website
   const newsItems = [
     {
       id: 1,
       date: "2025-01-22",
-      title: "YouTube Shorts Monetization 2025: New Updates, Revenue Share & Best Practices",
-      excerpt: "Discover the latest YouTube Shorts monetization updates for 2025, including new revenue share models, eligibility criteria, and best practices for Indian creators.",
+      title: "10 Digital Marketing Trends to Watch in 2025",
+      excerpt: "Stay ahead of the curve with these game-changing digital marketing trends that will define success in 2025. From AI-powered personalization to voice search optimization.",
+      content: "Digital marketing is evolving at breakneck speed, and 2025 promises to be a transformative year. AI-powered personalization is becoming the norm, with brands using machine learning to deliver hyper-targeted experiences. Voice search and conversational marketing are reshaping how consumers interact with brands. Privacy-first marketing strategies are essential as third-party cookies phase out. Video content, especially short-form, continues to dominate engagement across all platforms. Augmented reality (AR) marketing is creating immersive brand experiences. Purpose-driven marketing resonates with conscious consumers. Social commerce is blurring the lines between social media and e-commerce. Micro-influencer partnerships offer authentic brand advocacy. Data analytics and attribution modeling are becoming more sophisticated. Interactive content formats are driving higher engagement rates.",
       category: "Creator Hub",
-      type: "featured",
-      thumbnail: newsExpansion,
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/08/Freepik_digital-marketing-trends.jpg",
       readTime: "8 min read",
-      author: "Bhoomireddy Hemalatha",
-      isRecent: true,
-      tags: ["YouTube", "Monetization", "Creators"]
+      author: "Boss Wallah Blogs",
+      tags: ["Digital Marketing", "Trends", "2025"],
+      url: "https://blog.bosswallah.com/10-digital-marketing-trends-to-watch-in-2025/"
     },
     {
       id: 2,
       date: "2025-01-20",
-      title: "YouTube Update 2025 Explained: New Policies, Features & Monetization Changes",
-      excerpt: "Complete breakdown of YouTube's biggest update ever with new policies, AI tools, advanced features, and crucial monetization changes for creators and brands.",
-      category: "Creator Hub", 
-      type: "major",
-      thumbnail: newsMilestone,
+      title: "100 Fresh Ideas for Every Social Media Platform (2025)",
+      excerpt: "Unleash your creativity with 100 content ideas across YouTube, Instagram, Facebook, LinkedIn, and more. Never run out of engaging content again.",
+      content: "Content creation has become the backbone of digital success, but coming up with fresh ideas consistently can be challenging. This comprehensive guide provides 100 actionable content ideas across all major social media platforms. For YouTube, consider educational tutorials, behind-the-scenes content, product reviews, and trending topic discussions. Instagram thrives on visual storytelling through carousel posts, Reels, Stories, and IGTV content. Facebook favors community-building content, live videos, polls, and user-generated content campaigns. LinkedIn responds well to professional insights, industry news, career advice, and thought leadership posts. Twitter excels with real-time updates, trending hashtags, Twitter Spaces, and engagement threads. Each platform has unique audience expectations and algorithmic preferences that content creators must understand to maximize reach and engagement.",
+      category: "Digital Skills", 
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/09/100-Fresh-Ideas-for-Every-Social-Media-Platform-2025.jpg",
       readTime: "12 min read",
-      author: "Bhoomireddy Hemalatha",
-      isRecent: true,
-      tags: ["YouTube", "Policy Update", "AI Tools"]
+      author: "Boss Wallah Blogs",
+      tags: ["Content Creation", "Social Media", "Ideas"],
+      url: "https://blog.bosswallah.com/content-creation-ideas/"
     },
     {
       id: 3,
       date: "2025-01-18",
-      title: "Top 10 Trending Songs on Instagram Reels Today in India (2025)",
-      excerpt: "Latest trending audio tracks dominating Instagram Reels in India. Boost your reach with these viral songs that are making creators famous.",
-      category: "Digital Skills",
-      type: "featured",
-      thumbnail: newsPartnership,
-      readTime: "6 min read",
-      author: "Boss Wallah Blogs",
-      isRecent: true,
-      tags: ["Instagram", "Reels", "Trending"]
+      title: "Top 10 Booming Business Ideas for Doctors in 2025",
+      excerpt: "Medical professionals can expand beyond traditional practice with these innovative business opportunities that leverage healthcare expertise.",
+      content: "The healthcare landscape is evolving, creating unprecedented opportunities for medical professionals to diversify their income streams. Telemedicine platforms offer scalable consultation services, breaking geographical barriers. Specialized medical consultation services provide second opinions and expert advice. Personalized wellness coaching combines medical knowledge with lifestyle guidance. Mobile medical clinics bring healthcare to underserved communities. Medical content creation and education platforms help doctors share expertise while building authority. Medical tourism facilitation services connect international patients with quality care. On-demand medical staffing solutions address healthcare workforce shortages. Medical equipment rental and retail businesses serve smaller practices. Medical billing and coding services help streamline practice operations. These business models allow doctors to leverage their expertise while creating multiple revenue streams and making healthcare more accessible.",
+      category: "Business",
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/11/Top-10-Booming-Business-Ideas-for-Doctors-in-2025.jpg",
+      readTime: "10 min read",
+      author: "Boss Wallah Business",
+      tags: ["Healthcare", "Business Ideas", "Medical"],
+      url: "https://blog.bosswallah.com/business-ideas-for-doctors/"
     },
     {
       id: 4,
       date: "2025-01-16", 
-      title: "Top 10 Trending Hashtags on Instagram Today in India Reels (2025 Guide)",
-      excerpt: "Master Instagram's algorithm with the most effective hashtags for Indian Reels. Complete guide with performance metrics and best practices.",
-      category: "Digital Skills",
-      type: "standard",
-      thumbnail: newsExpansion,
-      readTime: "5 min read",
-      author: "Boss Wallah Blogs",
-      isRecent: true,
-      tags: ["Instagram", "Hashtags", "Social Media"]
+      title: "Success Story of the Ferrari Company | Ferrari Brand Case Study",
+      excerpt: "Discover how Ferrari built one of the world's most prestigious luxury brands through racing heritage, exclusivity, and unwavering commitment to excellence.",
+      content: "Ferrari's journey from a racing team to a global luxury icon is a masterclass in brand building and strategic positioning. Founded by Enzo Ferrari in 1939, the company initially focused exclusively on racing, which became the foundation of its legendary status. The brand's racing DNA is embedded in every aspect of the business, from product development to marketing strategy. Ferrari's scarcity model creates unprecedented demand, with production deliberately limited to maintain exclusivity. The company's vertical integration ensures quality control and brand consistency across all touchpoints. Strategic partnerships with luxury brands and high-profile events reinforce the premium positioning. Ferrari's customer experience extends beyond the car purchase, creating a lifestyle brand that customers aspire to join. The brand's emotional connection with customers drives loyalty that spans generations. This case study reveals how authenticity, heritage, and strategic scarcity can create a brand worth billions.",
+      category: "Business",
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/08/Success-Story-of-the-Ferrari-Company-Ferrari-Brand-Case-Study.jpg",
+      readTime: "15 min read",
+      author: "Boss Wallah Business",
+      tags: ["Case Study", "Brand Building", "Ferrari"],
+      url: "https://blog.bosswallah.com/success-story-of-the-ferrari-company-ferrari-brand-case-study/"
     },
     {
       id: 5,
       date: "2025-01-14",
-      title: "Top 10 Facebook Reels Hashtags Trending in 2025",
-      excerpt: "Maximize your Facebook Reels reach with these trending hashtags. Essential guide for businesses and creators targeting Indian audiences.",
-      category: "Digital Skills",
-      type: "standard",
-      thumbnail: newsMilestone,
-      readTime: "4 min read",
-      author: "Boss Wallah Blogs",
-      isRecent: true,
-      tags: ["Facebook", "Reels", "Marketing"]
+      title: "10 Lucrative Cement Business Ideas to Build Your Future",
+      excerpt: "Explore profitable opportunities in the booming construction industry with these innovative cement business ideas for aspiring entrepreneurs.",
+      content: "The construction industry's rapid growth in India presents numerous opportunities for cement-related businesses. Mini cement plants offer local production advantages with lower transportation costs and faster delivery. Cement block manufacturing serves the growing demand for sustainable construction materials. Cement bag manufacturing addresses packaging needs for cement producers. Retail and distribution businesses create local supply chains for construction projects. Specialized cement products for niche applications command premium pricing. Mobile concrete batching plant rentals serve multiple construction sites efficiently. Cement testing laboratories ensure quality compliance for construction projects. Cement waste recycling addresses environmental concerns while creating value. Consultancy services help optimize cement usage and construction processes. Online cement marketplaces connect suppliers with buyers efficiently. Each business model requires different investment levels and expertise, allowing entrepreneurs to choose based on their resources and market understanding.",
+      category: "Business",
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/11/10-Lucrative-Cement-Business-Ideas-to-Build-Your-Future.jpg",
+      readTime: "12 min read",
+      author: "Boss Wallah Business",
+      tags: ["Construction", "Business Ideas", "Cement"],
+      url: "https://blog.bosswallah.com/10-lucrative-cement-business-ideas-to-build-your-future/"
     },
     {
       id: 6,
       date: "2025-01-12",
-      title: "Top 10 Trending South Indian Song on Reels (2025 Viral List)",
-      excerpt: "Viral South Indian tracks taking over Instagram and Facebook Reels. Covers Tamil, Telugu, Malayalam, and Kannada hits perfect for content creators.",
-      category: "Digital Skills",
-      type: "standard",
-      thumbnail: newsPartnership,
-      readTime: "7 min read",
-      author: "Boss Wallah Blogs",
-      isRecent: false,
-      tags: ["Regional Content", "Music", "South India"]
-    },
-    {
-      id: 7,
-      date: "2025-01-10",
-      title: "Top 10 Direct Selling Companies in India 2025",
-      excerpt: "Complete analysis of India's leading direct selling companies with revenue data, product categories, and business opportunities for entrepreneurs.",
+      title: "Most Profitable Food Franchise in India (2025)",
+      excerpt: "Discover the top food franchise opportunities in India with detailed ROI analysis, investment requirements, and growth potential for each brand.",
+      content: "India's food franchise industry is experiencing unprecedented growth, driven by changing consumer preferences and urbanization. QSR (Quick Service Restaurant) franchises lead profitability metrics with standardized operations and proven business models. Regional cuisine franchises tap into local preferences while maintaining scalability. Cloud kitchen concepts reduce overhead costs while maximizing delivery potential. Healthy food franchises cater to growing wellness consciousness among consumers. Street food franchises offer authentic experiences with modern hygiene standards. Beverage franchises complement food offerings with high-margin products. Ice cream and dessert franchises provide seasonal revenue streams. Coffee shop franchises create community gathering spaces with consistent revenue. Food truck franchises offer mobility and lower investment requirements. The key to success lies in choosing franchises with strong brand recognition, comprehensive training programs, ongoing support, and proven profitability in similar markets.",
       category: "Business",
-      type: "featured",
-      thumbnail: newsExpansion,
-      readTime: "10 min read",
+      thumbnail: "https://blog.bosswallah.com/wp-content/uploads/2024/10/Most-Profitable-Food-Franchise-in-India-2025.jpg",
+      readTime: "14 min read",
       author: "Boss Wallah Business",
-      isRecent: false,
-      tags: ["Direct Selling", "Business Opportunity", "Entrepreneurship"]
-    },
-    {
-      id: 8,
-      date: "2025-01-08",
-      title: "Boss Wallah Academy Launches Advanced Creator Certification Program",
-      excerpt: "New comprehensive certification program designed to help Indian creators master platform-specific strategies across YouTube, Instagram, and Facebook.",
-      category: "Company News",
-      type: "major",
-      thumbnail: newsMilestone,
-      readTime: "5 min read",
-      author: "Boss Wallah Team",
-      isRecent: false,
-      tags: ["Education", "Certification", "Creators"]
+      tags: ["Franchise", "Food Business", "Investment"],
+      url: "https://blog.bosswallah.com/most-profitable-food-franchise-in-india-2025/"
     }
   ];
 
-  const categories = ["All", "Creator Hub", "Digital Skills", "Business", "Company News"];
-
-  const filteredNews = activeFilter === "All" 
-    ? newsItems 
-    : newsItems.filter(item => item.category === activeFilter);
-
-  const displayedNews = viewMode === "featured" 
-    ? filteredNews.slice(0, 6) 
-    : filteredNews;
-
-  const getCategoryIcon = (category: string) => {
-    switch (category) {
-      case "Creator Hub": return Youtube;
-      case "Digital Skills": return Instagram;
-      case "Business": return Briefcase;
-      case "Company News": return Award;
-      default: return BookOpen;
-    }
+  const handleReadMore = (news: any) => {
+    setSelectedNews(news);
+    setIsModalOpen(true);
   };
 
-  const getCategoryColor = (category: string) => {
-    switch (category) {
-      case "Creator Hub": return "bg-red-50 text-red-700 border-red-200 dark:bg-red-900/20 dark:text-red-400 dark:border-red-800";
-      case "Digital Skills": return "bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-400 dark:border-purple-800";
-      case "Business": return "bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-400 dark:border-blue-800";
-      case "Company News": return "bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/20 dark:text-emerald-400 dark:border-emerald-800";
-      default: return "bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-800/20 dark:text-gray-300 dark:border-gray-700";
-    }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedNews(null);
   };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long', 
+      month: 'short', 
       day: 'numeric' 
     });
   };
 
+  const displayedNews = showMore ? newsItems : newsItems.slice(0, 3);
+
   return (
-    <section id="news" className="section-padding bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-            Latest <span className="gradient-text">News & Updates</span>
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Stay updated with the latest insights on creator monetization, digital marketing trends, and business opportunities from Boss Wallah
-          </p>
-        </div>
-
-        {/* Filter Controls */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-12 gap-6">
-          {/* Category Filters */}
-          <div className="flex flex-wrap gap-3">
-            {categories.map((category) => {
-              const IconComponent = getCategoryIcon(category);
-              return (
-                <Button
-                  key={category}
-                  variant={activeFilter === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setActiveFilter(category)}
-                  className={`flex items-center gap-2 transition-all duration-300 ${
-                    activeFilter === category 
-                      ? 'bg-primary text-primary-foreground shadow-md scale-105' 
-                      : 'hover:bg-primary/10 hover:border-primary/30 hover:scale-105'
-                  }`}
-                >
-                  <IconComponent size={16} />
-                  {category}
-                  {category !== "All" && (
-                    <Badge variant="secondary" className="ml-1 text-xs">
-                      {newsItems.filter(item => item.category === category).length}
-                    </Badge>
-                  )}
-                </Button>
-              );
-            })}
+    <>
+      <section id="news" className="section-padding bg-background">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">
+              Latest News
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Stay updated with the latest insights from Boss Wallah
+            </p>
           </div>
 
-          {/* View Mode Toggle */}
-          <div className="flex items-center gap-2">
-            <Filter size={16} className="text-muted-foreground" />
-            <Button
-              variant={viewMode === "featured" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("featured")}
-              className="text-sm"
-            >
-              Featured
-            </Button>
-            <Button
-              variant={viewMode === "all" ? "default" : "outline"}
-              size="sm"
-              onClick={() => setViewMode("all")}
-              className="text-sm"
-            >
-              All News
-            </Button>
-          </div>
-        </div>
-
-        {/* News Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {displayedNews.map((item, index) => {
-            const IconComponent = getCategoryIcon(item.category);
-            const isLarge = item.type === "major" && index < 2;
-            const isFeatured = item.type === "featured";
-            
-            return (
+          {/* News Grid */}
+          <div className="space-y-6 mb-8">
+            {displayedNews.map((item, index) => (
               <Card
                 key={item.id}
-                className={`group cursor-pointer overflow-hidden transition-all duration-500 hover:scale-105 bg-gradient-to-br from-card/95 to-card/90 backdrop-blur-sm border-0 shadow-soft hover:shadow-brand ${
-                  isLarge ? 'md:col-span-2 lg:col-span-1' : ''
-                } ${isFeatured ? 'ring-2 ring-primary/20 shadow-lg' : ''}`}
+                className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm ${
+                  index === 0 ? 'md:flex md:items-center md:gap-8' : ''
+                }`}
+                onClick={() => handleReadMore(item)}
               >
-                <div className="relative overflow-hidden">
-                  {/* Thumbnail */}
-                  <div className={`relative overflow-hidden ${isLarge ? 'h-64' : 'h-48'}`}>
+                <div className={`${index === 0 ? 'md:w-1/2' : ''}`}>
+                  <div className="relative overflow-hidden rounded-lg">
                     <img 
                       src={item.thumbnail} 
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                        index === 0 ? 'h-64' : 'h-48'
+                      }`}
                     />
-                    
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                    
-                    {/* Category Badge */}
                     <div className="absolute top-4 left-4">
-                      <Badge className={`flex items-center gap-1.5 border ${getCategoryColor(item.category)}`}>
-                        <IconComponent size={12} />
+                      <Badge variant="secondary" className="bg-background/90 text-foreground">
                         {item.category}
                       </Badge>
                     </div>
+                  </div>
+                </div>
 
-                    {/* Status Badges */}
-                    <div className="absolute top-4 right-4 flex flex-col gap-2">
-                      {item.isRecent && (
-                        <Badge className="bg-red-500/90 text-white border-0 animate-pulse text-xs">
-                          Latest
-                        </Badge>
-                      )}
-                      {isFeatured && (
-                        <Badge className="bg-amber-500/90 text-white border-0 text-xs">
-                          Featured
-                        </Badge>
-                      )}
+                <CardContent className={`p-6 ${index === 0 ? 'md:w-1/2' : ''}`}>
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground mb-3">
+                    <div className="flex items-center gap-1">
+                      <Calendar size={14} />
+                      {formatDate(item.date)}
                     </div>
-
-                    {/* Read Article Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                      <Button size="sm" className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30">
-                        <BookOpen size={16} className="mr-2" />
-                        Read Article
-                      </Button>
+                    <div className="flex items-center gap-1">
+                      <Clock size={14} />
+                      {item.readTime}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <User size={14} />
+                      {item.author}
                     </div>
                   </div>
 
-                  <CardContent className="p-6">
-                    {/* Meta Info */}
-                    <div className="flex items-center justify-between mb-4 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <Calendar size={14} />
-                        {formatDate(item.date)}
-                      </div>
-                      <div className="flex items-center gap-1">
-                        <Clock size={14} />
-                        {item.readTime}
-                      </div>
-                    </div>
+                  {/* Title */}
+                  <h3 className={`font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2 ${
+                    index === 0 ? 'text-2xl' : 'text-xl'
+                  }`}>
+                    {item.title}
+                  </h3>
 
-                    {/* Author */}
-                    <div className="text-xs text-muted-foreground mb-3">
-                      By {item.author}
-                    </div>
+                  {/* Excerpt */}
+                  <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-2">
+                    {item.excerpt}
+                  </p>
 
-                    {/* Title */}
-                    <h3 className={`font-bold text-foreground mb-4 group-hover:text-primary transition-colors line-clamp-2 ${
-                      isLarge ? 'text-xl' : 'text-lg'
-                    }`}>
-                      {item.title}
-                    </h3>
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {item.tags.slice(0, 3).map((tag, tagIndex) => (
+                      <Badge key={tagIndex} variant="outline" className="text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
 
-                    {/* Excerpt */}
-                    <p className="text-muted-foreground leading-relaxed mb-4 line-clamp-3">
-                      {item.excerpt}
-                    </p>
-
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-1 mb-4">
-                      {item.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <Badge key={tagIndex} variant="secondary" className="text-xs bg-muted/50">
-                          {tag}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    {/* CTA */}
-                    <div className="flex items-center justify-between">
-                      <div className="text-primary font-semibold group-hover:text-accent transition-colors flex items-center gap-2">
-                        Read Full Article
-                        <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
-                      </div>
-                      
-                      <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
-                    </div>
-                  </CardContent>
-                </div>
+                  {/* CTA */}
+                  <div className="flex items-center justify-between">
+                    <Button variant="ghost" size="sm" className="p-0 h-auto font-semibold text-primary hover:text-accent group/btn">
+                      Read Article
+                      <ArrowRight size={16} className="ml-2 transition-transform group-hover/btn:translate-x-1" />
+                    </Button>
+                    
+                    <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                </CardContent>
               </Card>
-            );
-          })}
-        </div>
-
-        {/* Load More / View All */}
-        {viewMode === "featured" && filteredNews.length > 6 && (
-          <div className="text-center mb-12">
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => setViewMode("all")}
-              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary"
-            >
-              <Zap size={18} className="mr-2" />
-              <span>View All {filteredNews.length} Articles</span>
-              <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
+            ))}
           </div>
-        )}
 
-        {/* Boss Wallah Blog CTA */}
-        <div className="bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-3xl border border-primary/20 p-8 md:p-12">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Globe size={32} className="text-primary" />
-            </div>
-            <h3 className="text-2xl md:text-3xl font-bold mb-4 text-foreground">
-              Explore Boss Wallah Blog
-            </h3>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
-              Discover comprehensive guides, industry insights, and actionable strategies to grow your business and master digital marketing across all platforms.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="group">
-                <BookOpen size={20} className="mr-2" />
-                Visit Boss Wallah Blog
-                <ExternalLink size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button variant="outline" size="lg" className="group">
-                <Users size={20} className="mr-2" />
-                Join Creator Community
+          {/* View More Button */}
+          {!showMore && newsItems.length > 3 && (
+            <div className="text-center">
+              <Button 
+                variant="outline" 
+                size="lg"
+                onClick={() => setShowMore(true)}
+                className="group"
+              >
+                <BookOpen size={18} className="mr-2" />
+                View All {newsItems.length} Articles
                 <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             </div>
-          </div>
+          )}
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* News Modal */}
+      <NewsModal 
+        news={selectedNews}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
+    </>
   );
 };
 
