@@ -115,7 +115,7 @@ const ChannelsSection = () => {
       {
         language: "Kannada",
         channels: [
-          { name: "Boss Wallah Money Kannada", url: "https://www.facebook.com/bosswallahmoneykannada", category: "Finance" },
+          { name: "Boss Wallah Kannada", url: "https://www.facebook.com/bosswallahmoneykannada", category: "Main" },
           { name: "Boss Wallah Farming Kannada", url: "https://www.facebook.com/bosswallahfarmingkannada", category: "Farming" },
           { name: "Boss Wallah Business Kannada", url: "https://www.facebook.com/bosswallahbusinesskannada", category: "Business" }
         ]
