@@ -114,7 +114,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-8 px-3 py-3 space-y-2 pt-4">
+            <div className="mx-8 px-3 py-4 space-y-2 pt-6 pb-6">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-3 items-start mb-4">
                 <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
