@@ -77,7 +77,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl w-[85vw] h-[80vh] p-0 overflow-hidden">
+      <DialogContent className="max-w-2xl w-[80vw] h-[70vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
           {onPrevious && (
@@ -114,10 +114,10 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-12 px-4 py-4 space-y-3 pt-6">
+            <div className="mx-8 px-3 py-3 space-y-2 pt-4">
               {/* Small Thumbnail Preview */}
-              <div className="flex gap-4 items-start mb-6">
-                <div className="relative w-32 h-32 overflow-hidden rounded-lg flex-shrink-0">
+              <div className="flex gap-3 items-start mb-4">
+                <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
                   <img 
                     src={news.thumbnail} 
                     alt={news.title}
@@ -125,19 +125,19 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
                   />
                 </div>
                 
-                <div className="flex-1 space-y-2">
+                <div className="flex-1 space-y-1">
                   {/* Title */}
-                  <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
+                  <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight">
                     {news.title}
                   </h1>
 
                   {/* Meta Info */}
-                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                  <div className="flex items-center gap-3 text-xs text-muted-foreground">
                     <span>{formatDate(news.date)}</span>
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-1">
                     {news.tags.map((tag, index) => (
                       <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
                         {tag}
@@ -148,7 +148,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               </div>
 
               {/* Article Content */}
-              <div className="prose max-w-none line-clamp-12">
+              <div className="prose max-w-none line-clamp-10">
                 <p className="text-foreground leading-relaxed text-sm">
                   {news.content}
                 </p>
