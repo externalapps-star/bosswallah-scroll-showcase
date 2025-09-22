@@ -125,17 +125,17 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             {/* Content */}
             <div className="mx-16 px-4 py-6 space-y-4">
               {/* Title */}
-              <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight text-center">
+              <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
                 {news.title}
               </h1>
 
               {/* Meta Info */}
-              <div className="flex items-center justify-center gap-4 text-sm text-muted-foreground">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground">
                 <span>{formatDate(news.date)}</span>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap justify-center gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {news.tags.map((tag, index) => (
                   <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
                     {tag}
@@ -144,7 +144,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               </div>
 
               {/* Article Content */}
-              <div className="prose max-w-none text-center">
+              <div className="prose max-w-none">
                 {news.content.split('\n\n').map((paragraph, index) => (
                   <p key={index} className="mb-4 text-foreground leading-relaxed text-sm">
                     {paragraph}
@@ -154,8 +154,8 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
 
               {/* Insights Box */}
               <div className="mt-6 p-4 bg-muted/50 rounded-lg border-l-4 border-primary">
-                <h3 className="font-semibold text-foreground mb-2 text-sm text-center">INSIGHTS</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed text-center">
+                <h3 className="font-semibold text-foreground mb-2 text-sm">INSIGHTS</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {news.excerpt}
                 </p>
               </div>
