@@ -37,19 +37,9 @@ const NewsModal = ({
   } = useToast();
   if (!news) return null;
   const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({
-        title: news.title,
-        text: news.excerpt,
-        url: window.location.href
-      });
-    } else {
-      navigator.clipboard.writeText(window.location.href);
-      toast({
-        title: "Link copied!",
-        description: "Article link has been copied to clipboard."
-      });
-    }
+    const whatsappText = `${news.title}\n\n${news.excerpt}\n\nRead more: ${window.location.href}`;
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
+    window.open(whatsappUrl, '_blank');
   };
   const handleBookmark = () => {
     toast({
