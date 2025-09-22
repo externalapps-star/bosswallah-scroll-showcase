@@ -53,7 +53,7 @@ const HeroSection = () => {
             {t('hero.title')}
           </h1>
           <p className="text-2xl md:text-3xl mb-6 font-light">
-            {t('hero.subtitle')}
+            See The Impact
           </p>
           <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
             {t('hero.description')}
