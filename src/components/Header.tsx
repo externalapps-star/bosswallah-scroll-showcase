@@ -44,10 +44,6 @@ const Header = () => {
     name: 'Kannada',
     nativeName: 'ಕನ್ನಡ'
   }, {
-    code: 'ml',
-    name: 'Malayalam',
-    nativeName: 'മലയാളം'
-  }, {
     code: 'hi',
     name: 'Hindi',
     nativeName: 'हिन्दी'
@@ -55,6 +51,10 @@ const Header = () => {
     code: 'en',
     name: 'English',
     nativeName: 'English'
+  }, {
+    code: 'ml',
+    name: 'Malayalam',
+    nativeName: 'മലയാളം'
   }];
   const currentLanguage = languages.find(lang => lang.code === language);
   const scrollToSection = (sectionId: string) => {
