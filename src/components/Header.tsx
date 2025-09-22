@@ -126,7 +126,7 @@ const Header = () => {
 
               {/* Submit Enquiry CTA */}
               <Button onClick={() => scrollToSection('contact')} className="flex items-center gap-2">
-                Start a campaign
+                Start A Campaign
               </Button>
 
               {/* Official Website Button */}
@@ -136,7 +136,7 @@ const Header = () => {
                 className="flex items-center gap-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200"
               >
                 <ExternalLink className="h-4 w-4" />
-                Official website
+                Official Website
               </Button>
 
               {/* Theme Toggle */}
@@ -178,7 +178,7 @@ const Header = () => {
               scrollToSection('contact');
               setIsMobileMenuOpen(false);
             }} className="mx-4 mb-2">
-                  Start a campaign
+                  Start A Campaign
                 </Button>
                 
                 <div className="px-4 py-2 border-t border-border">
@@ -207,7 +207,7 @@ const Header = () => {
                     variant="outline"
                   >
                     <ExternalLink className="h-4 w-4" />
-                    Official website
+                    Official Website
                   </Button>
 
                   {/* Mobile Theme Toggle */}

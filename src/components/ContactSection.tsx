@@ -76,7 +76,7 @@ const ContactSection = () => {
                   </div>
 
                   <Button type="submit" variant="default" size="lg" className="w-full">
-                    DONE
+                    Done
                   </Button>
                 </form> : <div className="text-center py-8">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
