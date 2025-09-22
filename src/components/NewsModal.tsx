@@ -103,18 +103,10 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
           )}
 
           {/* Close Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={onClose}
-            className="absolute right-2 top-2 z-10 h-8 w-8 rounded-full bg-background/90 shadow-lg border-2 border-primary"
-          >
-            <X size={16} />
-          </Button>
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-8 px-3 py-4 space-y-2 pt-6 pb-6">
+            <div className="mx-14 px-3 py-4 space-y-2 pt-6 pb-6">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-3 items-start mb-4">
                 <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
@@ -125,9 +117,19 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
                   />
                 </div>
                 
-                <div className="flex-1 space-y-1">
+                <div className="flex-1 space-y-1 relative">
+                  {/* Close Button - aligned with title */}
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={onClose}
+                    className="absolute -right-8 -top-1 z-10 h-6 w-6 rounded-full bg-background/90 shadow-lg border-2 border-primary"
+                  >
+                    <X size={12} />
+                  </Button>
+
                   {/* Title */}
-                  <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight">
+                  <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight pr-8">
                     {news.title}
                   </h1>
 
