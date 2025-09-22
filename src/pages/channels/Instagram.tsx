@@ -22,14 +22,14 @@ const InstagramPage = () => {
       ]
     },
     // Kannada Profiles
-    {
-      language: "Kannada",
-      channels: [
-        { name: "Ffreedom App Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "App" },
-        { name: "Farming Kannada Ffreedom", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
-        { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
-      ]
-    },
+      {
+        language: "Kannada",
+        channels: [
+          { name: "Boss Wallah Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "Main" },
+          { name: "Boss Wallah Farming Kannada", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
+          { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
+        ]
+      },
     // Hindi Profiles
     {
       language: "Hindi",
@@ -55,7 +55,6 @@ const InstagramPage = () => {
       case "Main": return "bg-primary/10 text-primary";
       case "Farming": return "bg-green-100 text-green-700";
       case "Business": return "bg-purple-100 text-purple-700";
-      case "App": return "bg-orange-100 text-orange-700";
       default: return "bg-gray-100 text-gray-700";
     }
   };

@@ -157,8 +157,8 @@ const ChannelsSection = () => {
       {
         language: "Kannada",
         channels: [
-          { name: "Ffreedom App Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "App" },
-          { name: "Farming Kannada Ffreedom", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
+          { name: "Boss Wallah Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "Main" },
+          { name: "Boss Wallah Farming Kannada", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
           { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
         ]
       },
@@ -188,7 +188,6 @@ const ChannelsSection = () => {
       case "Business": return "bg-purple-500/10 text-purple-700 dark:text-purple-400 border-purple-500/20";
       case "Academy": return "bg-blue-500/10 text-blue-700 dark:text-blue-400 border-blue-500/20";
       case "Finance": return "bg-yellow-500/10 text-yellow-700 dark:text-yellow-400 border-yellow-500/20";
-      case "App": return "bg-orange-500/10 text-orange-700 dark:text-orange-400 border-orange-500/20";
       default: return "bg-muted text-muted-foreground border-border";
     }
   };
