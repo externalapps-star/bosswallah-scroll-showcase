@@ -102,7 +102,7 @@ const HeroSection = () => {
                 className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
                 onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                See the Impact
+                See The Impact
               </Button>
               <Button 
                 variant="outline" 
