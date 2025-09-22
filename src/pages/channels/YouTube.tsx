@@ -30,6 +30,13 @@ const YouTubePage = () => {
         { name: "Boss Wallah Academy Kannada", url: "https://www.youtube.com/@bosswallahAcademykannada", category: "Academy" }
       ]
     },
+    // Malayalam Channels
+    {
+      language: "Malayalam",
+      channels: [
+        { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
+      ]
+    },
     // Hindi Channels
     {
       language: "Hindi",
@@ -46,13 +53,6 @@ const YouTubePage = () => {
         { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main" },
         { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming" },
         { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy" }
-      ]
-    },
-    // Malayalam Channels
-    {
-      language: "Malayalam",
-      channels: [
-        { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
       ]
     }
   ];

@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useNavigate } from "react-router-dom";
 import youtubeLogo from "@/assets/youtube-logo.png";
 import facebookLogo from "@/assets/facebook-logo.png";
 import instagramLogo from "@/assets/instagram-logo.png";
 
 const ChannelsSection = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
+  const navigate = useNavigate();
 
   const platforms = [
     {
@@ -71,6 +73,12 @@ const ChannelsSection = () => {
         ]
       },
       {
+        language: "Malayalam",
+        channels: [
+          { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
+        ]
+      },
+      {
         language: "Hindi",
         channels: [
           { name: "Boss Wallah Hindi", url: "https://www.youtube.com/@bosswallahhindi", category: "Main" },
@@ -84,12 +92,6 @@ const ChannelsSection = () => {
           { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main" },
           { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming" },
           { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy" }
-        ]
-      },
-      {
-        language: "Malayalam",
-        channels: [
-          { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
         ]
       }
     ],
@@ -295,23 +297,42 @@ const ChannelsSection = () => {
                         {platform.description}
                       </p>
                       
-                      {/* CTA Button */}
-                      <div className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden ${
-                        isSelected 
-                          ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg' 
-                          : 'bg-gradient-to-r from-muted/80 to-muted/60 text-foreground border border-border group-hover:from-primary/10 group-hover:to-accent/10 group-hover:text-primary group-hover:border-primary/20'
-                      }`}>
-                        {/* Button Background Animation */}
-                        <div className={`absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                          isSelected ? 'opacity-20' : ''
-                        }`}></div>
+                      {/* CTA Buttons */}
+                      <div className="flex flex-col gap-3">
+                        <div 
+                          className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden cursor-pointer ${
+                            isSelected 
+                              ? 'bg-gradient-to-r from-primary to-accent text-white shadow-lg' 
+                              : 'bg-gradient-to-r from-muted/80 to-muted/60 text-foreground border border-border group-hover:from-primary/10 group-hover:to-accent/10 group-hover:text-primary group-hover:border-primary/20'
+                          }`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setSelectedPlatform(isSelected ? null : platform.id);
+                          }}
+                        >
+                          {/* Button Background Animation */}
+                          <div className={`absolute inset-0 bg-gradient-to-r from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
+                            isSelected ? 'opacity-20' : ''
+                          }`}></div>
+                          
+                          <span className="relative z-10 mr-2">
+                            {isSelected ? 'Hide Channels' : 'Explore Channels'}
+                          </span>
+                          <ArrowRight size={16} className={`relative z-10 transition-transform duration-300 ${
+                            isSelected ? 'rotate-45' : 'group-hover:translate-x-1'
+                          }`} />
+                        </div>
                         
-                        <span className="relative z-10 mr-2">
-                          {isSelected ? 'Hide Channels' : 'Explore Channels'}
-                        </span>
-                        <ArrowRight size={16} className={`relative z-10 transition-transform duration-300 ${
-                          isSelected ? 'rotate-45' : 'group-hover:translate-x-1'
-                        }`} />
+                        <div 
+                          className="relative inline-flex items-center justify-center px-6 py-2 rounded-full font-medium text-xs transition-all duration-300 overflow-hidden cursor-pointer bg-secondary/60 text-secondary-foreground border border-secondary/40 hover:bg-secondary hover:border-secondary/60"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            navigate(`/channels/${platform.id}`);
+                          }}
+                        >
+                          <span className="relative z-10 mr-2">View All Details</span>
+                          <ExternalLink size={14} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
+                        </div>
                       </div>
                     </div>
 
@@ -378,7 +399,9 @@ const ChannelsSection = () => {
                 </div>
 
                 <Tabs defaultValue={channelData[selectedPlatform as keyof typeof channelData]?.[0]?.language} className="w-full">
-                  <TabsList className="grid w-full grid-cols-5 lg:grid-cols-6 mb-8 bg-muted/50">
+                  <TabsList className={`grid w-full mb-8 bg-muted/50 ${
+                    selectedPlatform === 'youtube' ? 'grid-cols-6' : 'grid-cols-5'
+                  }`}>
                     {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup) => (
                       <TabsTrigger
                         key={languageGroup.language}
@@ -442,7 +465,7 @@ const ChannelsSection = () => {
         {!selectedPlatform && (
           <div className="text-center mt-12">
             <p className="text-muted-foreground text-lg">
-              Available in <strong className="text-primary">Telugu, Tamil, Kannada, Hindi, English, and Malayalam</strong>
+              Available in <strong className="text-primary">Telugu, Tamil, Kannada, Malayalam, Hindi, and English</strong>
             </p>
           </div>
         )}

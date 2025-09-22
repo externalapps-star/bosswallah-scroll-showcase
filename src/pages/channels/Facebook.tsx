@@ -82,7 +82,7 @@ const FacebookPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Facebook <span className="gradient-text">Pages</span>
               </h1>
-              <p className="text-xl text-muted-foreground">15 pages across 5 languages</p>
+              <p className="text-xl text-muted-foreground">15 pages across 5 languages (no Malayalam)</p>
             </div>
           </div>
         </div>
