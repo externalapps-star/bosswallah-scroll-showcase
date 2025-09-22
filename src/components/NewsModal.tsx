@@ -10,7 +10,9 @@ import {
   ExternalLink, 
   Share2, 
   Bookmark,
-  X
+  X,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
@@ -32,9 +34,11 @@ interface NewsModalProps {
   news: NewsItem | null;
   isOpen: boolean;
   onClose: () => void;
+  onNext?: () => void;
+  onPrevious?: () => void;
 }
 
-const NewsModal = ({ news, isOpen, onClose }: NewsModalProps) => {
+const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps) => {
   const { toast } = useToast();
 
   if (!news) return null;
@@ -73,111 +77,127 @@ const NewsModal = ({ news, isOpen, onClose }: NewsModalProps) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden bg-background">
-        {/* Header */}
-        <DialogHeader className="relative p-6 pb-4">
-          <div className="flex items-start justify-between gap-4">
-            <div className="flex-1">
-              <Badge variant="secondary" className="mb-3">
-                {news.category}
-              </Badge>
-              <DialogTitle className="text-2xl md:text-3xl font-bold leading-tight mb-4">
-                {news.title}
-              </DialogTitle>
-              
-              {/* Meta Info */}
-              <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-                <div className="flex items-center gap-1">
-                  <User size={14} />
-                  {news.author}
-                </div>
-                <div className="flex items-center gap-1">
-                  <Calendar size={14} />
-                  {formatDate(news.date)}
-                </div>
-                <div className="flex items-center gap-1">
-                  <Clock size={14} />
-                  {news.readTime}
-                </div>
-              </div>
-            </div>
+      <DialogContent className="max-w-4xl w-[95vw] max-h-[95vh] p-0 overflow-hidden">
+        <div className="relative bg-card">
+          {/* Navigation Arrows */}
+          {onPrevious && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onPrevious}
+              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-background/90 hover:bg-background shadow-lg"
+            >
+              <ChevronLeft size={20} />
+            </Button>
+          )}
+          
+          {onNext && (
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-background/90 hover:bg-background shadow-lg"
+            >
+              <ChevronRight size={20} />
+            </Button>
+          )}
 
-            {/* Action Buttons */}
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={handleShare}>
-                <Share2 size={16} />
-              </Button>
-              <Button variant="ghost" size="sm" onClick={handleBookmark}>
-                <Bookmark size={16} />
-              </Button>
-              <Button variant="ghost" size="sm" onClick={onClose}>
-                <X size={16} />
-              </Button>
-            </div>
-          </div>
-        </DialogHeader>
+          {/* Close Button */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            className="absolute right-4 top-4 z-10 h-10 w-10 rounded-full bg-background/90 hover:bg-background shadow-lg"
+          >
+            <X size={18} />
+          </Button>
 
-        <Separator />
-
-        {/* Content */}
-        <ScrollArea className="flex-1 px-6">
-          <div className="py-6">
+          <ScrollArea className="max-h-[95vh]">
             {/* Featured Image */}
-            <div className="relative mb-8 rounded-lg overflow-hidden">
+            <div className="relative w-full h-64 md:h-80 overflow-hidden">
               <img 
                 src={news.thumbnail} 
                 alt={news.title}
-                className="w-full h-64 md:h-80 object-cover"
+                className="w-full h-full object-cover"
               />
             </div>
 
-            {/* Article Content */}
-            <div className="prose prose-lg max-w-none dark:prose-invert">
-              <p className="text-xl text-muted-foreground mb-6 leading-relaxed">
-                {news.excerpt}
-              </p>
-              
-              <div className="space-y-6 text-foreground leading-relaxed">
-                {news.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+            {/* Content */}
+            <div className="p-6 md:p-8">
+              {/* Title */}
+              <h1 className="text-2xl md:text-3xl font-bold mb-4 text-foreground leading-tight">
+                {news.title}
+              </h1>
+
+              {/* Meta Info */}
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+                <span>{formatDate(news.date)}</span>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {news.tags.map((tag, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs px-3 py-1">
+                    {tag}
+                  </Badge>
                 ))}
+              </div>
+
+              {/* Article Content */}
+              <div className="prose prose-lg max-w-none">
+                {news.content.split('\n\n').map((paragraph, index) => (
+                  <p key={index} className="mb-4 text-foreground leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              {/* Insights Box */}
+              <div className="mt-8 p-4 bg-muted/50 rounded-lg border-l-4 border-primary">
+                <h3 className="font-semibold text-foreground mb-2">INSIGHTS</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {news.excerpt}
+                </p>
               </div>
             </div>
 
-            {/* Tags */}
-            <div className="flex flex-wrap gap-2 mt-8 pt-6 border-t">
-              {news.tags.map((tag, index) => (
-                <Badge key={index} variant="outline" className="text-xs">
-                  #{tag}
-                </Badge>
-              ))}
-            </div>
-          </div>
-        </ScrollArea>
+            {/* Footer Actions */}
+            <div className="flex items-center justify-between p-6 pt-0 border-t bg-muted/30">
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleShare}
+                  className="gap-2"
+                >
+                  <Share2 size={16} />
+                  Share
+                </Button>
+                
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleBookmark}
+                  className="gap-2"
+                >
+                  <Bookmark size={16} />
+                  Save
+                </Button>
+              </div>
 
-        {/* Footer */}
-        <div className="border-t p-6">
-          <div className="flex flex-col sm:flex-row gap-4 justify-between items-center">
-            <div className="flex items-center gap-4">
-              <Button variant="outline" size="sm" onClick={handleShare}>
-                <Share2 size={16} className="mr-2" />
-                Share Article
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleBookmark}>
-                <Bookmark size={16} className="mr-2" />
-                Save for Later
-              </Button>
+              {news.url && (
+                <Button
+                  variant="default"
+                  size="sm"
+                  onClick={() => window.open(news.url, '_blank')}
+                  className="gap-2"
+                >
+                  Read Full Article
+                  <ExternalLink size={16} />
+                </Button>
+              )}
             </div>
-            
-            {news.url && (
-              <Button asChild>
-                <a href={news.url} target="_blank" rel="noopener noreferrer">
-                  <ExternalLink size={16} className="mr-2" />
-                  Read on Boss Wallah
-                </a>
-              </Button>
-            )}
-          </div>
+          </ScrollArea>
         </div>
       </DialogContent>
     </Dialog>
