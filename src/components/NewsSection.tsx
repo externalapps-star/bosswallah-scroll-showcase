@@ -224,7 +224,7 @@ const NewsSection = () => {
             </div>
           ) : (
             /* Minimalist List Layout for Homepage */
-            <div className="space-y-4 mb-8 p-4 rounded-lg border border-border/50 bg-card/20 backdrop-blur-sm shadow-soft">
+            <div className="space-y-4 mb-8 p-4 rounded-lg border border-border/50 bg-primary/5 backdrop-blur-sm shadow-soft">
               {displayedNews.map((item, index) => (
                 <Card
                   key={item.id}
