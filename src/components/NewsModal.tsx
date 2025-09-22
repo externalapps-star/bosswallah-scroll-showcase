@@ -113,34 +113,38 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
           </Button>
 
           <ScrollArea className="flex-1">
-            {/* Featured Image */}
-            <div className="relative w-full h-40 overflow-hidden flex-shrink-0">
-              <img 
-                src={news.thumbnail} 
-                alt={news.title}
-                className="w-full h-full object-cover"
-              />
-            </div>
-
             {/* Content */}
             <div className="mx-16 px-4 py-6 space-y-4">
-              {/* Title */}
-              <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
-                {news.title}
-              </h1>
+              {/* Small Thumbnail Preview */}
+              <div className="flex gap-4 items-start mb-6">
+                <div className="relative w-24 h-16 overflow-hidden rounded-lg flex-shrink-0">
+                  <img 
+                    src={news.thumbnail} 
+                    alt={news.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                
+                <div className="flex-1 space-y-2">
+                  {/* Title */}
+                  <h1 className="text-xl md:text-2xl font-bold text-foreground leading-tight">
+                    {news.title}
+                  </h1>
 
-              {/* Meta Info */}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                <span>{formatDate(news.date)}</span>
-              </div>
+                  {/* Meta Info */}
+                  <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                    <span>{formatDate(news.date)}</span>
+                  </div>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {news.tags.map((tag, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
-                    {tag}
-                  </Badge>
-                ))}
+                  {/* Tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {news.tags.map((tag, index) => (
+                      <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
               </div>
 
               {/* Article Content */}
