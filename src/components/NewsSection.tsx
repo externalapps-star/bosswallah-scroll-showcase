@@ -289,7 +289,7 @@ const NewsSection = () => {
                 variant="ghost" 
                 size="lg"
                 onClick={() => setShowMore(false)}
-                className="group border border-orange-200 hover:border-orange-300 hover:bg-orange-50"
+                className="group border border-orange-200"
               >
                 Show Less
               </Button>
