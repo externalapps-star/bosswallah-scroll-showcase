@@ -31,14 +31,14 @@ const InstagramPage = () => {
         ]
       },
     // Hindi Profiles
-    {
-      language: "Hindi",
-      channels: [
-        { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" },
-        { name: "Farming Hindi Boss Wallah", url: "https://www.instagram.com/farminghindibosswallah", category: "Farming" },
-        { name: "Boss Wallah Business Hindi", url: "https://www.instagram.com/bosswallahbusinesshindi", category: "Business" }
-      ]
-    },
+      {
+        language: "Hindi", 
+        channels: [
+          { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" },
+          { name: "Boss Wallah Farming Hindi", url: "https://www.instagram.com/farminghindibosswallah", category: "Farming" },
+          { name: "Boss Wallah Business Hindi", url: "https://www.instagram.com/bosswallahbusinesshindi", category: "Business" }
+        ]
+      },
     // English Profiles
     {
       language: "English",
