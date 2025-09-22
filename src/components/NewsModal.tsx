@@ -107,7 +107,7 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="absolute right-2 top-2 z-10 h-8 w-8 rounded-full bg-background/90 hover:bg-background shadow-lg"
+            className="absolute right-2 top-2 z-10 h-8 w-8 rounded-full bg-background/90 shadow-lg border-2 border-primary"
           >
             <X size={16} />
           </Button>
