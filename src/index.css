@@ -190,6 +190,10 @@
     animation: gradient-x 3s ease infinite;
   }
 
+  .animate-pulse-slow {
+    animation: pulse-slow 10s ease-in-out infinite;
+  }
+
   .animation-delay-300 {
     animation-delay: 300ms;
   }
@@ -220,6 +224,16 @@
     }
     50% {
       background-position: 100% 50%;
+    }
+  }
+
+  /* Slow pulse animation - every 10 seconds */
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
     }
   }
 

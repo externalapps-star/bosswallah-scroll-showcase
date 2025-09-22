@@ -85,9 +85,9 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1 animate-pulse"
+              className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:-translate-x-1 animate-pulse-slow"
             >
-              <ChevronLeft size={20} />
+              <ChevronLeft size={16} />
             </Button>
           )}
           
@@ -96,9 +96,9 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
               variant="ghost"
               size="icon"
               onClick={onNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-pulse"
+              className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg transition-all duration-300 hover:scale-110 hover:translate-x-1 animate-pulse-slow"
             >
-              <ChevronRight size={20} />
+              <ChevronRight size={16} />
             </Button>
           )}
 
@@ -107,14 +107,14 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             variant="ghost"
             size="icon"
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 h-10 w-10 rounded-full bg-background/90 hover:bg-background shadow-lg"
+            className="absolute right-2 top-2 z-10 h-8 w-8 rounded-full bg-background/90 hover:bg-background shadow-lg"
           >
-            <X size={18} />
+            <X size={16} />
           </Button>
 
-          <ScrollArea className="max-h-[90vh]">
+          <ScrollArea className="max-h-[85vh]">
             {/* Featured Image */}
-            <div className="relative w-full h-48 md:h-64 overflow-hidden">
+            <div className="relative w-full h-32 md:h-40 overflow-hidden">
               <img 
                 src={news.thumbnail} 
                 alt={news.title}
@@ -123,46 +123,46 @@ const NewsModal = ({ news, isOpen, onClose, onNext, onPrevious }: NewsModalProps
             </div>
 
             {/* Content */}
-            <div className="p-4 md:p-6 space-y-4">
+            <div className="mx-12 px-4 md:px-6 py-4 space-y-3">
               {/* Title */}
-              <h1 className="text-2xl md:text-3xl font-bold mb-4 text-foreground leading-tight">
+              <h1 className="text-xl md:text-2xl font-bold mb-3 text-foreground leading-tight">
                 {news.title}
               </h1>
 
               {/* Meta Info */}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-6">
+              <div className="flex items-center gap-4 text-sm text-muted-foreground mb-4">
                 <span>{formatDate(news.date)}</span>
               </div>
 
               {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {news.tags.map((tag, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs px-3 py-1">
+                  <Badge key={index} variant="secondary" className="text-xs px-2 py-1">
                     {tag}
                   </Badge>
                 ))}
               </div>
 
               {/* Article Content */}
-              <div className="prose prose-lg max-w-none">
+              <div className="prose max-w-none">
                 {news.content.split('\n\n').map((paragraph, index) => (
-                  <p key={index} className="mb-4 text-foreground leading-relaxed">
+                  <p key={index} className="mb-3 text-foreground leading-relaxed text-sm">
                     {paragraph}
                   </p>
                 ))}
               </div>
 
               {/* Insights Box */}
-              <div className="mt-8 p-4 bg-muted/50 rounded-lg border-l-4 border-primary">
-                <h3 className="font-semibold text-foreground mb-2">INSIGHTS</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+              <div className="mt-6 p-3 bg-muted/50 rounded-lg border-l-4 border-primary">
+                <h3 className="font-semibold text-foreground mb-2 text-sm">INSIGHTS</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">
                   {news.excerpt}
                 </p>
               </div>
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between p-6 pt-0 border-t bg-muted/30">
+            <div className="flex items-center justify-between mx-12 px-4 md:px-6 py-4 border-t bg-muted/30">
               <div className="flex items-center gap-2">
                 <Button
                   variant="outline"
