@@ -59,10 +59,10 @@ const HeroSection = () => {
             Accelerate Your
           </h1>
           
-          {/* "Growth" with gradient */}
+          {/* "Brand Growth" with gradient */}
           <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
-              Growth
+              Brand Growth
             </span>
           </h1>
           
