@@ -20,14 +20,14 @@ const Footer = () => {
               at scale across regional markets.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
-                <img src={youtubeIcon} alt="YouTube" className="w-6 h-6" />
+              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
+                <img src={youtubeIcon} alt="YouTube" className="w-10 h-10 object-contain" />
               </Button>
-              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
-                <img src={facebookIcon} alt="Facebook" className="w-6 h-6" />
+              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
+                <img src={facebookIcon} alt="Facebook" className="w-10 h-10 object-contain" />
               </Button>
-              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
-                <img src={instagramIcon} alt="Instagram" className="w-6 h-6" />
+              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
+                <img src={instagramIcon} alt="Instagram" className="w-10 h-10 object-contain" />
               </Button>
             </div>
           </div>
