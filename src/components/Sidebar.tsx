@@ -32,7 +32,7 @@ const Sidebar = () => {
   ];
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-black border-r border-border">
+    <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
       {/* Logo Section */}
       <div className="p-6 border-b border-border">
         <img 
@@ -43,26 +43,26 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex-1 p-6">
-        <div className="flex items-center justify-center mb-8">
+      <div className="flex-1 flex flex-col items-center justify-center p-6">
+        <div className="flex items-center justify-center">
           <Button
             variant="ghost"
             size="icon"
             onClick={() => setIsOpen(!isOpen)}
-            className="h-12 w-12 rounded-full border border-border hover:bg-muted"
+            className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25"
           >
-            <Menu className="h-6 w-6" />
+            <Menu className="h-7 w-7" />
           </Button>
         </div>
 
         {/* Navigation Items - Hidden by default, shown when hamburger is clicked */}
         {isOpen && (
-          <nav className="space-y-3">
+          <nav className="space-y-3 mt-8 w-full">
             {navigationItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left px-4 py-3 rounded-lg text-foreground hover:bg-muted transition-colors"
+                className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
               >
                 {item.label}
               </button>
@@ -72,18 +72,18 @@ const Sidebar = () => {
       </div>
 
       {/* Contact Details */}
-      <div className="p-6 border-t border-border space-y-4">
+      <div className="p-6 border-t border-white/10 space-y-4">
         <div className="space-y-3">
           <a 
             href="tel:+919876543210" 
-            className="flex items-center space-x-3 text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors"
           >
             <Phone className="h-4 w-4" />
             <span className="text-sm">+91 98765 43210</span>
           </a>
           <a 
             href="mailto:hello@bosswallah.com" 
-            className="flex items-center space-x-3 text-muted-foreground hover:text-foreground transition-colors"
+            className="flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors"
           >
             <Mail className="h-4 w-4" />
             <span className="text-sm">hello@bosswallah.com</span>
@@ -96,7 +96,7 @@ const Sidebar = () => {
             <a
               key={index}
               href={social.href}
-              className={`${social.color} hover:opacity-80 transition-opacity`}
+              className="text-gray-400 hover:text-primary transition-colors"
             >
               <social.icon className="h-5 w-5" />
             </a>
@@ -109,7 +109,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-80 z-40">
+      <div className="hidden lg:block fixed left-0 top-0 h-full w-64 z-40">
         <SidebarContent />
       </div>
 
@@ -125,7 +125,7 @@ const Sidebar = () => {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0 w-80">
+          <SheetContent side="left" className="p-0 w-64">
             <SidebarContent />
           </SheetContent>
         </Sheet>
