@@ -464,7 +464,6 @@ const ChannelsSection = () => {
                           ?.filter(languageGroup => languageGroup.language === language)
                           .map((languageGroup, idx) => (
                           <div key={idx} className="col-span-full">
-                            <h4 className="text-2xl font-bold mb-6 text-foreground">{languageGroup.language} Channels</h4>
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {languageGroup.channels.map((channel, channelIdx) => (
                                 <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
