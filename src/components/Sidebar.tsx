@@ -64,11 +64,19 @@ const Sidebar = () => {
         </div>
 
         {/* Navigation Items - Hidden by default, shown when hamburger is clicked */}
-        {isOpen && <nav className="space-y-3 mt-8 w-full">
-            {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
-                {item.label}
-              </button>)}
-          </nav>}
+        {isOpen && <div className="mt-8 w-full relative">
+            <button 
+              onClick={() => setIsOpen(false)}
+              className="absolute top-0 right-0 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
+            >
+              <X className="h-4 w-4" />
+            </button>
+            <nav className="space-y-3 pt-8">
+              {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
+                  {item.label}
+                </button>)}
+            </nav>
+          </div>}
       </div>
 
       {/* Contact Details */}
