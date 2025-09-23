@@ -1,8 +1,9 @@
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const AboutSection = () => {
   const { t } = useLanguage();
+  const sectionRef = useRef<HTMLElement>(null);
   
   // Animation state for numbers
   const [animatedValues, setAnimatedValues] = useState({
@@ -13,7 +14,7 @@ const AboutSection = () => {
   });
 
   // Counter animation function
-  const animateCounter = (target: number, key: keyof typeof animatedValues, suffix: string = "") => {
+  const animateCounter = (target: number, key: keyof typeof animatedValues) => {
     const duration = 2000; // 2 seconds
     const steps = 60;
     const increment = target / steps;
@@ -35,20 +36,53 @@ const AboutSection = () => {
     }, duration / steps);
   };
 
-  useEffect(() => {
-    // Start animations after component mounts
-    const timer = setTimeout(() => {
+  // Reset and start animations
+  const startAnimations = () => {
+    // Reset values to 0
+    setAnimatedValues({
+      followers: 0,
+      views: 0,
+      studios: 0,
+      videos: 0
+    });
+
+    // Start animations with slight delay
+    setTimeout(() => {
       animateCounter(18, 'followers');
       animateCounter(330, 'views');
       animateCounter(6, 'studios');
       animateCounter(200, 'videos');
-    }, 300);
+    }, 200);
+  };
 
-    return () => clearTimeout(timer);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            startAnimations();
+          }
+        });
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the section is visible
+        rootMargin: '-50px'
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
   }, []);
 
   return (
-    <section id="about" className="section-padding bg-gradient-subtle">
+    <section ref={sectionRef} id="about" className="section-padding bg-gradient-subtle">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
