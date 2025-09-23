@@ -63,27 +63,29 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex-1 flex flex-col p-4 md:p-6 relative">
+      <div className="flex-1 flex flex-col p-4 md:p-6 relative overflow-hidden">
         <div className="flex items-center justify-center h-full">
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary">
             <Menu className="h-7 w-7" />
           </Button>
         </div>
         
-        {/* Navigation overlay - compact and scrollable */}
+        {/* Navigation overlay - scrollable within this section */}
         {isMenuOpen && (
-          <div className="absolute top-0 left-0 right-0 bg-[#1a1a2e] z-10 p-2 border border-primary/20 rounded-lg max-h-64 overflow-y-auto">
-            <button 
-              onClick={() => setIsMenuOpen(false)}
-              className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
-            >
-              <X className="h-3 w-3" />
-            </button>
-            <nav className="space-y-1 pt-8">
-              {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
-                  {item.label}
-                </button>)}
-            </nav>
+          <div className="absolute inset-0 bg-[#1a1a2e] z-10 flex flex-col max-h-full overflow-y-auto">
+            <div className="p-2">
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200 z-20"
+              >
+                <X className="h-3 w-3" />
+              </button>
+              <nav className="space-y-1 pt-8 pb-4">
+                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
+                    {item.label}
+                  </button>)}
+              </nav>
+            </div>
           </div>
         )}
       </div>
