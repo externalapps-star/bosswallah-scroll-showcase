@@ -9,18 +9,21 @@ import NewsSection from "@/components/NewsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
+import { useState } from "react";
 
 const Index = () => {
+  const [sidebarMenuOpen, setSidebarMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen">
-      <Sidebar />
+      <Sidebar isMenuOpen={sidebarMenuOpen} setIsMenuOpen={setSidebarMenuOpen} />
       
       {/* Main Content Area */}
       <div className="lg:ml-56">
         <TopStrip />
         
         <div id="home">
-          <HeroSection />
+          <HeroSection hideSideNavigation={sidebarMenuOpen} />
         </div>
         <div id="about">
           <AboutSection />

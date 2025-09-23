@@ -3,15 +3,20 @@ import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
+interface SidebarProps {
+  isMenuOpen: boolean;
+  setIsMenuOpen: (open: boolean) => void;
+}
+
+const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
       element.scrollIntoView({
         behavior: "smooth"
       });
-      setIsOpen(false);
+      setIsMenuOpen(false);
     }
   };
   const navigationItems = [{
@@ -57,16 +62,16 @@ const Sidebar = () => {
 
       {/* Navigation Menu */}
       <div className="flex-1 flex flex-col p-6">
-        {!isOpen ? (
+        {!isMenuOpen ? (
           <div className="flex items-center justify-center h-full">
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
+            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
               <Menu className="h-7 w-7" />
             </Button>
           </div>
         ) : (
           <div className="w-full relative">
             <button 
-              onClick={() => setIsOpen(false)}
+              onClick={() => setIsMenuOpen(false)}
               className="absolute top-0 right-0 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
             >
               <X className="h-4 w-4" />

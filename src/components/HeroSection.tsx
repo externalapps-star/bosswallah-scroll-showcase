@@ -1,7 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-const HeroSection = () => {
+
+interface HeroSectionProps {
+  hideSideNavigation?: boolean;
+}
+
+const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigationItems = [{
     label: "Start Campaign",
@@ -84,11 +89,13 @@ const HeroSection = () => {
       </div>
 
       {/* Navigation buttons - right side (desktop only) */}
-      <div className="hidden lg:flex flex-col justify-center space-y-4 pr-16 z-10">
-        {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10">
-            {item.label}
-          </button>)}
-      </div>
+      {!hideSideNavigation && (
+        <div className="hidden lg:flex flex-col justify-center space-y-4 pr-16 z-10">
+          {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10">
+              {item.label}
+            </button>)}
+        </div>
+      )}
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10" onClick={() => document.getElementById('about')?.scrollIntoView({
