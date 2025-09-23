@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { NewsService } from "@/services/NewsService";
 
-// Import generated thumbnails
+// Static thumbnails as fallback
 import newsThumb1 from "@/assets/news-thumb-1.jpg";
 import newsThumb2 from "@/assets/news-thumb-2.jpg";
 import newsThumb3 from "@/assets/news-thumb-3.jpg";
@@ -51,12 +51,8 @@ const NewsSection = () => {
       setIsLoading(true);
       try {
         const latestNews = await NewsService.fetchNewsFromBossWallah();
-        // Map thumbnails to the fetched news
-        const newsWithThumbnails = latestNews.map((item, index) => ({
-          ...item,
-          thumbnail: [newsThumb1, newsThumb2, newsThumb3, newsThumb4, newsThumb5, newsThumb6][index % 6]
-        }));
-        setNewsItems(newsWithThumbnails);
+        // News items now come with dynamic thumbnails or fallback to static ones
+        setNewsItems(latestNews);
       } catch (error) {
         console.error('Error fetching news:', error);
         // Fallback to static news if fetch fails
