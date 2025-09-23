@@ -91,7 +91,7 @@ const HeroSection = () => {
           <button
             key={index}
             onClick={item.action}
-            className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-2 px-4 rounded hover:bg-white/10"
+            className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10"
           >
             {item.label}
           </button>
