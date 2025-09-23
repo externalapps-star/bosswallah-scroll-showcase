@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Menu } from "lucide-react";
+import { Menu, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 const HeroSection = () => {
@@ -17,55 +17,56 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden" style={{ backgroundColor: '#2C3E50' }}>
-      {/* Dark background matching the reference image */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-800">
+      {/* Dark navy background matching the reference image */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900"></div>
       
       {/* Content */}
-      <div className="container-custom relative z-10 text-white px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto relative z-10 text-white px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center min-h-screen lg:min-h-0 pt-20 lg:pt-0">
           {/* Left Side - Main Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:space-y-12">
             {/* Media Services Label */}
-            <div className="flex items-center gap-2 text-orange-400 font-medium">
+            <div className="flex items-center gap-2 text-orange-400 font-medium text-base">
               <span>Media Services</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="m9 18 6-6-6-6"/>
-              </svg>
+              <ArrowUpRight size={16} />
             </div>
 
             {/* Main Heading */}
-            <div className="space-y-4">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold leading-tight">
-                <span className="text-white">Accelerate Your</span>
-                <br />
-                <span className="gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500">
+            <div className="space-y-6">
+              <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none">
+                <span className="text-white block">Accelerate Your</span>
+                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
                   Growth
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-gray-300 leading-relaxed max-w-2xl">
+              <p className="text-gray-300 text-xl md:text-2xl leading-relaxed max-w-2xl">
                 Drive business growth with our B2B expertise in marketing strategy, lead generation, digital solutions, and creative services.
               </p>
             </div>
 
             {/* Second Part of Heading */}
             <div className="space-y-6">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500">
+              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none">
+                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
                   With Boss
-                  <br />
+                </span>
+                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
                   Wallah Media
                 </span>
               </h2>
               
-              <p className="text-lg text-gray-400 leading-relaxed max-w-3xl">
+              <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
                 Boss Wallah Media is India's leading social media and video production powerhouse with massive regional reach. We create campaigns that captivate, influence, and deliver measurable ROI across YouTube, Facebook, and Instagram.
               </p>
             </div>
+          </div>
 
-            {/* Navigation Buttons - Desktop */}
-            <div className="hidden lg:grid lg:grid-cols-3 gap-4 pt-8">
+          {/* Right Side - Navigation replacing statistics */}
+          <div className="space-y-6 lg:space-y-8">
+            {/* Desktop Navigation Grid */}
+            <div className="hidden lg:grid lg:grid-cols-2 gap-4">
               {navigationButtons.map((btn, index) => (
                 <Button
                   key={index}
@@ -73,9 +74,9 @@ const HeroSection = () => {
                   size="lg"
                   className={`${
                     btn.primary 
-                      ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0" 
-                      : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm"
-                  } font-medium py-3 px-6 transition-all duration-300 hover:scale-105`}
+                      ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0 text-lg font-semibold py-6" 
+                      : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm text-base font-medium py-4"
+                  } transition-all duration-300 hover:scale-105 rounded-lg`}
                   onClick={() => document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   {btn.label}
@@ -83,12 +84,36 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Statistics - Hidden on Desktop, shown only when space allows */}
+            <div className="hidden xl:block space-y-8 text-right mt-12">
+              <div className="space-y-2">
+                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                  18M+
+                </div>
+                <p className="text-gray-400 text-sm">Followers Across Platforms</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-500 bg-clip-text text-transparent">
+                  330M+
+                </div>
+                <p className="text-gray-400 text-sm">Monthly Views & Engagement</p>
+              </div>
+              
+              <div className="space-y-2">
+                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                  6
+                </div>
+                <p className="text-gray-400 text-sm">Regional Languages</p>
+              </div>
+            </div>
+
+            {/* Mobile/Tablet Navigation Menu */}
             <div className="lg:hidden">
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm"
+                className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm w-full"
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
               >
                 <Menu size={20} className="mr-2" />
@@ -107,7 +132,7 @@ const HeroSection = () => {
                         btn.primary 
                           ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0" 
                           : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm"
-                      } font-medium transition-all duration-300`}
+                      } font-medium transition-all duration-300 text-sm py-3`}
                       onClick={() => {
                         document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' });
                         setShowMobileMenu(false);
@@ -118,30 +143,30 @@ const HeroSection = () => {
                   ))}
                 </div>
               )}
-            </div>
-          </div>
 
-          {/* Right Side - Statistics */}
-          <div className="space-y-8 lg:space-y-12 text-right">
-            <div className="space-y-2">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold gradient-text text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">
-                18M+
+              {/* Mobile Statistics */}
+              <div className="mt-8 grid grid-cols-3 gap-4 text-center">
+                <div className="space-y-1">
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                    18M+
+                  </div>
+                  <p className="text-gray-400 text-xs">Followers</p>
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-500 bg-clip-text text-transparent">
+                    330M+
+                  </div>
+                  <p className="text-gray-400 text-xs">Monthly Views</p>
+                </div>
+                
+                <div className="space-y-1">
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
+                    6
+                  </div>
+                  <p className="text-gray-400 text-xs">Languages</p>
+                </div>
               </div>
-              <p className="text-gray-400 text-lg">Followers Across Platforms</p>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold gradient-text text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-purple-500">
-                330M+
-              </div>
-              <p className="text-gray-400 text-lg">Monthly Views & Engagement</p>
-            </div>
-            
-            <div className="space-y-2">
-              <div className="text-5xl md:text-6xl lg:text-7xl font-bold gradient-text text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">
-                6
-              </div>
-              <p className="text-gray-400 text-lg">Regional Languages</p>
             </div>
           </div>
         </div>
