@@ -12,22 +12,6 @@ interface NewsItem {
   url: string;
 }
 
-interface NewsItem {
-  id: number;
-  date: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: string;
-  thumbnail: string;
-  readTime: string;
-  author: string;
-  tags: string[];
-  url: string;
-}
-
-import { ThumbnailService } from './ThumbnailService';
-
 export class NewsService {
   // Fallback news data in case fetch fails
   private static fallbackNews: NewsItem[] = [
@@ -91,15 +75,15 @@ export class NewsService {
 
   static async fetchNewsFromBossWallah(): Promise<NewsItem[]> {
     try {
-      // Mix of actual news and blog content from Boss Wallah
-      const realNews: NewsItem[] = [
-        // Latest blog posts from Boss Wallah's official website
+      // This would be implemented to scrape or use an API from Boss Wallah
+      // For now, return the current news structure with today's dates
+      const latestNews: NewsItem[] = [
         {
           id: 1,
-          date: new Date(Date.now() - 900000).toISOString().split('T')[0], // 15 hours ago
+          date: new Date().toISOString().split('T')[0],
           title: "30 Best Retail Franchises Options in India – Cost, Investment & Profit",
           excerpt: "Discover the top retail franchise opportunities in India with detailed investment analysis and profit potential for aspiring entrepreneurs.",
-          content: "This comprehensive guide explores 30 of the best retail franchise options available in 2025, covering various categories from fashion and electronics to health and beauty. Each franchise option includes detailed information about investment requirements, profit margins, support systems, and growth potential. The retail sector in India is experiencing unprecedented growth, driven by increasing consumer spending and changing lifestyle preferences.",
+          content: "Retail franchising in India offers tremendous opportunities for entrepreneurs looking to start their business journey. This comprehensive guide explores 30 of the best retail franchise options available in 2025, covering various categories from fashion and electronics to health and beauty. Each franchise option includes detailed information about investment requirements, profit margins, support systems, and growth potential. The retail sector in India is experiencing unprecedented growth, driven by increasing consumer spending and changing lifestyle preferences. From established international brands to emerging local concepts, there's a franchise opportunity for every budget and interest. Key factors to consider include initial investment, ongoing fees, territory rights, training programs, and marketing support.",
           category: "Business",
           thumbnail: "/src/assets/news-thumb-1.jpg",
           readTime: "12 min read",
@@ -109,10 +93,10 @@ export class NewsService {
         },
         {
           id: 2,
-          date: new Date(Date.now() - 900000).toISOString().split('T')[0], // 15 hours ago
+          date: new Date(Date.now() - 3600000).toISOString().split('T')[0],
           title: "All 40 Food & Beverage (F&B) Franchises in India 2025: Investment, Cost & Profit",
           excerpt: "Complete guide to food and beverage franchise opportunities in India with investment details and profitability analysis.",
-          content: "The food and beverage industry in India is booming, offering numerous franchise opportunities for entrepreneurs. This comprehensive guide covers 40 top F&B franchises available in 2025, including quick service restaurants, cafes, beverage brands, and specialty food concepts. Each franchise is analyzed for investment requirements, expected returns, brand support, and market potential.",
+          content: "The food and beverage industry in India is booming, offering numerous franchise opportunities for entrepreneurs. This comprehensive guide covers 40 top F&B franchises available in 2025, including quick service restaurants, cafes, beverage brands, and specialty food concepts. Each franchise is analyzed for investment requirements, expected returns, brand support, and market potential. The F&B sector continues to grow rapidly with changing consumer preferences and urbanization trends. From international chains to local favorites, opportunities range from low-investment kiosks to full-service restaurants. Success factors include location selection, operational efficiency, quality control, and customer service excellence.",
           category: "Business",
           thumbnail: "/src/assets/news-thumb-2.jpg",
           readTime: "15 min read",
@@ -122,10 +106,10 @@ export class NewsService {
         },
         {
           id: 3,
-          date: new Date(Date.now() - 1080000).toISOString().split('T')[0], // 18 hours ago
+          date: new Date(Date.now() - 7200000).toISOString().split('T')[0],
           title: "Franchisee Rights in India: What Every Entrepreneur Must Know in 2025",
           excerpt: "Essential guide to understanding franchisee rights and legal protections for entrepreneurs entering the franchise business.",
-          content: "Understanding franchisee rights is crucial for anyone considering a franchise investment in India. This comprehensive guide covers all legal aspects, rights, and protections available to franchisees under Indian law. Topics include franchise agreements, territorial rights, support obligations, termination clauses, and dispute resolution mechanisms.",
+          content: "Understanding franchisee rights is crucial for anyone considering a franchise investment in India. This comprehensive guide covers all legal aspects, rights, and protections available to franchisees under Indian law. Topics include franchise agreements, territorial rights, support obligations, termination clauses, and dispute resolution mechanisms. Being informed about your rights as a franchisee helps ensure a successful and protected business relationship. Key areas covered include intellectual property usage, operational guidelines, fee structures, territory protection, training requirements, and exit procedures. Legal compliance and documentation are essential for protecting your investment.",
           category: "Business",
           thumbnail: "/src/assets/news-thumb-3.jpg",
           readTime: "10 min read",
@@ -135,48 +119,46 @@ export class NewsService {
         },
         {
           id: 4,
-          date: new Date(Date.now() - 7776000000).toISOString().split('T')[0], // 3 months ago
-          title: "YouTube Update 2025 Explained: New Policies, Features & Monetization Changes",
-          excerpt: "YouTube's biggest update ever introduces new policies, powerful AI tools, advanced features, and crucial monetization changes for creators.",
-          content: "YouTube has announced its biggest update ever — the YouTube Update 2025. This major update introduces new policies, powerful AI tools for YouTube, advanced features, and crucial monetisation changes that will directly impact creators and brands worldwide. Whether you're a full-time YouTuber, a small business using YouTube for marketing, or just someone interested in the future of digital content, this update will change how you create, consume, and earn from YouTube.",
-          category: "Creator Hub",
+          date: new Date(Date.now() - 10800000).toISOString().split('T')[0],
+          title: "Most Profitable Food Franchise in India (2025) — Top Brands, ROI & How to Choose",
+          excerpt: "Analyze the most profitable food franchise opportunities in India with detailed ROI calculations and selection criteria.",
+          content: "Choosing the right food franchise can be the difference between success and failure in the competitive F&B industry. This guide analyzes the most profitable food franchise opportunities in India for 2025, providing detailed ROI calculations, investment breakdowns, and selection criteria. We examine established brands across various categories including pizza, burgers, Indian cuisine, beverages, and desserts. Factors affecting profitability include location dynamics, operational costs, brand recognition, customer loyalty, and scalability potential. The analysis includes case studies of successful franchisees and common pitfalls to avoid when making your selection.",
+          category: "Business",
           thumbnail: "/src/assets/news-thumb-4.jpg",
-          readTime: "8 min read",
-          author: "Bhoomireddy Hemalatha",
-          tags: ["YouTube", "Update", "Monetization"],
-          url: "https://blog.bosswallah.com/youtube-update-2025/"
+          readTime: "14 min read",
+          author: "Boss Wallah Business",
+          tags: ["Food", "Franchise", "ROI"],
+          url: "https://blog.bosswallah.com/most-profitable-food-franchise-in-india-2025-top-brands-roi-how-to-choose/"
         },
         {
           id: 5,
-          date: new Date(Date.now() - 1814400000).toISOString().split('T')[0], // 3 weeks ago
-          title: "YouTube Shorts Monetization 2025: New Updates, Revenue Share & Best Practices",
-          excerpt: "Everything you need to know about earning money from YouTube Shorts, including new revenue sharing updates and optimization strategies.",
-          content: "YouTube Shorts has become a major revenue driver for creators worldwide. This comprehensive guide covers all monetization options available in 2025: YouTube Partner Program requirements, new revenue sharing models, brand sponsorship opportunities, and best practices for maximizing earnings. Learn advanced strategies used by top creators to earn significant income from short-form content.",
-          category: "Creator Hub",
+          date: new Date(Date.now() - 14400000).toISOString().split('T')[0],
+          title: "Starbucks Franchise in India (2025): Cost, Requirements & Profit Guide",
+          excerpt: "Complete guide to Starbucks franchise opportunities in India including investment requirements and profit potential.",
+          content: "Starbucks remains one of the most sought-after coffee franchise opportunities globally, and India presents significant growth potential. This comprehensive guide covers everything you need to know about Starbucks franchise opportunities in India for 2025. We detail the investment requirements, application process, operational standards, training programs, and profit projections. The guide also covers territory availability, site selection criteria, design specifications, and ongoing support systems. Understanding Starbucks' business model and operational excellence standards is crucial for potential franchisees looking to join this premium coffee brand.",
+          category: "Business",
           thumbnail: "/src/assets/news-thumb-5.jpg",
-          readTime: "12 min read",
-          author: "Bhoomireddy Hemalatha",
-          tags: ["YouTube", "Shorts", "Monetization"],
-          url: "https://blog.bosswallah.com/youtube-shorts-monetization-2025-new-updates-revenue-share-best-practices/"
+          readTime: "11 min read",
+          author: "Boss Wallah Business",
+          tags: ["Starbucks", "Coffee", "Franchise"],
+          url: "https://blog.bosswallah.com/starbucks-franchise-in-india-2025-cost-requirements-profit-guide/"
         },
         {
           id: 6,
-          date: new Date(Date.now() - 7776000000).toISOString().split('T')[0], // 3 months ago
-          title: "Is Instagram Adding Profile Views in 2025? (New Update Explained)",
-          excerpt: "Comprehensive analysis of Instagram's rumored profile view feature and what it means for creators and businesses.",
-          content: "Instagram is constantly evolving to enhance user experience and provide better insights for creators and businesses. Recent rumors suggest that Instagram might be adding a profile views feature in 2025, similar to what we see on other social media platforms. This article explores the implications of this potential feature, how it might work, and what it could mean for content creators, influencers, and businesses using Instagram for marketing.",
-          category: "Digital Skills",
+          date: new Date(Date.now() - 18000000).toISOString().split('T')[0],
+          title: "How to Get a Franchise in India – A Beginner's Stepwise Checklist",
+          excerpt: "Step-by-step guide for beginners to successfully acquire a franchise in India with practical tips and checklist.",
+          content: "Starting a franchise business in India can be an excellent entry point into entrepreneurship, but it requires careful planning and execution. This beginner's guide provides a comprehensive stepwise checklist for acquiring a franchise successfully. We cover market research, financial planning, franchise selection criteria, due diligence processes, legal documentation, and launch preparation. The guide includes practical tips for evaluating franchise opportunities, negotiating terms, securing financing, and avoiding common mistakes. Understanding the franchise ecosystem, from initial inquiry to successful operation, is essential for making informed decisions and achieving long-term success.",
+          category: "Business",
           thumbnail: "/src/assets/news-thumb-6.jpg",
-          readTime: "6 min read",
-          author: "Boss Wallah Blogs",
-          tags: ["Instagram", "Profile Views", "Social Media"],
-          url: "https://blog.bosswallah.com/is-instagram-adding-profile-views/"
+          readTime: "13 min read",
+          author: "Boss Wallah Business",
+          tags: ["Franchise", "Guide", "Beginners"],
+          url: "https://blog.bosswallah.com/how-to-get-a-franchise-in-india-a-beginners-stepwise-checklist/"
         }
       ];
 
-      // Generate dynamic thumbnails for the news
-      const newsWithDynamicThumbnails = await ThumbnailService.generateAllThumbnails(realNews);
-      return newsWithDynamicThumbnails;
+      return latestNews;
     } catch (error) {
       console.error('Error fetching Boss Wallah news:', error);
       return this.fallbackNews;

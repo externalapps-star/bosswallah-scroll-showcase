@@ -51,8 +51,12 @@ const NewsSection = () => {
       setIsLoading(true);
       try {
         const latestNews = await NewsService.fetchNewsFromBossWallah();
-        // News already has dynamic thumbnails generated
-        setNewsItems(latestNews);
+        // Map thumbnails to the fetched news
+        const newsWithThumbnails = latestNews.map((item, index) => ({
+          ...item,
+          thumbnail: [newsThumb1, newsThumb2, newsThumb3, newsThumb4, newsThumb5, newsThumb6][index % 6]
+        }));
+        setNewsItems(newsWithThumbnails);
       } catch (error) {
         console.error('Error fetching news:', error);
         // Fallback to static news if fetch fails
