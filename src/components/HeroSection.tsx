@@ -63,10 +63,10 @@ const HeroSection = () => {
       <div className="relative z-10 flex-1 px-8 lg:px-16 overflow-hidden">
         <div className="max-w-3xl">
           {/* "Accelerate Your" in white */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
           
           {/* "Brand Growth" with gradient */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
           </h1>
           
@@ -76,7 +76,7 @@ const HeroSection = () => {
           </p>
           
           {/* "With Boss Wallah Media" with gradient */}
-          <h2 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
           </h2>
           
