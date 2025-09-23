@@ -1,125 +1,106 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
-import heroBackground from "@/assets/hero-background.jpg";
+import { useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const HeroSection = () => {
-  const { t } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const navigationItems = [
+    { label: "Start Campaign", action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: "Our Story", action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: "Explore Channels", action: () => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: "View Our Work", action: () => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: "See The Impact", action: () => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) },
+    { label: "Latest News", action: () => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' }) }
+  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Theme Toggle - removed since it's now in header */}
-      
-      {/* Background Video/Montage */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        {/* Enhanced overlay with softer, more comfortable opacity */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/50 to-accent/60">
-          {/* Subtle animated light particles */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse blur-sm"></div>
-            <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-accent/30 rounded-full animate-bounce delay-100 blur-sm"></div>
-            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-primary/20 rounded-full animate-ping delay-200"></div>
-            <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white/25 rounded-full animate-pulse delay-300 blur-sm"></div>
-            <div className="absolute bottom-1/3 right-1/2 w-1 h-1 bg-accent/25 rounded-full animate-bounce delay-500"></div>
-            <div className="absolute top-2/3 left-1/2 w-0.5 h-0.5 bg-white/30 rounded-full animate-ping delay-700 blur-sm"></div>
+    <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
+      {/* Dark background overlay */}
+      <div className="absolute inset-0 bg-[#1a1a2e] z-0"></div>
+
+      {/* Top left "Media Services" */}
+      <div className="absolute top-8 left-8 z-20">
+        <span className="text-gray-400 text-sm font-light">Media Services</span>
+      </div>
+
+      {/* Mobile hamburger menu */}
+      <div className="lg:hidden absolute top-8 right-8 z-20">
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="text-white p-2"
+        >
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+        
+        {mobileMenuOpen && (
+          <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
+            {navigationItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  item.action();
+                  setMobileMenuOpen(false);
+                }}
+                className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm"
+              >
+                {item.label}
+              </button>
+            ))}
           </div>
+        )}
+      </div>
+
+      {/* Main content - left side */}
+      <div className="relative z-10 flex-1 px-8 lg:px-16">
+        <div className="max-w-3xl">
+          {/* "Accelerate Your" in white */}
+          <h1 className="text-6xl lg:text-8xl font-bold text-white leading-tight mb-4">
+            Accelerate Your
+          </h1>
           
-          {/* Minimal floating glitter effect */}
-          <div className="absolute inset-0">
-            <div className="absolute top-20 left-20 w-0.5 h-0.5 bg-white/30 rounded-full animate-pulse blur-sm opacity-40"></div>
-            <div className="absolute top-32 right-24 w-0.5 h-0.5 bg-accent/40 rounded-full animate-bounce delay-150 opacity-30"></div>
-            <div className="absolute bottom-40 left-32 w-0.5 h-0.5 bg-primary/30 rounded-full animate-ping delay-300 opacity-35"></div>
-            <div className="absolute top-48 right-40 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-400 blur-sm opacity-25"></div>
-            <div className="absolute bottom-24 right-16 w-0.5 h-0.5 bg-accent/35 rounded-full animate-bounce delay-600 opacity-40"></div>
-            <div className="absolute top-60 left-48 w-0.5 h-0.5 bg-white/25 rounded-full animate-ping delay-800 opacity-30"></div>
-          </div>
+          {/* "Growth" with gradient */}
+          <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
+              Growth
+            </span>
+          </h1>
           
-          {/* Very subtle shimmer overlay */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/2 to-transparent animate-pulse opacity-50"></div>
+          {/* Subtitle */}
+          <p className="text-gray-400 text-lg lg:text-xl mb-12 max-w-2xl leading-relaxed">
+            Drive business growth with our B2B expertise in marketing strategy, lead generation, digital solutions, and creative services.
+          </p>
+          
+          {/* "With Boss Wallah Media" with gradient */}
+          <h2 className="text-5xl lg:text-7xl font-bold leading-tight mb-8">
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
+              With Boss Wallah Media
+            </span>
+          </h2>
+          
+          {/* Bottom description */}
+          <p className="text-gray-400 text-base lg:text-lg max-w-3xl leading-relaxed">
+            Boss Wallah Media is India's leading social media and video production powerhouse with massive regional reach. We create campaigns that captivate, influence, and deliver measurable ROI across YouTube, Facebook, and Instagram.
+          </p>
         </div>
       </div>
 
-      {/* Content */}
-      <div className="container-custom relative z-10 text-center text-white px-6">
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight whitespace-nowrap">
-            {t('hero.title')}
-          </h1>
-          <p className="text-2xl md:text-3xl mb-6 font-light">
-            {t('hero.subtitle')}
-          </p>
-          <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
-            {t('hero.description')}
-          </p>
-          
-          {/* Primary CTA */}
-          <div className="flex flex-col items-center gap-8 mb-8">
-            <Button 
-              variant="hero" 
-              size="lg"
-              className="text-lg px-16 py-8 h-auto font-semibold transform hover:scale-105 transition-all duration-300"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            >
-              Start Campaign
-            </Button>
-            
-            {/* Secondary CTAs Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full max-w-5xl">
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Our Story
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Explore Channels
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                View Our Work
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                See The Impact
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
-                onClick={() => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' })}
-              >
-                Latest News
-              </Button>
-            </div>
-          </div>
-        </div>
+      {/* Navigation buttons - right side (desktop only) */}
+      <div className="hidden lg:flex flex-col justify-center space-y-4 pr-16 z-10">
+        {navigationItems.map((item, index) => (
+          <button
+            key={index}
+            onClick={item.action}
+            className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-2 px-4 rounded hover:bg-white/10"
+          >
+            {item.label}
+          </button>
+        ))}
       </div>
 
       {/* Scroll indicator */}
       <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10"
         onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
       >
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center hover:border-white/70 transition-colors">
