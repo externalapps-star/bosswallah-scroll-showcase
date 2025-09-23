@@ -71,17 +71,17 @@ const HeroSection = () => {
           </h1>
           
           {/* Subtitle */}
-          <p className="text-gray-400 text-lg lg:text-xl mb-12 max-w-2xl leading-relaxed">
+          <p className="text-gray-400 text-xl lg:text-2xl mb-12 max-w-2xl leading-relaxed text-justify">
             Drive business growth with our B2B expertise in marketing strategy, lead generation, digital solutions, and creative services.
           </p>
           
           {/* "With Boss Wallah Media" with gradient */}
-          <h2 className="text-5xl lg:text-7xl font-bold leading-tight mb-8 whitespace-nowrap">
+          <h2 className="text-6xl lg:text-8xl font-bold leading-tight mb-8 whitespace-nowrap">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
           </h2>
           
           {/* Bottom description */}
-          <p className="text-gray-400 text-base lg:text-lg max-w-3xl leading-relaxed">
+          <p className="text-gray-400 text-lg lg:text-xl max-w-3xl leading-relaxed text-justify">
             Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.
           </p>
         </div>
