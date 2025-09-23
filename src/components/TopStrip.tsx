@@ -10,7 +10,7 @@ const TopStrip = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-black text-white py-3 px-6 shadow-lg border-b border-white/20">
+    <div className="bg-primary text-primary-foreground py-3 px-6 shadow-soft">
       <div className="flex items-center justify-between max-w-full">
         {/* Message */}
         <div className="flex-1 text-center">
@@ -25,7 +25,7 @@ const TopStrip = () => {
             onClick={scrollToContact}
             variant="secondary"
             size="sm"
-            className="bg-white text-black hover:bg-gray-100 font-medium"
+            className="bg-white text-primary hover:bg-white/90 font-medium"
           >
             Talk to Our Team
           </Button>
