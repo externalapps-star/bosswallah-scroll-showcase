@@ -410,11 +410,14 @@ const ChannelsSection = () => {
 
                 <div className="p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="grid w-full grid-cols-4">
+                  <TabsList className="grid w-full grid-cols-7">
                     <TabsTrigger value="all">All</TabsTrigger>
-                    <TabsTrigger value="Main">Main</TabsTrigger>
-                    <TabsTrigger value="Farming">Farming</TabsTrigger>
-                    <TabsTrigger value="Business">Business</TabsTrigger>
+                    <TabsTrigger value="Hindi">Hindi</TabsTrigger>
+                    <TabsTrigger value="English">English</TabsTrigger>
+                    <TabsTrigger value="Kannada">Kannada</TabsTrigger>
+                    <TabsTrigger value="Malayalam">Malayalam</TabsTrigger>
+                    <TabsTrigger value="Tamil">Tamil</TabsTrigger>
+                    <TabsTrigger value="Telugu">Telugu</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="all" className="mt-8">
@@ -453,46 +456,43 @@ const ChannelsSection = () => {
                     </div>
                   </TabsContent>
 
-                  {/* Filtered tabs */}
-                  {["Main", "Farming", "Business"].map((category) => (
-                    <TabsContent key={category} value={category} className="mt-8">
+                  {/* Language-specific tabs */}
+                  {["Hindi", "English", "Kannada", "Malayalam", "Tamil", "Telugu"].map((language) => (
+                    <TabsContent key={language} value={language} className="mt-8">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => {
-                          const filteredChannels = languageGroup.channels.filter(channel => channel.category === category);
-                          if (filteredChannels.length === 0) return null;
-                          
-                          return (
-                            <div key={idx}>
-                              <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
-                              <div className="space-y-3">
-                                {filteredChannels.map((channel, channelIdx) => (
-                                  <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
-                                    <CardContent className="p-4">
-                                      <div className="flex items-center justify-between">
-                                        <div className="flex-1">
-                                          <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                                            {channel.name}
-                                          </h5>
-                                          <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
-                                            {channel.category}
-                                          </div>
+                        {channelData[selectedPlatform as keyof typeof channelData]
+                          ?.filter(languageGroup => languageGroup.language === language)
+                          .map((languageGroup, idx) => (
+                          <div key={idx} className="col-span-full">
+                            <h4 className="text-2xl font-bold mb-6 text-foreground">{languageGroup.language} Channels</h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                              {languageGroup.channels.map((channel, channelIdx) => (
+                                <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                                  <CardContent className="p-4">
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                          {channel.name}
+                                        </h5>
+                                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
+                                          {channel.category}
                                         </div>
-                                        <Button
-                                          size="sm"
-                                          variant="ghost"
-                                          onClick={() => window.open(channel.url, '_blank')}
-                                          className="ml-2"
-                                        >
-                                          <ExternalLink size={14} />
-                                        </Button>
                                       </div>
-                                    </CardContent>
-                                  </Card>
-                                ))}
-                              </div>
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => window.open(channel.url, '_blank')}
+                                        className="ml-2"
+                                      >
+                                        <ExternalLink size={14} />
+                                      </Button>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              ))}
                             </div>
-                          );
-                        })}
+                          </div>
+                        ))}
                       </div>
                     </TabsContent>
                   ))}
