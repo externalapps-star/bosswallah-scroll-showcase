@@ -341,19 +341,6 @@ const ChannelsSection = () => {
                             }`} />
                           </div>
                         </button>
-                        
-                        <button 
-                          className="w-full py-2 px-4 rounded-lg font-medium text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            navigate(`/channels/${platform.id}`);
-                          }}
-                        >
-                          <div className="flex items-center justify-center">
-                            <span>View All Channels</span>
-                            <ExternalLink size={12} className="ml-1" />
-                          </div>
-                        </button>
                       </div>
                     </div>
                   </div>
