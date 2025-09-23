@@ -16,7 +16,7 @@ const Index = () => {
       <Sidebar />
       
       {/* Main Content Area */}
-      <div className="lg:ml-48">
+      <div className="lg:ml-64 pt-16">
         <TopStrip />
         
         <div id="home">
