@@ -125,16 +125,10 @@ const Header = () => {
               </DropdownMenu>
 
               {/* Submit Enquiry CTA */}
-              <Button onClick={() => scrollToSection('contact')} className="flex items-center gap-2">
-                Start A Campaign
-              </Button>
+              <Button onClick={() => scrollToSection('contact')} className="flex items-center gap-2">Start Campaign</Button>
 
               {/* Official Website Button */}
-              <Button 
-                variant="outline" 
-                onClick={() => window.open('https://bosswallah.com', '_blank')} 
-                className="flex items-center gap-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200"
-              >
+              <Button variant="outline" onClick={() => window.open('https://bosswallah.com', '_blank')} className="flex items-center gap-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200">
                 <ExternalLink className="h-4 w-4" />
                 Official Website
               </Button>
@@ -198,14 +192,10 @@ const Header = () => {
                   </DropdownMenu>
 
                   {/* Mobile Official Website Button */}
-                  <Button 
-                    onClick={() => {
-                      window.open('https://bosswallah.com', '_blank');
-                      setIsMobileMenuOpen(false);
-                    }} 
-                    className="w-full justify-start gap-2 mb-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200"
-                    variant="outline"
-                  >
+                  <Button onClick={() => {
+                window.open('https://bosswallah.com', '_blank');
+                setIsMobileMenuOpen(false);
+              }} className="w-full justify-start gap-2 mb-2 border-primary/20 hover:border-primary hover:bg-primary/5 text-primary hover:text-primary font-medium transition-all duration-200" variant="outline">
                     <ExternalLink className="h-4 w-4" />
                     Official Website
                   </Button>
