@@ -57,7 +57,7 @@ const Footer = () => {
             <div className="space-y-2 text-background/80">
               <p>Email: hello@bosswallah.com</p>
               <p>Phone: +91 XXXXX XXXXX</p>
-              <p>Languages: Telugu, Tamil, Kannada, Hindi, English, Malayalam</p>
+              <p>Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
             </div>
           </div>
         </div>

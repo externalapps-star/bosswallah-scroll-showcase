@@ -399,12 +399,12 @@ const ChannelsSection = () => {
                   <Tabs defaultValue="all" className="w-full">
                   <TabsList className="grid w-full grid-cols-7">
                     <TabsTrigger value="all">All</TabsTrigger>
-                    <TabsTrigger value="Hindi">Hindi</TabsTrigger>
-                    <TabsTrigger value="English">English</TabsTrigger>
+                    <TabsTrigger value="Telugu">Telugu</TabsTrigger>
+                    <TabsTrigger value="Tamil">Tamil</TabsTrigger>
                     <TabsTrigger value="Kannada">Kannada</TabsTrigger>
                     <TabsTrigger value="Malayalam">Malayalam</TabsTrigger>
-                    <TabsTrigger value="Tamil">Tamil</TabsTrigger>
-                    <TabsTrigger value="Telugu">Telugu</TabsTrigger>
+                    <TabsTrigger value="Hindi">Hindi</TabsTrigger>
+                    <TabsTrigger value="English">English</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="all" className="mt-8">
@@ -444,7 +444,7 @@ const ChannelsSection = () => {
                   </TabsContent>
 
                   {/* Language-specific tabs */}
-                  {["Hindi", "English", "Kannada", "Malayalam", "Tamil", "Telugu"].map((language) => (
+                  {["Telugu", "Tamil", "Kannada", "Malayalam", "Hindi", "English"].map((language) => (
                     <TabsContent key={language} value={language} className="mt-8">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {channelData[selectedPlatform as keyof typeof channelData]

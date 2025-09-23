@@ -99,7 +99,7 @@ const AboutSection = () => {
               <p>
                 Operating <strong className="text-accent">six full-scale studios</strong> with <strong className="text-accent">60+ anchors</strong>, 
                 editors, and creative talent, the company produces over <strong className="text-accent">200 videos weekly</strong> in 
-                Telugu, Tamil, Kannada, Malayalam, Hindi, and English. Trusted by large and small 
+                Telugu, Tamil, Kannada, Malayalam, Hindi, and English. Trusted by large and small
                 Indian and international brands, Boss Wallah Media ensures campaigns deliver 
                 measurable ROI.
               </p>
