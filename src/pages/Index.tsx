@@ -18,7 +18,7 @@ const Index = () => {
     <div className="min-h-screen">
       <Sidebar isMenuOpen={sidebarMenuOpen} setIsMenuOpen={setSidebarMenuOpen} />
       
-      {/* Main Content Area */}
+      {/* Main Content Area with Sidebar */}
       <div className="lg:ml-48 xl:ml-56">
         <TopStrip />
         
@@ -43,8 +43,10 @@ const Index = () => {
         <div id="contact">
           <ContactSection />
         </div>
-        <Footer />
       </div>
+      
+      {/* Footer takes full width */}
+      <Footer />
       
       <FloatingCallButton />
     </div>
