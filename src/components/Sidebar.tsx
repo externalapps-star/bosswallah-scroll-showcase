@@ -56,7 +56,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   }];
   const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
       {/* Logo Section */}
-      <div className="px-6 border-b border-white/10 bg-[#1a1a2e] py-[11.25px]">
+      <div className="px-6 bg-[#1a1a2e] py-[11.25px]">
         <div className="bg-white p-2 rounded">
           <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-8 w-auto" />
         </div>
