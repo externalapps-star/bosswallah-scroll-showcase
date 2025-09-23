@@ -34,12 +34,12 @@ const HeroSection = () => {
       behavior: 'smooth'
     })
   }];
-  return <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
+  return <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
       {/* Dark background overlay */}
       
 
       {/* Top left "Media Services" */}
-      <div className="absolute top-8 left-8 z-20">
+      <div className="absolute top-16 left-8 z-20">
         <span className="text-gray-400 text-sm font-light">Media Services</span>
       </div>
 
