@@ -120,7 +120,7 @@ const Sidebar = () => {
             <Button
               variant="ghost"
               size="icon"
-              className="fixed top-4 left-4 z-50 h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border border-border"
+              className="fixed top-16 left-4 z-50 h-10 w-10 rounded-full bg-white/90 backdrop-blur-sm border border-gray-200 text-black hover:bg-white"
             >
               <Menu className="h-5 w-5" />
             </Button>
