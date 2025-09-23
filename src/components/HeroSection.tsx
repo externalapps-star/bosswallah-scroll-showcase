@@ -1,23 +1,42 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
 const HeroSection = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const navigationItems = [
-    { label: "Start Campaign", action: () => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }) },
-    { label: "Our Story", action: () => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }) },
-    { label: "Explore Channels", action: () => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' }) },
-    { label: "View Our Work", action: () => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' }) },
-    { label: "See The Impact", action: () => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' }) },
-    { label: "Latest News", action: () => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' }) }
-  ];
-
-  return (
-    <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
+  const navigationItems = [{
+    label: "Start Campaign",
+    action: () => document.getElementById('contact')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, {
+    label: "Our Story",
+    action: () => document.getElementById('about')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, {
+    label: "Explore Channels",
+    action: () => document.getElementById('channels')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, {
+    label: "View Our Work",
+    action: () => document.getElementById('campaigns')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, {
+    label: "See The Impact",
+    action: () => document.getElementById('testimonials')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }, {
+    label: "Latest News",
+    action: () => document.getElementById('news')?.scrollIntoView({
+      behavior: 'smooth'
+    })
+  }];
+  return <section className="relative min-h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
       {/* Dark background overlay */}
-      <div className="absolute inset-0 bg-[#1a1a2e] z-0"></div>
+      
 
       {/* Top left "Media Services" */}
       <div className="absolute top-8 left-8 z-20">
@@ -26,29 +45,18 @@ const HeroSection = () => {
 
       {/* Mobile hamburger menu */}
       <div className="lg:hidden absolute top-8 right-8 z-20">
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="text-white p-2"
-        >
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white p-2">
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {mobileMenuOpen && (
-          <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
-            {navigationItems.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  item.action();
-                  setMobileMenuOpen(false);
-                }}
-                className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm"
-              >
+        {mobileMenuOpen && <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
+            {navigationItems.map((item, index) => <button key={index} onClick={() => {
+          item.action();
+          setMobileMenuOpen(false);
+        }} className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm">
                 {item.label}
-              </button>
-            ))}
-          </div>
-        )}
+              </button>)}
+          </div>}
       </div>
 
       {/* Main content - left side */}
@@ -87,28 +95,19 @@ const HeroSection = () => {
 
       {/* Navigation buttons - right side (desktop only) */}
       <div className="hidden lg:flex flex-col justify-center space-y-4 pr-16 z-10">
-        {navigationItems.map((item, index) => (
-          <button
-            key={index}
-            onClick={item.action}
-            className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10"
-          >
+        {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10">
             {item.label}
-          </button>
-        ))}
+          </button>)}
       </div>
 
       {/* Scroll indicator */}
-      <div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10"
-        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-      >
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10" onClick={() => document.getElementById('about')?.scrollIntoView({
+      behavior: 'smooth'
+    })}>
         <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center hover:border-white/70 transition-colors">
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
