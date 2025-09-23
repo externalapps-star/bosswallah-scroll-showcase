@@ -60,28 +60,28 @@ const HeroSection = () => {
       </div>
 
       {/* Main content - left side */}
-      <div className="relative z-10 flex-1 px-8 lg:px-16">
+      <div className="relative z-10 flex-1 px-8 lg:px-16 overflow-hidden">
         <div className="max-w-3xl">
           {/* "Accelerate Your" in white */}
-          <h1 className="text-6xl lg:text-8xl font-bold text-white leading-tight mb-4 whitespace-nowrap">Accelerate Your Brand</h1>
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
           
           {/* "Brand Growth" with gradient */}
-          <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-gray-400 text-xl lg:text-2xl mb-12 max-w-2xl leading-relaxed text-justify">
+          <p className="text-gray-400 text-lg sm:text-xl lg:text-2xl mb-12 max-w-2xl leading-relaxed">
             Drive business growth with our B2B expertise in marketing strategy, lead generation, digital solutions, and creative services.
           </p>
           
           {/* "With Boss Wallah Media" with gradient */}
-          <h2 className="text-6xl lg:text-8xl font-bold leading-tight mb-8 whitespace-nowrap">
+          <h2 className="text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-bold leading-tight mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
           </h2>
           
           {/* Bottom description */}
-          <p className="text-gray-400 text-lg lg:text-xl max-w-3xl leading-relaxed text-justify">
+          <p className="text-gray-400 text-base sm:text-lg lg:text-xl max-w-3xl leading-relaxed">
             Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.
           </p>
         </div>
