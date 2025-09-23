@@ -246,12 +246,11 @@ const ChannelsSection = () => {
                         : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
                     }`}>
                       
-                      {/* Decorative Pattern */}
-                      <div className="absolute inset-0 opacity-20">
-                        <div className="absolute top-2 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
-                        <div className="absolute top-4 right-6 w-4 h-4 border border-white/40 rounded-full"></div>
-                        <div className="absolute bottom-3 left-8 w-6 h-6 border border-white/20 rounded-full"></div>
-                        <div className="absolute bottom-2 right-4 w-3 h-3 bg-white/30 rounded-full"></div>
+                      {/* Decorative Pattern - reduced for clarity */}
+                      <div className="absolute inset-0 opacity-10 pointer-events-none">
+                        <div className="absolute top-4 left-6 w-6 h-6 border border-white/20 rounded-full"></div>
+                        <div className="absolute top-6 right-8 w-4 h-4 border border-white/15 rounded-full"></div>
+                        <div className="absolute bottom-4 left-10 w-5 h-5 border border-white/10 rounded-full"></div>
                       </div>
                       
                       {/* Platform Icon */}
@@ -374,12 +373,11 @@ const ChannelsSection = () => {
                     : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
                 }`}>
                   
-                  {/* Decorative Pattern */}
-                  <div className="absolute inset-0 opacity-20">
-                    <div className="absolute top-2 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
-                    <div className="absolute top-4 right-6 w-4 h-4 border border-white/40 rounded-full"></div>
-                    <div className="absolute bottom-3 left-8 w-6 h-6 border border-white/20 rounded-full"></div>
-                    <div className="absolute bottom-2 right-4 w-3 h-3 bg-white/30 rounded-full"></div>
+                  {/* Decorative Pattern - reduced for clarity */}
+                  <div className="absolute inset-0 opacity-10 pointer-events-none">
+                    <div className="absolute top-4 left-6 w-6 h-6 border border-white/20 rounded-full"></div>
+                    <div className="absolute top-6 right-8 w-4 h-4 border border-white/15 rounded-full"></div>
+                    <div className="absolute bottom-4 left-10 w-5 h-5 border border-white/10 rounded-full"></div>
                   </div>
                   
                   <h3 className="text-3xl font-bold text-white relative z-10">
