@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
-import youtubeLogo from "@/assets/youtube-logo-new.jpg";
-import facebookLogo from "@/assets/facebook-logo-new.jpg";
-import instagramLogo from "@/assets/instagram-logo-new.jpg";
+import youtubeLogo from "@/assets/youtube-logo.png";
+import facebookLogo from "@/assets/facebook-logo.png";
+import instagramLogo from "@/assets/instagram-logo.png";
 
 const ChannelsSection = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
@@ -220,7 +220,7 @@ const ChannelsSection = () => {
                   className="group cursor-pointer"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
-                  {/* Clean Brand Card - Logo Only */}
+                  {/* Brand-Themed Card with Authentic Colors */}
                   <div className={`relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl transition-all duration-500 border-2 h-full flex flex-col shadow-lg ${
                     platform.name === 'YouTube' ? (
                       isSelected 
@@ -237,20 +237,42 @@ const ChannelsSection = () => {
                     )
                   }`}>
                     
-                    {/* Logo Section - No Background */}
-                    <div className="relative h-32 flex items-center justify-center bg-gray-50 dark:bg-gray-800">
-                      {platform.image ? (
-                        <img 
-                          src={platform.image} 
-                          alt={`${platform.name} logo`}
-                          className="h-20 w-auto object-contain"
-                        />
-                      ) : (
-                        <IconComponent 
-                          size={48}
-                          className={platform.color}
-                        />
-                      )}
+                    {/* Brand Color Header Section */}
+                    <div className={`relative h-24 flex items-center justify-center ${
+                      platform.name === 'YouTube' 
+                        ? 'bg-gradient-to-r from-red-600 to-red-500' 
+                        : platform.name === 'Facebook'
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-500'
+                        : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
+                    }`}>
+                      
+                      {/* Decorative Pattern */}
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute top-2 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
+                        <div className="absolute top-4 right-6 w-4 h-4 border border-white/40 rounded-full"></div>
+                        <div className="absolute bottom-3 left-8 w-6 h-6 border border-white/20 rounded-full"></div>
+                        <div className="absolute bottom-2 right-4 w-3 h-3 bg-white/30 rounded-full"></div>
+                      </div>
+                      
+                      {/* Platform Icon */}
+                      <div className="relative z-10">
+                        {platform.image ? (
+                          <div className="w-16 h-16 bg-white rounded-xl p-3 shadow-lg">
+                            <img 
+                              src={platform.image} 
+                              alt={`${platform.name} logo`}
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        ) : (
+                          <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                            <IconComponent 
+                              size={32}
+                              className={platform.color}
+                            />
+                          </div>
+                        )}
+                      </div>
                     </div>
                     
                     {/* Content Section */}
