@@ -34,7 +34,7 @@ const Sidebar = () => {
   const SidebarContent = () => (
     <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
       {/* Logo Section */}
-      <div className="py-3 px-6 border-b border-white/10 bg-white">
+      <div className="py-2 px-6 border-b border-white/10 bg-white">
         <img 
           src={bossWallahLogo} 
           alt="Boss Wallah Media" 
