@@ -365,110 +365,140 @@ const ChannelsSection = () => {
 
         {/* Selected Platform Details */}
         {selectedPlatform && (
-          <div className="mt-16 bg-card rounded-3xl border border-border shadow-soft overflow-hidden">
-            <div className="p-8">
-              <div className="flex items-center justify-between mb-8">
-                <h3 className="text-3xl font-bold text-foreground">
-                  {platforms.find(p => p.id === selectedPlatform)?.name} Channels
-                </h3>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setSelectedPlatform(null)}
-                  className="rounded-full"
-                >
-                  <X size={20} />
-                </Button>
-              </div>
-
-              <Tabs defaultValue="all" className="w-full">
-                <TabsList className="grid w-full grid-cols-4">
-                  <TabsTrigger value="all">All</TabsTrigger>
-                  <TabsTrigger value="Main">Main</TabsTrigger>
-                  <TabsTrigger value="Farming">Farming</TabsTrigger>
-                  <TabsTrigger value="Business">Business</TabsTrigger>
-                </TabsList>
-
-                <TabsContent value="all" className="mt-8">
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
-                      <div key={idx}>
-                        <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
-                        <div className="space-y-3">
-                          {languageGroup.channels.map((channel, channelIdx) => (
-                            <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
-                              <CardContent className="p-4">
-                                <div className="flex items-center justify-between">
-                                  <div className="flex-1">
-                                    <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                                      {channel.name}
-                                    </h5>
-                                    <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
-                                      {channel.category}
-                                    </div>
-                                  </div>
-                                  <Button
-                                    size="sm"
-                                    variant="ghost"
-                                    onClick={() => window.open(channel.url, '_blank')}
-                                    className="ml-2"
-                                  >
-                                    <ExternalLink size={14} />
-                                  </Button>
-                                </div>
-                              </CardContent>
-                            </Card>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
+          <div className="mt-16">
+            {/* Enhanced Background similar to main cards */}
+            <div className="relative">
+              {/* Background Pattern */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
+              
+              <div className={`relative bg-white dark:bg-gray-900 rounded-2xl transition-all duration-500 border-2 shadow-lg ${
+                selectedPlatform === 'youtube' ? 'border-red-500 shadow-red-500/30' :
+                selectedPlatform === 'facebook' ? 'border-blue-500 shadow-blue-500/30' :
+                'border-pink-500 shadow-pink-500/30'
+              }`}>
+                
+                {/* Brand Color Header Section similar to main cards */}
+                <div className={`relative h-24 flex items-center justify-between px-8 ${
+                  selectedPlatform === 'youtube' 
+                    ? 'bg-gradient-to-r from-red-600 to-red-500' 
+                    : selectedPlatform === 'facebook'
+                    ? 'bg-gradient-to-r from-blue-600 to-blue-500'
+                    : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
+                }`}>
+                  
+                  {/* Decorative Pattern */}
+                  <div className="absolute inset-0 opacity-20">
+                    <div className="absolute top-2 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
+                    <div className="absolute top-4 right-6 w-4 h-4 border border-white/40 rounded-full"></div>
+                    <div className="absolute bottom-3 left-8 w-6 h-6 border border-white/20 rounded-full"></div>
+                    <div className="absolute bottom-2 right-4 w-3 h-3 bg-white/30 rounded-full"></div>
                   </div>
-                </TabsContent>
+                  
+                  <h3 className="text-3xl font-bold text-white relative z-10">
+                    {platforms.find(p => p.id === selectedPlatform)?.name} Channels
+                  </h3>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setSelectedPlatform(null)}
+                    className="rounded-full text-white hover:bg-white/20 relative z-10"
+                  >
+                    <X size={20} />
+                  </Button>
+                </div>
 
-                {/* Filtered tabs */}
-                {["Main", "Farming", "Business"].map((category) => (
-                  <TabsContent key={category} value={category} className="mt-8">
+                <div className="p-8">
+                  <Tabs defaultValue="all" className="w-full">
+                  <TabsList className="grid w-full grid-cols-4">
+                    <TabsTrigger value="all">All</TabsTrigger>
+                    <TabsTrigger value="Main">Main</TabsTrigger>
+                    <TabsTrigger value="Farming">Farming</TabsTrigger>
+                    <TabsTrigger value="Business">Business</TabsTrigger>
+                  </TabsList>
+
+                  <TabsContent value="all" className="mt-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                      {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => {
-                        const filteredChannels = languageGroup.channels.filter(channel => channel.category === category);
-                        if (filteredChannels.length === 0) return null;
-                        
-                        return (
-                          <div key={idx}>
-                            <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
-                            <div className="space-y-3">
-                              {filteredChannels.map((channel, channelIdx) => (
-                                <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
-                                  <CardContent className="p-4">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex-1">
-                                        <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
-                                          {channel.name}
-                                        </h5>
-                                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
-                                          {channel.category}
-                                        </div>
+                      {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
+                        <div key={idx}>
+                          <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                          <div className="space-y-3">
+                            {languageGroup.channels.map((channel, channelIdx) => (
+                              <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                                <CardContent className="p-4">
+                                  <div className="flex items-center justify-between">
+                                    <div className="flex-1">
+                                      <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                        {channel.name}
+                                      </h5>
+                                      <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
+                                        {channel.category}
                                       </div>
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        onClick={() => window.open(channel.url, '_blank')}
-                                        className="ml-2"
-                                      >
-                                        <ExternalLink size={14} />
-                                      </Button>
                                     </div>
-                                  </CardContent>
-                                </Card>
-                              ))}
-                            </div>
+                                    <Button
+                                      size="sm"
+                                      variant="ghost"
+                                      onClick={() => window.open(channel.url, '_blank')}
+                                      className="ml-2"
+                                    >
+                                      <ExternalLink size={14} />
+                                    </Button>
+                                  </div>
+                                </CardContent>
+                              </Card>
+                            ))}
                           </div>
-                        );
-                      })}
+                        </div>
+                      ))}
                     </div>
                   </TabsContent>
-                ))}
-              </Tabs>
+
+                  {/* Filtered tabs */}
+                  {["Main", "Farming", "Business"].map((category) => (
+                    <TabsContent key={category} value={category} className="mt-8">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => {
+                          const filteredChannels = languageGroup.channels.filter(channel => channel.category === category);
+                          if (filteredChannels.length === 0) return null;
+                          
+                          return (
+                            <div key={idx}>
+                              <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                              <div className="space-y-3">
+                                {filteredChannels.map((channel, channelIdx) => (
+                                  <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                                    <CardContent className="p-4">
+                                      <div className="flex items-center justify-between">
+                                        <div className="flex-1">
+                                          <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                            {channel.name}
+                                          </h5>
+                                          <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
+                                            {channel.category}
+                                          </div>
+                                        </div>
+                                        <Button
+                                          size="sm"
+                                          variant="ghost"
+                                          onClick={() => window.open(channel.url, '_blank')}
+                                          className="ml-2"
+                                        >
+                                          <ExternalLink size={14} />
+                                        </Button>
+                                      </div>
+                                    </CardContent>
+                                  </Card>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </TabsContent>
+                  ))}
+                  </Tabs>
+                </div>
+              </div>
             </div>
           </div>
         )}
