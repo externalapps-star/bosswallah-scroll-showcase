@@ -1,7 +1,51 @@
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useState, useEffect } from "react";
 
 const AboutSection = () => {
   const { t } = useLanguage();
+  
+  // Animation state for numbers
+  const [animatedValues, setAnimatedValues] = useState({
+    followers: 0,
+    views: 0,
+    studios: 0,
+    videos: 0
+  });
+
+  // Counter animation function
+  const animateCounter = (target: number, key: keyof typeof animatedValues, suffix: string = "") => {
+    const duration = 2000; // 2 seconds
+    const steps = 60;
+    const increment = target / steps;
+    let current = 0;
+    let step = 0;
+
+    const timer = setInterval(() => {
+      step++;
+      current = Math.min(increment * step, target);
+      
+      setAnimatedValues(prev => ({
+        ...prev,
+        [key]: Math.floor(current)
+      }));
+
+      if (step >= steps) {
+        clearInterval(timer);
+      }
+    }, duration / steps);
+  };
+
+  useEffect(() => {
+    // Start animations after component mounts
+    const timer = setTimeout(() => {
+      animateCounter(18, 'followers');
+      animateCounter(330, 'views');
+      animateCounter(6, 'studios');
+      animateCounter(200, 'videos');
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="about" className="section-padding bg-gradient-subtle">
@@ -39,28 +83,28 @@ const AboutSection = () => {
             <div className="grid grid-cols-2 gap-6">
               {/* Followers */}
               <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">18M+</div>
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.followers}M+</div>
                 <div className="text-muted-foreground font-medium">Followers</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Monthly Views */}
               <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">330M+</div>
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.views}M+</div>
                 <div className="text-muted-foreground font-medium">Monthly Views</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Studios */}
               <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">6</div>
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.studios}</div>
                 <div className="text-muted-foreground font-medium">Full-Scale Studios</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Videos Weekly */}
               <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">200+</div>
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.videos}+</div>
                 <div className="text-muted-foreground font-medium">Videos Weekly</div>
                 <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
