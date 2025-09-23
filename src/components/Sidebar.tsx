@@ -63,18 +63,19 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex-1 flex flex-col p-4 md:p-6">
-        {!isMenuOpen ? (
-          <div className="flex items-center justify-center h-full">
-            <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
-              <Menu className="h-7 w-7" />
-            </Button>
-          </div>
-        ) : (
-          <div className="w-full relative">
+      <div className="flex-1 flex flex-col p-4 md:p-6 relative">
+        <div className="flex items-center justify-center h-full">
+          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary">
+            <Menu className="h-7 w-7" />
+          </Button>
+        </div>
+        
+        {/* Navigation overlay - appears above logo when opened */}
+        {isMenuOpen && (
+          <div className="absolute top-0 left-0 right-0 bg-[#1a1a2e] z-10 p-4 md:p-6">
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-0 right-0 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
+              className="absolute top-4 right-4 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
             >
               <X className="h-4 w-4" />
             </button>
