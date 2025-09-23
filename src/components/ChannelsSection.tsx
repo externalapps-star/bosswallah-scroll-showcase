@@ -4,9 +4,9 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useNavigate } from "react-router-dom";
-import youtubeLogo from "@/assets/youtube-logo.png";
-import facebookLogo from "@/assets/facebook-logo.png";
-import instagramLogo from "@/assets/instagram-logo.png";
+import youtubeLogo from "@/assets/youtube-logo-new.jpg";
+import facebookLogo from "@/assets/facebook-logo-new.jpg";
+import instagramLogo from "@/assets/instagram-logo-new.jpg";
 
 const ChannelsSection = () => {
   const [selectedPlatform, setSelectedPlatform] = useState<string | null>(null);
