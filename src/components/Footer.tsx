@@ -1,4 +1,7 @@
 import { Button } from "@/components/ui/button";
+import youtubeIcon from "@/assets/youtube-logo.png";
+import facebookIcon from "@/assets/facebook-logo.png";
+import instagramIcon from "@/assets/instagram-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,14 +20,14 @@ const Footer = () => {
               at scale across regional markets.
             </p>
             <div className="flex space-x-4">
-              <Button variant="ghost" size="sm" className="text-background hover:text-primary">
-                YouTube
+              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
+                <img src={youtubeIcon} alt="YouTube" className="w-6 h-6" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-background hover:text-primary">
-                Facebook
+              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
+                <img src={facebookIcon} alt="Facebook" className="w-6 h-6" />
               </Button>
-              <Button variant="ghost" size="sm" className="text-background hover:text-primary">
-                Instagram
+              <Button variant="ghost" size="sm" className="p-2 hover:bg-background/10">
+                <img src={instagramIcon} alt="Instagram" className="w-6 h-6" />
               </Button>
             </div>
           </div>
