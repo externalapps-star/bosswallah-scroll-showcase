@@ -17,9 +17,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-800">
-      {/* Dark navy background matching the reference image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Dark black background */}
+      <div className="absolute inset-0 bg-black"></div>
       
       {/* Content */}
       <div className="max-w-7xl mx-auto relative z-10 text-white px-6 lg:px-8">
@@ -65,8 +65,8 @@ const HeroSection = () => {
 
           {/* Right Side - Navigation replacing statistics */}
           <div className="space-y-6 lg:space-y-8">
-            {/* Desktop Navigation Grid */}
-            <div className="hidden lg:grid lg:grid-cols-2 gap-4">
+            {/* Desktop Navigation - Vertically stacked to replace statistics */}
+            <div className="hidden lg:flex lg:flex-col lg:space-y-4 text-right">
               {navigationButtons.map((btn, index) => (
                 <Button
                   key={index}
@@ -74,9 +74,9 @@ const HeroSection = () => {
                   size="lg"
                   className={`${
                     btn.primary 
-                      ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0 text-lg font-semibold py-6" 
-                      : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm text-base font-medium py-4"
-                  } transition-all duration-300 hover:scale-105 rounded-lg`}
+                      ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0 text-base font-semibold py-4 px-6" 
+                      : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm text-sm font-medium py-3 px-5"
+                  } transition-all duration-300 hover:scale-105 rounded-lg w-48 ml-auto`}
                   onClick={() => document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   {btn.label}
@@ -84,36 +84,12 @@ const HeroSection = () => {
               ))}
             </div>
 
-            {/* Statistics - Hidden on Desktop, shown only when space allows */}
-            <div className="hidden xl:block space-y-8 text-right mt-12">
-              <div className="space-y-2">
-                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                  18M+
-                </div>
-                <p className="text-gray-400 text-sm">Followers Across Platforms</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-purple-400 to-purple-500 bg-clip-text text-transparent">
-                  330M+
-                </div>
-                <p className="text-gray-400 text-sm">Monthly Views & Engagement</p>
-              </div>
-              
-              <div className="space-y-2">
-                <div className="text-4xl xl:text-5xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                  6
-                </div>
-                <p className="text-gray-400 text-sm">Regional Languages</p>
-              </div>
-            </div>
-
-            {/* Mobile/Tablet Navigation Menu */}
+            {/* Mobile Navigation Menu */}
             <div className="lg:hidden">
               <Button
                 variant="outline"
                 size="lg"
-                className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm w-full"
+                className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm w-full"
                 onClick={() => setShowMobileMenu(!showMobileMenu)}
               >
                 <Menu size={20} className="mr-2" />
@@ -131,7 +107,7 @@ const HeroSection = () => {
                       className={`${
                         btn.primary 
                           ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0" 
-                          : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-slate-900 backdrop-blur-sm"
+                          : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm"
                       } font-medium transition-all duration-300 text-sm py-3`}
                       onClick={() => {
                         document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' });
@@ -143,30 +119,6 @@ const HeroSection = () => {
                   ))}
                 </div>
               )}
-
-              {/* Mobile Statistics */}
-              <div className="mt-8 grid grid-cols-3 gap-4 text-center">
-                <div className="space-y-1">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                    18M+
-                  </div>
-                  <p className="text-gray-400 text-xs">Followers</p>
-                </div>
-                
-                <div className="space-y-1">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-400 to-purple-500 bg-clip-text text-transparent">
-                    330M+
-                  </div>
-                  <p className="text-gray-400 text-xs">Monthly Views</p>
-                </div>
-                
-                <div className="space-y-1">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-orange-400 to-orange-500 bg-clip-text text-transparent">
-                    6
-                  </div>
-                  <p className="text-gray-400 text-xs">Languages</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
