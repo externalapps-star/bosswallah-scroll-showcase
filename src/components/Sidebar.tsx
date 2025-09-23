@@ -70,17 +70,17 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
           </Button>
         </div>
         
-        {/* Navigation overlay - appears above logo when opened */}
+        {/* Navigation overlay - compact and scrollable */}
         {isMenuOpen && (
-          <div className="absolute top-0 left-0 right-0 bg-[#1a1a2e] z-10 p-4 md:p-6">
+          <div className="absolute top-0 left-0 right-0 bg-[#1a1a2e] z-10 p-2 border border-primary/20 rounded-lg max-h-64 overflow-y-auto">
             <button 
               onClick={() => setIsMenuOpen(false)}
-              className="absolute top-4 right-4 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
+              className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
             >
-              <X className="h-4 w-4" />
+              <X className="h-3 w-3" />
             </button>
-            <nav className="space-y-3 pt-12">
-              {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
+            <nav className="space-y-1 pt-8">
+              {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
                   {item.label}
                 </button>)}
             </nav>
