@@ -34,11 +34,11 @@ const Sidebar = () => {
   const SidebarContent = () => (
     <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
       {/* Logo Section */}
-      <div className="p-6 border-b border-white/10 bg-white/5">
+      <div className="p-6 border-b border-white/10 bg-white">
         <img 
           src={bossWallahLogo} 
           alt="Boss Wallah Media" 
-          className="h-12 w-auto brightness-0 invert"
+          className="h-12 w-auto"
         />
       </div>
 
