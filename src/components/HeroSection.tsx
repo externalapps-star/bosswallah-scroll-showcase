@@ -65,8 +65,9 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
       </div>
 
       {/* Main content - left side */}
-      <div className="relative z-10 flex-1 px-8 lg:px-16 overflow-hidden">
-        <div className="max-w-3xl">
+      <div className="relative z-10 flex-1">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+          <div className="max-w-3xl">
           {/* "Accelerate Your" in white */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
           
@@ -83,8 +84,9 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
           </h2>
           
-          {/* Bottom description */}
-          
+           {/* Bottom description */}
+           
+         </div>
         </div>
       </div>
 
