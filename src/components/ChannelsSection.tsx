@@ -220,187 +220,127 @@ const ChannelsSection = () => {
                   className="group cursor-pointer perspective-1000"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
-                  {/* Vibrant Enhanced Card with Advanced Visual Effects */}
-                  <div className={`relative overflow-hidden backdrop-blur-2xl rounded-3xl transition-all duration-700 border-2 h-full flex flex-col transform-gpu ${
+                  {/* Refined Card with Subtle Effects */}
+                  <div className={`relative overflow-hidden backdrop-blur-sm rounded-3xl transition-all duration-700 border h-full flex flex-col transform-gpu ${
                     platform.name === 'YouTube' ? (
                       isSelected 
-                        ? 'shadow-[0_35px_80px_-15px_rgba(255,0,0,0.6)] border-red-400 scale-110 rotate-y-8 bg-gradient-to-br from-red-600/30 via-red-500/20 to-orange-600/30 animate-pulse' 
-                        : 'shadow-[0_25px_60px_-10px_rgba(255,0,0,0.4)] border-red-300/60 bg-gradient-to-br from-red-500/20 via-red-400/15 to-orange-500/20 group-hover:scale-108 group-hover:shadow-[0_40px_90px_-10px_rgba(255,0,0,0.7)] group-hover:border-red-400/80 group-hover:-rotate-y-3 group-hover:bg-gradient-to-br group-hover:from-red-600/35 group-hover:via-red-500/25 group-hover:to-orange-600/35'
+                        ? 'shadow-[0_20px_40px_-10px_rgba(255,0,0,0.3)] border-red-200/60 scale-105 bg-gradient-to-br from-red-50/80 via-white/90 to-red-50/60' 
+                        : 'shadow-[0_10px_25px_-5px_rgba(255,0,0,0.15)] border-red-100/40 bg-gradient-to-br from-red-50/40 via-white/95 to-red-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(255,0,0,0.25)] group-hover:border-red-200/60'
                     ) : platform.name === 'Facebook' ? (
                       isSelected 
-                        ? 'shadow-[0_35px_80px_-15px_rgba(59,130,246,0.6)] border-blue-400 scale-110 rotate-y-8 bg-gradient-to-br from-blue-600/30 via-blue-500/20 to-cyan-600/30 animate-pulse' 
-                        : 'shadow-[0_25px_60px_-10px_rgba(59,130,246,0.4)] border-blue-300/60 bg-gradient-to-br from-blue-500/20 via-blue-400/15 to-cyan-500/20 group-hover:scale-108 group-hover:shadow-[0_40px_90px_-10px_rgba(59,130,246,0.7)] group-hover:border-blue-400/80 group-hover:-rotate-y-3 group-hover:bg-gradient-to-br group-hover:from-blue-600/35 group-hover:via-blue-500/25 group-hover:to-cyan-600/35'
+                        ? 'shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)] border-blue-200/60 scale-105 bg-gradient-to-br from-blue-50/80 via-white/90 to-blue-50/60' 
+                        : 'shadow-[0_10px_25px_-5px_rgba(59,130,246,0.15)] border-blue-100/40 bg-gradient-to-br from-blue-50/40 via-white/95 to-blue-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(59,130,246,0.25)] group-hover:border-blue-200/60'
                     ) : (
                       isSelected 
-                        ? 'shadow-[0_35px_80px_-15px_rgba(236,72,153,0.6)] border-pink-400 scale-110 rotate-y-8 bg-gradient-to-br from-pink-600/30 via-purple-500/20 to-violet-600/30 animate-pulse' 
-                        : 'shadow-[0_25px_60px_-10px_rgba(236,72,153,0.4)] border-pink-300/60 bg-gradient-to-br from-pink-500/20 via-purple-400/15 to-violet-500/20 group-hover:scale-108 group-hover:shadow-[0_40px_90px_-10px_rgba(236,72,153,0.7)] group-hover:border-pink-400/80 group-hover:-rotate-y-3 group-hover:bg-gradient-to-br group-hover:from-pink-600/35 group-hover:via-purple-500/25 group-hover:to-violet-600/35'
+                        ? 'shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)] border-pink-200/60 scale-105 bg-gradient-to-br from-pink-50/80 via-white/90 to-pink-50/60' 
+                        : 'shadow-[0_10px_25px_-5px_rgba(236,72,153,0.15)] border-pink-100/40 bg-gradient-to-br from-pink-50/40 via-white/95 to-pink-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(236,72,153,0.25)] group-hover:border-pink-200/60'
                     )
                   }`}>
                     
-                    {/* Animated Background Gradients */}
-                    <div className={`absolute inset-0 opacity-20 transition-opacity duration-700 ${
-                      isSelected ? 'opacity-40' : 'group-hover:opacity-30'
+                    {/* Subtle Background Animation */}
+                    <div className={`absolute inset-0 opacity-0 transition-opacity duration-1000 ${
+                      isSelected ? 'opacity-100 animate-pulse' : 'group-hover:opacity-50'
                     } ${
-                      platform.name === 'YouTube' ? 'bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500' :
-                      platform.name === 'Facebook' ? 'bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500' :
-                      'bg-gradient-to-br from-pink-500 via-purple-500 to-violet-500'
-                    } bg-size-200 animate-gradient-x`}></div>
-                    
-                    {/* Glowing Border Effect */}
-                    <div className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${
-                      isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
-                    } ${
-                      platform.name === 'YouTube' 
-                        ? 'shadow-[inset_0_0_0_1px_rgba(255,100,100,0.8),0_0_20px_rgba(255,50,50,0.5)]' 
-                        : platform.name === 'Facebook'
-                        ? 'shadow-[inset_0_0_0_1px_rgba(100,150,255,0.8),0_0_20px_rgba(50,100,255,0.5)]'
-                        : 'shadow-[inset_0_0_0_1px_rgba(255,100,200,0.8),0_0_20px_rgba(255,50,150,0.5)]'
+                      platform.name === 'YouTube' ? 'bg-gradient-to-br from-red-100/20 to-orange-100/20' :
+                      platform.name === 'Facebook' ? 'bg-gradient-to-br from-blue-100/20 to-cyan-100/20' :
+                      'bg-gradient-to-br from-pink-100/20 to-purple-100/20'
                     }`}></div>
                     
-                    {/* Floating Particles Effect */}
-                    <div className={`absolute inset-0 opacity-0 transition-opacity duration-700 ${
-                      isSelected ? 'opacity-100' : 'group-hover:opacity-60'
-                    }`}>
-                      <div className={`absolute top-4 left-4 w-2 h-2 rounded-full animate-bounce delay-100 ${
-                        platform.name === 'YouTube' ? 'bg-red-400' :
-                        platform.name === 'Facebook' ? 'bg-blue-400' : 'bg-pink-400'
-                      }`}></div>
-                      <div className={`absolute top-8 right-6 w-1 h-1 rounded-full animate-bounce delay-300 ${
-                        platform.name === 'YouTube' ? 'bg-orange-400' :
-                        platform.name === 'Facebook' ? 'bg-cyan-400' : 'bg-purple-400'
-                      }`}></div>
-                      <div className={`absolute bottom-6 left-8 w-1.5 h-1.5 rounded-full animate-bounce delay-500 ${
-                        platform.name === 'YouTube' ? 'bg-yellow-400' :
-                        platform.name === 'Facebook' ? 'bg-teal-400' : 'bg-violet-400'
-                      }`}></div>
-                    </div>
+                    {/* Subtle Glow Effect */}
+                    <div className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${
+                      isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-30'
+                    } ${
+                      platform.name === 'YouTube' 
+                        ? 'shadow-[inset_0_0_0_1px_rgba(255,100,100,0.2)]' 
+                        : platform.name === 'Facebook'
+                        ? 'shadow-[inset_0_0_0_1px_rgba(100,150,255,0.2)]'
+                        : 'shadow-[inset_0_0_0_1px_rgba(255,100,200,0.2)]'
+                    }`}></div>
                     <div className="relative z-10 p-8 flex flex-col items-center text-center h-full">
-                      {/* Enhanced Icon Section with Vibrant Effects */}
+                      {/* Clean Icon Section - Edge to Edge */}
                       <div className={`relative mb-6 transition-all duration-500 ${
-                        isSelected ? 'scale-125' : 'group-hover:scale-115'
+                        isSelected ? 'scale-110' : 'group-hover:scale-105'
                       }`}>
                         
-                        {/* Glow Ring Background */}
+                        {/* Subtle Glow Ring for Selected State */}
                         <div className={`absolute inset-0 rounded-full transition-all duration-500 ${
-                          isSelected ? 'scale-150 opacity-60' : 'scale-125 opacity-0 group-hover:opacity-40'
+                          isSelected ? 'scale-125 opacity-30 animate-pulse' : 'scale-110 opacity-0 group-hover:opacity-20'
                         } ${
-                          platform.name === 'YouTube' ? 'bg-gradient-conic from-red-500 via-orange-500 to-yellow-500' :
-                          platform.name === 'Facebook' ? 'bg-gradient-conic from-blue-500 via-cyan-500 to-teal-500' :
-                          'bg-gradient-conic from-pink-500 via-purple-500 to-violet-500'
+                          platform.name === 'YouTube' ? 'bg-red-300' :
+                          platform.name === 'Facebook' ? 'bg-blue-300' :
+                          'bg-pink-300'
                         } blur-xl`}></div>
                         
-                        {/* Main Icon Container with Enhanced Styling */}
-                        <div className={`relative w-32 h-32 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isSelected ? 'shadow-[0_0_50px_rgba(255,255,255,0.3)] scale-115' : 'shadow-[0_0_30px_rgba(255,255,255,0.2)] group-hover:shadow-[0_0_60px_rgba(255,255,255,0.4)] group-hover:scale-110'
-                        } ${
-                          platform.name === 'YouTube' 
-                            ? 'bg-gradient-to-br from-red-400 via-orange-400 to-yellow-400 border-2 border-red-300/50' 
-                            : platform.name === 'Facebook'
-                            ? 'bg-gradient-to-br from-blue-400 via-cyan-400 to-teal-400 border-2 border-blue-300/50'
-                            : 'bg-gradient-to-br from-pink-400 via-purple-400 to-violet-400 border-2 border-pink-300/50'
+                        {/* Clean Icon Container - No Background */}
+                        <div className={`relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${
+                          isSelected ? 'scale-110' : 'group-hover:scale-105'
                         }`}>
-                          
-                          {/* Inner Glow Effect */}
-                          <div className={`absolute inset-0 rounded-full transition-opacity duration-500 ${
-                            isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
-                          } ${
-                            platform.name === 'YouTube' ? 'shadow-[inset_0_0_30px_rgba(255,100,0,0.8)]' :
-                            platform.name === 'Facebook' ? 'shadow-[inset_0_0_30px_rgba(0,150,255,0.8)]' :
-                            'shadow-[inset_0_0_30px_rgba(255,100,200,0.8)]'
-                          }`}></div>
-                          
-                          {/* Animated Border Ring */}
-                          <div className={`absolute -inset-2 rounded-full border-2 transition-all duration-700 ${
-                            isSelected ? 'border-white/60 animate-spin' : 'border-white/30 group-hover:border-white/50'
-                          } opacity-0 ${isSelected ? 'opacity-100' : 'group-hover:opacity-70'}`}></div>
                           
                           {platform.image ? (
                             <img 
                               src={platform.image} 
                               alt={`${platform.name} logo`}
-                              className={`relative z-10 object-contain transition-all duration-500 drop-shadow-2xl ${
-                                isSelected ? 'w-24 h-24 brightness-110' : 'w-20 h-20 group-hover:scale-110 group-hover:brightness-105'
+                              className={`object-contain transition-all duration-500 ${
+                                isSelected ? 'w-24 h-24' : 'w-20 h-20 group-hover:scale-110'
                               }`}
                             />
                           ) : (
                             <IconComponent 
                               size={isSelected ? 80 : 68}
-                              className={`relative z-10 text-white transition-all duration-500 drop-shadow-2xl ${
-                                isSelected ? 'brightness-110' : 'group-hover:scale-110 group-hover:brightness-105'
+                              className={`transition-all duration-500 ${platform.color} ${
+                                isSelected ? '' : 'group-hover:scale-110'
                               }`}
                             />
                           )}
                         </div>
                       </div>
                       
-                      {/* Enhanced Platform Title */}
+                      {/* Clear Platform Title */}
                       <h3 className={`font-bold mb-4 transition-all duration-300 ${
                         isSelected 
-                          ? 'text-3xl bg-gradient-to-r from-white via-white to-white/90 bg-clip-text text-transparent drop-shadow-lg' 
-                          : 'text-xl text-white/90 group-hover:text-white group-hover:text-2xl group-hover:drop-shadow-lg'
+                          ? 'text-2xl text-foreground' 
+                          : 'text-xl text-foreground group-hover:text-xl group-hover:scale-105'
                       }`}>
                         {platform.name}
                       </h3>
                       
-                      {/* Vibrant Channel Count Badge */}
-                      <div className={`relative mb-6 px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 ${
+                      {/* Clean Channel Count Badge */}
+                      <div className={`relative mb-6 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
                         isSelected 
-                          ? 'bg-gradient-to-r from-white/30 to-white/20 text-white border-2 border-white/40 shadow-lg backdrop-blur-xl scale-110' 
-                          : 'bg-gradient-to-r from-white/20 to-white/10 text-white/80 border border-white/30 group-hover:bg-gradient-to-r group-hover:from-white/40 group-hover:to-white/30 group-hover:text-white group-hover:border-white/50 group-hover:scale-105'
+                          ? 'bg-primary/20 text-primary border border-primary/30 scale-105' 
+                          : 'bg-muted text-muted-foreground border border-border group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/20'
                       }`}>
-                        {/* Badge Glow Effect */}
-                        <div className={`absolute inset-0 rounded-full transition-opacity duration-300 ${
-                          isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-60'
-                        } ${
-                          platform.name === 'YouTube' ? 'shadow-[0_0_20px_rgba(255,100,0,0.6)]' :
-                          platform.name === 'Facebook' ? 'shadow-[0_0_20px_rgba(0,150,255,0.6)]' :
-                          'shadow-[0_0_20px_rgba(255,100,200,0.6)]'
-                        }`}></div>
-                        <span className="relative">{platform.totalChannels}</span>
+                        <span>{platform.totalChannels}</span>
                       </div>
                       
-                      {/* Enhanced Description */}
-                      <p className="text-white/80 text-sm leading-relaxed mb-8 flex-1 group-hover:text-white/90 transition-colors duration-300">
+                      {/* Clear Description */}
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">
                         {platform.description}
                       </p>
                       
-                      {/* Vibrant CTA Buttons */}
-                      <div className="flex flex-col gap-4">
+                      {/* Clean CTA Buttons */}
+                      <div className="flex flex-col gap-3">
                         <div 
-                          className={`relative inline-flex items-center justify-center px-8 py-4 rounded-full font-bold text-sm transition-all duration-500 overflow-hidden cursor-pointer backdrop-blur-xl ${
+                          className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden cursor-pointer ${
                             isSelected 
-                              ? 'bg-gradient-to-r from-white/30 to-white/20 text-white border-2 border-white/50 shadow-2xl scale-105' 
-                              : 'bg-gradient-to-r from-white/20 to-white/10 text-white/90 border-2 border-white/30 group-hover:from-white/40 group-hover:to-white/30 group-hover:text-white group-hover:border-white/60 group-hover:scale-105 group-hover:shadow-xl'
+                              ? 'bg-primary text-primary-foreground shadow-lg' 
+                              : 'bg-secondary text-secondary-foreground border border-border group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/20'
                           }`}
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedPlatform(isSelected ? null : platform.id);
                           }}
                         >
-                          {/* Dynamic Button Glow */}
-                          <div className={`absolute inset-0 rounded-full transition-opacity duration-500 ${
-                            isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-80'
-                          } ${
-                            platform.name === 'YouTube' ? 'shadow-[0_0_30px_rgba(255,100,0,0.8)]' :
-                            platform.name === 'Facebook' ? 'shadow-[0_0_30px_rgba(0,150,255,0.8)]' :
-                            'shadow-[0_0_30px_rgba(255,100,200,0.8)]'
-                          }`}></div>
-                          
-                          {/* Shimmer Effect */}
-                          <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full transition-transform duration-1000 ${
-                            isSelected ? 'translate-x-full' : 'group-hover:translate-x-full'
-                          }`}></div>
-                          
                           <span className="relative z-10 mr-2">
                             {isSelected ? 'Hide Channels' : 'Explore Channels'}
                           </span>
-                          <ArrowRight size={18} className={`relative z-10 transition-transform duration-300 ${
+                          <ArrowRight size={16} className={`relative z-10 transition-transform duration-300 ${
                             isSelected ? 'rotate-45' : 'group-hover:translate-x-1'
                           }`} />
                         </div>
                         
                         <div 
-                          className="relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-xs transition-all duration-300 overflow-hidden cursor-pointer bg-white/10 text-white/70 border border-white/20 hover:bg-white/20 hover:border-white/40 hover:text-white hover:scale-105 backdrop-blur-xl"
+                          className="relative inline-flex items-center justify-center px-6 py-2 rounded-full font-medium text-xs transition-all duration-300 overflow-hidden cursor-pointer bg-muted/60 text-muted-foreground border border-border hover:bg-muted hover:border-border"
                           onClick={(e) => {
                             e.stopPropagation();
                             navigate(`/channels/${platform.id}`);
