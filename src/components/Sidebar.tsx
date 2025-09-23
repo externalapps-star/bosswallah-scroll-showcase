@@ -32,7 +32,7 @@ const Sidebar = () => {
   ];
 
   const SidebarContent = () => (
-    <div className="flex flex-col h-full bg-background border-r border-border">
+    <div className="flex flex-col h-full bg-black border-r border-border">
       {/* Logo Section */}
       <div className="p-6 border-b border-border">
         <img 
