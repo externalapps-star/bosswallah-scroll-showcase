@@ -9,7 +9,7 @@ const TopStrip = () => {
       });
     }
   };
-  return <div className="fixed top-0 left-0 lg:left-56 right-0 z-50 bg-[#1a1a2e] text-white border-b border-white/20 px-6 shadow-soft py-2">
+  return <div className="fixed top-0 left-0 lg:left-56 right-0 z-50 bg-primary text-primary-foreground border-b border-white/20 px-6 shadow-soft py-2">
       <div className="flex items-center justify-between max-w-full">
         {/* Message */}
         <div className="flex-1 text-center">
