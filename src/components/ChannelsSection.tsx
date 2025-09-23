@@ -257,11 +257,15 @@ const ChannelsSection = () => {
                       {/* Platform Icon */}
                       <div className="relative z-10">
                         {platform.image ? (
-                          <div className="w-16 h-16 bg-white rounded-xl p-1 shadow-lg">
+                          <div className={`w-16 h-16 bg-white rounded-xl shadow-lg ${
+                            platform.name === 'YouTube' || platform.name === 'Instagram' ? 'p-0' : 'p-1'
+                          }`}>
                             <img 
                               src={platform.image} 
                               alt={`${platform.name} logo`}
-                              className="w-full h-full object-contain"
+                              className={`w-full h-full object-contain ${
+                                platform.name === 'YouTube' || platform.name === 'Instagram' ? 'rounded-xl' : ''
+                              }`}
                             />
                           </div>
                         ) : (
