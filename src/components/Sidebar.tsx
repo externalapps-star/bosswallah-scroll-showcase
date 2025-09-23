@@ -94,7 +94,7 @@ const Sidebar = () => {
     </div>;
   return <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-64 z-50">
+      <div className="hidden lg:block fixed left-0 top-0 h-full w-56 z-50">
         <SidebarContent />
       </div>
 
@@ -106,7 +106,7 @@ const Sidebar = () => {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0 w-64">
+          <SheetContent side="left" className="p-0 w-56">
             <SidebarContent />
           </SheetContent>
         </Sheet>
