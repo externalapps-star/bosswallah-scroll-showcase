@@ -92,14 +92,14 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
 
       {/* Contact Details */}
       <div className="p-4 md:p-6 border-t border-white/10 space-y-3 md:space-y-4">
-        <div className="space-y-3">
-          <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors">
-            <Phone className="h-4 w-4" />
-            <span className="text-sm">+91 98765 43210</span>
+        <div className="space-y-2">
+          <a href="tel:+919876543210" className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors">
+            <Phone className="h-3 w-3 flex-shrink-0" />
+            <span className="text-xs truncate">+91 98765 43210</span>
           </a>
-          <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors">
-            <Mail className="h-4 w-4" />
-            <span className="text-sm">hello@bosswallah.com</span>
+          <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors">
+            <Mail className="h-3 w-3 flex-shrink-0" />
+            <span className="text-xs truncate">hello@bosswallah.com</span>
           </a>
         </div>
 
