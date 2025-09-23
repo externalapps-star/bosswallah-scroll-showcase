@@ -80,7 +80,7 @@ const HeroSection = () => {
           
           {/* Bottom description */}
           <p className="text-gray-400 text-base lg:text-lg max-w-3xl leading-relaxed">
-            Boss Wallah Media is India's leading social media and video production powerhouse with massive regional reach. We create campaigns that captivate, influence, and deliver measurable ROI across YouTube, Facebook, and Instagram.
+            Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.
           </p>
         </div>
       </div>
