@@ -15,12 +15,12 @@ import {
 import { NewsService } from "@/services/NewsService";
 
 // Import generated thumbnails
-import newsThumb1 from "@/assets/news-thumb-1.jpg";
-import newsThumb2 from "@/assets/news-thumb-2.jpg";
-import newsThumb3 from "@/assets/news-thumb-3.jpg";
-import newsThumb4 from "@/assets/news-thumb-4.jpg";
-import newsThumb5 from "@/assets/news-thumb-5.jpg";
-import newsThumb6 from "@/assets/news-thumb-6.jpg";
+import newsThumbEcommerce from "@/assets/news-thumb-ecommerce.jpg";
+import newsThumbFood from "@/assets/news-thumb-food.jpg";
+import newsThumbFranchise from "@/assets/news-thumb-franchise.jpg";
+import newsThumbBurger from "@/assets/news-thumb-burger.jpg";
+import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
+import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
 
 interface NewsItem {
   id: number;
@@ -54,7 +54,7 @@ const NewsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [newsThumb1, newsThumb2, newsThumb3, newsThumb4, newsThumb5, newsThumb6][index % 6]
+          thumbnail: [newsThumbEcommerce, newsThumbFood, newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbBusiness][index % 6]
         }));
         setNewsItems(newsWithThumbnails);
       } catch (error) {
