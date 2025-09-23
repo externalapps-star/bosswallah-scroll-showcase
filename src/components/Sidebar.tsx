@@ -109,7 +109,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-64 z-40">
+      <div className="hidden lg:block fixed left-0 top-0 h-full w-64 z-50">
         <SidebarContent />
       </div>
 
