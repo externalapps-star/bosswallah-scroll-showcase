@@ -58,7 +58,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       {/* Logo Section */}
       <div className="px-6 bg-[#1a1a2e] py-[11.25px]">
         <div className="bg-white p-2 rounded">
-          <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-12 w-12 object-contain" />
+          <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-8 w-auto" />
         </div>
       </div>
 
