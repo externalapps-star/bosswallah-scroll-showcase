@@ -217,147 +217,141 @@ const ChannelsSection = () => {
               return (
                 <div
                   key={platform.name}
-                  className="group cursor-pointer perspective-1000"
+                  className="group cursor-pointer"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
-                  {/* Refined Card with Subtle Effects */}
-                  <div className={`relative overflow-hidden backdrop-blur-sm rounded-3xl transition-all duration-700 border h-full flex flex-col transform-gpu ${
+                  {/* Brand-Themed Card with Authentic Colors */}
+                  <div className={`relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl transition-all duration-500 border-2 h-full flex flex-col shadow-lg ${
                     platform.name === 'YouTube' ? (
                       isSelected 
-                        ? 'shadow-[0_20px_40px_-10px_rgba(255,0,0,0.3)] border-red-200/60 scale-105 bg-gradient-to-br from-red-50/80 via-white/90 to-red-50/60' 
-                        : 'shadow-[0_10px_25px_-5px_rgba(255,0,0,0.15)] border-red-100/40 bg-gradient-to-br from-red-50/40 via-white/95 to-red-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(255,0,0,0.25)] group-hover:border-red-200/60'
+                        ? 'border-red-500 shadow-red-500/30 scale-105 shadow-2xl' 
+                        : 'border-red-200 dark:border-red-800 group-hover:border-red-400 group-hover:shadow-red-500/20 group-hover:scale-102 group-hover:shadow-xl'
                     ) : platform.name === 'Facebook' ? (
                       isSelected 
-                        ? 'shadow-[0_20px_40px_-10px_rgba(59,130,246,0.3)] border-blue-200/60 scale-105 bg-gradient-to-br from-blue-50/80 via-white/90 to-blue-50/60' 
-                        : 'shadow-[0_10px_25px_-5px_rgba(59,130,246,0.15)] border-blue-100/40 bg-gradient-to-br from-blue-50/40 via-white/95 to-blue-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(59,130,246,0.25)] group-hover:border-blue-200/60'
+                        ? 'border-blue-500 shadow-blue-500/30 scale-105 shadow-2xl' 
+                        : 'border-blue-200 dark:border-blue-800 group-hover:border-blue-400 group-hover:shadow-blue-500/20 group-hover:scale-102 group-hover:shadow-xl'
                     ) : (
                       isSelected 
-                        ? 'shadow-[0_20px_40px_-10px_rgba(236,72,153,0.3)] border-pink-200/60 scale-105 bg-gradient-to-br from-pink-50/80 via-white/90 to-pink-50/60' 
-                        : 'shadow-[0_10px_25px_-5px_rgba(236,72,153,0.15)] border-pink-100/40 bg-gradient-to-br from-pink-50/40 via-white/95 to-pink-50/30 group-hover:scale-102 group-hover:shadow-[0_15px_35px_-5px_rgba(236,72,153,0.25)] group-hover:border-pink-200/60'
+                        ? 'border-pink-500 shadow-pink-500/30 scale-105 shadow-2xl' 
+                        : 'border-pink-200 dark:border-pink-800 group-hover:border-pink-400 group-hover:shadow-pink-500/20 group-hover:scale-102 group-hover:shadow-xl'
                     )
                   }`}>
                     
-                    {/* Subtle Background Animation */}
-                    <div className={`absolute inset-0 opacity-0 transition-opacity duration-1000 ${
-                      isSelected ? 'opacity-100 animate-pulse' : 'group-hover:opacity-50'
-                    } ${
-                      platform.name === 'YouTube' ? 'bg-gradient-to-br from-red-100/20 to-orange-100/20' :
-                      platform.name === 'Facebook' ? 'bg-gradient-to-br from-blue-100/20 to-cyan-100/20' :
-                      'bg-gradient-to-br from-pink-100/20 to-purple-100/20'
-                    }`}></div>
-                    
-                    {/* Subtle Glow Effect */}
-                    <div className={`absolute inset-0 rounded-3xl transition-opacity duration-500 ${
-                      isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-30'
-                    } ${
+                    {/* Brand Color Header Section */}
+                    <div className={`relative h-24 flex items-center justify-center ${
                       platform.name === 'YouTube' 
-                        ? 'shadow-[inset_0_0_0_1px_rgba(255,100,100,0.2)]' 
+                        ? 'bg-gradient-to-r from-red-600 to-red-500' 
                         : platform.name === 'Facebook'
-                        ? 'shadow-[inset_0_0_0_1px_rgba(100,150,255,0.2)]'
-                        : 'shadow-[inset_0_0_0_1px_rgba(255,100,200,0.2)]'
-                    }`}></div>
-                    <div className="relative z-10 p-8 flex flex-col items-center text-center h-full">
-                      {/* Clean Icon Section - Edge to Edge */}
-                      <div className={`relative mb-6 transition-all duration-500 ${
-                        isSelected ? 'scale-110' : 'group-hover:scale-105'
-                      }`}>
-                        
-                        {/* Subtle Glow Ring for Selected State */}
-                        <div className={`absolute inset-0 rounded-full transition-all duration-500 ${
-                          isSelected ? 'scale-125 opacity-30 animate-pulse' : 'scale-110 opacity-0 group-hover:opacity-20'
-                        } ${
-                          platform.name === 'YouTube' ? 'bg-red-300' :
-                          platform.name === 'Facebook' ? 'bg-blue-300' :
-                          'bg-pink-300'
-                        } blur-xl`}></div>
-                        
-                        {/* Clean Icon Container - No Background */}
-                        <div className={`relative w-24 h-24 rounded-full flex items-center justify-center transition-all duration-500 ${
-                          isSelected ? 'scale-110' : 'group-hover:scale-105'
-                        }`}>
-                          
-                          {platform.image ? (
+                        ? 'bg-gradient-to-r from-blue-600 to-blue-500'
+                        : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
+                    }`}>
+                      
+                      {/* Decorative Pattern */}
+                      <div className="absolute inset-0 opacity-20">
+                        <div className="absolute top-2 left-4 w-8 h-8 border-2 border-white/30 rounded-full"></div>
+                        <div className="absolute top-4 right-6 w-4 h-4 border border-white/40 rounded-full"></div>
+                        <div className="absolute bottom-3 left-8 w-6 h-6 border border-white/20 rounded-full"></div>
+                        <div className="absolute bottom-2 right-4 w-3 h-3 bg-white/30 rounded-full"></div>
+                      </div>
+                      
+                      {/* Platform Icon */}
+                      <div className="relative z-10">
+                        {platform.image ? (
+                          <div className="w-16 h-16 bg-white rounded-xl p-3 shadow-lg">
                             <img 
                               src={platform.image} 
                               alt={`${platform.name} logo`}
-                              className={`object-contain transition-all duration-500 ${
-                                isSelected ? 'w-24 h-24' : 'w-20 h-20 group-hover:scale-110'
-                              }`}
+                              className="w-full h-full object-contain"
                             />
-                          ) : (
+                          </div>
+                        ) : (
+                          <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg">
                             <IconComponent 
-                              size={isSelected ? 80 : 68}
-                              className={`transition-all duration-500 ${platform.color} ${
-                                isSelected ? '' : 'group-hover:scale-110'
-                              }`}
+                              size={32}
+                              className={platform.color}
                             />
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </div>
+                    </div>
+                    
+                    {/* Content Section */}
+                    <div className="flex-1 p-6 flex flex-col">
                       
-                      {/* Clear Platform Title */}
-                      <h3 className={`font-bold mb-4 transition-all duration-300 ${
-                        isSelected 
-                          ? 'text-2xl text-foreground' 
-                          : 'text-xl text-foreground group-hover:text-xl group-hover:scale-105'
+                      {/* Platform Title */}
+                      <h3 className={`text-2xl font-bold mb-3 ${
+                        platform.name === 'YouTube' 
+                          ? 'text-red-600 dark:text-red-400' 
+                          : platform.name === 'Facebook'
+                          ? 'text-blue-600 dark:text-blue-400'
+                          : 'text-pink-600 dark:text-pink-400'
                       }`}>
                         {platform.name}
                       </h3>
                       
-                      {/* Clean Channel Count Badge */}
-                      <div className={`relative mb-6 px-4 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${
-                        isSelected 
-                          ? 'bg-primary/20 text-primary border border-primary/30 scale-105' 
-                          : 'bg-muted text-muted-foreground border border-border group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/20'
+                      {/* Channel Count with Brand Colors */}
+                      <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold mb-4 w-fit ${
+                        platform.name === 'YouTube' 
+                          ? 'bg-red-50 text-red-700 border border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800' 
+                          : platform.name === 'Facebook'
+                          ? 'bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
+                          : 'bg-pink-50 text-pink-700 border border-pink-200 dark:bg-pink-900/20 dark:text-pink-300 dark:border-pink-800'
                       }`}>
-                        <span>{platform.totalChannels}</span>
+                        <div className={`w-2 h-2 rounded-full mr-2 ${
+                          platform.name === 'YouTube' ? 'bg-red-500' :
+                          platform.name === 'Facebook' ? 'bg-blue-500' : 'bg-pink-500'
+                        }`}></div>
+                        {platform.totalChannels}
                       </div>
                       
-                      {/* Clear Description */}
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 flex-1">
+                      {/* Description */}
+                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 flex-1">
                         {platform.description}
                       </p>
                       
-                      {/* Clean CTA Buttons */}
-                      <div className="flex flex-col gap-3">
-                        <div 
-                          className={`relative inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 overflow-hidden cursor-pointer ${
+                      {/* Action Buttons */}
+                      <div className="space-y-3">
+                        <button 
+                          className={`w-full py-3 px-4 rounded-lg font-medium text-sm transition-all duration-300 ${
                             isSelected 
-                              ? 'bg-primary text-primary-foreground shadow-lg' 
-                              : 'bg-secondary text-secondary-foreground border border-border group-hover:bg-primary/10 group-hover:text-primary group-hover:border-primary/20'
+                              ? `text-white ${
+                                  platform.name === 'YouTube' ? 'bg-red-600 hover:bg-red-700' :
+                                  platform.name === 'Facebook' ? 'bg-blue-600 hover:bg-blue-700' :
+                                  'bg-gradient-to-r from-pink-600 to-purple-600 hover:from-pink-700 hover:to-purple-700'
+                                }` 
+                              : `${
+                                  platform.name === 'YouTube' ? 'bg-red-50 text-red-700 hover:bg-red-100 dark:bg-red-900/20 dark:text-red-300 dark:hover:bg-red-900/30' :
+                                  platform.name === 'Facebook' ? 'bg-blue-50 text-blue-700 hover:bg-blue-100 dark:bg-blue-900/20 dark:text-blue-300 dark:hover:bg-blue-900/30' :
+                                  'bg-pink-50 text-pink-700 hover:bg-pink-100 dark:bg-pink-900/20 dark:text-pink-300 dark:hover:bg-pink-900/30'
+                                }`
                           }`}
                           onClick={(e) => {
                             e.stopPropagation();
                             setSelectedPlatform(isSelected ? null : platform.id);
                           }}
                         >
-                          <span className="relative z-10 mr-2">
-                            {isSelected ? 'Hide Channels' : 'Explore Channels'}
-                          </span>
-                          <ArrowRight size={16} className={`relative z-10 transition-transform duration-300 ${
-                            isSelected ? 'rotate-45' : 'group-hover:translate-x-1'
-                          }`} />
-                        </div>
+                          <div className="flex items-center justify-center">
+                            <span>{isSelected ? 'Hide Channels' : 'Explore Channels'}</span>
+                            <ArrowRight size={16} className={`ml-2 transition-transform duration-300 ${
+                              isSelected ? 'rotate-45' : 'group-hover:translate-x-1'
+                            }`} />
+                          </div>
+                        </button>
                         
-                        <div 
-                          className="relative inline-flex items-center justify-center px-6 py-2 rounded-full font-medium text-xs transition-all duration-300 overflow-hidden cursor-pointer bg-muted/60 text-muted-foreground border border-border hover:bg-muted hover:border-border"
+                        <button 
+                          className="w-full py-2 px-4 rounded-lg font-medium text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-300"
                           onClick={(e) => {
                             e.stopPropagation();
                             navigate(`/channels/${platform.id}`);
                           }}
                         >
-                          <span className="relative z-10 mr-2">View All Details</span>
-                          <ExternalLink size={14} className="relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
-                        </div>
+                          <div className="flex items-center justify-center">
+                            <span>View All Channels</span>
+                            <ExternalLink size={12} className="ml-1" />
+                          </div>
+                        </button>
                       </div>
                     </div>
-
-                    {/* Bottom Accent Line */}
-                    <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r transition-opacity duration-300 ${
-                      platform.name === 'YouTube' ? 'from-red-400/50 via-red-500/30 to-red-600/50' :
-                      platform.name === 'Facebook' ? 'from-blue-400/50 via-blue-500/30 to-blue-600/50' :
-                      'from-pink-400/50 via-purple-500/30 to-purple-600/50'
-                    } ${isSelected ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`}></div>
                   </div>
                 </div>
               );
@@ -365,132 +359,113 @@ const ChannelsSection = () => {
           </div>
         </div>
 
-        {/* Channel Details Panel */}
+        {/* Selected Platform Details */}
         {selectedPlatform && (
-          <div className="mt-16 animate-in slide-in-from-top-10 duration-500">
-            <Card className={`shadow-brand bg-gradient-to-br backdrop-blur-sm ${
-              selectedPlatform === 'youtube' ? 'border-red-500/40 from-red-500/5 via-card/90 to-red-600/5' :
-              selectedPlatform === 'facebook' ? 'border-blue-500/40 from-blue-500/5 via-card/90 to-blue-600/5' :
-              'border-pink-500/40 from-pink-500/5 via-card/90 to-purple-600/5'
-            }`}>
-              <CardContent className="p-8">
-                <div className="flex items-center justify-between mb-8">
-                  <div className="flex items-center space-x-4">
-                    {(() => {
-                      const platform = platforms.find(p => p.id === selectedPlatform);
-                      const IconComponent = platform?.icon;
-                      return (
-                        <>
-                          <div className={`w-16 h-16 rounded-2xl flex items-center justify-center ${platform?.bgColor}`}>
-                            {platform?.image ? (
-                              <img 
-                                src={platform.image} 
-                                alt={`${platform.name} logo`}
-                                className="w-12 h-12 object-contain"
-                              />
-                            ) : (
-                              IconComponent && <IconComponent size={32} className={platform.color} />
-                            )}
-                          </div>
-                          <div>
-                            <h3 className="text-3xl font-bold text-foreground">
-                              {platform?.name} <span className="gradient-text">Channels</span>
-                            </h3>
-                            <p className="text-muted-foreground">
-                              {platform?.totalChannels.toLowerCase()} across multiple languages
-                            </p>
-                          </div>
-                        </>
-                      );
-                    })()}
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => setSelectedPlatform(null)}
-                    className="hover:bg-destructive/10 hover:text-destructive"
-                  >
-                    <X size={20} />
-                  </Button>
-                </div>
+          <div className="mt-16 bg-card rounded-3xl border border-border shadow-soft overflow-hidden">
+            <div className="p-8">
+              <div className="flex items-center justify-between mb-8">
+                <h3 className="text-3xl font-bold text-foreground">
+                  {platforms.find(p => p.id === selectedPlatform)?.name} Channels
+                </h3>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setSelectedPlatform(null)}
+                  className="rounded-full"
+                >
+                  <X size={20} />
+                </Button>
+              </div>
 
-                <Tabs defaultValue={channelData[selectedPlatform as keyof typeof channelData]?.[0]?.language} className="w-full">
-                  <TabsList className={`grid w-full mb-8 bg-muted/50 ${
-                    selectedPlatform === 'youtube' ? 'grid-cols-6' : 'grid-cols-5'
-                  }`}>
-                    {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup) => (
-                      <TabsTrigger
-                        key={languageGroup.language}
-                        value={languageGroup.language}
-                        className="text-sm font-medium data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                      >
-                        {languageGroup.language}
-                      </TabsTrigger>
-                    ))}
-                  </TabsList>
+              <Tabs defaultValue="all" className="w-full">
+                <TabsList className="grid w-full grid-cols-4">
+                  <TabsTrigger value="all">All</TabsTrigger>
+                  <TabsTrigger value="Main">Main</TabsTrigger>
+                  <TabsTrigger value="Farming">Farming</TabsTrigger>
+                  <TabsTrigger value="Business">Business</TabsTrigger>
+                </TabsList>
 
-                  {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup) => (
-                    <TabsContent key={languageGroup.language} value={languageGroup.language} className="mt-0">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        {languageGroup.channels.map((channel) => (
-                            <div
-                              key={channel.name}
-                              className="bg-background/60 backdrop-blur-sm rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-border/50 group cursor-pointer hover:scale-105"
-                              onClick={() => {
-                                const link = document.createElement('a');
-                                link.href = channel.url;
-                                link.target = '_blank';
-                                link.rel = 'noopener noreferrer';
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
-                              }}
-                            >
-                              <div className="flex items-start justify-between mb-4">
-                                <div className={`w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform ${
-                                  selectedPlatform === 'youtube' ? 'bg-red-100 dark:bg-red-900/20' :
-                                  selectedPlatform === 'facebook' ? 'bg-blue-100 dark:bg-blue-900/20' :
-                                  'bg-pink-100 dark:bg-pink-900/20'
-                                }`}>
-                                  <div className={`w-8 h-6 rounded-sm flex items-center justify-center text-xs font-bold ${
-                                    selectedPlatform === 'youtube' ? 'bg-red-600 text-white' :
-                                    selectedPlatform === 'facebook' ? 'bg-blue-600 text-white' :
-                                    'bg-gradient-to-br from-pink-500 to-purple-600 text-white'
-                                  }`}>
-                                    {selectedPlatform === 'youtube' ? 'YT' :
-                                     selectedPlatform === 'facebook' ? 'FB' :
-                                     'IG'}
+                <TabsContent value="all" className="mt-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
+                      <div key={idx}>
+                        <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                        <div className="space-y-3">
+                          {languageGroup.channels.map((channel, channelIdx) => (
+                            <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                              <CardContent className="p-4">
+                                <div className="flex items-center justify-between">
+                                  <div className="flex-1">
+                                    <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                      {channel.name}
+                                    </h5>
+                                    <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
+                                      {channel.category}
+                                    </div>
                                   </div>
+                                  <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    onClick={() => window.open(channel.url, '_blank')}
+                                    className="ml-2"
+                                  >
+                                    <ExternalLink size={14} />
+                                  </Button>
                                 </div>
-                                <div className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(channel.category)}`}>
-                                  {channel.category}
-                                </div>
-                              </div>
-                            
-                            <h4 className="font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                              {channel.name}
-                            </h4>
-                            
-                            <div className="flex items-center text-primary font-medium text-sm group-hover:text-accent transition-colors">
-                              Visit Channel
-                              <ExternalLink size={14} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                              </CardContent>
+                            </Card>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                {/* Filtered tabs */}
+                {["Main", "Farming", "Business"].map((category) => (
+                  <TabsContent key={category} value={category} className="mt-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => {
+                        const filteredChannels = languageGroup.channels.filter(channel => channel.category === category);
+                        if (filteredChannels.length === 0) return null;
+                        
+                        return (
+                          <div key={idx}>
+                            <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                            <div className="space-y-3">
+                              {filteredChannels.map((channel, channelIdx) => (
+                                <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                                  <CardContent className="p-4">
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex-1">
+                                        <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                          {channel.name}
+                                        </h5>
+                                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
+                                          {channel.category}
+                                        </div>
+                                      </div>
+                                      <Button
+                                        size="sm"
+                                        variant="ghost"
+                                        onClick={() => window.open(channel.url, '_blank')}
+                                        className="ml-2"
+                                      >
+                                        <ExternalLink size={14} />
+                                      </Button>
+                                    </div>
+                                  </CardContent>
+                                </Card>
+                              ))}
                             </div>
                           </div>
-                        ))}
-                      </div>
-                    </TabsContent>
-                  ))}
-                </Tabs>
-              </CardContent>
-            </Card>
-          </div>
-        )}
-
-        {!selectedPlatform && (
-          <div className="text-center mt-12">
-            <p className="text-muted-foreground text-lg">
-              Available in <strong className="text-primary">Telugu, Tamil, Kannada, Malayalam, Hindi, and English</strong>
-            </p>
+                        );
+                      })}
+                    </div>
+                  </TabsContent>
+                ))}
+              </Tabs>
+            </div>
           </div>
         )}
       </div>
