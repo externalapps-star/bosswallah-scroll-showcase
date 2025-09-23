@@ -28,7 +28,7 @@ const ContactSection = () => {
   };
   return <section id="contact" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Book a Consulting <span className="gradient-text">Call</span>
@@ -41,7 +41,7 @@ const ContactSection = () => {
 
           <div className="flex justify-center">
             {/* Centered Contact form */}
-            <div className="bg-card rounded-2xl p-8 shadow-soft border border-border max-w-2xl w-full">
+            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border max-w-2xl w-full">
               {!isSubmitted ? <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="name">Name *</Label>

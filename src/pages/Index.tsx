@@ -19,7 +19,7 @@ const Index = () => {
       <Sidebar isMenuOpen={sidebarMenuOpen} setIsMenuOpen={setSidebarMenuOpen} />
       
       {/* Main Content Area */}
-      <div className="lg:ml-56">
+      <div className="lg:ml-48 xl:ml-56">
         <TopStrip />
         
         <div id="home">

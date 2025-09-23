@@ -56,14 +56,14 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   }];
   const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
       {/* Logo Section */}
-      <div className="px-6 bg-[#1a1a2e] py-[11.25px]">
+      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3">
         <div className="bg-white p-2 rounded">
-          <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-8 w-auto" />
+          <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain" />
         </div>
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex-1 flex flex-col p-6">
+      <div className="flex-1 flex flex-col p-4 md:p-6">
         {!isMenuOpen ? (
           <div className="flex items-center justify-center h-full">
             <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
@@ -88,7 +88,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       </div>
 
       {/* Contact Details */}
-      <div className="p-6 border-t border-white/10 space-y-4">
+      <div className="p-4 md:p-6 border-t border-white/10 space-y-3 md:space-y-4">
         <div className="space-y-3">
           <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400 hover:text-primary transition-colors">
             <Phone className="h-4 w-4" />
@@ -110,7 +110,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     </div>;
   return <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-56 z-50">
+      <div className="hidden lg:block fixed left-0 top-0 h-full w-48 xl:w-56 z-50">
         <SidebarContent />
       </div>
 
@@ -122,7 +122,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
               <Menu className="h-5 w-5" />
             </Button>
           </SheetTrigger>
-          <SheetContent side="left" className="p-0 w-56">
+          <SheetContent side="left" className="p-0 w-64 sm:w-72">
             <SidebarContent />
           </SheetContent>
         </Sheet>

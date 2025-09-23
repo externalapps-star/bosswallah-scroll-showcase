@@ -69,18 +69,18 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="max-w-3xl">
           {/* "Accelerate Your" in white */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
           
           {/* "Brand Growth" with gradient */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
           </h1>
           
           {/* Subtitle */}
-          <p className="text-gray-400 text-lg sm:text-xl lg:text-2xl mb-12 max-w-2xl leading-relaxed">Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.</p>
+          <p className="text-gray-400 text-base md:text-lg lg:text-xl xl:text-2xl mb-8 lg:mb-12 max-w-2xl leading-relaxed">Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.</p>
           
           {/* "With Boss Wallah Media" with gradient */}
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
             <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
           </h2>
           
@@ -92,8 +92,8 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
 
       {/* Navigation buttons - right side (desktop only) */}
       {!hideSideNavigation && (
-        <div className="hidden lg:flex flex-col justify-center space-y-4 pr-16 z-10">
-          {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-lg font-medium py-3 px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10">
+        <div className="hidden lg:flex flex-col justify-center space-y-3 lg:space-y-4 pr-8 lg:pr-16 z-10">
+          {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-sm lg:text-base xl:text-lg font-medium py-2 lg:py-3 px-4 lg:px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10">
               {item.label}
             </button>)}
         </div>
