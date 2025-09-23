@@ -1,124 +1,117 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Menu, ArrowUpRight } from "lucide-react";
-import { useState } from "react";
+import heroBackground from "@/assets/hero-background.jpg";
 
 const HeroSection = () => {
   const { t } = useLanguage();
-  const [showMobileMenu, setShowMobileMenu] = useState(false);
-
-  const navigationButtons = [
-    { label: "Start Campaign", id: "contact", primary: true },
-    { label: "Our Story", id: "about" },
-    { label: "Explore Channels", id: "channels" },
-    { label: "View Our Work", id: "campaigns" },
-    { label: "See The Impact", id: "testimonials" },
-    { label: "Latest News", id: "news" }
-  ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
-      {/* Dark black background */}
-      <div className="absolute inset-0 bg-black"></div>
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+      {/* Theme Toggle - removed since it's now in header */}
       
-      {/* Content */}
-      <div className="max-w-7xl mx-auto relative z-10 text-white px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start lg:items-center min-h-screen lg:min-h-0 pt-20 lg:pt-0">
-          {/* Left Side - Main Content */}
-          <div className="space-y-8 lg:space-y-12">
-            {/* Media Services Label */}
-            <div className="flex items-center gap-2 text-orange-400 font-medium text-base">
-              <span>Media Services</span>
-              <ArrowUpRight size={16} />
-            </div>
-
-            {/* Main Heading */}
-            <div className="space-y-6">
-              <h1 className="text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold leading-none">
-                <span className="text-white block">Accelerate Your</span>
-                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
-                  Growth
-                </span>
-              </h1>
-              
-              <p className="text-gray-300 text-xl md:text-2xl leading-relaxed max-w-2xl">
-                Drive business growth with our B2B expertise in marketing strategy, lead generation, digital solutions, and creative services.
-              </p>
-            </div>
-
-            {/* Second Part of Heading */}
-            <div className="space-y-6">
-              <h2 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none">
-                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
-                  With Boss
-                </span>
-                <span className="block bg-gradient-to-r from-purple-400 via-purple-500 to-orange-500 bg-clip-text text-transparent">
-                  Wallah Media
-                </span>
-              </h2>
-              
-              <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
-                Boss Wallah Media is India's leading social media and video production powerhouse with massive regional reach. We create campaigns that captivate, influence, and deliver measurable ROI across YouTube, Facebook, and Instagram.
-              </p>
-            </div>
+      {/* Background Video/Montage */}
+      <div 
+        className="absolute inset-0 z-0"
+        style={{
+          backgroundImage: `url(${heroBackground})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Enhanced overlay with softer, more comfortable opacity */}
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/70 via-primary/50 to-accent/60">
+          {/* Subtle animated light particles */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-1 h-1 bg-white/20 rounded-full animate-pulse blur-sm"></div>
+            <div className="absolute top-1/3 right-1/3 w-0.5 h-0.5 bg-accent/30 rounded-full animate-bounce delay-100 blur-sm"></div>
+            <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-primary/20 rounded-full animate-ping delay-200"></div>
+            <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white/25 rounded-full animate-pulse delay-300 blur-sm"></div>
+            <div className="absolute bottom-1/3 right-1/2 w-1 h-1 bg-accent/25 rounded-full animate-bounce delay-500"></div>
+            <div className="absolute top-2/3 left-1/2 w-0.5 h-0.5 bg-white/30 rounded-full animate-ping delay-700 blur-sm"></div>
           </div>
+          
+          {/* Minimal floating glitter effect */}
+          <div className="absolute inset-0">
+            <div className="absolute top-20 left-20 w-0.5 h-0.5 bg-white/30 rounded-full animate-pulse blur-sm opacity-40"></div>
+            <div className="absolute top-32 right-24 w-0.5 h-0.5 bg-accent/40 rounded-full animate-bounce delay-150 opacity-30"></div>
+            <div className="absolute bottom-40 left-32 w-0.5 h-0.5 bg-primary/30 rounded-full animate-ping delay-300 opacity-35"></div>
+            <div className="absolute top-48 right-40 w-0.5 h-0.5 bg-white/40 rounded-full animate-pulse delay-400 blur-sm opacity-25"></div>
+            <div className="absolute bottom-24 right-16 w-0.5 h-0.5 bg-accent/35 rounded-full animate-bounce delay-600 opacity-40"></div>
+            <div className="absolute top-60 left-48 w-0.5 h-0.5 bg-white/25 rounded-full animate-ping delay-800 opacity-30"></div>
+          </div>
+          
+          {/* Very subtle shimmer overlay */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/2 to-transparent animate-pulse opacity-50"></div>
+        </div>
+      </div>
 
-          {/* Right Side - Navigation replacing statistics */}
-          <div className="space-y-6 lg:space-y-8">
-            {/* Desktop Navigation - Vertically stacked to replace statistics */}
-            <div className="hidden lg:flex lg:flex-col lg:space-y-4 text-right">
-              {navigationButtons.map((btn, index) => (
-                <Button
-                  key={index}
-                  variant={btn.primary ? "default" : "outline"}
-                  size="lg"
-                  className={`${
-                    btn.primary 
-                      ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0 text-base font-semibold py-4 px-6" 
-                      : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm text-sm font-medium py-3 px-5"
-                  } transition-all duration-300 hover:scale-105 rounded-lg w-48 ml-auto`}
-                  onClick={() => document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' })}
-                >
-                  {btn.label}
-                </Button>
-              ))}
-            </div>
-
-            {/* Mobile Navigation Menu */}
-            <div className="lg:hidden">
-              <Button
-                variant="outline"
+      {/* Content */}
+      <div className="container-custom relative z-10 text-center text-white px-6">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-6xl md:text-8xl font-bold mb-8 leading-tight whitespace-nowrap">
+            {t('hero.title')}
+          </h1>
+          <p className="text-2xl md:text-3xl mb-6 font-light">
+            {t('hero.subtitle')}
+          </p>
+          <p className="text-xl md:text-2xl mb-12 opacity-90 font-light">
+            {t('hero.description')}
+          </p>
+          
+          {/* Primary CTA */}
+          <div className="flex flex-col items-center gap-8 mb-8">
+            <Button 
+              variant="hero" 
+              size="lg"
+              className="text-lg px-16 py-8 h-auto font-semibold transform hover:scale-105 transition-all duration-300"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              Start Campaign
+            </Button>
+            
+            {/* Secondary CTAs Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-4 w-full max-w-5xl">
+              <Button 
+                variant="outline" 
                 size="lg"
-                className="bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm w-full"
-                onClick={() => setShowMobileMenu(!showMobileMenu)}
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Menu size={20} className="mr-2" />
-                Quick Navigation
+                Our Story
               </Button>
-              
-              {/* Mobile Menu Dropdown */}
-              {showMobileMenu && (
-                <div className="mt-4 grid grid-cols-2 gap-3">
-                  {navigationButtons.map((btn, index) => (
-                    <Button
-                      key={index}
-                      variant={btn.primary ? "default" : "outline"}
-                      size="sm"
-                      className={`${
-                        btn.primary 
-                          ? "bg-gradient-to-r from-purple-600 to-orange-500 hover:from-purple-700 hover:to-orange-600 text-white border-0" 
-                          : "bg-white/10 text-white border-white/30 hover:bg-white hover:text-black backdrop-blur-sm"
-                      } font-medium transition-all duration-300 text-sm py-3`}
-                      onClick={() => {
-                        document.getElementById(btn.id)?.scrollIntoView({ behavior: 'smooth' });
-                        setShowMobileMenu(false);
-                      }}
-                    >
-                      {btn.label}
-                    </Button>
-                  ))}
-                </div>
-              )}
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('channels')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Explore Channels
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('campaigns')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                View Our Work
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('testimonials')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                See The Impact
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="bg-white/10 text-white border-white/40 hover:bg-white hover:text-primary hover:border-white backdrop-blur-md font-medium py-3 px-6 transition-all duration-300 hover:scale-105"
+                onClick={() => document.getElementById('news')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Latest News
+              </Button>
             </div>
           </div>
         </div>
