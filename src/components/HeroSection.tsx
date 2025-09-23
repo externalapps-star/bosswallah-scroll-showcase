@@ -63,7 +63,7 @@ const HeroSection = () => {
       <div className="relative z-10 flex-1 px-8 lg:px-16">
         <div className="max-w-3xl">
           {/* "Accelerate Your" in white */}
-          <h1 className="text-6xl lg:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+          <h1 className="text-6xl lg:text-8xl font-bold text-white leading-tight mb-4 whitespace-nowrap">Accelerate Your Brand</h1>
           
           {/* "Brand Growth" with gradient */}
           <h1 className="text-6xl lg:text-8xl font-bold leading-tight mb-8">
