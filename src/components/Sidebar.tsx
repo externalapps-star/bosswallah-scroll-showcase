@@ -112,8 +112,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       </div>
     </div>;
   return <>
-      {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-48 xl:w-56 z-50">
+      {/* Desktop Sidebar - ends before footer */}
+      <div className="hidden lg:block fixed left-0 top-0 w-48 xl:w-56 z-50" style={{ height: 'calc(100vh - 200px)' }}>
         <SidebarContent />
       </div>
 
