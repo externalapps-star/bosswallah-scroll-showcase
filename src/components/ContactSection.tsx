@@ -4,6 +4,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
+
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -13,20 +15,62 @@ const ContactSection = () => {
     startDate: '',
     agency: ''
   });
+  const [webhookUrl, setWebhookUrl] = useState("");
+  const [showWebhookInput, setShowWebhookInput] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
-  const handleSubmit = (e: React.FormEvent) => {
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setIsLoading(true);
+
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          mode: "no-cors",
+          body: JSON.stringify({
+            type: "consultation_request",
+            ...formData,
+            timestamp: new Date().toISOString(),
+            triggered_from: window.location.origin,
+          }),
+        });
+
+        toast({
+          title: "Request Sent!",
+          description: "Your consultation request has been sent to Google Sheets via Zapier.",
+        });
+      } catch (error) {
+        console.error("Error sending to webhook:", error);
+        toast({
+          title: "Request Submitted",
+          description: "Request sent to Zapier. Check your Zap history to confirm.",
+        });
+      }
+    } else {
+      toast({
+        title: "Form Submitted!",
+        description: "Thank you for your consultation request.",
+      });
+    }
+
     setIsSubmitted(true);
+    setIsLoading(false);
   };
-  return <section id="contact" className="section-padding bg-background">
+
+  return (
+    <section id="contact" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
@@ -42,43 +86,130 @@ const ContactSection = () => {
           <div className="flex justify-center">
             {/* Centered Contact form */}
             <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border max-w-2xl w-full">
-              {!isSubmitted ? <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <Label htmlFor="name">Name *</Label>
-                    <Input id="name" name="name" required value={formData.name} onChange={handleInputChange} className="mt-2" />
-                  </div>
+              {!isSubmitted ? (
+                <>
+                  {!showWebhookInput && (
+                    <div className="text-center mb-6">
+                      <Button 
+                        variant="outline" 
+                        onClick={() => setShowWebhookInput(true)}
+                      >
+                        Connect to Google Sheets
+                      </Button>
+                    </div>
+                  )}
+                  
+                  {showWebhookInput && (
+                    <div className="mb-6 p-4 bg-muted rounded-lg border">
+                      <p className="text-sm text-muted-foreground mb-3">
+                        Paste your Zapier webhook URL to send consultation requests to Google Sheets:
+                      </p>
+                      <Input
+                        type="url"
+                        placeholder="https://hooks.zapier.com/hooks/catch/..."
+                        value={webhookUrl}
+                        onChange={(e) => setWebhookUrl(e.target.value)}
+                        className="mb-2"
+                      />
+                      <Button 
+                        variant="ghost" 
+                        size="sm"
+                        onClick={() => setShowWebhookInput(false)}
+                      >
+                        Hide
+                      </Button>
+                    </div>
+                  )}
 
-                  <div>
-                    <Label htmlFor="company">Company Name *</Label>
-                    <Input id="company" name="company" required value={formData.company} onChange={handleInputChange} className="mt-2" />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="problem">Marketing Problem (Optional)</Label>
-                    <Textarea id="problem" name="problem" value={formData.problem} onChange={handleInputChange} className="mt-2" rows={3} placeholder="Tell us about your marketing challenges..." />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
-                      <Label htmlFor="budget">Budget (Optional)</Label>
-                      <Input id="budget" name="budget" value={formData.budget} onChange={handleInputChange} className="mt-2" placeholder="e.g. ₹5-10 Lakhs" />
+                      <Label htmlFor="name">Name *</Label>
+                      <Input 
+                        id="name" 
+                        name="name" 
+                        required 
+                        value={formData.name} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                      />
                     </div>
 
                     <div>
-                      <Label htmlFor="startDate">Expected Start Date (Optional)</Label>
-                      <Input id="startDate" name="startDate" type="date" value={formData.startDate} onChange={handleInputChange} className="mt-2" />
+                      <Label htmlFor="company">Company Name *</Label>
+                      <Input 
+                        id="company" 
+                        name="company" 
+                        required 
+                        value={formData.company} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                      />
                     </div>
-                  </div>
 
-                  <div>
-                    <Label htmlFor="agency">Current Marketing Agency (Optional)</Label>
-                    <Input id="agency" name="agency" value={formData.agency} onChange={handleInputChange} className="mt-2" placeholder="Do you currently work with any agency?" />
-                  </div>
+                    <div>
+                      <Label htmlFor="problem">Marketing Problem (Optional)</Label>
+                      <Textarea 
+                        id="problem" 
+                        name="problem" 
+                        value={formData.problem} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                        rows={3} 
+                        placeholder="Tell us about your marketing challenges..." 
+                      />
+                    </div>
 
-                  <Button type="submit" variant="default" size="lg" className="w-full">
-                    Done
-                  </Button>
-                </form> : <div className="text-center py-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="budget">Budget (Optional)</Label>
+                        <Input 
+                          id="budget" 
+                          name="budget" 
+                          value={formData.budget} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                          placeholder="e.g. ₹5-10 Lakhs" 
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="startDate">Expected Start Date (Optional)</Label>
+                        <Input 
+                          id="startDate" 
+                          name="startDate" 
+                          type="date" 
+                          value={formData.startDate} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="agency">Current Marketing Agency (Optional)</Label>
+                      <Input 
+                        id="agency" 
+                        name="agency" 
+                        value={formData.agency} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                        placeholder="Do you currently work with any agency?" 
+                      />
+                    </div>
+
+                    <Button 
+                      type="submit" 
+                      variant="default" 
+                      size="lg" 
+                      className="w-full"
+                      disabled={isLoading}
+                    >
+                      {isLoading ? "Submitting..." : "Done"}
+                    </Button>
+                  </form>
+                </>
+              ) : (
+                <div className="text-center py-8">
                   <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-2xl font-bold mb-2 text-foreground">
                     Thank You!
@@ -89,14 +220,31 @@ const ContactSection = () => {
                   <p className="text-sm text-muted-foreground">
                     Boss Wallah will contact you soon to discuss your requirements.
                   </p>
-                  <Button variant="outline" onClick={() => setIsSubmitted(false)} className="mt-6">
+                  <Button 
+                    variant="outline" 
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFormData({
+                        name: '',
+                        company: '',
+                        problem: '',
+                        budget: '',
+                        startDate: '',
+                        agency: ''
+                      });
+                    }} 
+                    className="mt-6"
+                  >
                     Submit Another Inquiry
                   </Button>
-                </div>}
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ContactSection;
