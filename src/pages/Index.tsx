@@ -1,4 +1,5 @@
-import Header from "@/components/Header";
+import Sidebar from "@/components/Sidebar";
+import TopStrip from "@/components/TopStrip";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ChannelsSection from "@/components/ChannelsSection";
@@ -12,29 +13,36 @@ import FloatingCallButton from "@/components/FloatingCallButton";
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Header />
-      <div id="home">
-        <HeroSection />
+      <Sidebar />
+      
+      {/* Main Content Area */}
+      <div className="lg:ml-80">
+        <TopStrip />
+        
+        <div id="home">
+          <HeroSection />
+        </div>
+        <div id="about">
+          <AboutSection />
+        </div>
+        <div id="channels">
+          <ChannelsSection />
+        </div>
+        <div id="campaigns">
+          <CampaignsSection />
+        </div>
+        <div id="testimonials">
+          <TestimonialsSection />
+        </div>
+        <div id="news">
+          <NewsSection />
+        </div>
+        <div id="contact">
+          <ContactSection />
+        </div>
+        <Footer />
       </div>
-      <div id="about">
-        <AboutSection />
-      </div>
-      <div id="channels">
-        <ChannelsSection />
-      </div>
-      <div id="campaigns">
-        <CampaignsSection />
-      </div>
-      <div id="testimonials">
-        <TestimonialsSection />
-      </div>
-      <div id="news">
-        <NewsSection />
-      </div>
-      <div id="contact">
-        <ContactSection />
-      </div>
-      <Footer />
+      
       <FloatingCallButton />
     </div>
   );
