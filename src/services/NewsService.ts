@@ -12,6 +12,22 @@ interface NewsItem {
   url: string;
 }
 
+interface NewsItem {
+  id: number;
+  date: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  category: string;
+  thumbnail: string;
+  readTime: string;
+  author: string;
+  tags: string[];
+  url: string;
+}
+
+import { ThumbnailService } from './ThumbnailService';
+
 export class NewsService {
   // Fallback news data in case fetch fails
   private static fallbackNews: NewsItem[] = [
@@ -158,7 +174,9 @@ export class NewsService {
         }
       ];
 
-      return latestNews;
+      // Generate dynamic thumbnails for the news
+      const newsWithDynamicThumbnails = await ThumbnailService.generateAllThumbnails(latestNews);
+      return newsWithDynamicThumbnails;
     } catch (error) {
       console.error('Error fetching Boss Wallah news:', error);
       return this.fallbackNews;
