@@ -125,19 +125,24 @@ const NewsSection = () => {
 
           {/* Category Filter - only show if showMore is true */}
           {showMore && (
-            <div className="flex flex-wrap justify-center gap-3 mb-8">
-              {categories.map((category) => (
-                <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => setSelectedCategory(category)}
-                  className="gap-2"
-                >
-                  <Filter size={14} />
-                  {category}
-                </Button>
-              ))}
+            <div className="flex flex-col items-center gap-4 mb-8">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Filter size={16} />
+                <span className="text-sm font-medium">Filter by category:</span>
+              </div>
+              <div className="flex flex-wrap justify-center gap-2">
+                {categories.map((category) => (
+                  <Button
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    size="sm"
+                    onClick={() => setSelectedCategory(category)}
+                    className="rounded-full px-4"
+                  >
+                    {category}
+                  </Button>
+                ))}
+              </div>
             </div>
           )}
 
