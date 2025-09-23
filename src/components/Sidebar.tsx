@@ -56,27 +56,28 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation Menu */}
-      <div className="flex-1 flex flex-col items-center justify-center p-6">
-        <div className="flex items-center justify-center">
-          <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
-            <Menu className="h-7 w-7" />
-          </Button>
-        </div>
-
-        {/* Navigation Items - Hidden by default, shown when hamburger is clicked */}
-        {isOpen && <div className="mt-8 w-full relative">
+      <div className="flex-1 flex flex-col p-6">
+        {!isOpen ? (
+          <div className="flex items-center justify-center h-full">
+            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 hover:border-primary bg-primary/10 hover:bg-primary/20 text-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/25">
+              <Menu className="h-7 w-7" />
+            </Button>
+          </div>
+        ) : (
+          <div className="w-full relative">
             <button 
               onClick={() => setIsOpen(false)}
               className="absolute top-0 right-0 h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200"
             >
               <X className="h-4 w-4" />
             </button>
-            <nav className="space-y-3 pt-8">
+            <nav className="space-y-3 pt-12">
               {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
                   {item.label}
                 </button>)}
             </nav>
-          </div>}
+          </div>
+        )}
       </div>
 
       {/* Contact Details */}
