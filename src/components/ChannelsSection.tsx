@@ -257,7 +257,7 @@ const ChannelsSection = () => {
                       {/* Platform Icon */}
                       <div className="relative z-10">
                         {platform.image ? (
-                          <div className="w-16 h-16 bg-white rounded-xl p-3 shadow-lg">
+                          <div className="w-24 h-24 bg-white rounded-xl p-3 shadow-lg">
                             <img 
                               src={platform.image} 
                               alt={`${platform.name} logo`}
@@ -265,9 +265,9 @@ const ChannelsSection = () => {
                             />
                           </div>
                         ) : (
-                          <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center shadow-lg">
+                          <div className="w-24 h-24 bg-white rounded-xl flex items-center justify-center shadow-lg">
                             <IconComponent 
-                              size={32}
+                              size={48}
                               className={platform.color}
                             />
                           </div>
