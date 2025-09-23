@@ -6,28 +6,28 @@
 
 @layer base {
   :root {
-    /* Brand Colors - Based on Boss Wallah orange/red gradient theme */
+    /* Boss Wallah Brand Colors - Purple and Orange theme */
     --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Orange-red gradient primary colors inspired by Boss Wallah */
-    --primary: 14 100% 57%;
+    /* Purple primary (#755292) */
+    --primary: 270 31% 52%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 8 83% 47%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 18%;
+    /* Orange secondary (#F05C25) */
+    --secondary: 14 89% 54%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 14% 96%;
     --muted-foreground: 220 9% 46%;
 
-    --accent: 24 95% 53%;
+    --accent: 14 89% 54%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -35,59 +35,53 @@
 
     --border: 220 13% 91%;
     --input: 220 13% 91%;
-    --ring: 14 100% 57%;
+    --ring: 270 31% 52%;
 
     --radius: 8px;
 
-    /* Boss Wallah gradient system */
-    --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(8 83% 47%));
-    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%) 0%, hsl(8 83% 47%) 100%);
+    /* Boss Wallah gradient system - Purple to Orange */
+    --gradient-primary: linear-gradient(135deg, hsl(270 31% 52%), hsl(14 89% 54%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 31% 52%) 0%, hsl(14 89% 54%) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(270 31% 52%), hsl(14 89% 54%));
     --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
     
     /* Section separators */
     --gradient-separator: linear-gradient(90deg, transparent 0%, hsl(220 13% 91%) 50%, transparent 100%);
 
     /* Shadows with brand colors */
-    --shadow-brand: 0 10px 30px -10px hsl(14 100% 57% / 0.25);
+    --shadow-brand: 0 10px 30px -10px hsl(270 31% 52% / 0.25);
     --shadow-soft: 0 4px 20px -4px hsl(220 13% 18% / 0.1);
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
     --background: 220 13% 18%;
-    --foreground: 220 14% 96%;
+    --foreground: 0 0% 100%;
 
     --card: 220 13% 18%;
-    --card-foreground: 220 14% 96%;
+    --card-foreground: 0 0% 100%;
 
     --popover: 220 13% 18%;
-    --popover-foreground: 220 14% 96%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 14 100% 57%;
+    --primary: 270 31% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 27%;
-    --secondary-foreground: 220 14% 96%;
+    --secondary: 14 89% 54%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 220 13% 27%;
     --muted-foreground: 220 9% 65%;
 
-    --accent: 24 95% 53%;
+    --accent: 14 89% 54%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -95,7 +89,7 @@
 
     --border: 220 13% 27%;
     --input: 220 13% 27%;
-    --ring: 14 100% 57%;
+    --ring: 270 31% 52%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -135,7 +129,7 @@
 
   /* Hero gradient text effect */
   .gradient-text {
-    background: var(--gradient-primary);
+    background: var(--gradient-text);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
