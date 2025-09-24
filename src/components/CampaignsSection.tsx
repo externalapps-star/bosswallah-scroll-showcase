@@ -1,3 +1,4 @@
+import { Podcast } from "lucide-react";
 import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
 import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
 import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
@@ -33,7 +34,7 @@ const CampaignsSection = () => {
       title: "BOSScast",
       description: "A business podcast for entrepreneurs share real challenges and solutions to grow their business...",
       features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
-      icon: brandBuildingIcon
+      icon: "podcast"
     },
     {
       title: "Studios",
@@ -70,12 +71,16 @@ const CampaignsSection = () => {
               <div className="relative z-10 flex items-start space-x-6">
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg">
-                    <img 
-                      src={campaign.icon} 
-                      alt={campaign.title}
-                      className="w-full h-full object-cover"
-                    />
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-primary/10 flex items-center justify-center">
+                    {campaign.icon === "podcast" ? (
+                      <Podcast className="w-8 h-8 text-primary" />
+                    ) : (
+                      <img 
+                        src={campaign.icon as string} 
+                        alt={campaign.title}
+                        className="w-full h-full object-cover"
+                      />
+                    )}
                   </div>
                 </div>
                 
