@@ -221,7 +221,7 @@ const ChannelsSection = () => {
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
                   {/* Brand-Themed Card with Authentic Colors */}
-                  <div className={`relative overflow-hidden bg-white dark:bg-gray-900 rounded-2xl transition-all duration-500 border-2 h-full flex flex-col shadow-lg ${
+                  <div className={`relative overflow-hidden bg-card rounded-2xl transition-all duration-500 border-2 h-full flex flex-col shadow-lg ${
                     platform.name === 'YouTube' ? (
                       isSelected 
                         ? 'border-red-500 shadow-red-500/30 scale-105 shadow-2xl' 
@@ -308,7 +308,7 @@ const ChannelsSection = () => {
                       </div>
                       
                       {/* Description */}
-                      <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-6 flex-1">
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
                         {platform.description}
                       </p>
                       
