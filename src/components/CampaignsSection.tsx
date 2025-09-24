@@ -37,7 +37,7 @@ const CampaignsSection = () => {
     },
     {
       title: "Studios",
-      description: "Boss Wallah's 6 fully equipped studios designed for entrepreneurs and brands to create high-quality content seamlessly…",
+      description: "Boss Wallah's 6 studios designed for entrepreneurs and brands to create quality content seamlessly…",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
       icon: eventCampaignIcon
     }
