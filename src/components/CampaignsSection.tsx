@@ -1,4 +1,4 @@
-import { Podcast, Camera, Zap } from "lucide-react";
+import { Podcast, Camera } from "lucide-react";
 import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
 import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
 import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
@@ -22,7 +22,7 @@ const CampaignsSection = () => {
       title: "Intense Event Based Program",
       description: "Companies that want to create an intense 3 month campaign...",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
-      icon: "zap"
+      icon: eventCampaignIcon
     },
     {
       title: "Brand Building Campaigns",
@@ -72,7 +72,7 @@ const CampaignsSection = () => {
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
                   <div className={`w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center ${
-                    campaign.icon === "podcast" || campaign.icon === "camera" || campaign.icon === "zap"
+                    campaign.icon === "podcast" || campaign.icon === "camera" 
                       ? "bg-black" 
                       : ""
                   }`}>
@@ -80,8 +80,6 @@ const CampaignsSection = () => {
                       <Podcast className="w-8 h-8 text-orange-500" />
                     ) : campaign.icon === "camera" ? (
                       <Camera className="w-8 h-8 text-orange-500" />
-                    ) : campaign.icon === "zap" ? (
-                      <Zap className="w-8 h-8 text-orange-500" />
                     ) : (
                       <img 
                         src={campaign.icon as string} 
