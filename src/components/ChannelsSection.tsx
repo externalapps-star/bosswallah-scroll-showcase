@@ -358,19 +358,19 @@ const ChannelsSection = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
               
-              <div className={`relative bg-white dark:bg-gray-900 rounded-2xl transition-all duration-500 border-2 shadow-lg ${
-                selectedPlatform === 'youtube' ? 'border-red-500 shadow-red-500/30' :
-                selectedPlatform === 'facebook' ? 'border-blue-500 shadow-blue-500/30' :
-                'border-pink-500 shadow-pink-500/30'
+              <div className={`relative bg-card rounded-2xl transition-all duration-500 border-2 shadow-lg ${
+                selectedPlatform === 'youtube' ? 'border-red-500/60 shadow-red-500/20' :
+                selectedPlatform === 'facebook' ? 'border-blue-500/60 shadow-blue-500/20' :
+                'border-pink-500/60 shadow-pink-500/20'
               }`}>
                 
                 {/* Brand Color Header Section similar to main cards */}
-                <div className={`relative h-24 flex items-center justify-between px-8 ${
+                  <div className={`relative h-24 flex items-center justify-between px-8 ${
                   selectedPlatform === 'youtube' 
-                    ? 'bg-gradient-to-r from-red-600 to-red-500' 
+                    ? 'bg-gradient-to-r from-red-500/90 to-red-600/90' 
                     : selectedPlatform === 'facebook'
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-500'
-                    : 'bg-gradient-to-r from-pink-500 via-purple-500 to-pink-600'
+                    ? 'bg-gradient-to-r from-blue-500/90 to-blue-600/90'
+                    : 'bg-gradient-to-r from-pink-500/90 via-purple-500/90 to-pink-600/90'
                 }`}>
                   
                   {/* Decorative Pattern - reduced for clarity */}
@@ -387,7 +387,7 @@ const ChannelsSection = () => {
                     variant="ghost"
                     size="icon"
                     onClick={() => setSelectedPlatform(null)}
-                    className="rounded-full text-white hover:bg-white/20 relative z-10"
+                    className="rounded-full text-primary-foreground hover:bg-primary-foreground/20 relative z-10"
                   >
                     <X size={20} />
                   </Button>
