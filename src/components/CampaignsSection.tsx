@@ -31,14 +31,14 @@ const CampaignsSection = () => {
     },
     {
       title: "BOSScast",
-      description: "Business podcast for entrepreneurs, diving deep into real challenges and solutions faced by Indian SMEs. Honest conversations, actionable insights, and industry stories that matter.",
+      description: "A business podcast for Indian entrepreneurs where we uncover real challenges, pivots, and solutions that SMEs face…",
       features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
       icon: brandBuildingIcon
     },
     {
       title: "Studios",
-      description: "Boss Wallah Studios offers 6 fully equipped spaces designed for entrepreneurs, creators, and brands to produce professional-quality content. From podcasts to product shoots, our studios are built to make your story shine.",
-      features: ["6 State-of-the-art Studios", "Audio & Video Production Ready", "Creator-friendly Setup", "Professional Editing Support"],
+      description: "Boss Wallah's 6 fully equipped studios designed for entrepreneurs and brands to create high-quality content seamlessly…",
+      features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
       icon: eventCampaignIcon
     }
   ];
