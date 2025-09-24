@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 const TopStrip = () => {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+  const openWhatsApp = () => {
+    // Replace with your actual WhatsApp business number
+    const phoneNumber = "919876543210"; // Format: country code + number (no spaces or special chars)
+    const message = "Hi! I'm interested in learning more about your services.";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
   return <div className="fixed top-0 left-0 lg:left-56 right-0 z-50 bg-primary text-primary-foreground border-b border-white/20 px-6 shadow-soft py-2">
       <div className="flex items-center justify-between max-w-full">
@@ -20,7 +19,7 @@ const TopStrip = () => {
 
         {/* CTA and Theme Toggle */}
         <div className="flex items-center space-x-4">
-          <Button onClick={scrollToContact} variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90 font-medium">
+          <Button onClick={openWhatsApp} variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90 font-medium">
             Talk to Our Team
           </Button>
           <ThemeToggle />
