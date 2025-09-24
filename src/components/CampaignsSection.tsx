@@ -31,7 +31,7 @@ const CampaignsSection = () => {
     },
     {
       title: "BOSScast",
-      description: "A business podcast for Indian entrepreneurs where we uncover real challenges, pivots, and solutions that SMEs face…",
+      description: "A business podcast for Indian entrepreneurs uncovering real challenges, pivots, and SME solutions…",
       features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
       icon: brandBuildingIcon
     },
