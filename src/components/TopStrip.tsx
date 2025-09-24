@@ -20,8 +20,8 @@ const TopStrip = () => {
 
         {/* CTA and Theme Toggle */}
         <div className="flex items-center space-x-4">
-          <Button onClick={openWhatsApp} variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90 font-medium">
-            <MessageCircle className="w-4 h-4 mr-2" />
+          <Button onClick={openWhatsApp} variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90 font-medium px-2 py-1">
+            <MessageCircle className="w-4 h-4 mr-1 border border-green-500 rounded-full p-0.5" />
             Talk to Our Team
           </Button>
           <ThemeToggle />
