@@ -71,7 +71,11 @@ const CampaignsSection = () => {
               <div className="relative z-10 flex items-start space-x-6">
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center bg-black">
+                  <div className={`w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center ${
+                    campaign.icon === "podcast" || campaign.icon === "camera" 
+                      ? "bg-black" 
+                      : ""
+                  }`}>
                     {campaign.icon === "podcast" ? (
                       <Podcast className="w-8 h-8 text-orange-500" />
                     ) : campaign.icon === "camera" ? (
