@@ -201,7 +201,7 @@ const ContactSection = () => {
                       type="submit" 
                       variant="default" 
                       size="lg" 
-                      className="w-full"
+                      className="w-full bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
                       disabled={isLoading}
                     >
                       {isLoading ? "Submitting..." : "Done"}

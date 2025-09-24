@@ -220,7 +220,7 @@ const NewsSection = () => {
                 variant="outline" 
                 size="lg"
                 onClick={() => setShowMore(true)}
-                className="group border-orange-200"
+                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
               >
                 <BookOpen size={18} className="mr-2" />
                 View All
@@ -231,7 +231,7 @@ const NewsSection = () => {
                 variant="ghost" 
                 size="lg"
                 onClick={() => setShowMore(false)}
-                className="group border border-orange-200"
+                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
               >
                 Show Less
               </Button>
