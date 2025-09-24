@@ -9,7 +9,7 @@ const TopStrip = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
-  return <div className="fixed top-0 left-0 lg:left-56 right-0 z-50 bg-primary text-primary-foreground border-b border-border px-6 shadow-soft py-2">
+  return <div className="fixed top-0 left-0 lg:left-56 right-0 z-50 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x text-primary-foreground border-b border-border px-6 shadow-soft py-2">
       <div className="flex items-center justify-between max-w-full">
         {/* Message */}
         <div className="flex-1 text-center">
