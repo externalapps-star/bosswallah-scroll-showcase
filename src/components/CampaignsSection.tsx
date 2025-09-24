@@ -1,4 +1,4 @@
-import { Podcast, Camera, Zap } from "lucide-react";
+import { Podcast, Camera, Calendar } from "lucide-react";
 import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
 import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
 import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
@@ -81,7 +81,7 @@ const CampaignsSection = () => {
                     ) : campaign.icon === "camera" ? (
                       <Camera className="w-8 h-8 text-orange-500" />
                     ) : campaign.icon === "event" ? (
-                      <Zap className="w-8 h-8 text-orange-500" />
+                      <Calendar className="w-8 h-8 text-orange-500" />
                     ) : (
                       <img 
                         src={campaign.icon as string} 
