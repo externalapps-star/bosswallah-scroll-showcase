@@ -365,7 +365,7 @@ const ChannelsSection = () => {
               }`}>
                 
                 {/* Brand Color Header Section similar to main cards */}
-                  <div className={`relative h-24 flex items-center justify-between px-8 ${
+                <div className={`relative h-24 flex items-center justify-between px-8 rounded-t-2xl ${
                   selectedPlatform === 'youtube' 
                     ? 'bg-gradient-to-r from-red-500/90 to-red-600/90' 
                     : selectedPlatform === 'facebook'
