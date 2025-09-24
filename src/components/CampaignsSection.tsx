@@ -1,4 +1,4 @@
-import { Podcast } from "lucide-react";
+import { Podcast, Camera } from "lucide-react";
 import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
 import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
 import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
@@ -40,7 +40,7 @@ const CampaignsSection = () => {
       title: "Studios",
       description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease...",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
-      icon: eventCampaignIcon
+      icon: "camera"
     }
   ];
 
@@ -71,9 +71,15 @@ const CampaignsSection = () => {
               <div className="relative z-10 flex items-start space-x-6">
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
+                  <div className={`w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center ${
+                    campaign.icon === "podcast" || campaign.icon === "camera" 
+                      ? "bg-gradient-to-br from-orange-500 to-red-500" 
+                      : ""
+                  }`}>
                     {campaign.icon === "podcast" ? (
                       <Podcast className="w-8 h-8 text-white" />
+                    ) : campaign.icon === "camera" ? (
+                      <Camera className="w-8 h-8 text-white" />
                     ) : (
                       <img 
                         src={campaign.icon as string} 
