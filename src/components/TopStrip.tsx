@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { MessageCircle } from "lucide-react";
 const TopStrip = () => {
   const openWhatsApp = () => {
     // Replace with your actual WhatsApp business number
@@ -20,6 +21,7 @@ const TopStrip = () => {
         {/* CTA and Theme Toggle */}
         <div className="flex items-center space-x-4">
           <Button onClick={openWhatsApp} variant="secondary" size="sm" className="bg-white text-primary hover:bg-white/90 font-medium">
+            <MessageCircle className="w-4 h-4 mr-2" />
             Talk to Our Team
           </Button>
           <ThemeToggle />
