@@ -116,7 +116,7 @@ const NewsletterSection = () => {
             <Button 
               type="submit" 
               disabled={isLoading}
-              className="whitespace-nowrap"
+              className="whitespace-nowrap bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
             >
               {isLoading ? "Subscribing..." : "Subscribe Now"}
             </Button>
