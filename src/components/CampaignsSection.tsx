@@ -12,6 +12,12 @@ const CampaignsSection = () => {
       icon: indiaEntryIcon
     },
     {
+      title: "Revenue Generation Campaigns",
+      description: "Given Boss Wallah's strength in reaching middle-income audiences...",
+      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
+      icon: revenueIcon
+    },
+    {
       title: "Intense Event Based Program",
       description: "Companies that want to create an intense 3 month campaign...",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
@@ -24,10 +30,16 @@ const CampaignsSection = () => {
       icon: brandBuildingIcon
     },
     {
-      title: "Revenue Generation Campaigns",
-      description: "Given Boss Wallah's strength in reaching middle-income audiences...",
-      features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
-      icon: revenueIcon
+      title: "BOSScast",
+      description: "Business podcast for entrepreneurs, diving deep into real challenges and solutions faced by Indian SMEs. Honest conversations, actionable insights, and industry stories that matter.",
+      features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
+      icon: brandBuildingIcon
+    },
+    {
+      title: "Studios",
+      description: "Boss Wallah Studios offers 6 fully equipped spaces designed for entrepreneurs, creators, and brands to produce professional-quality content. From podcasts to product shoots, our studios are built to make your story shine.",
+      features: ["6 State-of-the-art Studios", "Audio & Video Production Ready", "Creator-friendly Setup", "Professional Editing Support"],
+      icon: eventCampaignIcon
     }
   ];
 
