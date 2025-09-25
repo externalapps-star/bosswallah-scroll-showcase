@@ -97,17 +97,17 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       {/* Navigation popup from left */}
       {isMenuOpen && (
         <>
-          {/* Solid Backdrop */}
+          {/* Semi-transparent Backdrop */}
           <div 
-            className="fixed inset-0 bg-black z-20"
+            className="fixed inset-0 bg-black/20 z-20"
             onClick={() => setIsMenuOpen(false)}
           />
           
           {/* Popup Menu */}
-          <div className="fixed top-0 left-0 w-64 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 200px)' }}>
+          <div className="fixed top-0 left-0 w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 64px)' }}>
             <div className="flex flex-col h-full">
               {/* Header with close button */}
-              <div className="flex justify-between items-center p-6 border-b border-border/10">
+              <div className="flex justify-between items-center p-4 border-b border-border/10">
                 <h2 className="text-white text-lg font-semibold">Menu</h2>
                 <button 
                   onClick={() => setIsMenuOpen(false)}
@@ -118,13 +118,13 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
               </div>
               
               {/* Navigation */}
-              <div className="flex-1 p-6">
-                <nav className="space-y-2">
+              <div className="flex-1 p-4 overflow-y-auto">
+                <nav className="space-y-1">
                   {navigationItems.map(item => 
                     <button 
                       key={item.id} 
                       onClick={() => scrollToSection(item.id)} 
-                      className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                      className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
                         activeSection === item.id 
                           ? 'bg-primary text-primary-foreground font-semibold' 
                           : 'text-white hover:bg-white/10'
@@ -137,8 +137,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
               </div>
               
               {/* Footer with contact details */}
-              <div className="p-6 border-t border-border/10 space-y-4">
-                <div className="space-y-3">
+              <div className="p-4 border-t border-border/10 space-y-3">
+                <div className="space-y-2">
                   <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                     <Phone className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">+91 98765 43210</span>
@@ -150,7 +150,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
                 </div>
 
                 {/* Social Icons */}
-                <div className="flex space-x-4 pt-2">
+                <div className="flex space-x-4 pt-1">
                   {socialLinks.map((social, index) => 
                     <a key={index} href={social.href} className="text-gray-400 hover:text-white transition-colors">
                       <social.icon className="h-5 w-5" />
