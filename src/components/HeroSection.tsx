@@ -71,18 +71,18 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
             {/* Left-aligned content */}
             <div className="max-w-6xl">
               {/* "Accelerate Your" in white */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
               
               {/* "Brand Growth" with gradient */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
               </h1>
               
               {/* Subtitle */}
-              <p className="text-gray-400 text-base md:text-lg lg:text-xl xl:text-2xl mb-8 lg:mb-12 max-w-2xl leading-relaxed">Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.</p>
+              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is India's top social media and production platform, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.</p>
               
               {/* "With Boss Wallah Media" with gradient */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6 md:mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
               </h2>
             </div>
