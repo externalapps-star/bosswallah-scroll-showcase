@@ -74,9 +74,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     color: "text-pink-500"
   }];
   const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
-      {/* Logo Section */}
-      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 relative z-20 transform-none will-change-auto">
-        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded transform-none will-change-auto" />
+      {/* Logo Section - Fixed and Static */}
+      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 relative z-30 transform-none will-change-auto" style={{transition: 'none', animation: 'none'}}>
+        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded transform-none will-change-auto" style={{transition: 'none', animation: 'none'}} />
       </div>
 
       {/* Navigation Menu */}
