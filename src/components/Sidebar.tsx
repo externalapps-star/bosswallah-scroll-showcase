@@ -11,7 +11,7 @@ interface SidebarProps {
 
 const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   
-  // Auto-open menu when scrolling in Hero section
+  // Auto-open/close menu based on Hero section scroll
   useEffect(() => {
     const handleScroll = () => {
       const heroSection = document.getElementById('home');
@@ -21,6 +21,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         
         if (isInHeroSection && window.scrollY > 50) {
           setIsMenuOpen(true);
+        } else if (isInHeroSection && window.scrollY <= 50) {
+          setIsMenuOpen(false);
         }
       }
     };
