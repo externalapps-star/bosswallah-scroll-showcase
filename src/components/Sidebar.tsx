@@ -108,32 +108,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         }} />
       </div>
 
-      {/* Section 2: Hamburger Menu */}
-      <div className="flex-1 flex flex-col p-4 md:p-6 relative overflow-hidden border-b border-border/10">
-        <div className="flex items-center justify-center h-full">
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary">
-            <Menu className="h-7 w-7" />
-          </Button>
-        </div>
-        
-        {/* Navigation overlay */}
-        {isMenuOpen && (
-          <div className="absolute inset-0 bg-[#1a1a2e] z-10 flex flex-col max-h-full overflow-y-auto">
-            <div className="p-2">
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-20"
-              >
-                <X className="h-3 w-3" />
-              </button>
-              <nav className="space-y-1 pt-8 pb-4">
-                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white">
-                    {item.label}
-                  </button>)}
-              </nav>
-            </div>
-          </div>
-        )}
+      {/* Section 2: Empty middle section */}
+      <div className="flex-1 border-b border-border/10">
       </div>
 
       {/* Section 3: Contact Details */}
@@ -162,6 +138,37 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       {/* Desktop Sidebar */}
       <div className="hidden lg:block fixed left-0 top-0 h-full w-40 xl:w-44 z-50">
         <SidebarContent />
+      </div>
+
+      {/* Floating Hamburger Menu - Desktop */}
+      <div className="hidden lg:block">
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          className="fixed bottom-0 left-0 h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-50"
+        >
+          <Menu className="h-7 w-7" />
+        </Button>
+        
+        {/* Navigation overlay */}
+        {isMenuOpen && (
+          <div className="fixed bottom-14 left-0 w-64 bg-[#1a1a2e] z-40 rounded-tr-lg border-t border-r border-border/20 max-h-80 overflow-y-auto">
+            <div className="p-4">
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-20"
+              >
+                <X className="h-3 w-3" />
+              </button>
+              <nav className="space-y-1 pt-6">
+                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-white/10">
+                    {item.label}
+                  </button>)}
+              </nav>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Mobile Sidebar */}
