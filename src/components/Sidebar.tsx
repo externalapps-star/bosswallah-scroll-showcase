@@ -76,12 +76,12 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
             <div className="p-2">
               <button 
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white hover:bg-primary/20 hover:text-primary transition-all duration-200 z-20"
+                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-20"
               >
                 <X className="h-3 w-3" />
               </button>
               <nav className="space-y-1 pt-8 pb-4">
-                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-primary/20 hover:text-primary transition-all duration-200">
+                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white">
                     {item.label}
                   </button>)}
               </nav>
@@ -93,11 +93,11 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       {/* Contact Details */}
       <div className="p-4 md:p-6 border-t border-white/10 space-y-3 md:space-y-4">
         <div className="space-y-2">
-          <a href="tel:+919876543210" className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors">
+          <a href="tel:+919876543210" className="flex items-center space-x-2 text-gray-400">
             <Phone className="h-3 w-3 flex-shrink-0" />
             <span className="text-xs truncate">+91 98765 43210</span>
           </a>
-          <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-2 text-gray-400 hover:text-primary transition-colors">
+          <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-2 text-gray-400">
             <Mail className="h-3 w-3 flex-shrink-0" />
             <span className="text-xs truncate">hello@bosswallah.com</span>
           </a>
@@ -105,7 +105,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
 
         {/* Social Icons */}
         <div className="flex space-x-3 pt-2">
-          {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400 hover:text-primary transition-colors">
+          {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400">
               <social.icon className="h-5 w-5" />
             </a>)}
         </div>
