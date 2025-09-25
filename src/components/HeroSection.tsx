@@ -44,7 +44,7 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
       
 
       {/* Top left "Media Services" */}
-      <div className="absolute top-16 left-8 z-20">
+      <div className="absolute top-24 left-8 z-20">
         <span className="text-gray-400 text-sm font-light">Media Services</span>
       </div>
 
