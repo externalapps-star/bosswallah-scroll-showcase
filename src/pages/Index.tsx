@@ -19,9 +19,8 @@ const Index = () => {
     <div className="min-h-screen">
       <Sidebar isMenuOpen={sidebarMenuOpen} setIsMenuOpen={setSidebarMenuOpen} />
       
-      {/* Main Content Area */}
-      <div className="lg:ml-40 xl:ml-44">
-        <TopStrip />
+      {/* Main Content Area - No left margin since sidebar is removed */}
+      <div className="pt-16">
         
         <div id="home">
           <HeroSection hideSideNavigation={sidebarMenuOpen} />

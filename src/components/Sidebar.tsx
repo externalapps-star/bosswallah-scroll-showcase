@@ -78,112 +78,147 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     href: "/channels/instagram",
     color: "text-pink-500"
   }];
-  const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20 transform-none will-change-auto" style={{
-    transition: 'none',
-    animation: 'none', 
-    transform: 'none',
-    backfaceVisibility: 'hidden',
-    perspective: 'none',
-    willChange: 'auto',
-    position: 'relative'
-  }}>
-      {/* Section 1: Logo */}
-      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 border-b border-border/10" style={{
-        transition: 'none',
-        animation: 'none',
-        transform: 'none',
-        backfaceVisibility: 'hidden',
-        perspective: 'none',
-        willChange: 'auto'
-      }}>
-        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded transform-none will-change-auto" style={{
-          transition: 'none',
-          animation: 'none',
-          transform: 'none',
-          backfaceVisibility: 'hidden',
-          perspective: 'none',
-          willChange: 'auto',
-          position: 'relative',
-          isolation: 'isolate'
-        }} />
-      </div>
-
-      {/* Section 2: Empty middle section */}
-      <div className="flex-1 border-b border-border/10">
-      </div>
-
-      {/* Section 3: Contact Details */}
-      <div className="p-4 md:p-6 space-y-3 md:space-y-4">
-        <div className="space-y-2">
-          <a href="tel:+919876543210" className="flex items-center space-x-2 text-gray-400">
-            <Phone className="h-3 w-3 flex-shrink-0" />
-            <span className="text-xs truncate">+91 98765 43210</span>
-          </a>
-          <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-2 text-gray-400">
-            <Mail className="h-3 w-3 flex-shrink-0" />
-            <span className="text-xs truncate">hello@bosswallah.com</span>
-          </a>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex space-x-3 pt-2">
-          {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400">
-              <social.icon className="h-5 w-5" />
-            </a>)}
-        </div>
-      </div>
-    </div>;
   return <>
+    {/* Static Top Navigation */}
+    <div className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e] border-b border-border/20 px-4 py-3">
+      <img 
+        src={bossWallahLogo} 
+        alt="Boss Wallah Media" 
+        className="h-10 w-auto object-contain bg-white p-1 rounded" 
+      />
+    </div>
 
-      {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-40 xl:w-44 z-50">
-        <SidebarContent />
-      </div>
+    {/* Floating Hamburger Menu - Center Left */}
+    <div>
+      <Button 
+        variant="ghost" 
+        size="icon" 
+        onClick={() => setIsMenuOpen(!isMenuOpen)} 
+        className="fixed top-1/2 left-4 transform -translate-y-1/2 h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-50"
+      >
+        <Menu className="h-7 w-7" />
+      </Button>
+      
+      {/* Navigation popup from left */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/50 z-40"
+            onClick={() => setIsMenuOpen(false)}
+          />
+          
+          {/* Popup Menu */}
+          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-50 transform transition-transform duration-300 ease-in-out border-r border-border/20">
+            <div className="flex flex-col h-full">
+              {/* Header with close button */}
+              <div className="flex justify-between items-center p-6 border-b border-border/10">
+                <h2 className="text-white text-lg font-semibold">Menu</h2>
+                <button 
+                  onClick={() => setIsMenuOpen(false)}
+                  className="h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-white/10"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+              
+              {/* Navigation */}
+              <div className="flex-1 p-6">
+                <nav className="space-y-2">
+                  {navigationItems.map(item => 
+                    <button 
+                      key={item.id} 
+                      onClick={() => scrollToSection(item.id)} 
+                      className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors"
+                    >
+                      {item.label}
+                    </button>
+                  )}
+                </nav>
+              </div>
+              
+              {/* Footer with contact details */}
+              <div className="p-6 border-t border-border/10 space-y-4">
+                <div className="space-y-3">
+                  <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                    <Phone className="h-4 w-4 flex-shrink-0" />
+                    <span className="text-sm">+91 98765 43210</span>
+                  </a>
+                  <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                    <Mail className="h-4 w-4 flex-shrink-0" />
+                    <span className="text-sm">hello@bosswallah.com</span>
+                  </a>
+                </div>
 
-      {/* Floating Hamburger Menu - Desktop */}
-      <div className="hidden lg:block">
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="fixed bottom-0 left-0 h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-50"
-        >
-          <Menu className="h-7 w-7" />
-        </Button>
-        
-        {/* Navigation overlay */}
-        {isMenuOpen && (
-          <div className="fixed bottom-14 left-0 w-64 bg-[#1a1a2e] z-40 rounded-tr-lg border-t border-r border-border/20 max-h-80 overflow-y-auto">
-            <div className="p-4">
-              <button 
-                onClick={() => setIsMenuOpen(false)}
-                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-20"
-              >
-                <X className="h-3 w-3" />
-              </button>
-              <nav className="space-y-1 pt-6">
-                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-3 py-2 rounded text-sm text-white hover:bg-white/10">
-                    {item.label}
-                  </button>)}
-              </nav>
+                {/* Social Icons */}
+                <div className="flex space-x-4 pt-2">
+                  {socialLinks.map((social, index) => 
+                    <a key={index} href={social.href} className="text-gray-400 hover:text-white transition-colors">
+                      <social.icon className="h-5 w-5" />
+                    </a>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </>
+      )}
+    </div>
 
-      {/* Mobile Sidebar */}
-      <div className="lg:hidden">
-        <Sheet>
-          <SheetTrigger asChild>
-            <Button variant="ghost" size="icon" className="fixed top-4 left-4 z-50 h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border border-border">
-              <Menu className="h-5 w-5" />
-            </Button>
-          </SheetTrigger>
-          <SheetContent side="left" className="p-0 w-64 sm:w-72">
-            <SidebarContent />
-          </SheetContent>
-        </Sheet>
-      </div>
-    </>;
+    {/* Mobile Sidebar */}
+    <div className="lg:hidden">
+      <Sheet>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="fixed top-4 right-4 z-50 h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border border-border">
+            <Menu className="h-5 w-5" />
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="p-0 w-80">
+          <div className="flex flex-col h-full bg-[#1a1a2e]">
+            {/* Header */}
+            <div className="p-6 border-b border-border/10">
+              <h2 className="text-white text-lg font-semibold">Menu</h2>
+            </div>
+            
+            {/* Navigation */}
+            <div className="flex-1 p-6">
+              <nav className="space-y-2">
+                {navigationItems.map(item => 
+                  <button 
+                    key={item.id} 
+                    onClick={() => scrollToSection(item.id)} 
+                    className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors"
+                  >
+                    {item.label}
+                  </button>
+                )}
+              </nav>
+            </div>
+            
+            {/* Footer */}
+            <div className="p-6 border-t border-border/10 space-y-4">
+              <div className="space-y-3">
+                <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400">
+                  <Phone className="h-4 w-4" />
+                  <span className="text-sm">+91 98765 43210</span>
+                </a>
+                <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400">
+                  <Mail className="h-4 w-4" />
+                  <span className="text-sm">hello@bosswallah.com</span>
+                </a>
+              </div>
+              <div className="flex space-x-4 pt-2">
+                {socialLinks.map((social, index) => 
+                  <a key={index} href={social.href} className="text-gray-400">
+                    <social.icon className="h-5 w-5" />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+    </div>
+  </>;
 };
 export default Sidebar;
