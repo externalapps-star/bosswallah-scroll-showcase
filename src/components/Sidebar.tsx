@@ -138,14 +138,13 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     </div>;
   return <>
       {/* Independent Fixed Logo - Completely Separate */}
-      <div className="hidden lg:block fixed left-4 top-3 z-50" style={{
+      <div className="hidden lg:block fixed left-6 top-4 z-50 bg-[#1a1a2e] px-4 py-3" style={{
         transition: 'none',
         animation: 'none',
         transform: 'none',
         backfaceVisibility: 'hidden',
         perspective: 'none',
-        willChange: 'auto',
-        pointerEvents: 'none'
+        willChange: 'auto'
       }}>
         <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded" style={{
           transition: 'none',
