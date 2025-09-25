@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -10,6 +10,25 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
+  
+  // Auto-open menu when scrolling in Hero section
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('home');
+      if (heroSection) {
+        const rect = heroSection.getBoundingClientRect();
+        const isInHeroSection = rect.top <= window.innerHeight && rect.bottom >= 0;
+        
+        if (isInHeroSection && window.scrollY > 50) {
+          setIsMenuOpen(true);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [setIsMenuOpen]);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
