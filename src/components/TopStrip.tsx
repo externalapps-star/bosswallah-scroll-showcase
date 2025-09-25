@@ -20,7 +20,7 @@ const TopStrip = () => {
           <img 
             src={bossWallahLogo} 
             alt="Boss Wallah Media" 
-            className="h-10 w-auto object-contain bg-white p-1 rounded" 
+            className="h-10 w-auto object-contain bg-white p-2 rounded" 
           />
         </div>
 
