@@ -87,6 +87,25 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     willChange: 'auto',
     position: 'relative'
   }}>
+      {/* Logo Section - At Top */}
+      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 relative z-30" style={{
+        transition: 'none',
+        animation: 'none',
+        transform: 'none',
+        backfaceVisibility: 'hidden',
+        perspective: 'none',
+        willChange: 'auto'
+      }}>
+        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded" style={{
+          transition: 'none',
+          animation: 'none',
+          transform: 'none',
+          backfaceVisibility: 'hidden',
+          perspective: 'none',
+          willChange: 'auto'
+        }} />
+      </div>
+
       {/* Navigation Menu */}
       <div className="flex-1 flex flex-col p-4 md:p-6 relative overflow-hidden">
         <div className="flex items-center justify-center h-full">
@@ -137,24 +156,6 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       </div>
     </div>;
   return <>
-      {/* Independent Fixed Logo - Completely Separate */}
-      <div className="hidden lg:block fixed left-6 top-4 z-50 bg-[#1a1a2e] px-4 py-3" style={{
-        transition: 'none',
-        animation: 'none',
-        transform: 'none',
-        backfaceVisibility: 'hidden',
-        perspective: 'none',
-        willChange: 'auto'
-      }}>
-        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded" style={{
-          transition: 'none',
-          animation: 'none',
-          transform: 'none',
-          backfaceVisibility: 'hidden',
-          perspective: 'none',
-          willChange: 'auto'
-        }} />
-      </div>
 
       {/* Desktop Sidebar */}
       <div className="hidden lg:block fixed left-0 top-0 h-full w-40 xl:w-44 z-50">
