@@ -56,7 +56,7 @@ const NewsModal = ({
     });
   };
   return <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl w-[80vw] h-[70vh] p-0 overflow-hidden">
+      <DialogContent className="max-w-4xl w-[90vw] h-[80vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
           {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300">
@@ -79,7 +79,7 @@ const NewsModal = ({
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-14 px-3 py-4 space-y-2 pt-6 pb-6">
+            <div className="mx-6 px-3 py-4 space-y-2 pt-6 pb-6">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-3 items-start mb-4">
                 <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
@@ -126,7 +126,7 @@ const NewsModal = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between mx-16 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
+            <div className="flex items-center justify-between mx-6 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" onClick={handleShare} className="gap-2">
                   <Share2 size={16} />
