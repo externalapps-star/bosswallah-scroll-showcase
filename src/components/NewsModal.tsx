@@ -56,7 +56,7 @@ const NewsModal = ({
     });
   };
   return <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl w-[90vw] h-[65vh] p-0 overflow-hidden">
+      <DialogContent className="max-w-4xl w-[90vw] h-[75vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
           {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300">
