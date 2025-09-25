@@ -104,7 +104,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
           />
           
           {/* Popup Menu */}
-          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 64px)' }}>
+          <div className="fixed top-0 left-0 w-64 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 200px)' }}>
             <div className="flex flex-col h-full">
               {/* Header with close button */}
               <div className="flex justify-between items-center p-6 border-b border-border/10">
