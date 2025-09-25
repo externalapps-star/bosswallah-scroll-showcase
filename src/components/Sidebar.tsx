@@ -10,26 +10,6 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
-  
-  // Auto-open/close menu based on Hero section scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const heroSection = document.getElementById('home');
-      if (heroSection) {
-        const rect = heroSection.getBoundingClientRect();
-        const isInHeroSection = rect.top <= window.innerHeight && rect.bottom >= 0;
-        
-        if (isInHeroSection && window.scrollY > 50) {
-          setIsMenuOpen(true);
-        } else if (isInHeroSection && window.scrollY <= 50) {
-          setIsMenuOpen(false);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [setIsMenuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -94,9 +74,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         variant="ghost" 
         size="icon" 
         onClick={() => setIsMenuOpen(!isMenuOpen)} 
-        className="fixed top-1/2 left-4 transform -translate-y-1/2 h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-50"
+        className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40"
       >
-        <Menu className="h-7 w-7" />
+        <Menu className="h-6 w-6" />
       </Button>
       
       {/* Navigation popup from left */}
@@ -109,7 +89,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
           />
           
           {/* Popup Menu */}
-          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-50 transform transition-transform duration-300 ease-in-out border-r border-border/20">
+          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px' }}>
             <div className="flex flex-col h-full">
               {/* Header with close button */}
               <div className="flex justify-between items-center p-6 border-b border-border/10">

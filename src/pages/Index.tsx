@@ -21,6 +21,7 @@ const Index = () => {
       
       {/* Main Content Area - No left margin since sidebar is removed */}
       <div className="pt-16">
+        <TopStrip />
         
         <div id="home">
           <HeroSection hideSideNavigation={sidebarMenuOpen} />
