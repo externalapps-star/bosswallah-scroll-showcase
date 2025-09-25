@@ -12,26 +12,6 @@ const TopStrip = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-  };
-
-  const navigationItems = [
-    { label: "Home", id: "home" },
-    { label: "About", id: "about" },
-    { label: "Channels", id: "channels" },
-    { label: "Campaigns", id: "campaigns" },
-    { label: "Testimonials", id: "testimonials" },
-    { label: "News", id: "news" },
-    { label: "Newsletter", id: "newsletter" },
-    { label: "Consult", id: "contact" }
-  ];
-
   return (
     <div className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e] text-primary-foreground border-b border-border px-6 shadow-soft py-3">
       <div className="flex items-center justify-between max-w-full">
@@ -44,19 +24,11 @@ const TopStrip = () => {
           />
         </div>
 
-        {/* Navigation Links - Hidden on mobile */}
-        <div className="hidden lg:flex flex-1 justify-center">
-          <nav className="flex items-center space-x-8">
-            {navigationItems.map(item => (
-              <button 
-                key={item.id} 
-                onClick={() => scrollToSection(item.id)} 
-                className="text-sm font-medium text-white hover:text-primary transition-colors"
-              >
-                {item.label}
-              </button>
-            ))}
-          </nav>
+        {/* Message */}
+        <div className="flex-1 text-center">
+          <p className="text-sm md:text-base font-medium">
+            Take the First Step Towards Accelerated Growth
+          </p>
         </div>
 
         {/* CTA and Theme Toggle */}
