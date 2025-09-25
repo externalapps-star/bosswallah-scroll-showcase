@@ -79,7 +79,7 @@ const NewsModal = ({
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-6 px-3 py-4 space-y-2 pt-6 pb-6">
+            <div className="mx-12 px-3 py-4 space-y-2 pt-6 pb-6">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-3 items-start mb-4">
                 <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
@@ -126,7 +126,7 @@ const NewsModal = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between mx-6 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
+            <div className="flex items-center justify-between mx-12 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" onClick={handleShare} className="gap-2">
                   <Share2 size={16} />
