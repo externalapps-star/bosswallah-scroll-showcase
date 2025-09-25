@@ -126,7 +126,7 @@ const NewsModal = ({
             </div>
 
             {/* Footer Actions */}
-            <div className="flex items-center justify-between mx-12 px-4 py-4 border-t bg-muted/30 flex-shrink-0">
+            <div className="flex items-center justify-between mx-12 px-4 py-2 border-t bg-muted/30 flex-shrink-0">
               <div className="flex items-center gap-2">
                 <Button variant="outline" size="sm" onClick={handleShare} className="gap-2">
                   <Share2 size={16} />
