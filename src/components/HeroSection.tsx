@@ -69,7 +69,7 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-full">
             {/* Left-aligned content */}
-            <div className="max-w-6xl">
+            <div className="max-w-6xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
               
