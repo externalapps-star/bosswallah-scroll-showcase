@@ -62,7 +62,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     label: "Newsletter",
     id: "newsletter"
   }, {
-    label: "Contact",
+    label: "Consult",
     id: "contact"
   }];
   const socialLinks = [{
