@@ -78,7 +78,15 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     href: "/channels/instagram",
     color: "text-pink-500"
   }];
-  const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20">
+  const SidebarContent = () => <div className="flex flex-col h-full bg-[#1a1a2e] border-r border-border/20 transform-none will-change-auto" style={{
+    transition: 'none',
+    animation: 'none', 
+    transform: 'none',
+    backfaceVisibility: 'hidden',
+    perspective: 'none',
+    willChange: 'auto',
+    position: 'relative'
+  }}>
       {/* Logo Section - Completely Static */}
       <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 relative z-30 transform-none will-change-auto pointer-events-none" style={{
         transition: 'none', 
