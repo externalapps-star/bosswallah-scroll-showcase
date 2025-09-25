@@ -132,11 +132,6 @@ const NewsModal = ({
                   <Share2 size={16} />
                   Share
                 </Button>
-                
-                <Button variant="outline" size="sm" onClick={handleBookmark} className="gap-2">
-                  <Bookmark size={16} />
-                  Save
-                </Button>
               </div>
 
               {news.url && <Button variant="default" size="sm" onClick={() => window.open(news.url, '_blank')} className="gap-2">
