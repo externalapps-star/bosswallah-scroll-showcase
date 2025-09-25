@@ -59,6 +59,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     label: "News",
     id: "news"
   }, {
+    label: "Newsletter",
+    id: "newsletter"
+  }, {
     label: "Contact",
     id: "contact"
   }];
