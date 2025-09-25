@@ -87,24 +87,27 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     willChange: 'auto',
     position: 'relative'
   }}>
-      {/* Section 1: Logo */}
+      {/* Section 1: Logo - Completely Fixed */}
       <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 border-b border-border/10" style={{
         transition: 'none',
         animation: 'none',
         transform: 'none',
         backfaceVisibility: 'hidden',
         perspective: 'none',
-        willChange: 'auto'
+        willChange: 'auto',
+        position: 'relative',
+        zIndex: 40
       }}>
-        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded transform-none will-change-auto" style={{
-          transition: 'none',
-          animation: 'none',
-          transform: 'none',
+        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded" style={{
+          transition: 'none !important',
+          animation: 'none !important',
+          transform: 'none !important',
           backfaceVisibility: 'hidden',
           perspective: 'none',
           willChange: 'auto',
-          position: 'relative',
-          isolation: 'isolate'
+          position: 'static',
+          isolation: 'isolate',
+          display: 'block'
         }} />
       </div>
 
@@ -116,13 +119,22 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
           </Button>
         </div>
         
-        {/* Navigation overlay */}
+        {/* Navigation overlay - Completely outside document flow */}
         {isMenuOpen && (
-          <div className="absolute inset-0 bg-[#1a1a2e] z-10 flex flex-col max-h-full overflow-y-auto">
-            <div className="p-2">
+          <div className="fixed inset-0 bg-[#1a1a2e] z-30 flex flex-col max-h-full overflow-y-auto" style={{
+            left: '0',
+            top: '0',
+            width: '10rem', // w-40
+            height: '100vh',
+            position: 'fixed',
+            transform: 'none',
+            transition: 'none',
+            animation: 'none'
+          }}>
+            <div className="p-2 mt-20">
               <button 
                 onClick={() => setIsMenuOpen(false)}
-                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-20"
+                className="absolute top-2 right-2 h-6 w-6 rounded-full flex items-center justify-center text-white z-40"
               >
                 <X className="h-3 w-3" />
               </button>
