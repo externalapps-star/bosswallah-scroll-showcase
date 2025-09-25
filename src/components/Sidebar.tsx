@@ -87,8 +87,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     willChange: 'auto',
     position: 'relative'
   }}>
-      {/* Logo Section - At Top */}
-      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 relative z-30" style={{
+      {/* Section 1: Logo */}
+      <div className="px-4 md:px-6 bg-[#1a1a2e] py-3 border-b border-border/10" style={{
         transition: 'none',
         animation: 'none',
         transform: 'none',
@@ -106,15 +106,15 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         }} />
       </div>
 
-      {/* Navigation Menu */}
-      <div className="flex-1 flex flex-col p-4 md:p-6 relative overflow-hidden">
+      {/* Section 2: Hamburger Menu */}
+      <div className="flex-1 flex flex-col p-4 md:p-6 relative overflow-hidden border-b border-border/10">
         <div className="flex items-center justify-center h-full">
           <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="h-14 w-14 rounded-full border-2 border-primary/30 bg-primary/10 text-primary">
             <Menu className="h-7 w-7" />
           </Button>
         </div>
         
-        {/* Navigation overlay - scrollable within this section */}
+        {/* Navigation overlay */}
         {isMenuOpen && (
           <div className="absolute inset-0 bg-[#1a1a2e] z-10 flex flex-col max-h-full overflow-y-auto">
             <div className="p-2">
@@ -134,8 +134,8 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         )}
       </div>
 
-      {/* Contact Details */}
-      <div className="p-4 md:p-6 border-t border-white/10 space-y-3 md:space-y-4">
+      {/* Section 3: Contact Details */}
+      <div className="p-4 md:p-6 space-y-3 md:space-y-4">
         <div className="space-y-2">
           <a href="tel:+919876543210" className="flex items-center space-x-2 text-gray-400">
             <Phone className="h-3 w-3 flex-shrink-0" />
