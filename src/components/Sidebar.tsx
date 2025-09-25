@@ -83,14 +83,16 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   return <>
     {/* Floating Hamburger Menu - Center Left */}
     <div>
-      <Button 
-        variant="ghost" 
-        size="icon" 
-        onClick={() => setIsMenuOpen(!isMenuOpen)} 
-        className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40"
-      >
-        <Menu className="h-6 w-6" />
-      </Button>
+      {!isMenuOpen && (
+        <Button 
+          variant="ghost" 
+          size="icon" 
+          onClick={() => setIsMenuOpen(!isMenuOpen)} 
+          className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40"
+        >
+          <Menu className="h-6 w-6" />
+        </Button>
+      )}
       
       {/* Navigation popup from left */}
       {isMenuOpen && (
@@ -102,7 +104,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
           />
           
           {/* Popup Menu */}
-          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px' }}>
+          <div className="fixed top-0 left-0 h-full w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 64px)' }}>
             <div className="flex flex-col h-full">
               {/* Header with close button */}
               <div className="flex justify-between items-center p-6 border-b border-border/10">
