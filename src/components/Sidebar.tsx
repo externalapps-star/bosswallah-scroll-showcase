@@ -113,7 +113,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     </div>;
   return <>
       {/* Desktop Sidebar */}
-      <div className="hidden lg:block fixed left-0 top-0 h-full w-48 xl:w-56 z-50">
+      <div className="hidden lg:block fixed left-0 top-0 h-full w-40 xl:w-44 z-50">
         <SidebarContent />
       </div>
 
