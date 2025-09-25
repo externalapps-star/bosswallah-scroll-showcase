@@ -59,15 +59,6 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
     color: "text-pink-500"
   }];
   return <>
-    {/* Static Top Navigation */}
-    <div className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e] border-b border-border/20 px-4 py-3">
-      <img 
-        src={bossWallahLogo} 
-        alt="Boss Wallah Media" 
-        className="h-10 w-auto object-contain bg-white p-1 rounded" 
-      />
-    </div>
-
     {/* Floating Hamburger Menu - Center Left */}
     <div>
       <Button 

@@ -20,7 +20,7 @@ const Index = () => {
       <Sidebar isMenuOpen={sidebarMenuOpen} setIsMenuOpen={setSidebarMenuOpen} />
       
       {/* Main Content Area - No left margin since sidebar is removed */}
-      <div className="pt-16">
+      <div className="pt-20">
         <TopStrip />
         
         <div id="home">
