@@ -96,13 +96,15 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         perspective: 'none',
         willChange: 'auto'
       }}>
-        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded" style={{
+        <img src={bossWallahLogo} alt="Boss Wallah Media" className="h-10 md:h-12 w-auto object-contain opacity-100 visible bg-white p-1 rounded transform-none will-change-auto" style={{
           transition: 'none',
           animation: 'none',
           transform: 'none',
           backfaceVisibility: 'hidden',
           perspective: 'none',
-          willChange: 'auto'
+          willChange: 'auto',
+          position: 'relative',
+          isolation: 'isolate'
         }} />
       </div>
 
