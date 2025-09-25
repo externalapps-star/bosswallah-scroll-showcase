@@ -37,7 +37,7 @@ const CampaignsSection = () => {
       icon: "podcast"
     },
     {
-      title: "Studios",
+      title: "Media Labs",
       description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease...",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
       icon: "camera"
