@@ -79,7 +79,7 @@ const NewsModal = ({
 
           <ScrollArea className="flex-1">
             {/* Content */}
-            <div className="mx-12 px-3 py-4 space-y-2 pt-6 pb-6">
+            <div className="mx-12 px-3 py-4 space-y-2 pt-4 pb-2">
               {/* Small Thumbnail Preview */}
               <div className="flex gap-3 items-start mb-4">
                 <div className="relative w-28 h-28 overflow-hidden rounded-lg flex-shrink-0">
