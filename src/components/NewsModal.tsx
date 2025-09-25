@@ -59,11 +59,11 @@ const NewsModal = ({
       <DialogContent className="max-w-3xl w-[85vw] h-[70vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* Navigation Arrows */}
-          {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300">
+          {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronLeft size={16} />
             </Button>}
           
-          {onNext && <Button variant="ghost" size="icon" onClick={onNext} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-primary text-primary-foreground shadow-lg transition-all duration-300">
+          {onNext && <Button variant="ghost" size="icon" onClick={onNext} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronRight size={16} />
             </Button>}
 
@@ -72,7 +72,7 @@ const NewsModal = ({
             variant="ghost" 
             size="icon" 
             onClick={onClose}
-            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full border border-orange-200 transition-all duration-300 text-black"
+            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 transition-all duration-300 hover:scale-110"
           >
             <X size={16} />
           </Button>
@@ -134,7 +134,7 @@ const NewsModal = ({
                 </Button>
               </div>
 
-              {news.url && <Button variant="default" size="sm" onClick={() => window.open(news.url, '_blank')} className="gap-2">
+              {news.url && <Button variant="cta" size="sm" onClick={() => window.open(news.url, '_blank')} className="gap-2 bg-gradient-to-r from-primary via-accent to-primary border-2 border-white/20 hover:scale-105">
                   Read Full Article
                   <ExternalLink size={16} />
                 </Button>}
