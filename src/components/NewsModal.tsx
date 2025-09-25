@@ -91,7 +91,7 @@ const NewsModal = ({
                   
 
                   {/* Title */}
-                  <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight pr-8">
+                  <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight pr-8 line-clamp-2">
                     {news.title}
                   </h1>
 
