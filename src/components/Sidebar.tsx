@@ -10,6 +10,28 @@ interface SidebarProps {
 }
 
 const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Track active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "newsletter", "contact"];
+      
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -73,9 +95,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
       {/* Navigation popup from left */}
       {isMenuOpen && (
         <>
-          {/* Backdrop */}
+          {/* Solid Backdrop */}
           <div 
-            className="fixed inset-0 bg-black/50 z-40"
+            className="fixed inset-0 bg-black z-20"
             onClick={() => setIsMenuOpen(false)}
           />
           
@@ -100,7 +122,11 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
                     <button 
                       key={item.id} 
                       onClick={() => scrollToSection(item.id)} 
-                      className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors"
+                      className={`block w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                        activeSection === item.id 
+                          ? 'bg-primary text-primary-foreground font-semibold' 
+                          : 'text-white hover:bg-white/10'
+                      }`}
                     >
                       {item.label}
                     </button>
