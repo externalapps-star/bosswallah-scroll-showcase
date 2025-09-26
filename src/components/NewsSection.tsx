@@ -157,8 +157,10 @@ const NewsSection = () => {
               <div className="w-80 flex-shrink-0">
                 <div className="relative rounded-xl p-6 bg-gradient-to-br from-card/90 to-card/70 backdrop-blur-md h-[500px] shadow-2xl border border-border/20 before:absolute before:inset-0 before:rounded-xl before:bg-gradient-to-br before:from-primary/5 before:to-accent/5 before:backdrop-blur-sm">
                   <div className="relative z-10">
-                    <h3 className="font-bold text-foreground mb-6 text-xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">Categories</h3>
-                    <div className="space-y-3 overflow-y-auto h-[420px] pr-2 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
+                    <div className="p-6 border-b border-primary/20 mb-6 bg-gradient-to-r from-primary/5 to-accent/5">
+                      <h3 className="font-bold text-foreground text-xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text">Categories</h3>
+                    </div>
+                    <div className="space-y-3 overflow-y-auto h-[400px] px-6 scrollbar-thin scrollbar-thumb-primary/20 scrollbar-track-transparent">
                       {categories.map((category) => (
                         <button
                           key={category.name}
