@@ -1,12 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
 interface HeroSectionProps {
   hideSideNavigation?: boolean;
 }
-
-const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
+const HeroSection = ({
+  hideSideNavigation = false
+}: HeroSectionProps) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigationItems = [{
     label: "Start Campaign",
@@ -45,7 +45,7 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
 
       {/* Top left "Media Services" */}
       <div className="absolute top-24 left-8 z-20">
-        <span className="text-gray-400 text-sm font-light">Media Services</span>
+        
       </div>
 
       {/* Mobile hamburger menu */}
@@ -88,13 +88,9 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
             </div>
 
             {/* Navigation buttons - same container (desktop only) */}
-            {!hideSideNavigation && (
-              <div className="hidden lg:flex flex-col justify-center space-y-3 lg:space-y-4 ml-8">
-                {navigationItems.map((item, index) => <button key={index} onClick={item.action} className="text-left text-white hover:text-purple-400 transition-colors text-sm lg:text-base xl:text-lg font-medium py-2 lg:py-3 px-4 lg:px-6 rounded border border-gray-600 hover:border-purple-400 hover:bg-white/10 whitespace-nowrap">
-                    {item.label}
-                  </button>)}
-              </div>
-            )}
+            {!hideSideNavigation && <div className="hidden lg:flex flex-col justify-center space-y-3 lg:space-y-4 ml-8">
+                {navigationItems.map((item, index) => {})}
+              </div>}
           </div>
         </div>
       </div>
