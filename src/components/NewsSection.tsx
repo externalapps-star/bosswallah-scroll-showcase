@@ -279,9 +279,6 @@ const NewsSection = () => {
                           <Badge variant="outline" className="text-xs">
                             {item.category}
                           </Badge>
-                          <span className="text-xs text-muted-foreground">
-                            {formatDate(item.date)}
-                          </span>
                         </div>
                         
                         <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 text-sm mb-1">
