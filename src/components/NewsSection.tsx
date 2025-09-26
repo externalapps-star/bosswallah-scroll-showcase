@@ -193,7 +193,7 @@ const NewsSection = () => {
                       {displayedNews.slice(0, loadedCount).map((item, index) => (
                         <Card
                           key={item.id}
-                          className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
+                          className={`group cursor-pointer transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1 hover:scale-[1.02] active:scale-[0.98] active:translate-y-0 border-0 bg-card/50 backdrop-blur-sm overflow-hidden transform-gpu ${
                             index >= loadedCount - 8 && index < loadedCount ? 'animate-fade-in' : ''
                           }`}
                           onClick={() => handleReadMore(item)}
