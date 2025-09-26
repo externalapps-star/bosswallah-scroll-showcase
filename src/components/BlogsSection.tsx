@@ -171,7 +171,7 @@ const BlogsSection = () => {
               {filteredNews.slice(1, 2).map((item, index) => (
                 <Card
                   key={item.id}
-                  className="h-80 group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale"
+                  className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale"
                   onClick={() => window.open(item.url, '_blank')}
                 >
                   <div className="relative overflow-hidden">
