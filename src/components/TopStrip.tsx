@@ -19,7 +19,9 @@ const TopStrip = () => {
 
         {/* Message */}
         <div className="flex-1 text-center">
-          <p className="text-sm md:text-base font-medium">#1 Social Media Agency (in South India, for now)</p>
+          <p className="text-sm md:text-base font-medium">
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold">#1</span> Social Media Agency (in South India, for now)
+          </p>
         </div>
 
         {/* CTA and Theme Toggle */}
