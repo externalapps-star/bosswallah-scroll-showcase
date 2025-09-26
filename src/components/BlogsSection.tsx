@@ -129,7 +129,7 @@ const BlogsSection = () => {
               {filteredNews.slice(0, 1).map((item) => (
                 <Card
                   key={item.id}
-                  className="lg:col-span-2 h-96 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
+                  className="lg:col-span-2 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
                   onClick={() => window.open(item.url, '_blank')}
                 >
                   <div className="relative overflow-hidden">
@@ -151,7 +151,7 @@ const BlogsSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-accent via-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
                     
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-2xl">
+                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-lg">
                       {item.title}
                     </h3>
                     
