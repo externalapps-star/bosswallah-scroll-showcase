@@ -151,15 +151,15 @@ const BlogsSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-accent via-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
                     
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-lg">
+                    <h3 className="font-bold text-foreground mb-4 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-3xl">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
+                    <p className="text-muted-foreground text-lg leading-relaxed mb-6 line-clamp-4 group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {item.excerpt}
                     </p>
 
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground group-hover:text-accent/70 transition-colors duration-300">
+                    <div className="flex items-center gap-4 text-base text-muted-foreground group-hover:text-accent/70 transition-colors duration-300">
                       <span>{formatDate(item.date)}</span>
                       <span>{item.readTime}</span>
                     </div>
