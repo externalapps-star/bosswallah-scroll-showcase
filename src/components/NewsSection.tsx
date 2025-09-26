@@ -118,7 +118,7 @@ const NewsSection = () => {
 
   const filteredNews = selectedCategory === "All" 
     ? newsItems 
-    : newsItems.filter(item => item.category === selectedCategory);
+    : newsItems.filter(item => item.category === selectedCategory.replace(/\s+/g, " "));
   
   const displayedNews = showMore ? filteredNews : filteredNews.slice(0, 6);
 

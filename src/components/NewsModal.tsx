@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Calendar, Clock, User, ExternalLink, Share2, Bookmark, X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Calendar, Clock, User, X, ChevronLeft, ChevronRight } from "lucide-react";
 interface NewsItem {
   id: number;
   title: string;
@@ -32,21 +31,8 @@ const NewsModal = ({
   onNext,
   onPrevious
 }: NewsModalProps) => {
-  const {
-    toast
-  } = useToast();
   if (!news) return null;
-  const handleShare = () => {
-    const whatsappText = `${news.title}\n\n${news.excerpt}\n\nRead more: ${window.location.href}`;
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(whatsappText)}`;
-    window.open(whatsappUrl, '_blank');
-  };
-  const handleBookmark = () => {
-    toast({
-      title: "Bookmarked!",
-      description: "Article saved to your reading list."
-    });
-  };
+
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -55,9 +41,15 @@ const NewsModal = ({
       day: 'numeric'
     });
   };
+
   return <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-3xl w-[85vw] h-[70vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
+          {/* News Header */}
+          <div className="flex items-center justify-center py-4 border-b">
+            <h2 className="text-xl font-bold text-foreground">News</h2>
+          </div>
+
           {/* Navigation Arrows */}
           {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronLeft size={16} />
@@ -87,9 +79,6 @@ const NewsModal = ({
                 </div>
                 
                 <div className="flex-1 space-y-1 relative">
-                  {/* Close Button - aligned with title */}
-                  
-
                   {/* Title */}
                   <h1 className="text-lg md:text-xl font-bold text-foreground leading-tight pr-8 line-clamp-2">
                     {news.title}
@@ -110,7 +99,7 @@ const NewsModal = ({
               </div>
 
               {/* Article Content */}
-              <div className="prose max-w-none line-clamp-6">
+              <div className="prose max-w-none">
                 <p className="text-foreground leading-relaxed text-sm">
                   {news.content}
                 </p>
@@ -123,21 +112,6 @@ const NewsModal = ({
                   {news.excerpt}
                 </p>
               </div>
-            </div>
-
-            {/* Footer Actions */}
-            <div className="flex items-center justify-between mx-12 px-4 py-2 border-t bg-muted/30 flex-shrink-0">
-              <div className="flex items-center gap-2">
-                <Button variant="outline" size="sm" onClick={handleShare} className="gap-2 hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:border-white/20 hover:text-primary-foreground hover:scale-105 transition-all duration-300">
-                  <Share2 size={16} />
-                  Share
-                </Button>
-              </div>
-
-              {news.url && <Button variant="cta" size="sm" onClick={() => window.open(news.url, '_blank')} className="gap-2 bg-gradient-to-r from-primary via-accent to-primary border-2 border-white/20 hover:scale-105">
-                  Read Full Article
-                  <ExternalLink size={16} />
-                </Button>}
             </div>
           </ScrollArea>
         </div>
