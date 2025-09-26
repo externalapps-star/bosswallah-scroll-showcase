@@ -44,7 +44,7 @@ const NewsSection = () => {
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [loadedCount, setLoadedCount] = useState(10);
+  const [loadedCount, setLoadedCount] = useState(8);
   const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   // Fetch latest news on component mount
@@ -128,7 +128,7 @@ const NewsSection = () => {
     setIsLoadingMore(true);
     // Simulate loading delay for better UX
     await new Promise(resolve => setTimeout(resolve, 500));
-    setLoadedCount(prev => Math.min(prev + 10, filteredNews.length));
+    setLoadedCount(prev => Math.min(prev + 8, filteredNews.length));
     setIsLoadingMore(false);
   };
 
@@ -153,17 +153,17 @@ const NewsSection = () => {
           {showMore ? (
             /* Sidebar + Main Content Layout for View All */
             <div className="flex gap-6 mb-8">
-              {/* Sidebar with border */}
+              {/* Sidebar with border - Fixed height */}
               <div className="w-80 flex-shrink-0">
-                <div className="border-2 border-primary/20 rounded-lg p-4 bg-card/30 backdrop-blur-sm">
+                <div className="border-2 border-primary/20 rounded-lg p-4 bg-card/30 backdrop-blur-sm h-[500px]">
                   <h3 className="font-semibold text-foreground mb-4 text-lg">Categories</h3>
-                  <div className="space-y-2">
+                  <div className="space-y-2 overflow-y-auto h-[420px]">
                     {categories.map((category) => (
                       <button
                         key={category.name}
                         onClick={() => {
                           setSelectedCategory(category.name);
-                          setLoadedCount(10); // Reset to initial count when changing category
+                          setLoadedCount(8); // Reset to initial count of 8 when changing category
                         }}
                         className={`w-full flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 text-left ${
                           selectedCategory === category.name
@@ -179,22 +179,22 @@ const NewsSection = () => {
                 </div>
               </div>
 
-              {/* Main Content with border and scroll */}
+              {/* Main Content with border and scroll - Fixed height */}
               <div className="flex-1">
-                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-full flex flex-col">
+                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
                   <div className="p-4 border-b border-primary/10 flex-shrink-0">
                     <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
                   
-                  {/* Scrollable News Container - Match height with categories */}
+                  {/* Scrollable News Container - Fixed height, no expansion */}
                   <div className="flex-1 overflow-y-auto p-4">
                     <div className="space-y-4">
                       {displayedNews.slice(0, loadedCount).map((item, index) => (
                         <Card
                           key={item.id}
                           className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
-                            index >= loadedCount - 10 && index < loadedCount ? 'animate-fade-in' : ''
+                            index >= loadedCount - 8 && index < loadedCount ? 'animate-fade-in' : ''
                           }`}
                           onClick={() => handleReadMore(item)}
                         >
