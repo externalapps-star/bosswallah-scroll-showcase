@@ -44,6 +44,8 @@ const NewsSection = () => {
   const [currentNewsIndex, setCurrentNewsIndex] = useState(0);
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [loadedCount, setLoadedCount] = useState(10);
+  const [isLoadingMore, setIsLoadingMore] = useState(false);
 
   // Fetch latest news on component mount
   useEffect(() => {
@@ -120,7 +122,17 @@ const NewsSection = () => {
     ? newsItems 
     : newsItems.filter(item => item.category === selectedCategory.replace(/\s+/g, " "));
   
-  const displayedNews = showMore ? filteredNews : filteredNews.slice(0, 6);
+  const displayedNews = showMore ? filteredNews.slice(0, loadedCount) : filteredNews.slice(0, 6);
+
+  const handleLoadMore = async () => {
+    setIsLoadingMore(true);
+    // Simulate loading delay for better UX
+    await new Promise(resolve => setTimeout(resolve, 500));
+    setLoadedCount(prev => Math.min(prev + 10, filteredNews.length));
+    setIsLoadingMore(false);
+  };
+
+  const hasMoreNews = showMore && loadedCount < filteredNews.length;
 
   return (
     <>
@@ -147,7 +159,10 @@ const NewsSection = () => {
                   {categories.map((category) => (
                     <button
                       key={category.name}
-                      onClick={() => setSelectedCategory(category.name)}
+                      onClick={() => {
+                        setSelectedCategory(category.name);
+                        setLoadedCount(10); // Reset to initial count when changing category
+                      }}
                       className={`w-full flex items-center gap-3 p-4 rounded-lg border transition-all duration-200 text-left ${
                         selectedCategory === category.name
                           ? 'border-primary bg-primary/5 text-primary'
@@ -164,10 +179,12 @@ const NewsSection = () => {
               {/* Main Content */}
               <div className="flex-1">
                 <div className="space-y-4">
-                  {displayedNews.map((item) => (
+                  {displayedNews.map((item, index) => (
                     <Card
                       key={item.id}
-                      className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
+                      className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
+                        index >= loadedCount - 10 && index < loadedCount ? 'animate-slide-in-right' : ''
+                      }`}
                       onClick={() => handleReadMore(item)}
                     >
                       <CardContent className="p-0">
@@ -201,15 +218,26 @@ const NewsSection = () => {
                 </div>
 
                 {/* Load More Button */}
-                <div className="text-center mt-8">
-                  <Button 
-                    variant="outline" 
-                    size="lg"
-                    className="px-8"
-                  >
-                    Load More
-                  </Button>
-                </div>
+                {hasMoreNews && (
+                  <div className="text-center mt-8">
+                    <Button 
+                      variant="outline" 
+                      size="lg"
+                      onClick={handleLoadMore}
+                      disabled={isLoadingMore}
+                      className="px-8 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                    >
+                      {isLoadingMore ? (
+                        <>
+                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                          Loading...
+                        </>
+                      ) : (
+                        'Load More'
+                      )}
+                    </Button>
+                  </div>
+                )}
               </div>
             </div>
           ) : (
