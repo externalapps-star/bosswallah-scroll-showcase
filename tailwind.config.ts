@@ -14,8 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Fira Sans', 'Inter', 'system-ui', 'sans-serif'],
-        'fira': ['Fira Sans', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -63,9 +62,8 @@ export default {
         },
       },
       boxShadow: {
-        'brand': '0 10px 30px -10px hsl(270 29% 38% / 0.25)',
-        'soft': '0 4px 20px -4px hsl(0 0% 0% / 0.1)',
-        'orange': '0 8px 25px -8px hsl(18 87% 55% / 0.3)',
+        'brand': '0 10px 30px -10px hsl(14 100% 57% / 0.25)',
+        'soft': '0 4px 20px -4px hsl(220 13% 18% / 0.1)',
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -83,22 +83,22 @@ const AboutSection = () => {
 
   return (
     <section ref={sectionRef} id="about" className="section-padding bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
-          <div className="order-2 lg:order-1">
-            <h2 className="mobile-heading font-fira font-bold mb-6 sm:mb-8 text-foreground">
+          <div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
               About <span className="gradient-text">Boss Wallah</span>
             </h2>
             
-            <div className="mobile-body space-y-4 sm:space-y-6 text-muted-foreground font-fira">
+            <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
               <p>
-                Boss Wallah Media is India's leading social media and production platform, powering brand impact at scale across regional markets. With a dynamic community of <strong className="text-secondary">18M+ followers</strong> and <strong className="text-secondary">330M+ monthly views</strong> on YouTube, Facebook, and Instagram, Boss Wallah Media delivers integrated campaigns, production services, and influencer-style content for sectors like finance, health, tech, e-commerce, and digital products.
+                Boss Wallah Media is India's leading social media and production platform, powering brand impact at scale across regional markets. With a dynamic community of <strong className="text-accent">18M+ followers</strong> and <strong className="text-accent">330M+ monthly views</strong> on YouTube, Facebook, and Instagram, Boss Wallah Media delivers integrated campaigns, production services, and influencer-style content for sectors like finance, health, tech, e-commerce, and digital products.
               </p>
               
               <p>
-                Operating <strong className="text-secondary">six full-scale studios</strong> with <strong className="text-secondary">60+ anchors</strong>, 
-                editors, and creative talent, the company produces over <strong className="text-secondary">200 videos weekly</strong> in 
+                Operating <strong className="text-accent">six full-scale studios</strong> with <strong className="text-accent">60+ anchors</strong>, 
+                editors, and creative talent, the company produces over <strong className="text-accent">200 videos weekly</strong> in 
                 Telugu, Tamil, Kannada, Malayalam, Hindi, and English. Trusted by large and small
                 Indian and international brands, Boss Wallah Media ensures campaigns deliver 
                 measurable ROI.
@@ -112,35 +112,35 @@ const AboutSection = () => {
             </div>
           </div>
 
-          {/* Visual Stats Grid/Infographic - Mobile Optimized */}
-          <div className="order-1 lg:order-2 space-y-6 sm:space-y-8">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+          {/* Visual Stats Grid/Infographic */}
+          <div className="space-y-8">
+            <div className="grid grid-cols-2 gap-6">
               {/* Followers */}
-              <div className="bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-brand border border-border text-center hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl lg:text-5xl font-bold gradient-text mb-2 font-fira">{animatedValues.followers}M+</div>
-                <div className="text-muted-foreground font-medium text-xs sm:text-sm lg:text-base font-fira">Followers</div>
-                <div className="w-8 sm:w-12 lg:w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-2 sm:mt-4"></div>
+              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.followers}M+</div>
+                <div className="text-muted-foreground font-medium">Followers</div>
+                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Monthly Views */}
-              <div className="bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-orange border border-border text-center hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl lg:text-5xl font-bold gradient-text mb-2 font-fira">{animatedValues.views}M+</div>
-                <div className="text-muted-foreground font-medium text-xs sm:text-sm lg:text-base font-fira">Monthly Views</div>
-                <div className="w-8 sm:w-12 lg:w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-2 sm:mt-4"></div>
+              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.views}M+</div>
+                <div className="text-muted-foreground font-medium">Monthly Views</div>
+                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Studios */}
-              <div className="bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-brand border border-border text-center hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl lg:text-5xl font-bold gradient-text mb-2 font-fira">{animatedValues.studios}</div>
-                <div className="text-muted-foreground font-medium text-xs sm:text-sm lg:text-base font-fira">Full-Scale Studios</div>
-                <div className="w-8 sm:w-12 lg:w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-2 sm:mt-4"></div>
+              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.studios}</div>
+                <div className="text-muted-foreground font-medium">Full-Scale Studios</div>
+                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
               
               {/* Videos Weekly */}
-              <div className="bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-orange border border-border text-center hover:scale-105 transition-transform">
-                <div className="text-2xl sm:text-3xl lg:text-5xl font-bold gradient-text mb-2 font-fira">{animatedValues.videos}+</div>
-                <div className="text-muted-foreground font-medium text-xs sm:text-sm lg:text-base font-fira">Videos Weekly</div>
-                <div className="w-8 sm:w-12 lg:w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mt-2 sm:mt-4"></div>
+              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
+                <div className="text-5xl font-bold gradient-text mb-2">{animatedValues.videos}+</div>
+                <div className="text-muted-foreground font-medium">Videos Weekly</div>
+                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
               </div>
             </div>
           </div>
