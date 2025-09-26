@@ -165,10 +165,10 @@ const NewsSection = () => {
                           setSelectedCategory(category.name);
                           setLoadedCount(8); // Reset to initial count of 8 when changing category
                         }}
-                        className={`w-full flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 text-left ${
+                        className={`w-full flex items-center gap-3 p-3 rounded-lg border-2 transition-all duration-300 text-left shadow-sm hover:shadow-md ${
                           selectedCategory === category.name
-                            ? 'border-primary bg-primary/5 text-primary'
-                            : 'border-border/50 bg-card/30 hover:bg-card/50 hover:border-primary/30'
+                            ? 'border-primary/60 bg-gradient-to-r from-primary/10 via-primary/5 to-transparent text-primary shadow-primary/20'
+                            : 'border-border/30 bg-card/40 backdrop-blur-sm hover:bg-card/60 hover:border-primary/40 hover:shadow-primary/10'
                         }`}
                       >
                         <span className="text-2xl">{category.icon}</span>
