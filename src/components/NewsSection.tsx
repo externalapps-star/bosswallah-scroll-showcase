@@ -209,12 +209,6 @@ const NewsSection = () => {
                                 />
                               </div>
 
-                              {/* NEWS Label */}
-                              <div className="px-4">
-                                <div className="writing-mode-vertical text-xs font-bold text-muted-foreground tracking-wider">
-                                  NEWS
-                                </div>
-                              </div>
 
                               {/* Content */}
                               <div className="flex-1 p-4">
