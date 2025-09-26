@@ -69,7 +69,7 @@ const HeroSection = ({
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-full">
             {/* Left-aligned content */}
-            <div className="max-w-6xl mt-8 lg:mt-12">
+            <div className="max-w-4xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
               <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold text-white leading-none mb-4">Accelerate Your Brand</h1>
               
