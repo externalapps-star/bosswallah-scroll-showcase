@@ -220,18 +220,17 @@ const BlogsSection = () => {
                 variant="outline" 
                 size="lg"
                 onClick={() => setShowMore(true)}
-                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
               >
                 <BookOpen size={18} className="mr-2" />
                 View All
-                <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             ) : (
               <Button 
                 variant="ghost" 
                 size="lg"
                 onClick={() => setShowMore(false)}
-                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
               >
                 Show Less
               </Button>
