@@ -315,7 +315,10 @@ const NewsSection = () => {
               <Button 
                 variant="ghost" 
                 size="lg"
-                onClick={() => setShowMore(false)}
+                onClick={() => {
+                  setShowMore(false);
+                  setLoadedCount(8); // Reset for homepage view
+                }}
                 className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
               >
                 Show Less
