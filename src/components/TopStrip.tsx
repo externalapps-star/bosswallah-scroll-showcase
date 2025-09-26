@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
-import whatsappIcon from "@/assets/whatsapp-icon.png";
+import whatsappIcon from "@/assets/whatsapp-icon-new.png";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 const TopStrip = () => {
   const openWhatsApp = () => {
