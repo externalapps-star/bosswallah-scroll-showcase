@@ -71,26 +71,21 @@ const HeroSection = ({
             {/* Left-aligned content */}
             <div className="max-w-6xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
               
               {/* "Brand Growth" with gradient */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-tight mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
               </h1>
               
               {/* Subtitle */}
-              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is the number one social media agency in South India</p>
+              <p className="text-gray-400 text-xl md:text-2xl lg:text-3xl xl:text-4xl 2xl:text-5xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is the number one social media agency in South India</p>
               
               {/* "With Boss Wallah Media" with gradient */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold leading-tight mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
               </h2>
             </div>
-
-            {/* Navigation buttons - same container (desktop only) */}
-            {!hideSideNavigation && <div className="hidden lg:flex flex-col justify-center space-y-3 lg:space-y-4 ml-8">
-                {navigationItems.map((item, index) => {})}
-              </div>}
           </div>
         </div>
       </div>
