@@ -122,28 +122,34 @@ const BlogsSection = () => {
 
 
           {/* News Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
-            {filteredNews.slice(0, 6).map((item) => (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
+            {filteredNews.slice(0, 5).map((item, index) => (
               <Card
                 key={item.id}
-                className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
+                className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
+                  index === 0 ? 'lg:col-span-2' : ''
+                }`}
                 onClick={() => handleReadMore(item)}
               >
                 <div className="relative overflow-hidden">
                   <img 
                     src={item.thumbnail} 
                     alt={item.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={`w-full object-cover transition-transform duration-500 group-hover:scale-105 ${
+                      index === 0 ? 'h-64' : 'h-48'
+                    }`}
                   />
                   <div className="absolute top-3 left-3">
                     <Badge variant="secondary" className="bg-background/90 text-foreground text-xs">
-                      {item.category}
+                      {index === 0 ? 'Trending' : item.category}
                     </Badge>
                   </div>
                 </div>
 
                 <CardContent className="p-4">
-                  <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 text-lg">
+                  <h3 className={`font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 ${
+                    index === 0 ? 'text-xl' : 'text-lg'
+                  }`}>
                     {item.title}
                   </h3>
                   
