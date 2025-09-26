@@ -85,7 +85,7 @@ const ContactSection = () => {
 
           <div className="flex justify-center">
             {/* Centered Contact form */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border border-border max-w-2xl w-full">
+            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 max-w-2xl w-full backdrop-blur-sm bg-gradient-to-br from-card/90 to-card/70">
               {!isSubmitted ? (
                 <>
                   {!showWebhookInput && (
