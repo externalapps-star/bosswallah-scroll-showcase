@@ -71,7 +71,7 @@ const HeroSection = ({
             {/* Left-aligned content */}
             <div className="max-w-4xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none mb-4">Accelerate Your Brand</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none mb-4 whitespace-nowrap">Accelerate Your Brand</h1>
               
               {/* "Brand Growth" with gradient */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8">
