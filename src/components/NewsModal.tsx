@@ -100,7 +100,7 @@ const NewsModal = ({
 
               {/* Article Content */}
               <div className="prose max-w-none">
-                <p className="text-foreground leading-relaxed text-sm">
+                <p className="text-foreground leading-relaxed text-sm line-clamp-8">
                   {news.content}
                 </p>
               </div>

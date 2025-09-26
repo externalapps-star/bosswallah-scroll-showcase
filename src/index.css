@@ -224,6 +224,13 @@
     overflow: hidden;
   }
 
+  .line-clamp-8 {
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .line-clamp-10 {
     display: -webkit-box;
     -webkit-line-clamp: 10;
