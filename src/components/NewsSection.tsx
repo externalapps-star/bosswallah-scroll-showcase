@@ -190,7 +190,7 @@ const NewsSection = () => {
                   {/* Scrollable News Container - Match height with categories */}
                   <div className="flex-1 overflow-y-auto p-4">
                     <div className="space-y-4">
-                      {displayedNews.map((item, index) => (
+                      {displayedNews.slice(0, loadedCount).map((item, index) => (
                         <Card
                           key={item.id}
                           className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
@@ -236,11 +236,11 @@ const NewsSection = () => {
                           size="lg"
                           onClick={handleLoadMore}
                           disabled={isLoadingMore}
-                          className="px-8 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                          className="px-8 border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 transition-all duration-300 disabled:opacity-50"
                         >
                           {isLoadingMore ? (
                             <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-current mr-2"></div>
                               Loading...
                             </>
                           ) : (
