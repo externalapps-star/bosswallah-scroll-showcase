@@ -210,7 +210,7 @@ const ChannelsSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
           
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto p-8">
             {platforms.map((platform) => {
               const IconComponent = platform.icon;
               const isSelected = selectedPlatform === platform.id;
@@ -279,7 +279,7 @@ const ChannelsSection = () => {
                     </div>
                     
                     {/* Content Section */}
-                    <div className="flex-1 p-4 sm:p-6 flex flex-col">
+                    <div className="flex-1 p-6 flex flex-col">
                       
                       {/* Platform Title */}
                       <h3 className={`text-2xl font-bold mb-3 ${

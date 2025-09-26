@@ -123,14 +123,14 @@
 }
 
 @layer components {
-  /* Professional section spacing - Mobile optimized */
+  /* Professional section spacing - reduced */
   .section-padding {
-    @apply py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8;
+    @apply py-16 px-4;
   }
 
-  /* Container for full width content with consistent padding - Mobile optimized */
+  /* Container for full width content with consistent padding */
   .container-custom {
-    @apply w-full px-4 sm:px-6 lg:px-8;
+    @apply w-full px-4 md:px-6 lg:px-8;
   }
 
   /* Hero gradient text effect */
@@ -278,27 +278,5 @@
     height: 1px;
     background: var(--gradient-separator);
     opacity: 0.5;
-  }
-
-  /* Mobile optimization utilities */
-  .touch-manipulation {
-    touch-action: manipulation;
-  }
-
-  .mobile-padding {
-    @apply px-4 sm:px-6 lg:px-8;
-  }
-
-  .mobile-text {
-    @apply text-sm sm:text-base lg:text-lg;
-  }
-
-  .mobile-heading {
-    @apply text-xl sm:text-2xl lg:text-3xl;
-  }
-
-  /* Smooth transitions for mobile interactions */
-  .mobile-transition {
-    @apply transition-all duration-300 ease-in-out;
   }
 }

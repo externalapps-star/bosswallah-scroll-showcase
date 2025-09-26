@@ -48,64 +48,42 @@ const HeroSection = ({ hideSideNavigation = false }: HeroSectionProps) => {
         <span className="text-gray-400 text-sm font-light">Media Services</span>
       </div>
 
-      {/* Mobile hamburger menu - Enhanced for touch */}
-      <div className="lg:hidden absolute top-6 right-6 z-20">
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-          className="text-white p-3 hover:bg-white/10 rounded-lg transition-colors touch-manipulation"
-          aria-label="Toggle navigation menu"
-        >
-          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+      {/* Mobile hamburger menu */}
+      <div className="lg:hidden absolute top-8 right-8 z-20">
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white p-2">
+          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {mobileMenuOpen && (
-          <div className="absolute top-16 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-xl p-6 min-w-[280px] shadow-2xl">
-            <div className="space-y-3">
-              {navigationItems.map((item, index) => (
-                <button 
-                  key={index} 
-                  onClick={() => {
-                    item.action();
-                    setMobileMenuOpen(false);
-                  }} 
-                  className="block w-full text-left text-white hover:text-purple-400 py-4 px-4 rounded-lg hover:bg-white/10 transition-colors text-base font-medium touch-manipulation border border-gray-600/30 hover:border-purple-400/50"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
+        {mobileMenuOpen && <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
+            {navigationItems.map((item, index) => <button key={index} onClick={() => {
+          item.action();
+          setMobileMenuOpen(false);
+        }} className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm">
+                {item.label}
+              </button>)}
+          </div>}
       </div>
 
       {/* Main content and navigation container */}
       <div className="relative z-10 flex-1">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="flex items-center justify-between h-full">
-            {/* Left-aligned content - Mobile optimized */}
-            <div className="max-w-6xl mt-8 lg:mt-12 px-2 sm:px-0">
-              {/* "Accelerate Your" in white - Mobile responsive */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-tight mb-3 sm:mb-4">
-                Accelerate Your Brand
+            {/* Left-aligned content */}
+            <div className="max-w-6xl mt-8 lg:mt-12">
+              {/* "Accelerate Your" in white */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+              
+              {/* "Brand Growth" with gradient */}
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
+                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
               </h1>
               
-              {/* "Brand Growth" with gradient - Mobile responsive */}
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 md:mb-8">
-                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
-                  Growth With
-                </span>
-              </h1>
+              {/* Subtitle */}
+              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is India's top social media and production platform, with 18M+ subscribers, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.</p>
               
-              {/* Subtitle - Mobile optimized */}
-              <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl mb-6 sm:mb-8 lg:mb-12 max-w-4xl leading-relaxed">
-                Boss Wallah Media is India's top social media and production platform, with 18M+ subscribers, delivering 330M+ monthly views and trusted brand campaigns across multiple industries.
-              </p>
-              
-              {/* "With Boss Wallah Media" with gradient - Mobile responsive */}
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold leading-tight mb-4 sm:mb-6 md:mb-8">
-                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
-                  Boss Wallah Media
-                </span>
+              {/* "With Boss Wallah Media" with gradient */}
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight mb-6 md:mb-8">
+                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
               </h2>
             </div>
 
