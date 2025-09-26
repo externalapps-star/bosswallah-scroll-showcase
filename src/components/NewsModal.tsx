@@ -46,8 +46,17 @@ const NewsModal = ({
       <DialogContent className="max-w-3xl w-[85vw] h-[70vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* News Header */}
-          <div className="flex items-center justify-center py-2 border-b">
+          <div className="flex items-center justify-between py-2 border-b px-4">
+            <div></div> {/* Empty spacer for centering */}
             <h2 className="text-xl font-bold text-primary gradient-text">News</h2>
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={onClose}
+              className="h-8 w-8 rounded-full text-primary hover:text-primary hover:bg-transparent focus:text-primary focus:bg-transparent active:text-primary active:bg-transparent"
+            >
+              <X size={16} />
+            </Button>
           </div>
 
           {/* Navigation Arrows */}
@@ -58,16 +67,6 @@ const NewsModal = ({
           {onNext && <Button variant="ghost" size="icon" onClick={onNext} className="absolute right-2 top-1/2 -translate-y-1/2 z-10 h-10 w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronRight size={16} />
             </Button>}
-
-          {/* Close Button */}
-          <Button 
-            variant="ghost" 
-            size="icon" 
-            onClick={onClose}
-            className="absolute right-4 top-4 z-10 h-8 w-8 rounded-full text-primary hover:text-primary hover:bg-transparent focus:text-primary focus:bg-transparent active:text-primary active:bg-transparent"
-          >
-            <X size={16} />
-          </Button>
 
           <ScrollArea className="flex-1">
             {/* Content */}
