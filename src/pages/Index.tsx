@@ -6,6 +6,7 @@ import ChannelsSection from "@/components/ChannelsSection";
 import CampaignsSection from "@/components/CampaignsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsSection from "@/components/NewsSection";
+import BlogsSection from "@/components/BlogsSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -43,6 +44,9 @@ const Index = () => {
         </div>
         <div id="newsletter">
           <NewsletterSection />
+        </div>
+        <div id="blogs">
+          <BlogsSection />
         </div>
         <div id="contact">
           <ContactSection />
