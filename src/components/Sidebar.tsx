@@ -15,7 +15,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   // Track active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "newsletter", "contact"];
+      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "newsletter", "blogs", "contact"];
       
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
@@ -63,6 +63,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   }, {
     label: "Newsletter",
     id: "newsletter"
+  }, {
+    label: "Blogs",
+    id: "blogs"
   }, {
     label: "Consult",
     id: "contact"
