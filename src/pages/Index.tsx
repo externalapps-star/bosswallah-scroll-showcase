@@ -7,7 +7,6 @@ import CampaignsSection from "@/components/CampaignsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsSection from "@/components/NewsSection";
 import NewsletterSection from "@/components/NewsletterSection";
-import BlogsSection from "@/components/BlogsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import FloatingCallButton from "@/components/FloatingCallButton";
@@ -44,9 +43,6 @@ const Index = () => {
         </div>
         <div id="newsletter">
           <NewsletterSection />
-        </div>
-        <div id="blogs">
-          <BlogsSection />
         </div>
         <div id="contact">
           <ContactSection />
