@@ -155,7 +155,7 @@ const NewsSection = () => {
             <div className="flex gap-6 mb-8">
               {/* Sidebar with border - Fixed height */}
               <div className="w-80 flex-shrink-0">
-                <div className="border-2 border-border/80 dark:border-border/40 rounded-xl p-6 bg-card/80 dark:bg-card/60 backdrop-blur-md h-[500px] shadow-lg dark:shadow-none hover:border-primary/40 transition-all duration-300">
+                <div className="border-2 border-primary/20 rounded-lg p-4 bg-card/30 backdrop-blur-sm h-[500px]">
                   <h3 className="font-semibold text-foreground mb-4 text-lg">Categories</h3>
                   <div className="space-y-2 overflow-y-auto h-[420px]">
                     {categories.map((category) => (
@@ -165,10 +165,10 @@ const NewsSection = () => {
                           setSelectedCategory(category.name);
                           setLoadedCount(8); // Reset to initial count of 8 when changing category
                         }}
-                        className={`w-full flex items-center gap-3 p-3 rounded-lg border-2 transition-all duration-200 text-left ${
+                        className={`w-full flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 text-left ${
                           selectedCategory === category.name
-                            ? 'border-primary bg-primary/10 text-primary shadow-md'
-                            : 'border-border/60 dark:border-border/30 bg-card/50 dark:bg-card/30 hover:bg-card/80 dark:hover:bg-card/50 hover:border-primary/50 hover:shadow-sm'
+                            ? 'border-primary bg-primary/5 text-primary'
+                            : 'border-border/50 bg-card/30 hover:bg-card/50 hover:border-primary/30'
                         }`}
                       >
                         <span className="text-2xl">{category.icon}</span>
@@ -181,7 +181,7 @@ const NewsSection = () => {
 
               {/* Main Content with border and scroll - Fixed height */}
               <div className="flex-1">
-                <div className="border-2 border-border/80 dark:border-border/40 rounded-xl bg-card/80 dark:bg-card/60 backdrop-blur-md h-[500px] flex flex-col shadow-lg dark:shadow-none hover:border-primary/40 transition-all duration-300">
+                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
                   <div className="p-4 border-b border-primary/10 flex-shrink-0">
                     <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
