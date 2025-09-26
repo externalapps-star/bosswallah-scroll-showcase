@@ -120,7 +120,7 @@ const NewsSection = () => {
     ? newsItems 
     : newsItems.filter(item => item.category === selectedCategory);
   
-  const displayedNews = showMore ? filteredNews : filteredNews.slice(0, 3);
+  const displayedNews = showMore ? filteredNews : filteredNews.slice(0, 6);
 
   return (
     <>
@@ -213,15 +213,15 @@ const NewsSection = () => {
               </div>
             </div>
           ) : (
-            /* Minimalist List Layout for Homepage */
-            <div className="space-y-4 mb-8 p-4 rounded-lg border border-border/50 bg-primary/5 backdrop-blur-sm shadow-soft">
+            /* Two-column grid layout for Homepage */
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 p-4 rounded-lg border border-border/50 bg-primary/5 backdrop-blur-sm shadow-soft">
               {displayedNews.map((item, index) => (
                 <Card
                   key={item.id}
                   className="group cursor-pointer transition-all duration-300 hover:shadow-md border-0 bg-card/30 backdrop-blur-sm"
                   onClick={() => handleReadMore(item)}
                 >
-                  <CardContent className="p-4 relative before:content-[''] before:absolute before:inset-0 before:rounded-lg before:border-2 before:border-white before:animate-pulse-slow before:-z-10">
+                  <CardContent className="p-4">
                     <div className="flex items-center gap-4">
                       {/* Thumbnail */}
                       <div className="relative overflow-hidden rounded-lg flex-shrink-0">
@@ -243,13 +243,13 @@ const NewsSection = () => {
                           </span>
                         </div>
                         
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 text-lg mb-1">
+                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 text-sm mb-1">
                           {item.title}
                         </h3>
                       </div>
 
                       {/* Arrow */}
-                      <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
+                      <ArrowRight size={14} className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
                     </div>
                   </CardContent>
                 </Card>
