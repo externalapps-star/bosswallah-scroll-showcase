@@ -152,92 +152,105 @@ const NewsSection = () => {
           {/* News Grid */}
           {showMore ? (
             /* Sidebar + Main Content Layout for View All */
-            <div className="flex gap-8 mb-8">
-              {/* Sidebar */}
+            <div className="flex gap-6 mb-8">
+              {/* Sidebar with border */}
               <div className="w-80 flex-shrink-0">
-                <div className="space-y-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category.name}
-                      onClick={() => {
-                        setSelectedCategory(category.name);
-                        setLoadedCount(10); // Reset to initial count when changing category
-                      }}
-                      className={`w-full flex items-center gap-3 p-4 rounded-lg border transition-all duration-200 text-left ${
-                        selectedCategory === category.name
-                          ? 'border-primary bg-primary/5 text-primary'
-                          : 'border-border/50 bg-card/30 hover:bg-card/50 hover:border-primary/30'
-                      }`}
-                    >
-                      <span className="text-2xl">{category.icon}</span>
-                      <span className="font-medium">{category.name}</span>
-                    </button>
-                  ))}
+                <div className="border-2 border-primary/20 rounded-lg p-4 bg-card/30 backdrop-blur-sm">
+                  <h3 className="font-semibold text-foreground mb-4 text-lg">Categories</h3>
+                  <div className="space-y-2">
+                    {categories.map((category) => (
+                      <button
+                        key={category.name}
+                        onClick={() => {
+                          setSelectedCategory(category.name);
+                          setLoadedCount(10); // Reset to initial count when changing category
+                        }}
+                        className={`w-full flex items-center gap-3 p-3 rounded-lg border transition-all duration-200 text-left ${
+                          selectedCategory === category.name
+                            ? 'border-primary bg-primary/5 text-primary'
+                            : 'border-border/50 bg-card/30 hover:bg-card/50 hover:border-primary/30'
+                        }`}
+                      >
+                        <span className="text-2xl">{category.icon}</span>
+                        <span className="font-medium">{category.name}</span>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Main Content */}
+              {/* Main Content with border and scroll */}
               <div className="flex-1">
-                <div className="space-y-4">
-                  {displayedNews.map((item, index) => (
-                    <Card
-                      key={item.id}
-                      className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
-                        index >= loadedCount - 10 && index < loadedCount ? 'animate-slide-in-right' : ''
-                      }`}
-                      onClick={() => handleReadMore(item)}
-                    >
-                      <CardContent className="p-0">
-                        <div className="flex items-center">
-                          {/* Thumbnail */}
-                          <div className="relative overflow-hidden flex-shrink-0">
-                            <img 
-                              src={item.thumbnail} 
-                              alt={item.title}
-                              className="w-24 h-16 object-cover transition-transform duration-500 group-hover:scale-105"
-                            />
-                          </div>
-
-                          {/* NEWS Label */}
-                          <div className="px-4">
-                            <div className="writing-mode-vertical text-xs font-bold text-muted-foreground tracking-wider">
-                              NEWS
-                            </div>
-                          </div>
-
-                          {/* Content */}
-                          <div className="flex-1 p-4">
-                            <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg leading-tight">
-                              {item.title}
-                            </h3>
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
-                  ))}
-                </div>
-
-                {/* Load More Button */}
-                {hasMoreNews && (
-                  <div className="text-center mt-8">
-                    <Button 
-                      variant="outline" 
-                      size="lg"
-                      onClick={handleLoadMore}
-                      disabled={isLoadingMore}
-                      className="px-8 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
-                    >
-                      {isLoadingMore ? (
-                        <>
-                          <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                          Loading...
-                        </>
-                      ) : (
-                        'Load More'
-                      )}
-                    </Button>
+                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm">
+                  {/* Header */}
+                  <div className="p-4 border-b border-primary/10">
+                    <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
-                )}
+                  
+                  {/* Scrollable News Container - Fixed height */}
+                  <div className="h-[600px] overflow-y-auto p-4">
+                    <div className="space-y-4">
+                      {displayedNews.map((item, index) => (
+                        <Card
+                          key={item.id}
+                          className={`group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden ${
+                            index >= loadedCount - 10 && index < loadedCount ? 'animate-fade-in' : ''
+                          }`}
+                          onClick={() => handleReadMore(item)}
+                        >
+                          <CardContent className="p-0">
+                            <div className="flex items-center">
+                              {/* Thumbnail */}
+                              <div className="relative overflow-hidden flex-shrink-0">
+                                <img 
+                                  src={item.thumbnail} 
+                                  alt={item.title}
+                                  className="w-24 h-16 object-cover transition-transform duration-500 group-hover:scale-105"
+                                />
+                              </div>
+
+                              {/* NEWS Label */}
+                              <div className="px-4">
+                                <div className="writing-mode-vertical text-xs font-bold text-muted-foreground tracking-wider">
+                                  NEWS
+                                </div>
+                              </div>
+
+                              {/* Content */}
+                              <div className="flex-1 p-4">
+                                <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg leading-tight">
+                                  {item.title}
+                                </h3>
+                              </div>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      ))}
+                    </div>
+                    
+                    {/* Load More Button inside scroll area */}
+                    {hasMoreNews && (
+                      <div className="text-center mt-6 pb-4">
+                        <Button 
+                          variant="outline" 
+                          size="lg"
+                          onClick={handleLoadMore}
+                          disabled={isLoadingMore}
+                          className="px-8 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                        >
+                          {isLoadingMore ? (
+                            <>
+                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
+                              Loading...
+                            </>
+                          ) : (
+                            'Load More'
+                          )}
+                        </Button>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
           ) : (
