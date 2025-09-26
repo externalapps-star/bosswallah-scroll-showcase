@@ -123,7 +123,7 @@ const BlogsSection = () => {
 
           {/* News Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
-            {filteredNews.map((item) => (
+            {filteredNews.slice(0, 6).map((item) => (
               <Card
                 key={item.id}
                 className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
