@@ -116,29 +116,96 @@ const NewsSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Latest <span className="gradient-text">News</span>
+              Latest <span className="gradient-text">Blogs</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Stay updated with the latest insights, trends, and strategies from Boss Wallah
+              Discover Boss Wallah Media's scope of expertise and recent achievements in digital marketing and content creation
             </p>
           </div>
 
+          {/* Featured Layout - Similar to reference image */}
+          {!showMore ? (
+            <div className="grid lg:grid-cols-3 gap-8 mb-12">
+              {/* Featured Article - Left Side */}
+              {displayedNews[0] && (
+                <div className="lg:col-span-2">
+                  <Card
+                    className="group cursor-pointer overflow-hidden border-0 bg-card/50 backdrop-blur-sm shadow-lg hover:shadow-xl transition-all duration-500"
+                    onClick={() => handleReadMore(displayedNews[0])}
+                  >
+                    <div className="relative overflow-hidden aspect-[16/10]">
+                      <img 
+                        src={displayedNews[0].thumbnail} 
+                        alt={displayedNews[0].title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      <div className="absolute bottom-6 left-6 right-6">
+                        <Badge variant="secondary" className="bg-primary text-primary-foreground mb-4">
+                          {displayedNews[0].category}
+                        </Badge>
+                        <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 group-hover:text-primary-foreground transition-colors">
+                          {displayedNews[0].title}
+                        </h3>
+                        <div className="flex items-center gap-3 text-white/80 text-sm">
+                          <Clock size={14} />
+                          <span>{formatDate(displayedNews[0].date)}</span>
+                          <span>•</span>
+                          <span>{displayedNews[0].readTime}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                </div>
+              )}
 
-          {/* News Grid */}
-          {showMore ? (
+              {/* Side Articles - Right Side */}
+              <div className="space-y-6">
+                {displayedNews.slice(1, 4).map((item, index) => (
+                  <Card
+                    key={item.id}
+                    className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/30 backdrop-blur-sm overflow-hidden"
+                    onClick={() => handleReadMore(item)}
+                  >
+                    <div className="flex gap-4 p-4">
+                      <div className="relative overflow-hidden rounded-lg flex-shrink-0">
+                        <img 
+                          src={item.thumbnail} 
+                          alt={item.title}
+                          className="w-20 h-20 object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <Badge variant="outline" className="text-xs mb-2">
+                          {item.category}
+                        </Badge>
+                        <h4 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 text-base">
+                          {item.title}
+                        </h4>
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                          <Clock size={12} />
+                          <span>{formatDate(item.date)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          ) : (
             /* Grid Layout for View All */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
               {displayedNews.map((item) => (
                 <Card
                   key={item.id}
                   className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
                   onClick={() => handleReadMore(item)}
                 >
-                  <div className="relative overflow-hidden">
+                  <div className="relative overflow-hidden aspect-[4/3]">
                     <img 
                       src={item.thumbnail} 
                       alt={item.title}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-background/90 text-foreground text-xs">
@@ -147,91 +214,44 @@ const NewsSection = () => {
                     </div>
                   </div>
 
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 text-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-foreground mb-3 group-hover:text-primary transition-colors line-clamp-2 text-lg">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4 line-clamp-2">
                       {item.excerpt}
                     </p>
 
                     <div className="flex items-center gap-3 text-xs text-muted-foreground">
+                      <Clock size={12} />
                       <span>{formatDate(item.date)}</span>
+                      <span>•</span>
                       <span>{item.readTime}</span>
                     </div>
                   </CardContent>
                 </Card>
               ))}
             </div>
-          ) : (
-            /* Minimalist List Layout for Homepage */
-            <div className="space-y-4 mb-8 p-4 rounded-lg border border-border/50 bg-primary/5 backdrop-blur-sm shadow-soft">
-              {displayedNews.map((item, index) => (
-                <Card
-                  key={item.id}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-md border-0 bg-card/30 backdrop-blur-sm"
-                  onClick={() => handleReadMore(item)}
-                >
-                  <CardContent className="p-4 relative before:content-[''] before:absolute before:inset-0 before:rounded-lg before:border-2 before:border-white before:animate-pulse-slow before:-z-10">
-                    <div className="flex items-center gap-4">
-                      {/* Thumbnail */}
-                      <div className="relative overflow-hidden rounded-lg flex-shrink-0">
-                        <img 
-                          src={item.thumbnail} 
-                          alt={item.title}
-                          className="w-16 h-16 object-cover transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </div>
+          )}
 
-                      {/* Content */}
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Badge variant="outline" className="text-xs">
-                            {item.category}
-                          </Badge>
-                          <span className="text-xs text-muted-foreground">
-                            {formatDate(item.date)}
-                          </span>
-                        </div>
-                        
-                        <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 text-lg mb-1">
-                          {item.title}
-                        </h3>
-                        
-                        <p className="text-muted-foreground text-sm line-clamp-1">
-                          {item.excerpt}
-                        </p>
-                      </div>
-
-                      {/* Arrow */}
-                      <ArrowRight size={16} className="text-muted-foreground group-hover:text-primary transition-all group-hover:translate-x-1" />
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-              )}
-
-          {/* View More/Less Button */}
+          {/* View All Button */}
           <div className="text-center">
             {!showMore ? (
               <Button 
                 variant="outline" 
                 size="lg"
                 onClick={() => setShowMore(true)}
-                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                className="px-8 py-3 text-base font-semibold bg-background hover:bg-primary hover:text-primary-foreground border-2 border-primary/20 hover:border-primary transition-all duration-300"
               >
-                <BookOpen size={18} className="mr-2" />
                 View All
-                <ArrowRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Button>
             ) : (
               <Button 
-                variant="ghost" 
+                variant="outline" 
                 size="lg"
                 onClick={() => setShowMore(false)}
-                className="group bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x hover:animate-none text-primary-foreground border-primary/20"
+                className="px-8 py-3 text-base font-semibold bg-background hover:bg-primary hover:text-primary-foreground border-2 border-primary/20 hover:border-primary transition-all duration-300"
               >
                 Show Less
               </Button>
