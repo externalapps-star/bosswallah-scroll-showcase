@@ -262,7 +262,7 @@ const NewsSection = () => {
                   className="group cursor-pointer transition-all duration-300 hover:shadow-md border-0 bg-card/30 backdrop-blur-sm"
                   onClick={() => handleReadMore(item)}
                 >
-                  <CardContent className="p-4">
+                  <CardContent className="p-4 border-2 border-white rounded-lg">
                     <div className="flex items-center gap-4">
                       {/* Thumbnail */}
                       <div className="relative overflow-hidden rounded-lg flex-shrink-0">
