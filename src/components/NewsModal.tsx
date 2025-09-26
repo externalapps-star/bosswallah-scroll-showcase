@@ -46,7 +46,7 @@ const NewsModal = ({
       <DialogContent className="max-w-3xl w-[85vw] h-[70vh] p-0 overflow-hidden">
         <div className="relative bg-card h-full flex flex-col">
           {/* News Header */}
-          <div className="flex items-center justify-center py-6 border-b min-h-[80px]">
+          <div className="flex items-center justify-center py-2 border-b">
             <h2 className="text-xl font-bold text-primary gradient-text">News</h2>
           </div>
 
