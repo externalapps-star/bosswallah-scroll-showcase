@@ -181,14 +181,14 @@ const NewsSection = () => {
 
               {/* Main Content with border and scroll */}
               <div className="flex-1">
-                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm">
+                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-full flex flex-col">
                   {/* Header */}
-                  <div className="p-4 border-b border-primary/10">
+                  <div className="p-4 border-b border-primary/10 flex-shrink-0">
                     <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
                   
-                  {/* Scrollable News Container - Fixed height */}
-                  <div className="h-[600px] overflow-y-auto p-4">
+                  {/* Scrollable News Container - Match height with categories */}
+                  <div className="flex-1 overflow-y-auto p-4">
                     <div className="space-y-4">
                       {displayedNews.map((item, index) => (
                         <Card
