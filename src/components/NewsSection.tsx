@@ -69,7 +69,20 @@ const NewsSection = () => {
     fetchNews();
   }, []);
 
-  const categories = ["All", "Creator Hub", "Digital Skills", "Business"];
+  const categories = [
+    { name: "All", icon: "📊" },
+    { name: "Digital Skills", icon: "💻" },
+    { name: "Service Business", icon: "💼" },
+    { name: "Home-based Business", icon: "🏠" },
+    { name: "Retail Business", icon: "🏪" },
+    { name: "Personal Finance", icon: "🚀" },
+    { name: "Government Schemes", icon: "💳" },
+    { name: "Agriculture", icon: "🌾" },
+    { name: "Animal Husbandry", icon: "🐄" },
+    { name: "Handicrafts Business", icon: "🎨" },
+    { name: "Manufacturing Business", icon: "⚙️" },
+    { name: "Food Business", icon: "🍔" }
+  ];
 
   const handleReadMore = (news: any) => {
     const newsIndex = filteredNews.findIndex(item => item.id === news.id);
@@ -126,43 +139,78 @@ const NewsSection = () => {
 
           {/* News Grid */}
           {showMore ? (
-            /* Grid Layout for View All */
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
-              {displayedNews.map((item) => (
-                <Card
-                  key={item.id}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
-                  onClick={() => handleReadMore(item)}
-                >
-                  <div className="relative overflow-hidden">
-                    <img 
-                      src={item.thumbnail} 
-                      alt={item.title}
-                      className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute top-3 left-3">
-                      <Badge variant="secondary" className="bg-background/90 text-foreground text-xs">
-                        {item.category}
-                      </Badge>
-                    </div>
-                  </div>
+            /* Sidebar + Main Content Layout for View All */
+            <div className="flex gap-8 mb-8">
+              {/* Sidebar */}
+              <div className="w-80 flex-shrink-0">
+                <div className="space-y-2">
+                  {categories.map((category) => (
+                    <button
+                      key={category.name}
+                      onClick={() => setSelectedCategory(category.name)}
+                      className={`w-full flex items-center gap-3 p-4 rounded-lg border transition-all duration-200 text-left ${
+                        selectedCategory === category.name
+                          ? 'border-primary bg-primary/5 text-primary'
+                          : 'border-border/50 bg-card/30 hover:bg-card/50 hover:border-primary/30'
+                      }`}
+                    >
+                      <span className="text-2xl">{category.icon}</span>
+                      <span className="font-medium">{category.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-                  <CardContent className="p-4">
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2 text-lg">
-                      {item.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2">
-                      {item.excerpt}
-                    </p>
+              {/* Main Content */}
+              <div className="flex-1">
+                <div className="space-y-4">
+                  {displayedNews.map((item) => (
+                    <Card
+                      key={item.id}
+                      className="group cursor-pointer transition-all duration-300 hover:shadow-lg border-0 bg-card/50 backdrop-blur-sm overflow-hidden"
+                      onClick={() => handleReadMore(item)}
+                    >
+                      <CardContent className="p-0">
+                        <div className="flex items-center">
+                          {/* Thumbnail */}
+                          <div className="relative overflow-hidden flex-shrink-0">
+                            <img 
+                              src={item.thumbnail} 
+                              alt={item.title}
+                              className="w-24 h-16 object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </div>
 
-                    <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                      <span>{formatDate(item.date)}</span>
-                      <span>{item.readTime}</span>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                          {/* NEWS Label */}
+                          <div className="px-4">
+                            <div className="writing-mode-vertical text-xs font-bold text-muted-foreground tracking-wider">
+                              NEWS
+                            </div>
+                          </div>
+
+                          {/* Content */}
+                          <div className="flex-1 p-4">
+                            <h3 className="font-bold text-foreground group-hover:text-primary transition-colors text-lg leading-tight">
+                              {item.title}
+                            </h3>
+                          </div>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+
+                {/* Load More Button */}
+                <div className="text-center mt-8">
+                  <Button 
+                    variant="outline" 
+                    size="lg"
+                    className="px-8"
+                  >
+                    Load More
+                  </Button>
+                </div>
+              </div>
             </div>
           ) : (
             /* Minimalist List Layout for Homepage */

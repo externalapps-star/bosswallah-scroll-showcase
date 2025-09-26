@@ -203,6 +203,13 @@
   }
 
   /* Line clamp utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -222,6 +229,12 @@
     -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Writing modes */
+  .writing-mode-vertical {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
   }
 
   /* Gradient animation keyframe */
