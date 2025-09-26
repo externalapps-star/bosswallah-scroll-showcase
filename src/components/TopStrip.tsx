@@ -26,7 +26,7 @@ const TopStrip = () => {
 
         {/* CTA and Theme Toggle */}
         <div className="flex items-center space-x-4">
-          <Button onClick={openWhatsApp} variant="ghost" size="icon" className="hover:bg-white/10">
+          <Button onClick={openWhatsApp} variant="outline" size="icon" className="bg-secondary text-secondary-foreground border-border hover:bg-secondary/80 transition-all duration-300">
             <img src={whatsappIcon} alt="WhatsApp" className="h-[1.2rem] w-[1.2rem] object-contain" />
           </Button>
           <ThemeToggle />
