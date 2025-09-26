@@ -71,18 +71,18 @@ const HeroSection = ({
             {/* Left-aligned content */}
             <div className="max-w-4xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold text-white leading-none mb-4">Accelerate Your Brand</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none mb-4">Accelerate Your Brand</h1>
               
               {/* "Brand Growth" with gradient */}
-              <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold leading-none mb-6 md:mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
               </h1>
               
               {/* Subtitle */}
-              <p className="text-gray-400 text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is the number one social media agency in South India</p>
+              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">Boss Wallah Media is the number one social media agency in South India</p>
               
               {/* "With Boss Wallah Media" with gradient */}
-              <h2 className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl xl:text-[10rem] 2xl:text-[12rem] font-bold leading-none mb-6 md:mb-8">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
               </h2>
             </div>
