@@ -129,7 +129,7 @@ const BlogsSection = () => {
                 <Card
                   key={item.id}
                   className="group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
-                  onClick={() => handleReadMore(item)}
+                  onClick={() => window.open(item.url, '_blank')}
                 >
                   <div className="relative overflow-hidden">
                     <img 
@@ -173,7 +173,7 @@ const BlogsSection = () => {
                 <Card
                   key={item.id}
                   className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale"
-                  onClick={() => handleReadMore(item)}
+                  onClick={() => window.open(item.url, '_blank')}
                 >
                   <div className="relative overflow-hidden">
                     <img 
