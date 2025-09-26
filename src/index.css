@@ -2,54 +2,56 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Boss Wallah Media Design System - Professional media house branding */
+/* Boss Wallah Media Design System - Mobile-First Brand Guidelines */
 
 @layer base {
   :root {
-    /* Brand Colors - Based on Boss Wallah orange/red gradient theme */
+    /* Boss Wallah Brand Colors - Purple & Orange */
     --background: 0 0% 100%;
-    --foreground: 220 13% 18%;
+    --foreground: 0 0% 0%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 18%;
+    --card-foreground: 0 0% 0%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 18%;
+    --popover-foreground: 0 0% 0%;
 
-    /* Orange-red gradient primary colors inspired by Boss Wallah */
-    --primary: 14 100% 57%;
+    /* Primary: Boss Wallah Purple (#755292) */
+    --primary: 270 29% 38%;
     --primary-foreground: 0 0% 100%;
-    --primary-dark: 8 83% 47%;
+    
+    /* Secondary: Boss Wallah Orange (#F05C25) */
+    --secondary: 18 87% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 220 13% 18%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
-
-    --accent: 24 95% 53%;
+    /* Accent: Boss Wallah Orange for accents */
+    --accent: 18 87% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 14 100% 57%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
+    --ring: 270 29% 38%;
 
-    --radius: 8px;
+    --radius: 12px;
 
-    /* Boss Wallah gradient system */
-    --gradient-primary: linear-gradient(135deg, hsl(14 100% 57%), hsl(8 83% 47%));
-    --gradient-hero: linear-gradient(135deg, hsl(14 100% 57%) 0%, hsl(8 83% 47%) 100%);
-    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    /* Boss Wallah Purple + Orange Gradient System */
+    --gradient-primary: linear-gradient(135deg, hsl(270 29% 38%), hsl(18 87% 55%));
+    --gradient-hero: linear-gradient(135deg, hsl(270 29% 38%) 0%, hsl(18 87% 55%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
     
     /* Section separators */
     --gradient-separator: linear-gradient(90deg, transparent 0%, hsl(220 13% 91%) 50%, transparent 100%);
 
     /* Shadows with brand colors */
-    --shadow-brand: 0 10px 30px -10px hsl(14 100% 57% / 0.25);
-    --shadow-soft: 0 4px 20px -4px hsl(220 13% 18% / 0.1);
+    --shadow-brand: 0 10px 30px -10px hsl(270 29% 38% / 0.25);
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
+    --shadow-orange: 0 8px 25px -8px hsl(18 87% 55% / 0.3);
 
     --sidebar-background: 0 0% 98%;
 
@@ -69,33 +71,33 @@
   }
 
   .dark {
-    --background: 220 13% 18%;
-    --foreground: 220 14% 96%;
+    --background: 0 0% 8%;
+    --foreground: 0 0% 100%;
 
-    --card: 220 13% 18%;
-    --card-foreground: 220 14% 96%;
+    --card: 0 0% 12%;
+    --card-foreground: 0 0% 100%;
 
-    --popover: 220 13% 18%;
-    --popover-foreground: 220 14% 96%;
+    --popover: 0 0% 12%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 14 100% 57%;
+    --primary: 270 29% 38%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 220 13% 27%;
-    --secondary-foreground: 220 14% 96%;
+    --secondary: 18 87% 55%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 13% 27%;
-    --muted-foreground: 220 9% 65%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 24 95% 53%;
+    --accent: 18 87% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 27%;
-    --input: 220 13% 27%;
-    --ring: 14 100% 57%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 270 29% 38%;
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -123,9 +125,49 @@
 }
 
 @layer components {
-  /* Professional section spacing - reduced */
+  /* Mobile-First section spacing */
   .section-padding {
-    @apply py-16 px-4;
+    @apply py-8 px-4 sm:py-12 md:py-16;
+  }
+  
+  /* Mobile typography scaling */
+  .mobile-heading {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  
+  .mobile-subheading {
+    @apply text-xl sm:text-2xl md:text-3xl font-semibold;
+  }
+  
+  .mobile-body {
+    @apply text-base sm:text-lg leading-relaxed;
+  }
+  
+  /* Touch-friendly buttons */
+  .btn-mobile {
+    @apply min-h-[48px] px-6 py-3 rounded-xl text-lg font-medium;
+  }
+
+  /* Mobile-specific utilities */
+  .mobile-container {
+    @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
+  }
+
+  .mobile-card {
+    @apply bg-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 shadow-soft border border-border;
+  }
+
+  .mobile-section {
+    @apply py-8 sm:py-12 lg:py-16;
+  }
+
+  /* Performance optimizations */
+  .will-change-transform {
+    will-change: transform;
+  }
+
+  .gpu-accelerated {
+    transform: translateZ(0);
   }
 
   /* Container for full width content with consistent padding */
@@ -133,12 +175,22 @@
     @apply w-full px-4 md:px-6 lg:px-8;
   }
 
-  /* Hero gradient text effect */
+  /* Boss Wallah Purple + Orange gradient text effect */
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+  
+  /* Mobile-optimized gradient text */
+  .gradient-text-mobile {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% 200%;
+    animation: gradient-x 3s ease infinite;
   }
 
   /* Custom shadow utilities */

@@ -13,31 +13,39 @@ const TopStrip = () => {
   };
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e] text-primary-foreground border-b border-border px-6 shadow-soft py-2">
+    <div className="fixed top-0 left-0 right-0 z-50 bg-primary text-primary-foreground border-b border-border shadow-brand py-3 px-4">
       <div className="flex items-center justify-between max-w-full">
         {/* Logo */}
         <div className="flex-shrink-0">
           <img 
             src={bossWallahLogo} 
             alt="Boss Wallah Media" 
-            className="h-12 w-auto object-contain bg-white p-2 rounded" 
+            className="h-8 sm:h-10 md:h-12 w-auto object-contain bg-white p-1 sm:p-2 rounded-lg" 
           />
         </div>
 
-        {/* Message */}
-        <div className="flex-1 text-center">
-          <p className="text-sm md:text-base font-medium">
+        {/* Message - Hidden on small screens */}
+        <div className="hidden sm:flex flex-1 text-center px-4">
+          <p className="text-sm md:text-base font-medium text-white">
             Take the First Step Towards Accelerated Growth
           </p>
         </div>
 
         {/* CTA and Theme Toggle */}
-        <div className="flex items-center space-x-4">
-          <Button onClick={openWhatsApp} variant="secondary" size="sm" className="bg-secondary text-primary hover:bg-secondary/90 font-medium px-3 py-2">
-            <img src={whatsappIcon} alt="WhatsApp" className="w-4 h-4 mr-2" />
-            Talk to Our Team
+        <div className="flex items-center space-x-2 sm:space-x-4">
+          <Button 
+            onClick={openWhatsApp} 
+            variant="secondary" 
+            size="sm" 
+            className="bg-white text-primary hover:bg-white/90 font-semibold px-2 py-1 sm:px-4 sm:py-2 text-xs sm:text-sm"
+          >
+            <img src={whatsappIcon} alt="WhatsApp" className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
+            <span className="hidden sm:inline">Talk to Our Team</span>
+            <span className="sm:hidden">Talk</span>
           </Button>
-          <ThemeToggle />
+          <div className="hidden md:block">
+            <ThemeToggle />
+          </div>
         </div>
       </div>
     </div>
