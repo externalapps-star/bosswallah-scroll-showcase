@@ -129,7 +129,7 @@ const BlogsSection = () => {
               {filteredNews.slice(0, 1).map((item) => (
                 <Card
                   key={item.id}
-                  className="lg:col-span-2 h-96 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
+                  className="lg:col-span-2 h-80 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
                   onClick={() => window.open(item.url, '_blank')}
                 >
                   <div className="relative overflow-hidden">
