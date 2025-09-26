@@ -87,19 +87,6 @@ const HeroSection = ({
               </h2>
             </div>
 
-            {/* Navigation buttons - same container (desktop only) */}
-            {!hideSideNavigation && <div className="hidden lg:flex flex-col justify-center space-y-3 lg:space-y-4 ml-8">
-                {navigationItems.map((item, index) => (
-                  <Button
-                    key={index}
-                    variant="outline"
-                    onClick={item.action}
-                    className="text-white border-white/30 hover:bg-white/10 hover:border-white/50 transition-all duration-300 text-sm whitespace-nowrap"
-                  >
-                    {item.label}
-                  </Button>
-                ))}
-              </div>}
           </div>
         </div>
       </div>
