@@ -198,10 +198,6 @@ const NewsSection = () => {
                         <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-1 text-lg mb-1">
                           {item.title}
                         </h3>
-                        
-                        <p className="text-muted-foreground text-sm line-clamp-1">
-                          {item.excerpt}
-                        </p>
                       </div>
 
                       {/* Arrow */}
