@@ -31,7 +31,7 @@ const CampaignsSection = () => {
       icon: brandBuildingIcon
     },
     {
-      title: "BOSScast",
+      title: "SocialLift",
       description: "A business podcast for entrepreneurs share real challenges and solutions to grow their business...",
       features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
       icon: "podcast"
