@@ -25,7 +25,7 @@ const CampaignsSection = () => {
       icon: "event"
     },
     {
-      title: "Brand Building Campaigns",
+      title: "SocialLift",
       description: "Younger brands engage Boss Wallah for long term sustained campaigns...",
       features: ["Long-term Strategy", "Brand Identity & Sustained Growth", "Community Building", "BOSScast (Leadership Brand Building)"],
       icon: brandBuildingIcon
