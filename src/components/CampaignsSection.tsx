@@ -32,7 +32,7 @@ const CampaignsSection = () => {
     },
     {
       title: "SocialLift",
-      description: "A business podcast for entrepreneurs share real challenges and solutions to grow their business...",
+      description: "We create, optimize, and grow social media channels from scratch...",
       features: ["Industry Spotlight", "Relatable Branding", "Evergreen Discovery", "Multi-platform Reach"],
       icon: "podcast"
     },
