@@ -1,28 +1,23 @@
-import { Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "./ThemeProvider"
+import whatsappIcon from "@/assets/whatsapp-icon-new.png"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme()
-
-  const toggleTheme = () => {
-    if (theme === "light") {
-      setTheme("dark")
-    } else {
-      setTheme("light")
-    }
+  const openWhatsApp = () => {
+    const phoneNumber = "919876543210"
+    const message = "Hi! I'm interested in learning more about your services."
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
+    window.open(whatsappUrl, '_blank')
   }
 
   return (
     <Button
       variant="outline"
       size="icon"
-      onClick={toggleTheme}
+      onClick={openWhatsApp}
       className="bg-secondary text-secondary-foreground border-border hover:bg-secondary/80 transition-all duration-300"
     >
-      <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <span className="sr-only">Toggle theme</span>
+      <img src={whatsappIcon} alt="WhatsApp" className="h-6 w-6 object-contain" />
+      <span className="sr-only">Contact WhatsApp</span>
     </Button>
   )
 }
