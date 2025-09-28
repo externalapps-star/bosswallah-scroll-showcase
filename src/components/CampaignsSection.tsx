@@ -33,7 +33,7 @@ const CampaignsSection = () => {
     {
       title: "SocialLift",
       description: "We create, optimize, and grow social media channels from scratch...",
-      features: ["Assessment, Consulting, Complete Setup", "Content that Connects", "Optimized for Growth", "Sustained Channel Health"],
+      features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth", "Sustained Channel Health"],
       icon: "podcast"
     },
     {
