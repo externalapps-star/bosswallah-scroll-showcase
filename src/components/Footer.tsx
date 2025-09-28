@@ -37,11 +37,11 @@ const Footer = () => {
               <a href="#news" className="block text-background/80 hover:text-primary transition-colors">
                 News
               </a>
-              <a href="#newsletter" className="block text-background/80 hover:text-primary transition-colors">
-                Newsletter
-              </a>
               <a href="#blogs" className="block text-background/80 hover:text-primary transition-colors">
                 Blogs
+              </a>
+              <a href="#newsletter" className="block text-background/80 hover:text-primary transition-colors">
+                Newsletter
               </a>
               <a href="#contact" className="block text-background/80 hover:text-primary transition-colors">
                 Consult
