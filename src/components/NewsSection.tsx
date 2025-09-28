@@ -158,7 +158,7 @@ const NewsSection = () => {
                 <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
                   <div className="p-4 border-b border-primary/10 flex-shrink-0">
-                    <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
+                    <h3 className="font-semibold text-foreground text-lg">All News</h3>
                   </div>
                   
                   {/* Scrollable News Container - Fixed height, no expansion */}
