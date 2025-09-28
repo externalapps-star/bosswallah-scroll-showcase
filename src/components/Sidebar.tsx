@@ -16,7 +16,7 @@ const Sidebar = ({
   // Track active section
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "newsletter", "blogs", "contact"];
+      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "blogs", "newsletter", "contact"];
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -59,11 +59,11 @@ const Sidebar = ({
     label: "News",
     id: "news"
   }, {
-    label: "Newsletter",
-    id: "newsletter"
-  }, {
     label: "Blogs",
     id: "blogs"
+  }, {
+    label: "Newsletter",
+    id: "newsletter"
   }, {
     label: "Consult",
     id: "contact"
