@@ -3,20 +3,20 @@ import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
-
 interface SidebarProps {
   isMenuOpen: boolean;
   setIsMenuOpen: (open: boolean) => void;
 }
-
-const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
+const Sidebar = ({
+  isMenuOpen,
+  setIsMenuOpen
+}: SidebarProps) => {
   const [activeSection, setActiveSection] = useState("home");
 
   // Track active section
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "newsletter", "blogs", "contact"];
-      
       for (const sectionId of sections) {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -28,11 +28,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
         }
       }
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -86,36 +84,25 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
   return <>
     {/* Floating Hamburger Menu - Center Left */}
     <div>
-      {!isMenuOpen && (
-        <Button 
-          variant="ghost" 
-          size="icon" 
-          onClick={() => setIsMenuOpen(!isMenuOpen)} 
-          className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40"
-        >
+      {!isMenuOpen && <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40">
           <Menu className="h-6 w-6" />
-        </Button>
-      )}
+        </Button>}
       
       {/* Navigation popup from left */}
-      {isMenuOpen && (
-        <>
+      {isMenuOpen && <>
           {/* Semi-transparent Backdrop */}
-          <div 
-            className="fixed inset-0 bg-black/20 z-20"
-            onClick={() => setIsMenuOpen(false)}
-          />
+          <div className="fixed inset-0 bg-black/20 z-20" onClick={() => setIsMenuOpen(false)} />
           
           {/* Popup Menu */}
-          <div className="fixed top-0 left-0 w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{ marginTop: '64px', height: 'calc(100vh - 64px)' }}>
+          <div className="fixed top-0 left-0 w-80 bg-[#1a1a2e] z-30 transform transition-transform duration-300 ease-in-out border-r border-border/20" style={{
+          marginTop: '64px',
+          height: 'calc(100vh - 64px)'
+        }}>
             <div className="flex flex-col h-full">
               {/* Header with close button */}
               <div className="flex justify-between items-center p-4 border-b border-border/10">
                 <h2 className="text-white text-lg font-semibold">Menu</h2>
-                <button 
-                  onClick={() => setIsMenuOpen(false)}
-                  className="h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-white/10"
-                >
+                <button onClick={() => setIsMenuOpen(false)} className="h-8 w-8 rounded-full flex items-center justify-center text-white hover:bg-white/10">
                   <X className="h-4 w-4" />
                 </button>
               </div>
@@ -123,19 +110,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
               {/* Navigation */}
               <div className="flex-1 p-4 overflow-y-auto">
                 <nav className="space-y-1">
-                  {navigationItems.map(item => 
-                    <button 
-                      key={item.id} 
-                      onClick={() => scrollToSection(item.id)} 
-                      className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${
-                        activeSection === item.id 
-                          ? 'bg-primary text-primary-foreground font-semibold' 
-                          : 'text-white hover:bg-white/10'
-                      }`}
-                    >
+                  {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className={`block w-full text-left px-4 py-2 rounded-lg transition-colors ${activeSection === item.id ? 'bg-primary text-primary-foreground font-semibold' : 'text-white hover:bg-white/10'}`}>
                       {item.label}
-                    </button>
-                  )}
+                    </button>)}
                 </nav>
               </div>
               
@@ -144,7 +121,7 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
                 <div className="space-y-2">
                   <a href="tel:+919876543210" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                     <Phone className="h-4 w-4 flex-shrink-0" />
-                    <span className="text-sm">+91 98765 43210</span>
+                    <span className="text-sm">+91 XXXXX XXXXX</span>
                   </a>
                   <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                     <Mail className="h-4 w-4 flex-shrink-0" />
@@ -154,17 +131,14 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
 
                 {/* Social Icons */}
                 <div className="flex space-x-4 pt-1">
-                  {socialLinks.map((social, index) => 
-                    <a key={index} href={social.href} className="text-gray-400 hover:text-white transition-colors">
+                  {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400 hover:text-white transition-colors">
                       <social.icon className="h-5 w-5" />
-                    </a>
-                  )}
+                    </a>)}
                 </div>
               </div>
             </div>
           </div>
-        </>
-      )}
+        </>}
     </div>
 
     {/* Mobile Sidebar */}
@@ -185,15 +159,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
             {/* Navigation */}
             <div className="flex-1 p-6">
               <nav className="space-y-2">
-                {navigationItems.map(item => 
-                  <button 
-                    key={item.id} 
-                    onClick={() => scrollToSection(item.id)} 
-                    className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors"
-                  >
+                {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
                     {item.label}
-                  </button>
-                )}
+                  </button>)}
               </nav>
             </div>
             
@@ -210,11 +178,9 @@ const Sidebar = ({ isMenuOpen, setIsMenuOpen }: SidebarProps) => {
                 </a>
               </div>
               <div className="flex space-x-4 pt-2">
-                {socialLinks.map((social, index) => 
-                  <a key={index} href={social.href} className="text-gray-400">
+                {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400">
                     <social.icon className="h-5 w-5" />
-                  </a>
-                )}
+                  </a>)}
               </div>
             </div>
           </div>
