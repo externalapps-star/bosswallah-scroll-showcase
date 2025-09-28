@@ -2,12 +2,9 @@ import { Button } from "@/components/ui/button";
 import youtubeIcon from "@/assets/youtube-logo.png";
 import facebookIcon from "@/assets/facebook-logo.png";
 import instagramIcon from "@/assets/instagram-logo.png";
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  return (
-    <footer className="bg-foreground text-background">
+  return <footer className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
@@ -19,17 +16,7 @@ const Footer = () => {
               India's leading social media and production platform, powering brand impact 
               at scale across regional markets.
             </p>
-            <div className="flex space-x-4">
-              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
-                <img src={youtubeIcon} alt="YouTube" className="w-10 h-10 object-contain" />
-              </Button>
-              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
-                <img src={facebookIcon} alt="Facebook" className="w-10 h-10 object-contain" />
-              </Button>
-              <Button variant="ghost" size="lg" className="p-3 hover:bg-background/10 bg-transparent">
-                <img src={instagramIcon} alt="Instagram" className="w-10 h-10 object-contain" />
-              </Button>
-            </div>
+            
           </div>
 
           {/* Quick Links */}
@@ -89,8 +76,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
-  );
+    </footer>;
 };
-
 export default Footer;
