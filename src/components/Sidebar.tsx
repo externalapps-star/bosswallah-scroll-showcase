@@ -131,7 +131,7 @@ const Sidebar = ({
 
                 {/* Social Icons */}
                 <div className="flex space-x-4 pt-1">
-                  {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400 hover:text-white transition-colors">
+                  {socialLinks.map((social, index) => <a key={index} href={social.href} className={`${social.color} hover:opacity-80 transition-opacity`}>
                       <social.icon className="h-5 w-5" />
                     </a>)}
                 </div>
@@ -178,7 +178,7 @@ const Sidebar = ({
                 </a>
               </div>
               <div className="flex space-x-4 pt-2">
-                {socialLinks.map((social, index) => <a key={index} href={social.href} className="text-gray-400">
+                {socialLinks.map((social, index) => <a key={index} href={social.href} className={`${social.color} hover:opacity-80 transition-opacity`}>
                     <social.icon className="h-5 w-5" />
                   </a>)}
               </div>
