@@ -17,7 +17,7 @@ const TopStrip = () => {
           <img 
             src={bossWallahLogo} 
             alt="Boss Wallah Media" 
-            className="h-12 w-auto object-contain bg-white p-2 rounded transition-none" 
+            className="h-12 w-auto object-contain bg-white p-1 rounded transition-none" 
             loading="eager"
             decoding="sync"
             style={{
