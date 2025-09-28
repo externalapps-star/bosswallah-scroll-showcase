@@ -122,7 +122,7 @@ const NewsSection = () => {
     ? newsItems 
     : newsItems.filter(item => item.category === selectedCategory.replace(/\s+/g, " "));
   
-  const displayedNews = showMore ? filteredNews.slice(0, loadedCount) : filteredNews.slice(0, 6);
+  const displayedNews = showMore ? filteredNews.slice(0, loadedCount) : filteredNews.slice(0, 4);
 
   const handleLoadMore = async () => {
     setIsLoadingMore(true);
