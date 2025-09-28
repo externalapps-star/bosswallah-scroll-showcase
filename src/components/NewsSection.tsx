@@ -124,7 +124,7 @@ const NewsSection = () => {
     });
   };
   const filteredNews = selectedCategory === "All" ? newsItems : newsItems.filter(item => item.category === selectedCategory.replace(/\s+/g, " "));
-  const displayedNews = showMore ? filteredNews.slice(0, loadedCount) : filteredNews.slice(0, 4);
+  const displayedNews = showMore ? filteredNews.slice(0, loadedCount) : filteredNews.slice(0, 6);
   const handleLoadMore = async () => {
     setIsLoadingMore(true);
     // Simulate loading delay for better UX
@@ -139,7 +139,7 @@ const NewsSection = () => {
           {/* Header */}
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              Trending <span className="gradient-text">News</span>
+              Trending <span className="gradient-text">Stay informed with the top global stories and trends shaping the business world</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Stay updated with the latest insights, trends, and strategies from Boss Wallah
@@ -158,7 +158,7 @@ const NewsSection = () => {
                 <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
                   <div className="p-4 border-b border-primary/10 flex-shrink-0">
-                    <h3 className="font-semibold text-foreground text-lg">All News</h3>
+                    <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
                   
                   {/* Scrollable News Container - Fixed height, no expansion */}

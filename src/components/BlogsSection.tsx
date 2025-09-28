@@ -3,15 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import NewsModal from "./NewsModal";
 import { useState, useEffect } from "react";
-import { 
-  Clock, 
-  Calendar, 
-  User, 
-  ArrowRight, 
-  BookOpen,
-  ExternalLink,
-  Filter
-} from "lucide-react";
+import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } from "lucide-react";
 import { NewsService } from "@/services/NewsService";
 
 // Import generated thumbnails
@@ -21,7 +13,6 @@ import newsThumbFranchise from "@/assets/news-thumb-franchise.jpg";
 import newsThumbBurger from "@/assets/news-thumb-burger.jpg";
 import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
 import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
-
 interface NewsItem {
   id: number;
   date: string;
@@ -35,7 +26,6 @@ interface NewsItem {
   tags: string[];
   url: string;
 }
-
 const BlogsSection = () => {
   const [selectedNews, setSelectedNews] = useState<NewsItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -64,50 +54,38 @@ const BlogsSection = () => {
         setIsLoading(false);
       }
     };
-
     fetchNews();
   }, []);
-
   const categories = ["All", "Creator Hub", "Digital Skills", "Business"];
-
   const handleReadMore = (news: any) => {
     const newsIndex = filteredNews.findIndex(item => item.id === news.id);
     setCurrentNewsIndex(newsIndex);
     setSelectedNews(news);
     setIsModalOpen(true);
   };
-
   const handleNextNews = () => {
     const nextIndex = (currentNewsIndex + 1) % filteredNews.length;
     setCurrentNewsIndex(nextIndex);
     setSelectedNews(filteredNews[nextIndex]);
   };
-
   const handlePreviousNews = () => {
     const prevIndex = currentNewsIndex === 0 ? filteredNews.length - 1 : currentNewsIndex - 1;
     setCurrentNewsIndex(prevIndex);
     setSelectedNews(filteredNews[prevIndex]);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedNews(null);
   };
-
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      month: 'short', 
-      day: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric'
     });
   };
-
-  const filteredNews = selectedCategory === "All" 
-    ? newsItems 
-    : newsItems.filter(item => item.category === selectedCategory);
-
-  return (
-    <>
+  const filteredNews = selectedCategory === "All" ? newsItems : newsItems.filter(item => item.category === selectedCategory);
+  return <>
       <section id="blogs" className="section-padding bg-gradient-subtle">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
@@ -115,9 +93,7 @@ const BlogsSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
               Latest <span className="gradient-text">Blogs</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Stay updated with the latest insights, trends, and strategies from Boss Wallah
-            </p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Thoughtful articles to keep you informed and inspired</p>
           </div>
 
 
@@ -126,18 +102,9 @@ const BlogsSection = () => {
             {/* First Line - Trending + Regular Card */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6">
               {/* Trending Card - Takes 2/3 width */}
-              {filteredNews.slice(0, 1).map((item) => (
-                <Card
-                  key={item.id}
-                  className="lg:col-span-2 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in"
-                  onClick={() => window.open(item.url, '_blank')}
-                >
+              {filteredNews.slice(0, 1).map(item => <Card key={item.id} className="lg:col-span-2 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={item.thumbnail} 
-                      alt={item.title}
-                      className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
-                    />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-accent text-accent-foreground text-sm font-semibold border border-accent/50 group-hover:border-accent shadow-lg animate-pulse">
                         🔥 Trending
@@ -164,22 +131,12 @@ const BlogsSection = () => {
                       <span>{item.readTime}</span>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
 
               {/* First Regular Card - Takes 1/3 width */}
-              {filteredNews.slice(1, 2).map((item, index) => (
-                <Card
-                  key={item.id}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale"
-                  onClick={() => window.open(item.url, '_blank')}
-                >
+              {filteredNews.slice(1, 2).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={item.thumbnail} 
-                      alt={item.title}
-                      className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                    />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-background/90 text-foreground text-xs border border-primary/20 group-hover:border-primary/50 transition-all duration-300">
                         {item.category}
@@ -206,24 +163,14 @@ const BlogsSection = () => {
                       <span>{item.readTime}</span>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
 
             {/* Second Line - 3 Regular Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {filteredNews.slice(2, 5).map((item, index) => (
-                <Card
-                  key={item.id}
-                  className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale"
-                  onClick={() => window.open(item.url, '_blank')}
-                >
+              {filteredNews.slice(2, 5).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img 
-                      src={item.thumbnail} 
-                      alt={item.title}
-                      className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110"
-                    />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-background/90 text-foreground text-xs border border-primary/20 group-hover:border-primary/50 transition-all duration-300">
                         {item.category}
@@ -250,19 +197,13 @@ const BlogsSection = () => {
                       <span>{item.readTime}</span>
                     </div>
                   </CardContent>
-                </Card>
-              ))}
+                </Card>)}
             </div>
           </div>
 
           {/* Read More Articles CTA */}
           <div className="text-center">
-            <Button 
-              variant="outline" 
-              size="lg"
-              onClick={() => window.open('https://blog.bosswallah.com/', '_blank')}
-              className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
-            >
+            <Button variant="outline" size="lg" onClick={() => window.open('https://blog.bosswallah.com/', '_blank')} className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300">
               <BookOpen size={18} className="mr-2" />
               Read More Articles
             </Button>
@@ -272,15 +213,7 @@ const BlogsSection = () => {
       </section>
 
       {/* News Modal */}
-      <NewsModal 
-        news={selectedNews}
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onNext={handleNextNews}
-        onPrevious={handlePreviousNews}
-      />
-    </>
-  );
+      <NewsModal news={selectedNews} isOpen={isModalOpen} onClose={handleCloseModal} onNext={handleNextNews} onPrevious={handlePreviousNews} />
+    </>;
 };
-
 export default BlogsSection;
