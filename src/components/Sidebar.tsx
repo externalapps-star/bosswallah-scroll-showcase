@@ -131,9 +131,15 @@ const Sidebar = ({
 
                 {/* Social Icons */}
                 <div className="flex space-x-4 pt-1">
-                  {socialLinks.map((social, index) => <a key={index} href={social.href} className={`text-gray-400 hover:${social.color} transition-colors`}>
-                      <social.icon className="h-5 w-5" />
-                    </a>)}
+                  <a href={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
+                    <Youtube className="h-5 w-5" />
+                  </a>
+                  <a href={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
+                    <Facebook className="h-5 w-5" />
+                  </a>
+                  <a href={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
+                    <Instagram className="h-5 w-5" />
+                  </a>
                 </div>
               </div>
             </div>
@@ -178,9 +184,15 @@ const Sidebar = ({
                 </a>
               </div>
               <div className="flex space-x-4 pt-2">
-                {socialLinks.map((social, index) => <a key={index} href={social.href} className={`text-gray-400 hover:${social.color} transition-colors`}>
-                    <social.icon className="h-5 w-5" />
-                  </a>)}
+                <a href={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </a>
+                <a href={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
+                  <Instagram className="h-5 w-5" />
+                </a>
               </div>
             </div>
           </div>
