@@ -120,10 +120,7 @@ const YouTubePage = () => {
                         document.body.removeChild(link);
                       }}
                     >
-                      <div className="flex items-center justify-between mb-3">
-                        <div className="w-8 h-8 bg-red-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Youtube size={16} className="text-red-600" />
-                        </div>
+                      <div className="flex items-center justify-end mb-3">
                         <div className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(channel.category)}`}>
                           {channel.category}
                         </div>
