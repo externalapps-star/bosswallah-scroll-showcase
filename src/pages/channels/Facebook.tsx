@@ -103,7 +103,7 @@ const FacebookPage = () => {
                   {languageGroup.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="bg-card rounded-2xl p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer"
+                      className="bg-card rounded-xl p-4 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer hover-scale"
                       onClick={() => {
                         const link = document.createElement('a');
                         link.href = channel.url;
@@ -114,16 +114,16 @@ const FacebookPage = () => {
                         document.body.removeChild(link);
                       }}
                     >
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Facebook size={24} className="text-blue-600" />
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="w-8 h-8 bg-blue-500/10 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                          <Facebook size={16} className="text-blue-600" />
                         </div>
-                        <div className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(channel.category)}`}>
+                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(channel.category)}`}>
                           {channel.category}
                         </div>
                       </div>
                       
-                      <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                      <h3 className="font-semibold text-foreground mb-2 text-sm group-hover:text-primary transition-colors leading-tight">
                         {channel.name}
                       </h3>
                       
