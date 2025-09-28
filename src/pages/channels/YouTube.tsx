@@ -7,52 +7,52 @@ const YouTubePage = () => {
     {
       language: "Telugu",
       channels: [
-        { name: "Boss Wallah Telugu", url: "https://www.youtube.com/@bosswallahtelugu", category: "Main" },
-        { name: "Boss Wallah Farming Telugu", url: "https://www.youtube.com/@bosswallahfarmingtelugu", category: "Farming" },
-        { name: "Boss Wallah Academy Telugu", url: "https://www.youtube.com/@bosswallahAcademytelugu", category: "Academy" }
+        { name: "Boss Wallah Telugu", url: "https://www.youtube.com/@bosswallahtelugu", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Farming Telugu", url: "https://www.youtube.com/@bosswallahfarmingtelugu", category: "Farming", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Academy Telugu", url: "https://www.youtube.com/@bosswallahAcademytelugu", category: "Academy", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     },
     // Tamil Channels
     {
       language: "Tamil",
       channels: [
-        { name: "Boss Wallah Tamil", url: "https://www.youtube.com/@bosswallahtamil", category: "Main" },
-        { name: "Boss Wallah Farming Tamil", url: "https://www.youtube.com/@bosswallahfarmingtamil", category: "Farming" },
-        { name: "Boss Wallah Academy Tamil", url: "https://www.youtube.com/@bosswallahAcademytamil", category: "Academy" }
+        { name: "Boss Wallah Tamil", url: "https://www.youtube.com/@bosswallahtamil", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Farming Tamil", url: "https://www.youtube.com/@bosswallahfarmingtamil", category: "Farming", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Academy Tamil", url: "https://www.youtube.com/@bosswallahAcademytamil", category: "Academy", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     },
     // Kannada Channels
     {
       language: "Kannada",
       channels: [
-        { name: "Boss Wallah Kannada", url: "https://www.youtube.com/@bosswallahkannada", category: "Main" },
-        { name: "Boss Wallah Farming Kannada", url: "https://www.youtube.com/@bosswallahfarmingkannada", category: "Farming" },
-        { name: "Boss Wallah Academy Kannada", url: "https://www.youtube.com/@bosswallahAcademykannada", category: "Academy" }
+        { name: "Boss Wallah Kannada", url: "https://www.youtube.com/@bosswallahkannada", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Farming Kannada", url: "https://www.youtube.com/@bosswallahfarmingkannada", category: "Farming", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Academy Kannada", url: "https://www.youtube.com/@bosswallahAcademykannada", category: "Academy", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     },
     // Malayalam Channels
     {
       language: "Malayalam",
       channels: [
-        { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main" }
+        { name: "Boss Wallah Malayalam", url: "https://www.youtube.com/@bosswallahmalayalam", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     },
     // Hindi Channels
     {
       language: "Hindi",
       channels: [
-        { name: "Boss Wallah Hindi", url: "https://www.youtube.com/@bosswallahhindi", category: "Main" },
-        { name: "Boss Wallah Farming Hindi", url: "https://www.youtube.com/@bosswallahfarminghindi", category: "Farming" },
-        { name: "Boss Wallah Academy Hindi", url: "https://www.youtube.com/@bosswallahAcademyhindi", category: "Academy" }
+        { name: "Boss Wallah Hindi", url: "https://www.youtube.com/@bosswallahhindi", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Farming Hindi", url: "https://www.youtube.com/@bosswallahfarminghindi", category: "Farming", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Academy Hindi", url: "https://www.youtube.com/@bosswallahAcademyhindi", category: "Academy", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     },
     // English Channels
     {
       language: "English",
       channels: [
-        { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main" },
-        { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming" },
-        { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy" }
+        { name: "Boss Wallah English", url: "https://www.youtube.com/@bosswallahenglish", category: "Main", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Farming English", url: "https://www.youtube.com/@bosswallahfarmingenglish", category: "Farming", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" },
+        { name: "Boss Wallah Academy English", url: "https://www.youtube.com/@bosswallahAcademyenglish", category: "Academy", thumbnail: "https://yt3.ggpht.com/a/default-user=s88-c-k-c0x00ffffff-no-rj" }
       ]
     }
   ];
@@ -121,8 +121,12 @@ const YouTubePage = () => {
                       }}
                     >
                       <div className="flex items-start justify-between mb-4">
-                        <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
-                          <Youtube size={24} className="text-red-600" />
+                        <div className="w-12 h-12 rounded-xl overflow-hidden group-hover:scale-110 transition-transform">
+                          <img 
+                            src={channel.thumbnail} 
+                            alt={`${channel.name} thumbnail`}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                         <div className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(channel.category)}`}>
                           {channel.category}
