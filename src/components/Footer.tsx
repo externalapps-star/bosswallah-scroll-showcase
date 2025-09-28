@@ -63,7 +63,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="border-t border-background/20 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-background/60 text-sm">
-            © {currentYear} Boss Wallah Media. All rights reserved.
+            © {currentYear} Boss Wallah Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-background/60 hover:text-primary text-sm transition-colors">
