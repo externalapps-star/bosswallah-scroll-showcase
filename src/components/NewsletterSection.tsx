@@ -27,12 +27,18 @@ const NewsletterSection = () => {
     };
 
     try {
+      console.log("Newsletter data being sent:", formData);
+      
       const response = await fetch(scriptURL, {
         method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(formData)
       });
       
-      const data = await response.json();
+      // With no-cors, we can't read response, so assume success if no error thrown
       
       toast({
         title: "Successfully Subscribed!",
