@@ -73,14 +73,44 @@ const NewsSection = () => {
         ];
 
         const latestNews = await NewsService.fetchNewsFromBossWallah();
+        // Create content for second row cards based on trending topics
+        const secondRowCards = [
+          {
+            id: 9997,
+            date: "2025-09-16",
+            title: "YouTube's AI Gamble: A New Era for Content?",
+            excerpt: "YouTube unveils revolutionary AI tools including Veo 3 integration for Shorts, transforming how creators produce content with text-to-video generation and automated backgrounds.",
+            content: "YouTube is betting big on AI as its next major growth driver. The platform has introduced groundbreaking generative AI tools for Shorts creators, including a custom version of Google's Veo 3 text-to-video model. These tools allow creators to generate video backgrounds, create clips with sound using simple text prompts, and apply motion effects to photos - all for free. The Dream Screen feature enables instant photo and video creation based on creator prompts. This AI integration represents YouTube's strategic shift to democratize content creation, making professional-quality video production accessible to millions of creators worldwide. With AI-powered features for dialogue-to-song conversion and video restyling, YouTube is positioning itself at the forefront of the creator economy revolution.",
+            category: "Digital Skills",
+            thumbnail: newsThumbEcommerce,
+            readTime: "2 min read",
+            author: "Tech Reporter",
+            tags: ["YouTube", "AI", "Content Creation"],
+            url: "https://techcrunch.com/2025/09/16/youtube-announces-new-generative-ai-tools-for-shorts-creators/"
+          },
+          {
+            id: 9996,
+            date: "2025-04-16",
+            title: "India's Faceless Influencers: A New Era of Digital Fame",
+            excerpt: "The rise of faceless influencers and AI avatars is reshaping India's digital marketing landscape, with authenticity transcending physical appearance in 2025.",
+            content: "India is witnessing a revolutionary shift in influencer marketing with the emergence of faceless influencers and AI avatars. These digital personalities are gaining massive followings without showing their faces, focusing instead on craft, content quality, and authentic storytelling. India's first AI mom influencer has already launched and is trending across social platforms. This movement represents a paradigm shift where authenticity transcends physicality - creators are building trust through consistent value delivery rather than personal branding. Brands are increasingly exploring AI influencers for their cost-effectiveness, scalability, and 24/7 availability. From virtual cooking shows to tech tutorials, faceless creators are proving that engagement depends more on content quality than creator appearance. This trend is particularly strong in India's Tier 2 and Tier 3 cities, where creators prefer anonymity while building substantial audiences.",
+            category: "Digital Skills",
+            thumbnail: newsThumbBusiness,
+            readTime: "3 min read",
+            author: "Digital Marketing Expert",
+            tags: ["Influencers", "AI", "Digital Marketing"],
+            url: "https://www.kolsquare.com/en/blog/unveiling-the-power-of-faceless-influencers-how-authenticity-transcends-physicality"
+          }
+        ];
+        
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
           thumbnail: [newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbFood][index % 4]
         }));
         
-        // Combine trending articles with other news
-        setNewsItems([...trendingArticles, ...newsWithThumbnails]);
+        // Combine trending articles with second row content and other news
+        setNewsItems([...trendingArticles, ...secondRowCards, ...newsWithThumbnails]);
       } catch (error) {
         console.error('Error fetching news:', error);
         // Fallback to static news if fetch fails
