@@ -35,17 +35,22 @@ const ContactSection = () => {
 
     // Real-time email validation
     if (name === 'email') {
-      if (value && !validateEmail(value)) {
-        setEmailError('Please enter a valid email address');
+      if (value) {
+        if (!validateEmail(value)) {
+          setEmailError('Invalid email format. Please enter a valid email address.');
+        } else {
+          setEmailError('');
+        }
       } else {
-        setEmailError('');
+        setEmailError('Email address is required.');
       }
     }
   };
 
   const validateEmail = (email: string) => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    // More strict email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return emailRegex.test(email) && email.includes('.') && email.length > 5;
   };
 
   const validateContactNumber = (contactNumber: string) => {
@@ -60,6 +65,16 @@ const ContactSection = () => {
     // For international numbers, check if it's 10-15 digits
     return digitsOnly.length >= 10 && digitsOnly.length <= 15;
   };
+    
+    // Strict email validation - prevent submission if invalid
+    if (!formData.email || !validateEmail(formData.email)) {
+      toast({
+        title: "Invalid Email Address",
+        description: "Please enter a valid email address before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
     
     // Check if there are any validation errors
     if (emailError) {
@@ -343,8 +358,13 @@ const ContactSection = () => {
                       type="submit" 
                       variant="outline" 
                       size="lg" 
-                      className="w-full border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
-                      disabled={isLoading || !!emailError}
+                      className={cn(
+                        "w-full border-2 transition-all duration-300",
+                        emailError || !formData.email || !validateEmail(formData.email)
+                          ? "border-gray-300 text-gray-400 bg-gray-100 cursor-not-allowed opacity-50"
+                          : "border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground"
+                      )}
+                      disabled={isLoading || !!emailError || !formData.email || !validateEmail(formData.email)}
                     >
                       {isLoading ? "Submitting..." : "Send Message"}
                     </Button>
