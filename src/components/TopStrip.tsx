@@ -10,7 +10,7 @@ const TopStrip = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
-  return <div className="fixed top-0 left-0 right-0 z-50 bg-[#1a1a2e] text-primary-foreground border-b border-border px-6 shadow-soft py-2">
+  return <div className="fixed top-0 left-0 right-0 z-50 bg-background text-foreground border-b border-border px-6 shadow-soft py-2">
       <div className="flex items-center justify-between max-w-full">
         {/* Logo */}
         <div className="flex-shrink-0 w-[160px] h-14 flex items-center">
@@ -31,7 +31,7 @@ const TopStrip = () => {
         {/* Message */}
         <div className="flex-1 text-center">
           <p className="text-sm md:text-base font-medium">
-            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> Social Media Platform in South India
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> <span className="text-[#F05C25] font-bold text-3xl">Social Media Platform in South India</span>
           </p>
         </div>
 
