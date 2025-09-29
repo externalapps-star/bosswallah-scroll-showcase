@@ -11,6 +11,7 @@ const ContactSection = () => {
     name: '',
     company: '',
     phone: '',
+    email: '',
     problem: '',
     budget: '',
     startDate: '',
@@ -162,6 +163,20 @@ const ContactSection = () => {
                     </div>
 
                     <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input 
+                        id="email" 
+                        name="email" 
+                        type="email"
+                        required 
+                        value={formData.email} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                        placeholder="your@email.com"
+                      />
+                    </div>
+
+                    <div>
                       <Label htmlFor="problem">Marketing Problem (Optional)</Label>
                       <Textarea 
                         id="problem" 
@@ -243,6 +258,7 @@ const ContactSection = () => {
                         name: '',
                         company: '',
                         phone: '',
+                        email: '',
                         problem: '',
                         budget: '',
                         startDate: '',
