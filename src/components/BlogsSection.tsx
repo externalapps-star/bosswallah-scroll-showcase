@@ -6,13 +6,12 @@ import { useState, useEffect } from "react";
 import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } from "lucide-react";
 import { NewsService } from "@/services/NewsService";
 
-// Import generated thumbnails
-import blogRetailFranchise from "@/assets/blog-retail-franchise.jpg";
-import blogFoodBeverage from "@/assets/blog-food-beverage.jpg";
-import blogFranchiseeRights from "@/assets/blog-franchisee-rights.jpg";
-import blogProfitableFranchise from "@/assets/blog-profitable-franchise.jpg";
-import blogStarbucksFranchise from "@/assets/blog-starbucks-franchise.jpg";
-import blogCloudKitchen from "@/assets/blog-cloud-kitchen.jpg";
+// Import blog thumbnails
+import blogInstagramZeroFollowers from "@/assets/blog-instagram-zero-followers.png";
+import blogInstagramBusiness from "@/assets/blog-instagram-business.png";
+import blogFinancialPlanning from "@/assets/blog-financial-planning.png";
+import blogSaveMoneyDaily from "@/assets/blog-save-money-daily.png";
+import blogAgriStartups from "@/assets/blog-agri-startups.png";
 interface NewsItem {
   id: number;
   date: string;
@@ -43,7 +42,7 @@ const BlogsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [blogRetailFranchise, blogFoodBeverage, blogFranchiseeRights, blogProfitableFranchise, blogStarbucksFranchise, blogCloudKitchen][index % 6]
+          thumbnail: [blogInstagramZeroFollowers, blogInstagramBusiness, blogFinancialPlanning, blogSaveMoneyDaily, blogAgriStartups][index % 5]
         }));
         setNewsItems(newsWithThumbnails);
       } catch (error) {
@@ -56,7 +55,7 @@ const BlogsSection = () => {
     };
     fetchNews();
   }, []);
-  const categories = ["All", "Creator Hub", "Digital Skills", "Business"];
+  const categories = ["All", "Creator Hub", "Finance", "Local Business"];
   const handleReadMore = (news: any) => {
     const newsIndex = filteredNews.findIndex(item => item.id === news.id);
     setCurrentNewsIndex(newsIndex);
