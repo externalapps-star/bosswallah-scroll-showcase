@@ -134,7 +134,7 @@ const ContactSection = () => {
     };
 
     try {
-      console.log("Sending contact data:", submitData);
+      // Use no-cors mode to bypass CORS entirely
       
       // Use no-cors mode to bypass CORS entirely
       const params = new URLSearchParams();
@@ -168,7 +168,7 @@ const ContactSection = () => {
         body: params.toString()
       });
       
-      console.log("Request sent successfully (no-cors mode)");
+      // With no-cors, we can't read the response, so we assume success
       
       // With no-cors, we can't read the response, so we assume success
       toast({
@@ -178,9 +178,6 @@ const ContactSection = () => {
       setIsSubmitted(true);
       
     } catch (error) {
-      console.error("Fetch error details:", error);
-      console.error("Error name:", error.name);
-      console.error("Error message:", error.message);
       toast({
         title: "Network Error",
         description: "Please check your internet connection and try again.",
@@ -195,11 +192,11 @@ const ContactSection = () => {
     <section id="contact" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <div className="text-center mb-12 md:mb-16 px-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
               Book a <span className="gradient-text">Consulting</span> <span className="gradient-text">Call</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8 px-4 md:px-0">
               We pride ourselves on being a business savvy media house that understands 
               that we need to deliver what matters to our customers.
             </p>
@@ -207,7 +204,7 @@ const ContactSection = () => {
 
           <div className="flex justify-center">
             {/* Centered Contact form */}
-            <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 max-w-2xl w-full backdrop-blur-sm bg-gradient-to-br from-card/90 to-card/70">
+            <div className="bg-card rounded-2xl p-4 md:p-6 lg:p-8 shadow-soft border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 max-w-2xl w-full backdrop-blur-sm bg-gradient-to-br from-card/90 to-card/70">
               {!isSubmitted ? (
                 <>
                   <form onSubmit={handleSubmit} className="space-y-6">
@@ -248,7 +245,7 @@ const ContactSection = () => {
                           value={formData.contactNumber} 
                           onChange={handleInputChange} 
                           className="mt-2" 
-                          placeholder="9876543210 (Indian format) or +1-555-123-4567 (International)"
+                          placeholder="9876543210 (Indian) or +1-555-123-4567 (Intl)"
                           title="Enter 10 digits for Indian numbers or full international format"
                         />
                       </div>
@@ -296,7 +293,7 @@ const ContactSection = () => {
                           value={formData.budget} 
                           onChange={handleInputChange} 
                           className="mt-2" 
-                          placeholder="e.g., $5,000 - $10,000"
+                          placeholder="e.g., ₹50,000 - ₹1,00,000"
                         />
                       </div>
 
