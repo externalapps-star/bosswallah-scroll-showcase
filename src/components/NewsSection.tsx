@@ -42,13 +42,45 @@ const NewsSection = () => {
     const fetchNews = async () => {
       setIsLoading(true);
       try {
+        // Featured trending articles
+        const trendingArticles = [
+          {
+            id: 9999,
+            date: "2025-05-24",
+            title: "Boss Wallah Becomes South India's No.1 YouTube Business Network",
+            excerpt: "South India's most powerful multi-language business learning platform crosses 13 million subscribers and dominates with over 200 million monthly views.",
+            content: "Boss Wallah, India's most inclusive and accessible entrepreneurship learning platform, has officially emerged as the #1 YouTube network for multi-language business content in South India...",
+            category: "Digital Skills",
+            thumbnail: newsThumbBusiness,
+            readTime: "3 min read",
+            author: "Boss Wallah Blogs",
+            tags: ["YouTube", "Business Network", "South India"],
+            url: "https://blog.bosswallah.com/boss-wallah-becomes-south-indias-no-1-youtube-business-network/"
+          },
+          {
+            id: 9998,
+            date: "2025-09-24",
+            title: "From 30M to 150M Views: Boss Wallah's Facebook Surge Reveals India's Business and Personal Finance Aspirations",
+            excerpt: "Boss Wallah has reported a fivefold surge in video views on Facebook within just six months, scaling from 30 million in March to 150 million in August 2025.",
+            content: "Boss Wallah, the #1 platform for entrepreneurs, has reported a fivefold surge in video views on Facebook within just six months...",
+            category: "Digital Skills",
+            thumbnail: newsThumbEcommerce,
+            readTime: "3 min read",
+            author: "PRNewswire",
+            tags: ["Facebook", "Growth", "Social Media"],
+            url: "https://www.business-standard.com/content/press-releases-ani/from-30m-to-150m-views-boss-wallah-elevates-south-indians-business-and-personal-finance-aspirations-125092400965_1.html"
+          }
+        ];
+
         const latestNews = await NewsService.fetchNewsFromBossWallah();
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [newsThumbEcommerce, newsThumbFood, newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbBusiness][index % 6]
+          thumbnail: [newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbFood][index % 4]
         }));
-        setNewsItems(newsWithThumbnails);
+        
+        // Combine trending articles with other news
+        setNewsItems([...trendingArticles, ...newsWithThumbnails]);
       } catch (error) {
         console.error('Error fetching news:', error);
         // Fallback to static news if fetch fails
