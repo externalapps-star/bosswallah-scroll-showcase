@@ -14,6 +14,7 @@ import newsThumbBurger from "@/assets/news-thumb-burger.jpg";
 import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
 import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
 import youtubeAiThumbnail from "@/assets/youtube-ai-thumbnail.png";
+import facelessInfluencersThumbnail from "@/assets/faceless-influencers-thumbnail.png";
 interface NewsItem {
   id: number;
   date: string;
@@ -96,7 +97,7 @@ const NewsSection = () => {
             excerpt: "The rise of faceless influencers and AI avatars is reshaping India's digital marketing landscape, with authenticity transcending physical appearance in 2025.",
             content: "India is witnessing a revolutionary shift in influencer marketing with the emergence of faceless influencers and AI avatars. These digital personalities are gaining massive followings without showing their faces, focusing instead on craft, content quality, and authentic storytelling. India's first AI mom influencer has already launched and is trending across social platforms. This movement represents a paradigm shift where authenticity transcends physicality - creators are building trust through consistent value delivery rather than personal branding. Brands are increasingly exploring AI influencers for their cost-effectiveness, scalability, and 24/7 availability. From virtual cooking shows to tech tutorials, faceless creators are proving that engagement depends more on content quality than creator appearance. This trend is particularly strong in India's Tier 2 and Tier 3 cities, where creators prefer anonymity while building substantial audiences.",
             category: "Digital Skills",
-            thumbnail: newsThumbBusiness,
+            thumbnail: facelessInfluencersThumbnail,
             readTime: "3 min read",
             author: "Digital Marketing Expert",
             tags: ["Influencers", "AI", "Digital Marketing"],
