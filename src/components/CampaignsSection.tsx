@@ -19,7 +19,7 @@ const CampaignsSection = () => {
       icon: revenueIcon
     },
     {
-      title: "Intense Event Based Program",
+      title: "Event Launch Program",
       description: "Companies that want to create an intense 3 month campaign:",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
       icon: "event"
