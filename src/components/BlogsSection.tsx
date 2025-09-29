@@ -7,12 +7,12 @@ import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } fro
 import { NewsService } from "@/services/NewsService";
 
 // Import generated thumbnails
-import newsThumbEcommerce from "@/assets/news-thumb-ecommerce.jpg";
-import newsThumbFood from "@/assets/news-thumb-food.jpg";
-import newsThumbFranchise from "@/assets/news-thumb-franchise.jpg";
-import newsThumbBurger from "@/assets/news-thumb-burger.jpg";
-import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
-import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
+import blogRetailFranchise from "@/assets/blog-retail-franchise.jpg";
+import blogFoodBeverage from "@/assets/blog-food-beverage.jpg";
+import blogFranchiseeRights from "@/assets/blog-franchisee-rights.jpg";
+import blogProfitableFranchise from "@/assets/blog-profitable-franchise.jpg";
+import blogStarbucksFranchise from "@/assets/blog-starbucks-franchise.jpg";
+import blogCloudKitchen from "@/assets/blog-cloud-kitchen.jpg";
 interface NewsItem {
   id: number;
   date: string;
@@ -43,7 +43,7 @@ const BlogsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [newsThumbEcommerce, newsThumbFood, newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbBusiness][index % 6]
+          thumbnail: [blogRetailFranchise, blogFoodBeverage, blogFranchiseeRights, blogProfitableFranchise, blogStarbucksFranchise, blogCloudKitchen][index % 6]
         }));
         setNewsItems(newsWithThumbnails);
       } catch (error) {
