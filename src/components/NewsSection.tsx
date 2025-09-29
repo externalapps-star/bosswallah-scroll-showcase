@@ -149,15 +149,15 @@ const NewsSection = () => {
 
           {/* News Grid */}
           {showMore ? (/* Sidebar + Main Content Layout for View All */
-        <div className="flex gap-6 mb-8 group">
+        <div className="flex gap-6 mb-8">
               {/* Sidebar with border - Fixed height */}
               
 
               {/* Main Content with border and scroll - Fixed height */}
               <div className="flex-1">
-                <div className="border-2 border-primary/20 group-hover:border-primary/40 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col transition-colors duration-300">
+                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
-                  <div className="p-4 border-b border-primary/10 group-hover:border-primary/30 flex-shrink-0 transition-colors duration-300">
+                  <div className="p-4 border-b border-primary/10 flex-shrink-0">
                     <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
                   
