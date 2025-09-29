@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Globe, User, Menu, X, ExternalLink } from "lucide-react";
-import LoginModal from "@/components/LoginModal";
+
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 const Header = () => {
   const {
@@ -12,7 +12,7 @@ const Header = () => {
     setLanguage,
     t
   } = useLanguage();
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -74,10 +74,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Fixed Theme Toggle - Only visible when nav is hidden */}
-      {!isVisible && <div className="fixed top-2 right-4 z-50">
-          <ThemeToggle />
-        </div>}
 
       <header className={`fixed top-0 left-0 right-0 z-40 bg-orange-50/95 backdrop-blur-md shadow-sm transition-transform duration-300 border-b-4 border-white translate-y-0`} style={{boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'}}>
         <div className="container-custom mx-auto px-4">
@@ -133,8 +129,6 @@ const Header = () => {
                 Official Website
               </Button>
 
-              {/* Theme Toggle */}
-              <ThemeToggle />
             </div>
 
             {/* Mobile Menu Button */}
@@ -200,17 +194,13 @@ const Header = () => {
                     Official Website
                   </Button>
 
-                  {/* Mobile Theme Toggle */}
-                  <div className="flex justify-start">
-                    <ThemeToggle />
-                  </div>
                 </div>
               </nav>
             </div>}
         </div>
       </header>
 
-      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
+      
     </>;
 };
 export default Header;

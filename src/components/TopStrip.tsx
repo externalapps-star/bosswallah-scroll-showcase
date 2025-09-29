@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
+
 import whatsappIcon from "@/assets/whatsapp-icon-new.png";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 const TopStrip = () => {
@@ -35,9 +35,8 @@ const TopStrip = () => {
           </p>
         </div>
 
-        {/* CTA and Theme Toggle */}
-        <div className="flex items-center space-x-4">
-          <ThemeToggle />
+        {/* CTA */}
+        <div className="flex items-center">
           <Button onClick={openWhatsApp} variant="ghost" size="icon" className="hover:bg-white/10">
             <img src={whatsappIcon} alt="WhatsApp" className="h-10 w-10 object-contain" />
           </Button>

@@ -134,7 +134,7 @@ const ContactSection = () => {
     };
 
     try {
-      console.log("Sending contact data:", submitData);
+      
       
       // Use no-cors mode to bypass CORS entirely
       const params = new URLSearchParams();
@@ -168,7 +168,7 @@ const ContactSection = () => {
         body: params.toString()
       });
       
-      console.log("Request sent successfully (no-cors mode)");
+      
       
       // With no-cors, we can't read the response, so we assume success
       toast({
