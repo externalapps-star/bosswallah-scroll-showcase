@@ -7,7 +7,7 @@ import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } fro
 import { NewsService } from "@/services/NewsService";
 
 // Import blog thumbnails
-import blogInstagramGrowFollowers from "@/assets/blog-instagram-grow-followers.png";
+import blogInstagramZeroFollowers from "@/assets/blog-instagram-zero-followers.png";
 import blogInstagramBusinessAccount from "@/assets/blog-instagram-business-account.png";
 import blogFinancialPlanningGuide from "@/assets/blog-financial-planning-guide.png";
 import blogSaveMoneyDailyTips from "@/assets/blog-save-money-daily-tips.png";
@@ -42,7 +42,7 @@ const BlogsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [blogInstagramGrowFollowers, blogInstagramBusinessAccount, blogFinancialPlanningGuide, blogSaveMoneyDailyTips, blogAgricultureBusinessIdeas][index % 5]
+          thumbnail: [blogInstagramZeroFollowers, blogInstagramBusinessAccount, blogFinancialPlanningGuide, blogSaveMoneyDailyTips, blogAgricultureBusinessIdeas][index % 5]
         }));
         setNewsItems(newsWithThumbnails);
       } catch (error) {
