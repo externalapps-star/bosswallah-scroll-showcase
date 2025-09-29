@@ -31,14 +31,43 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    // TODO: Implement API call for consultation request
-    toast({
-      title: "Form Submitted!",
-      description: "Thank you for your consultation request.",
-    });
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
+    const submitData = {
+      type: "form",
+      name: formData.name,
+      companyName: formData.company,
+      contactNumber: formData.phone,
+      email: formData.email,
+      marketingProblem: formData.problem,
+      budget: formData.budget,
+      expectedStartDate: formData.startDate,
+      currentAgency: formData.agency
+    };
 
-    setIsSubmitted(true);
-    setIsLoading(false);
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(submitData)
+      });
+      
+      const data = await response.json();
+      
+      toast({
+        title: "Form Submitted!",
+        description: "Thank you for your consultation request.",
+      });
+      
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error("Error:", error);
+      toast({
+        title: "Submission Failed",
+        description: "Oops! Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (

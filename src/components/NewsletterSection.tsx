@@ -20,14 +20,36 @@ const NewsletterSection = () => {
 
     setIsLoading(true);
 
-    // TODO: Implement API call for newsletter subscription
-    toast({
-      title: "Successfully Subscribed!",
-      description: "Thank you for subscribing to our newsletter.",
-    });
+    const scriptURL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
+    const formData = {
+      type: "newsletter",
+      email: email
+    };
 
-    setEmail("");
-    setIsLoading(false);
+    try {
+      const response = await fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(formData)
+      });
+      
+      const data = await response.json();
+      
+      toast({
+        title: "Successfully Subscribed!",
+        description: "Thank you for subscribing to our newsletter.",
+      });
+      
+      setEmail("");
+    } catch (error) {
+      console.error("Error:", error);
+      toast({
+        title: "Subscription Failed",
+        description: "Oops! Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
