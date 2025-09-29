@@ -8,37 +8,37 @@ const CampaignsSection = () => {
   const campaigns = [
     {
       title: "India Entry Program",
-      description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah...",
+      description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah:",
       features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
       icon: indiaEntryIcon
     },
     {
       title: "Revenue Generation Campaigns",
-      description: "Given Boss Wallah's strength in reaching middle-income audiences...",
+      description: "Given Boss Wallah's strength in reaching middle-income audiences:",
       features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
       icon: revenueIcon
     },
     {
       title: "Intense Event Based Program",
-      description: "Companies that want to create an intense 3 month campaign...",
+      description: "Companies that want to create an intense 3 month campaign:",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
       icon: "event"
     },
     {
       title: "Brand Building Campaigns",
-      description: "Younger brands engage Boss Wallah for long term sustained campaigns...",
+      description: "Younger brands engage Boss Wallah for long term sustained campaigns:",
       features: ["Long-term Strategy", "Brand Identity & Sustained Growth", "Community Building", "BOSScast (Leadership Brand Building)"],
       icon: brandBuildingIcon
     },
     {
       title: "SocialLift",
-      description: "We create, optimize, and grow social media video channels from scratch...",
+      description: "We create, optimize, and grow social media video channels from scratch:",
       features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth", "Sustained Channel Health"],
       icon: "podcast"
     },
     {
       title: "Video Content Production",
-      description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease...",
+      description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease:",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
       icon: "camera"
     }
