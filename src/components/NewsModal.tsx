@@ -100,7 +100,7 @@ const NewsModal = ({
               {/* Article Content */}
               <div className="prose max-w-none">
                 <p className="text-foreground leading-relaxed text-sm line-clamp-8">
-                  Boss Wallah, India's most inclusive entrepreneurship learning platform, has become South India's #1 YouTube network for multi-language business content. With 13M+ subscribers and 200M+ monthly views across 14 channels, it delivers practical business knowledge in Telugu, Tamil, Kannada, Malayalam, Hindi, and English. The ecosystem includes core business, Academy, and Farming channels—reaching Tier 2/3 towns, farmers, homemakers, and youth. Unlike single-language creators, Boss Wallah spans all four major South Indian languages at scale. Its mobile app integrates content, community, mentorship, and structured learning. Boss Wallah is redefining how South India learns to start and grow businesses.
+                  Boss Wallah, India's #1 entrepreneurship platform, has seen Facebook video views surge 5X in six months—from 30M in March to 150M in August 2025. Unlike YouTube's younger audience, Facebook growth is driven by people in their 30s and 40s, seeking practical advice on business, money, and financial independence. This mirrors India's broader shift, where non-metro demand is growing 2.5X faster than metros (Nielsen 2024). Boss Wallah's business, finance, and farming content is powering one of the most engaged entrepreneurial communities online. With 18M+ followers and 330M+ monthly views across platforms, Boss Wallah Media is scaling content nationwide. The platform is doubling down on Facebook to serve ambitious Indians and help brands reach this motivated audience.
                 </p>
               </div>
 
