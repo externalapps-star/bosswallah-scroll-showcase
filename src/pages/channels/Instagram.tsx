@@ -7,45 +7,49 @@ const InstagramPage = () => {
     {
       language: "Telugu",
       channels: [
-        { name: "Boss Wallah Telugu", url: "https://www.instagram.com/bosswallah.telugu", category: "Main" },
-        { name: "Boss Wallah Farming Telugu", url: "https://www.instagram.com/bosswallahfarmingtelugu", category: "Farming" },
-        { name: "Boss Wallah Business Telugu", url: "https://www.instagram.com/bosswallahbusinesstelugu", category: "Business" }
+        { name: "Boss Wallah Telugu", url: "https://www.instagram.com/bosswallah.telugu", category: "Main" }
       ]
     },
     // Tamil Profiles
     {
       language: "Tamil",
       channels: [
-        { name: "Boss Wallah Tamil", url: "https://www.instagram.com/bosswallah.tamil", category: "Main" },
-        { name: "Boss Wallah Farming Tamil", url: "https://www.instagram.com/bosswallahfarmingtamil", category: "Farming" },
-        { name: "Boss Wallah Business Tamil", url: "https://www.instagram.com/bosswallahbusinesstamil", category: "Business" }
+        { name: "Boss Wallah Tamil", url: "https://www.instagram.com/bosswallah.tamil", category: "Main" }
       ]
     },
     // Kannada Profiles
-      {
-        language: "Kannada",
-        channels: [
-          { name: "Boss Wallah Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "Main" },
-          { name: "Boss Wallah Farming Kannada", url: "https://www.instagram.com/farmingkannadaffreedom", category: "Farming" },
-          { name: "Boss Wallah Business Kannada", url: "https://www.instagram.com/bosswallahbusinesskannada", category: "Business" }
-        ]
-      },
+    {
+      language: "Kannada",
+      channels: [
+        { name: "Boss Wallah Kannada", url: "https://www.instagram.com/ffreedomapp.kannada", category: "Main" }
+      ]
+    },
     // Hindi Profiles
-      {
-        language: "Hindi", 
-        channels: [
-          { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" },
-          { name: "Boss Wallah Farming Hindi", url: "https://www.instagram.com/farminghindibosswallah", category: "Farming" },
-          { name: "Boss Wallah Business Hindi", url: "https://www.instagram.com/bosswallahbusinesshindi", category: "Business" }
-        ]
-      },
+    {
+      language: "Hindi", 
+      channels: [
+        { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" }
+      ]
+    },
     // English Profiles
     {
       language: "English",
       channels: [
-        { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" },
-        { name: "Boss Wallah Farming English", url: "https://www.instagram.com/bosswallahfarmingenglish", category: "Farming" },
-        { name: "Boss Wallah Business English", url: "https://www.instagram.com/bosswallahbusinessenglish", category: "Business" }
+        { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" }
+      ]
+    },
+    // Malayalam Profiles
+    {
+      language: "Malayalam",
+      channels: [
+        { name: "Boss Wallah Malayalam", url: "https://www.instagram.com/bosswallah.malayalam", category: "Main" }
+      ]
+    },
+    // Other Profiles
+    {
+      language: "Other",
+      channels: [
+        { name: "Boss Wallah App", url: "https://www.instagram.com/bosswallahapp", category: "App" }
       ]
     }
   ];
@@ -55,7 +59,7 @@ const InstagramPage = () => {
       case "Main": return "bg-primary/10 text-primary";
       case "Farming": return "bg-green-100 text-green-700";
       case "Business": return "bg-purple-100 text-purple-700";
-      default: return "bg-gray-100 text-gray-700";
+      case "App": return "bg-orange-100 text-orange-700";
     }
   };
 
@@ -81,7 +85,7 @@ const InstagramPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Instagram <span className="gradient-text">Profiles</span>
               </h1>
-              <p className="text-xl text-muted-foreground">15 profiles across 5 languages (no Malayalam)</p>
+              <p className="text-xl text-muted-foreground">7 active profiles across 6 languages + app</p>
             </div>
           </div>
         </div>

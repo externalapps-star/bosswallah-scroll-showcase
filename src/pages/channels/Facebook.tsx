@@ -8,8 +8,7 @@ const FacebookPage = () => {
       language: "Telugu",
       channels: [
         { name: "Boss Wallah Telugu", url: "https://www.facebook.com/bosswallahtelugu", category: "Main" },
-        { name: "Boss Wallah Farming Telugu", url: "https://www.facebook.com/bosswallahfarmingtelugu", category: "Farming" },
-        { name: "Boss Wallah Business Telugu", url: "https://www.facebook.com/bosswallahbusinesstelugu", category: "Business" }
+        { name: "Boss Wallah Academy Telugu", url: "https://www.facebook.com/bosswallahacademytelugu", category: "Academy" }
       ]
     },
     // Tamil Pages
@@ -17,35 +16,37 @@ const FacebookPage = () => {
       language: "Tamil",
       channels: [
         { name: "Boss Wallah Tamil", url: "https://www.facebook.com/bosswallahtamil", category: "Main" },
-        { name: "Boss Wallah Farming Tamil", url: "https://www.facebook.com/bosswallahfarmingtamil", category: "Farming" },
-        { name: "Boss Wallah Business Tamil", url: "https://www.facebook.com/bosswallahbusinesstamil", category: "Business" }
+        { name: "Boss Wallah Academy Tamil", url: "https://www.facebook.com/bosswallahacademytamil", category: "Academy" }
       ]
     },
     // Kannada Pages
-      {
-        language: "Kannada",
-        channels: [
-          { name: "Boss Wallah Kannada", url: "https://www.facebook.com/bosswallahmoneykannada", category: "Main" },
-          { name: "Boss Wallah Farming Kannada", url: "https://www.facebook.com/bosswallahfarmingkannada", category: "Farming" },
-          { name: "Boss Wallah Business Kannada", url: "https://www.facebook.com/bosswallahbusinesskannada", category: "Business" }
-        ]
-      },
+    {
+      language: "Kannada",
+      channels: [
+        { name: "Boss Wallah Kannada", url: "https://www.facebook.com/bosswallahkannada", category: "Main" },
+        { name: "Boss Wallah Academy Kannada", url: "https://www.facebook.com/bosswallahacademykannada", category: "Academy" }
+      ]
+    },
     // Hindi Pages
     {
       language: "Hindi",
       channels: [
-        { name: "Boss Wallah Hindi", url: "https://www.facebook.com/bosswallahhindi", category: "Main" },
-        { name: "Boss Wallah Farming Hindi", url: "https://www.facebook.com/bosswallahfarminghindi", category: "Farming" },
-        { name: "Boss Wallah Business Hindi", url: "https://www.facebook.com/bosswallahbusinesshindi", category: "Business" }
+        { name: "Boss Wallah Hindi", url: "https://www.facebook.com/hindibosswallah", category: "Main" },
+        { name: "Boss Wallah Academy Hindi", url: "https://www.facebook.com/bosswallahacademyhindi", category: "Academy" }
       ]
     },
     // English Pages
     {
       language: "English",
       channels: [
-        { name: "Boss Wallah English", url: "https://www.facebook.com/bosswallahenglish", category: "Main" },
-        { name: "Boss Wallah Farming English", url: "https://www.facebook.com/bosswallahfarmingenglish", category: "Farming" },
-        { name: "Boss Wallah Business English", url: "https://www.facebook.com/bosswallahbusinessenglish", category: "Business" }
+        { name: "Boss Wallah English", url: "https://www.facebook.com/bosswallahenglish", category: "Main" }
+      ]
+    },
+    // Malayalam Pages
+    {
+      language: "Malayalam",
+      channels: [
+        { name: "Boss Wallah Malayalam", url: "https://www.facebook.com/bosswallahmalayalam", category: "Main" }
       ]
     }
   ];
@@ -55,7 +56,7 @@ const FacebookPage = () => {
       case "Main": return "bg-primary/10 text-primary";
       case "Farming": return "bg-green-100 text-green-700";
       case "Business": return "bg-purple-100 text-purple-700";
-      case "Finance": return "bg-yellow-100 text-yellow-700";
+      case "Academy": return "bg-blue-100 text-blue-700";
       default: return "bg-gray-100 text-gray-700";
     }
   };
@@ -82,7 +83,7 @@ const FacebookPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Facebook <span className="gradient-text">Pages</span>
               </h1>
-              <p className="text-xl text-muted-foreground">15 pages across 5 languages (no Malayalam)</p>
+              <p className="text-xl text-muted-foreground">10 active pages across 6 languages</p>
             </div>
           </div>
         </div>
