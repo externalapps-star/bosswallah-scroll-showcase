@@ -10,6 +10,7 @@ const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
     company: '',
+    phone: '',
     problem: '',
     budget: '',
     startDate: '',
@@ -147,6 +148,20 @@ const ContactSection = () => {
                     </div>
 
                     <div>
+                      <Label htmlFor="phone">Contact Number *</Label>
+                      <Input 
+                        id="phone" 
+                        name="phone" 
+                        type="tel"
+                        required 
+                        value={formData.phone} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                        placeholder="+91 9876543210"
+                      />
+                    </div>
+
+                    <div>
                       <Label htmlFor="problem">Marketing Problem (Optional)</Label>
                       <Textarea 
                         id="problem" 
@@ -227,6 +242,7 @@ const ContactSection = () => {
                       setFormData({
                         name: '',
                         company: '',
+                        phone: '',
                         problem: '',
                         budget: '',
                         startDate: '',
