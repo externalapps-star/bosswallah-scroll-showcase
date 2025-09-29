@@ -13,7 +13,7 @@ const FloatingCallButton = () => {
                 variant="cta" 
                 size="lg"
                 className="relative rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 px-8 py-4 h-auto text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary border-2 border-white/20"
-                onClick={() => window.open('https://calendly.com/bosswallah', '_blank')}
+                onClick={() => window.open('https://calendar.app.google/E7d7wnoCdBbLwJrL9', '_blank')}
               >
                 <Calendar className="w-6 h-6 mr-3 animate-bounce" />
                 Let's Connect
