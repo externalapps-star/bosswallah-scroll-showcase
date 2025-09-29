@@ -7,14 +7,16 @@ const InstagramPage = () => {
     {
       language: "Telugu",
       channels: [
-        { name: "Boss Wallah Telugu", url: "https://www.instagram.com/bosswallah.telugu", category: "Main" }
+        { name: "Boss Wallah Telugu", url: "https://www.instagram.com/bosswallah.telugu", category: "Main" },
+        { name: "Boss Wallah Academy Telugu", url: "https://www.instagram.com/bosswallahacademytelugu", category: "Academy" }
       ]
     },
     // Tamil Profiles
     {
       language: "Tamil",
       channels: [
-        { name: "Boss Wallah Tamil", url: "https://www.instagram.com/bosswallah.tamil", category: "Main" }
+        { name: "Boss Wallah Tamil", url: "https://www.instagram.com/bosswallah.tamil", category: "Main" },
+        { name: "Boss Wallah Academy Tamil", url: "https://www.instagram.com/bosswallahacademytamil", category: "Academy" }
       ]
     },
     // Kannada Profiles
@@ -28,14 +30,16 @@ const InstagramPage = () => {
     {
       language: "Hindi", 
       channels: [
-        { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" }
+        { name: "Boss Wallah Hindi", url: "https://www.instagram.com/bosswallah.hindi", category: "Main" },
+        { name: "Boss Wallah Farming Hindi", url: "https://www.instagram.com/bosswallahfarminghindi", category: "Farming" }
       ]
     },
     // English Profiles
     {
       language: "English",
       channels: [
-        { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" }
+        { name: "Boss Wallah English", url: "https://www.instagram.com/bosswallah.english", category: "Main" },
+        { name: "Boss Wallah Farming English", url: "https://www.instagram.com/bosswallahfarmingenglish", category: "Farming" }
       ]
     },
     // Malayalam Profiles
@@ -57,9 +61,10 @@ const InstagramPage = () => {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "Main": return "bg-primary/10 text-primary";
+      case "Academy": return "bg-blue-100 text-blue-700";
       case "Farming": return "bg-green-100 text-green-700";
-      case "Business": return "bg-purple-100 text-purple-700";
       case "App": return "bg-orange-100 text-orange-700";
+      default: return "bg-gray-100 text-gray-700";
     }
   };
 
@@ -85,7 +90,7 @@ const InstagramPage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 Instagram <span className="gradient-text">Profiles</span>
               </h1>
-              <p className="text-xl text-muted-foreground">7 active profiles across 6 languages + app</p>
+              <p className="text-xl text-muted-foreground">11 active profiles across 6 languages + app</p>
             </div>
           </div>
         </div>
