@@ -27,11 +27,23 @@ const NewsletterSection = () => {
     };
 
     try {
+      console.log("Sending newsletter data:", formData);
+      
+      // Try using URLSearchParams instead of JSON
+      const params = new URLSearchParams();
+      params.append('type', formData.type);
+      params.append('email', formData.email);
+      
       const response = await fetch(scriptURL, {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=UTF-8" },
-        body: JSON.stringify(formData)
+        headers: { 
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: params.toString()
       });
+      
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
       
       const text = await response.text();
       console.log('raw server response:', text);
@@ -64,7 +76,9 @@ const NewsletterSection = () => {
         console.error('Server error', json);
       }
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error("Fetch error details:", error);
+      console.error("Error name:", error.name);
+      console.error("Error message:", error.message);
       toast({
         title: "Network Error",
         description: "Network or CORS error. Please try again.",

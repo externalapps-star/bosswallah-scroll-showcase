@@ -45,11 +45,30 @@ const ContactSection = () => {
     };
 
     try {
+      console.log("Sending contact data:", submitData);
+      
+      // Try using URLSearchParams instead of JSON
+      const params = new URLSearchParams();
+      params.append('type', submitData.type);
+      params.append('name', submitData.name);
+      params.append('companyName', submitData.companyName);
+      params.append('contactNumber', submitData.contactNumber);
+      params.append('email', submitData.email);
+      params.append('marketingProblem', submitData.marketingProblem);
+      params.append('budget', submitData.budget);
+      params.append('expectedStartDate', submitData.expectedStartDate);
+      params.append('currentAgency', submitData.currentAgency);
+      
       const response = await fetch(scriptURL, {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=UTF-8" },
-        body: JSON.stringify(submitData)
+        headers: { 
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: params.toString()
       });
+      
+      console.log("Response status:", response.status);
+      console.log("Response ok:", response.ok);
       
       const text = await response.text();
       console.log('raw server response:', text);
@@ -82,7 +101,9 @@ const ContactSection = () => {
         console.error('Server error', json);
       }
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error("Fetch error details:", error);
+      console.error("Error name:", error.name);
+      console.error("Error message:", error.message);
       toast({
         title: "Network Error",
         description: "Network or CORS error. Please try again.",
