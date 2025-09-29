@@ -25,6 +25,25 @@ const ContactSection = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [emailError, setEmailError] = useState('');
 
+  const validateEmail = (email: string) => {
+    // More strict email validation
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    return emailRegex.test(email) && email.includes('.') && email.length > 5;
+  };
+
+  const validateContactNumber = (contactNumber: string) => {
+    // Remove all non-digit characters for validation
+    const digitsOnly = contactNumber.replace(/\D/g, '');
+    
+    // If it's 10 digits, assume it's Indian number (default)
+    if (digitsOnly.length === 10) {
+      return true; // Valid Indian mobile number
+    }
+    
+    // For international numbers, check if it's 10-15 digits
+    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     
@@ -47,24 +66,8 @@ const ContactSection = () => {
     }
   };
 
-  const validateEmail = (email: string) => {
-    // More strict email validation
-    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return emailRegex.test(email) && email.includes('.') && email.length > 5;
-  };
-
-  const validateContactNumber = (contactNumber: string) => {
-    // Remove all non-digit characters for validation
-    const digitsOnly = contactNumber.replace(/\D/g, '');
-    
-    // If it's 10 digits, assume it's Indian number (default)
-    if (digitsOnly.length === 10) {
-      return true; // Valid Indian mobile number
-    }
-    
-    // For international numbers, check if it's 10-15 digits
-    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
-  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     
     // Strict email validation - prevent submission if invalid
     if (!formData.email || !validateEmail(formData.email)) {
@@ -81,18 +84,6 @@ const ContactSection = () => {
       toast({
         title: "Form Error",
         description: "Please fix the email address before submitting.",
-        variant: "destructive",
-      });
-      return;
-    }
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    // Validate email
-    if (!validateEmail(formData.email)) {
-      toast({
-        title: "Invalid Email",
-        description: "Please enter a valid email address.",
         variant: "destructive",
       });
       return;
