@@ -7,11 +7,11 @@ import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } fro
 import { NewsService } from "@/services/NewsService";
 
 // Import blog thumbnails
-import blogInstagramZeroFollowers from "@/assets/blog-instagram-zero-followers.png";
-import blogInstagramBusiness from "@/assets/blog-instagram-business.png";
-import blogFinancialPlanning from "@/assets/blog-financial-planning.png";
-import blogSaveMoneyDaily from "@/assets/blog-save-money-daily.png";
-import blogAgriStartups from "@/assets/blog-agri-startups.png";
+import blogInstagramGrowFollowers from "@/assets/blog-instagram-grow-followers.png";
+import blogInstagramBusinessAccount from "@/assets/blog-instagram-business-account.png";
+import blogFinancialPlanningGuide from "@/assets/blog-financial-planning-guide.png";
+import blogSaveMoneyDailyTips from "@/assets/blog-save-money-daily-tips.png";
+import blogAgricultureBusinessIdeas from "@/assets/blog-agriculture-business-ideas.png";
 interface NewsItem {
   id: number;
   date: string;
@@ -42,7 +42,7 @@ const BlogsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [blogInstagramZeroFollowers, blogInstagramBusiness, blogFinancialPlanning, blogSaveMoneyDaily, blogAgriStartups][index % 5]
+          thumbnail: [blogInstagramGrowFollowers, blogInstagramBusinessAccount, blogFinancialPlanningGuide, blogSaveMoneyDailyTips, blogAgricultureBusinessIdeas][index % 5]
         }));
         setNewsItems(newsWithThumbnails);
       } catch (error) {
