@@ -47,10 +47,14 @@ const ContactSection = () => {
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(submitData)
       });
       
-      const data = await response.json();
+      // With no-cors mode, we can't read the response, so we assume success
       
       toast({
         title: "Form Submitted!",
