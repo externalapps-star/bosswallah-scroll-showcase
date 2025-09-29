@@ -155,9 +155,9 @@ const NewsSection = () => {
 
               {/* Main Content with border and scroll - Fixed height */}
               <div className="flex-1">
-                <div className="border-2 border-primary/20 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
+                <div className="border-2 border-primary/40 rounded-lg bg-card/30 backdrop-blur-sm h-[500px] flex flex-col">
                   {/* Header */}
-                  <div className="p-4 border-b border-primary/10 flex-shrink-0">
+                  <div className="p-4 border-b border-primary/30 flex-shrink-0">
                     <h3 className="font-semibold text-foreground text-lg">Latest News</h3>
                   </div>
                   
