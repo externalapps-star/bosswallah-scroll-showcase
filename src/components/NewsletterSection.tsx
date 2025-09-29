@@ -5,9 +5,7 @@ import { toast } from "@/components/ui/use-toast";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
-  const [webhookUrl, setWebhookUrl] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [showWebhookInput, setShowWebhookInput] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,39 +20,11 @@ const NewsletterSection = () => {
 
     setIsLoading(true);
 
-    if (webhookUrl) {
-      try {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          mode: "no-cors",
-          body: JSON.stringify({
-            type: "newsletter_subscription",
-            email: email,
-            timestamp: new Date().toISOString(),
-            triggered_from: window.location.origin,
-          }),
-        });
-
-        toast({
-          title: "Successfully Subscribed!",
-          description: "Your email has been sent to Google Sheets via Zapier.",
-        });
-      } catch (error) {
-        console.error("Error sending to webhook:", error);
-        toast({
-          title: "Subscription Successful",
-          description: "Request sent to Zapier. Check your Zap history to confirm.",
-        });
-      }
-    } else {
-      toast({
-        title: "Successfully Subscribed!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-    }
+    // TODO: Implement API call for newsletter subscription
+    toast({
+      title: "Successfully Subscribed!",
+      description: "Thank you for subscribing to our newsletter.",
+    });
 
     setEmail("");
     setIsLoading(false);
@@ -71,38 +41,6 @@ const NewsletterSection = () => {
             Get the latest insights, tips, and updates on digital marketing, 
             business growth strategies, and exclusive content delivered straight to your inbox.
           </p>
-          
-          {!showWebhookInput && (
-            <Button 
-              variant="outline" 
-              onClick={() => setShowWebhookInput(true)}
-              className="mb-6"
-            >
-              Connect to Google Sheets
-            </Button>
-          )}
-          
-          {showWebhookInput && (
-            <div className="mb-6 p-4 bg-card rounded-lg border">
-              <p className="text-sm text-muted-foreground mb-3">
-                Paste your Zapier webhook URL to send newsletter signups to Google Sheets:
-              </p>
-              <Input
-                type="url"
-                placeholder="https://hooks.zapier.com/hooks/catch/..."
-                value={webhookUrl}
-                onChange={(e) => setWebhookUrl(e.target.value)}
-                className="mb-2"
-              />
-              <Button 
-                variant="ghost" 
-                size="sm"
-                onClick={() => setShowWebhookInput(false)}
-              >
-                Hide
-              </Button>
-            </div>
-          )}
           
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <Input

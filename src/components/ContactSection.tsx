@@ -17,8 +17,6 @@ const ContactSection = () => {
     startDate: '',
     agency: ''
   });
-  const [webhookUrl, setWebhookUrl] = useState("");
-  const [showWebhookInput, setShowWebhookInput] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -33,39 +31,11 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    if (webhookUrl) {
-      try {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          mode: "no-cors",
-          body: JSON.stringify({
-            type: "consultation_request",
-            ...formData,
-            timestamp: new Date().toISOString(),
-            triggered_from: window.location.origin,
-          }),
-        });
-
-        toast({
-          title: "Request Sent!",
-          description: "Your consultation request has been sent to Google Sheets via Zapier.",
-        });
-      } catch (error) {
-        console.error("Error sending to webhook:", error);
-        toast({
-          title: "Request Submitted",
-          description: "Request sent to Zapier. Check your Zap history to confirm.",
-        });
-      }
-    } else {
-      toast({
-        title: "Form Submitted!",
-        description: "Thank you for your consultation request.",
-      });
-    }
+    // TODO: Implement API call for consultation request
+    toast({
+      title: "Form Submitted!",
+      description: "Thank you for your consultation request.",
+    });
 
     setIsSubmitted(true);
     setIsLoading(false);
@@ -90,39 +60,7 @@ const ContactSection = () => {
             <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 max-w-2xl w-full backdrop-blur-sm bg-gradient-to-br from-card/90 to-card/70">
               {!isSubmitted ? (
                 <>
-                  {!showWebhookInput && (
-                    <div className="text-center mb-6">
-                      <Button 
-                        variant="outline" 
-                        onClick={() => setShowWebhookInput(true)}
-                      >
-                        Connect to Google Sheets
-                      </Button>
-                    </div>
-                  )}
                   
-                  {showWebhookInput && (
-                    <div className="mb-6 p-4 bg-muted rounded-lg border">
-                      <p className="text-sm text-muted-foreground mb-3">
-                        Paste your Zapier webhook URL to send consultation requests to Google Sheets:
-                      </p>
-                      <Input
-                        type="url"
-                        placeholder="https://hooks.zapier.com/hooks/catch/..."
-                        value={webhookUrl}
-                        onChange={(e) => setWebhookUrl(e.target.value)}
-                        className="mb-2"
-                      />
-                      <Button 
-                        variant="ghost" 
-                        size="sm"
-                        onClick={() => setShowWebhookInput(false)}
-                      >
-                        Hide
-                      </Button>
-                    </div>
-                  )}
-
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Label htmlFor="name">Name *</Label>
