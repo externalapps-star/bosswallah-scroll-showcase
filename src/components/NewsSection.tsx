@@ -15,7 +15,6 @@ import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
 import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
 import youtubeAiThumbnail from "@/assets/youtube-ai-thumbnail.png";
 import facelessInfluencersThumbnail from "@/assets/faceless-influencers-thumbnail.png";
-import youtubeAiGambleThumbnail from "@/assets/youtube-ai-gamble-thumbnail.png";
 interface NewsItem {
   id: number;
   date: string;
@@ -85,7 +84,7 @@ const NewsSection = () => {
             excerpt: "YouTube unveils revolutionary AI tools including Veo 3 integration for Shorts, transforming how creators produce content with text-to-video generation and automated backgrounds.",
             content: "YouTube is betting big on AI as its next major growth driver. The platform has introduced groundbreaking generative AI tools for Shorts creators, including a custom version of Google's Veo 3 text-to-video model. These tools allow creators to generate video backgrounds, create clips with sound using simple text prompts, and apply motion effects to photos - all for free. The Dream Screen feature enables instant photo and video creation based on creator prompts. This AI integration represents YouTube's strategic shift to democratize content creation, making professional-quality video production accessible to millions of creators worldwide. With AI-powered features for dialogue-to-song conversion and video restyling, YouTube is positioning itself at the forefront of the creator economy revolution.",
             category: "Digital Skills",
-            thumbnail: youtubeAiGambleThumbnail,
+            thumbnail: youtubeAiThumbnail,
             readTime: "2 min read",
             author: "Tech Reporter",
             tags: ["YouTube", "AI", "Content Creation"],
