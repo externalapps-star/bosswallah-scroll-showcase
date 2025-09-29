@@ -49,7 +49,7 @@ const NewsSection = () => {
             date: "2025-05-24",
             title: "Boss Wallah Becomes South India's No.1 YouTube Business Network",
             excerpt: "South India's most powerful multi-language business learning platform crosses 13 million subscribers and dominates with over 200 million monthly views.",
-            content: "Boss Wallah, India's most inclusive and accessible entrepreneurship learning platform, has officially emerged as the #1 YouTube network for multi-language business content in South India...",
+            content: "Boss Wallah, India's most inclusive entrepreneurship learning platform, has become South India's #1 YouTube network for multi-language business content. With 13M+ subscribers and 200M+ monthly views across 14 channels, it delivers practical business knowledge in Telugu, Tamil, Kannada, Malayalam, Hindi, and English. The ecosystem includes core business, Academy, and Farming channels—reaching Tier 2/3 towns, farmers, homemakers, and youth. Unlike single-language creators, Boss Wallah spans all four major South Indian languages at scale. Its mobile app integrates content, community, mentorship, and structured learning. Boss Wallah is redefining how South India learns to start and grow businesses.",
             category: "Digital Skills",
             thumbnail: newsThumbBusiness,
             readTime: "3 min read",
