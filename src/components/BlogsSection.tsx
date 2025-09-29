@@ -33,54 +33,22 @@ const BlogsSection = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Featured articles for trending positions
-  const featuredArticles: NewsItem[] = [
-    {
-      id: 1,
-      date: "2025-05-24",
-      title: "Boss Wallah Becomes South India's No.1 YouTube Business Network",
-      excerpt: "Boss Wallah achieves remarkable milestone as South India's leading YouTube business network, connecting entrepreneurs and creators across the region.",
-      content: "Full content about Boss Wallah becoming South India's No.1 YouTube Business Network...",
-      category: "Press Release",
-      thumbnail: blogInstagramZeroFollowers,
-      readTime: "3 min read",
-      author: "Boss Wallah Blogs",
-      tags: ["YouTube", "Business", "Network", "South India"],
-      url: "https://blog.bosswallah.com/boss-wallah-becomes-south-indias-no-1-youtube-business-network/"
-    },
-    {
-      id: 2,
-      date: "2025-09-24",
-      title: "From 30M to 150M Views: Boss Wallah's Facebook Surge Reveals India's Business and Personal Finance Aspirations",
-      excerpt: "Boss Wallah reports a fivefold surge in Facebook video views within six months, scaling from 30 million to 150 million views, highlighting India's growing entrepreneurial aspirations.",
-      content: "Full content about Boss Wallah's Facebook growth...",
-      category: "Creator Hub",
-      thumbnail: blogInstagramBusinessAccount,
-      readTime: "3 min read",
-      author: "PRNewswire",
-      tags: ["Facebook", "Growth", "Business", "Finance"],
-      url: "https://www.business-standard.com/content/press-releases-ani/from-30m-to-150m-views-boss-wallah-achieves-exponential-growth-in-helping-creators-achieve-their-business-and-personal-finance-aspirations-125092400965_1.html"
-    }
-  ];
-
   // Fetch latest news on component mount
   useEffect(() => {
     const fetchNews = async () => {
       setIsLoading(true);
       try {
         const latestNews = await NewsService.fetchNewsFromBossWallah();
-        // Map thumbnails to the additional fetched news (starting from index 2)
-        const additionalNewsWithThumbnails = latestNews.slice(0, 3).map((item, index) => ({
+        // Map thumbnails to the fetched news
+        const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          id: item.id + 100, // Ensure unique IDs
-          thumbnail: [blogFinancialPlanningGuide, blogSaveMoneyDailyTips, blogAgricultureBusinessIdeas][index % 3]
+          thumbnail: [blogInstagramZeroFollowers, blogInstagramBusinessAccount, blogFinancialPlanningGuide, blogSaveMoneyDailyTips, blogAgricultureBusinessIdeas][index % 5]
         }));
-        // Combine featured articles with additional fetched news
-        setNewsItems([...featuredArticles, ...additionalNewsWithThumbnails]);
+        setNewsItems(newsWithThumbnails);
       } catch (error) {
         console.error('Error fetching news:', error);
-        // Fallback to just featured articles if fetch fails
-        setNewsItems(featuredArticles);
+        // Fallback to static news if fetch fails
+        setNewsItems([]);
       } finally {
         setIsLoading(false);
       }
