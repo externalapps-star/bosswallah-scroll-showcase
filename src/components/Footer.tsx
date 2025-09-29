@@ -66,11 +66,11 @@ const Footer = () => {
             © {currentYear} Boss Wallah Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-background/60 hover:text-primary text-sm transition-colors">
+            <a href="https://bosswallah.com/privacypolicy?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-background/60 hover:text-primary text-sm transition-colors">
-              Terms of Service
+            <a href="https://bosswallah.com/user-agreement?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-sm transition-colors">
+              Terms of Use
             </a>
           </div>
         </div>
