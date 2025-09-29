@@ -20,7 +20,7 @@ const NewsletterSection = () => {
 
     setIsLoading(true);
 
-    const scriptURL = "YOUR_GOOGLE_SCRIPT_WEB_APP_URL";
+    const scriptURL = "https://script.google.com/a/macros/bosswallah.com/s/AKfycbzwWwVNDHzHp3FvaGl6jYhWAfO41-dwEtvgSFpwCLz3U9SSUG1YqzKUJDMdSoPuK8Olog/exec";
     const formData = {
       type: "newsletter",
       email: email
