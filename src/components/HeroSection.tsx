@@ -49,30 +49,19 @@ const HeroSection = ({
       </div>
 
       {/* Mobile hamburger menu */}
-      <div className="md:hidden absolute top-6 right-6 z-20">
-        <button 
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-          className="text-white p-3 rounded-lg bg-black/20 backdrop-blur-sm border border-white/20 hover:bg-black/30 transition-colors touch-target"
-        >
+      <div className="lg:hidden absolute top-8 right-8 z-20">
+        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white p-2">
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
         
-        {mobileMenuOpen && (
-          <div className="absolute top-16 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[220px] shadow-xl">
-            {navigationItems.map((item, index) => (
-              <button 
-                key={index} 
-                onClick={() => {
-                  item.action();
-                  setMobileMenuOpen(false);
-                }} 
-                className="block w-full text-left text-white hover:text-purple-400 py-3 px-4 rounded hover:bg-white/10 transition-colors text-sm touch-target"
-              >
+        {mobileMenuOpen && <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
+            {navigationItems.map((item, index) => <button key={index} onClick={() => {
+          item.action();
+          setMobileMenuOpen(false);
+        }} className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm">
                 {item.label}
-              </button>
-            ))}
-          </div>
-        )}
+              </button>)}
+          </div>}
       </div>
 
       {/* Main content and navigation container */}
@@ -82,18 +71,18 @@ const HeroSection = ({
             {/* Left-aligned content */}
             <div className="max-w-4xl mt-8 lg:mt-12">
               {/* "Accelerate Your" in white */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight mb-4">Accelerate Your Brand</h1>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none mb-4 whitespace-nowrap">Accelerate Your Brand</h1>
               
               {/* "Brand Growth" with gradient */}
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 md:mb-8">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
               </h1>
               
               {/* Subtitle */}
-              <p className="text-gray-400 text-base md:text-lg lg:text-xl xl:text-2xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">#1 Social Media Platform in South India</p>
+              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">#1 Social Media Platform in South India</p>
               
               {/* "With Boss Wallah Media" with gradient */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 md:mb-8 -mt-4">
+              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8 -mt-4">
                 <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
               </h2>
             </div>

@@ -4,6 +4,7 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 import { useLanguage, Language } from "@/contexts/LanguageContext";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Globe, User, Menu, X, ExternalLink } from "lucide-react";
+import LoginModal from "@/components/LoginModal";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 const Header = () => {
   const {
@@ -11,6 +12,7 @@ const Header = () => {
     setLanguage,
     t
   } = useLanguage();
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   useEffect(() => {
@@ -208,6 +210,7 @@ const Header = () => {
         </div>
       </header>
 
+      <LoginModal isOpen={isLoginModalOpen} onClose={() => setIsLoginModalOpen(false)} />
     </>;
 };
 export default Header;

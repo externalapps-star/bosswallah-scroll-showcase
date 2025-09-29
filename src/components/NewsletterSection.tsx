@@ -29,6 +29,8 @@ const NewsletterSection = () => {
     };
 
     try {
+      console.log("Sending newsletter data:", formData);
+      
       // Use no-cors mode to bypass CORS entirely
       const params = new URLSearchParams();
       params.append('type', formData.type);
@@ -43,6 +45,8 @@ const NewsletterSection = () => {
         body: params.toString()
       });
       
+      console.log("Request sent successfully (no-cors mode)");
+      
       // With no-cors, we can't read the response, so we assume success
       toast({
         title: "Successfully Subscribed!",
@@ -52,6 +56,9 @@ const NewsletterSection = () => {
       setIsSubscribed(true);
       
     } catch (error) {
+      console.error("Fetch error details:", error);
+      console.error("Error name:", error.name);
+      console.error("Error message:", error.message);
       toast({
         title: "Network Error", 
         description: "Please check your internet connection and try again.",
@@ -68,15 +75,15 @@ const NewsletterSection = () => {
         <div className="max-w-2xl mx-auto text-center">
           {!isSubscribed ? (
             <>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 Subscribe to Our <span className="gradient-text">Newsletter</span>
               </h2>
-              <p className="text-base md:text-lg text-muted-foreground mb-8 px-4 md:px-0">
+              <p className="text-lg text-muted-foreground mb-8">
                 Get the latest insights, tips, and updates on digital marketing, 
                 business growth strategies, and exclusive content delivered straight to your inbox.
               </p>
               
-              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto px-4 md:px-0">
+              <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
                 <Input
                   type="email"
                   placeholder="Enter your email address"
@@ -101,13 +108,13 @@ const NewsletterSection = () => {
           ) : (
             <div className="py-8">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
                 <span className="gradient-text">Thank You!</span>
               </h2>
-              <p className="text-lg md:text-xl text-muted-foreground mb-6 px-4 md:px-0">
+              <p className="text-xl text-muted-foreground mb-6">
                 🎉 You are now subscribed to our newsletter!
               </p>
-              <p className="text-base md:text-lg text-muted-foreground mb-8 px-4 md:px-0">
+              <p className="text-lg text-muted-foreground mb-8">
                 Get ready to receive the latest insights, tips, and updates on digital marketing 
                 and business growth strategies delivered straight to your inbox.
               </p>
