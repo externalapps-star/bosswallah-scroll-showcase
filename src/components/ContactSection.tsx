@@ -35,7 +35,13 @@ const ContactSection = () => {
   const validateContactNumber = (contactNumber: string) => {
     // Remove all non-digit characters for validation
     const digitsOnly = contactNumber.replace(/\D/g, '');
-    // Check if it's 10-15 digits (common phone number range)
+    
+    // If it's 10 digits, assume it's Indian number (default)
+    if (digitsOnly.length === 10) {
+      return true; // Valid Indian mobile number
+    }
+    
+    // For international numbers, check if it's 10-15 digits
     return digitsOnly.length >= 10 && digitsOnly.length <= 15;
   };
 
@@ -56,7 +62,7 @@ const ContactSection = () => {
     if (!validateContactNumber(formData.contactNumber)) {
       toast({
         title: "Invalid Contact Number",
-        description: "Please enter a valid contact number (10-15 digits).",
+        description: "Please enter a valid contact number (10 digits for India, or international format).",
         variant: "destructive",
       });
       return;
@@ -85,7 +91,18 @@ const ContactSection = () => {
       params.append('type', submitData.type);
       params.append('name', submitData.name);
       params.append('companyName', submitData.companyName);
-      params.append('contactNumber', submitData.contactNumber);
+      
+      // Auto-prefix Indian numbers with +91 if they're 10 digits
+      let contactNumber = submitData.contactNumber.replace(/\D/g, ''); // Remove non-digits
+      if (contactNumber.length === 10) {
+        contactNumber = '+91' + contactNumber; // Add India country code
+      } else if (!submitData.contactNumber.startsWith('+')) {
+        contactNumber = '+' + contactNumber; // Add + for other international numbers
+      } else {
+        contactNumber = submitData.contactNumber; // Keep as is if already formatted
+      }
+      
+      params.append('contactNumber', contactNumber);
       params.append('email', submitData.email);
       params.append('marketingProblem', submitData.marketingProblem);
       params.append('budget', submitData.budget);
@@ -181,9 +198,8 @@ const ContactSection = () => {
                           value={formData.contactNumber} 
                           onChange={handleInputChange} 
                           className="mt-2" 
-                          placeholder="+1 (555) 123-4567"
-                          pattern="[\+]?[0-9\s\-\(\)]+"
-                          title="Please enter a valid phone number"
+                          placeholder="9876543210 (Indian format) or +1-555-123-4567 (International)"
+                          title="Enter 10 digits for Indian numbers or full international format"
                         />
                       </div>
 
