@@ -31,7 +31,7 @@ const TopStrip = () => {
         {/* Message */}
         <div className="flex-1 text-center">
           <p className="text-sm md:text-base font-medium">
-            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> Social Media Agency (in South India, for now)
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> Social Media Platform in South India
           </p>
         </div>
 
