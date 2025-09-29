@@ -103,7 +103,7 @@ const BlogsSection = () => {
               {/* Trending Card - Takes 2/3 width */}
               {filteredNews.slice(0, 1).map(item => <Card key={item.id} className="lg:col-span-2 group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:shadow-accent/30 border-2 border-accent/20 hover:border-accent/60 bg-gradient-to-br from-card/70 to-accent/5 backdrop-blur-sm overflow-hidden hover-scale animate-fade-in h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-contain bg-muted/20 transition-all duration-700 group-hover:scale-105 group-hover:brightness-110" />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-accent text-accent-foreground text-sm font-semibold border border-accent/50 group-hover:border-accent shadow-lg animate-pulse">
                         🔥 Trending
@@ -135,7 +135,7 @@ const BlogsSection = () => {
               {/* First Regular Card - Takes 1/3 width */}
               {filteredNews.slice(1, 2).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-contain bg-muted/20 transition-all duration-500 group-hover:scale-105 group-hover:brightness-110" />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-background/90 text-foreground text-xs border border-primary/20 group-hover:border-primary/50 transition-all duration-300">
                         {item.category}
@@ -169,7 +169,7 @@ const BlogsSection = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {filteredNews.slice(2, 5).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
-                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-contain bg-muted/20 transition-all duration-500 group-hover:scale-105 group-hover:brightness-110" />
+                    <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
                       <Badge variant="secondary" className="bg-background/90 text-foreground text-xs border border-primary/20 group-hover:border-primary/50 transition-all duration-300">
                         {item.category}
