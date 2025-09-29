@@ -123,9 +123,9 @@ const Sidebar = ({
                     <Phone className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">+91 XXXXX XXXXX</span>
                   </a>
-                  <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                  <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                     <Mail className="h-4 w-4 flex-shrink-0" />
-                    <span className="text-sm">hello@bosswallah.com</span>
+                    <span className="text-sm">brand@bosswallah.com</span>
                   </a>
                 </div>
 
@@ -178,9 +178,9 @@ const Sidebar = ({
                   <Phone className="h-4 w-4" />
                   <span className="text-sm">+91 98765 43210</span>
                 </a>
-                <a href="mailto:hello@bosswallah.com" className="flex items-center space-x-3 text-gray-400">
+                <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400">
                   <Mail className="h-4 w-4" />
-                  <span className="text-sm">hello@bosswallah.com</span>
+                  <span className="text-sm">brand@bosswallah.com</span>
                 </a>
               </div>
               <div className="flex space-x-4 pt-2">
