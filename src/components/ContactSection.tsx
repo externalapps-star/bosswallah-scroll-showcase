@@ -9,13 +9,8 @@ import { toast } from "@/components/ui/use-toast";
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
-    company: '',
-    phone: '',
     email: '',
-    problem: '',
-    budget: '',
-    startDate: '',
-    agency: ''
+    message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -35,26 +30,17 @@ const ContactSection = () => {
     const submitData = {
       type: "form",
       name: formData.name,
-      companyName: formData.company,
-      contactNumber: formData.phone,
       email: formData.email,
-      marketingProblem: formData.problem,
-      budget: formData.budget,
-      expectedStartDate: formData.startDate,
-      currentAgency: formData.agency
+      message: formData.message
     };
 
     try {
       const response = await fetch(scriptURL, {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
         body: JSON.stringify(submitData)
       });
       
-      // With no-cors mode, we can't read the response, so we assume success
+      const data = await response.json();
       
       toast({
         title: "Form Submitted!",
@@ -93,7 +79,6 @@ const ContactSection = () => {
             <div className="bg-card rounded-2xl p-6 md:p-8 shadow-soft border-2 border-primary/30 hover:border-primary/50 transition-all duration-300 max-w-2xl w-full backdrop-blur-sm bg-gradient-to-br from-card/90 to-card/70">
               {!isSubmitted ? (
                 <>
-                  
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Label htmlFor="name">Name *</Label>
@@ -104,32 +89,6 @@ const ContactSection = () => {
                         value={formData.name} 
                         onChange={handleInputChange} 
                         className="mt-2" 
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="company">Company Name *</Label>
-                      <Input 
-                        id="company" 
-                        name="company" 
-                        required 
-                        value={formData.company} 
-                        onChange={handleInputChange} 
-                        className="mt-2" 
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="phone">Contact Number *</Label>
-                      <Input 
-                        id="phone" 
-                        name="phone" 
-                        type="tel"
-                        required 
-                        value={formData.phone} 
-                        onChange={handleInputChange} 
-                        className="mt-2" 
-                        placeholder="+91 9876543210"
                       />
                     </div>
 
@@ -148,53 +107,16 @@ const ContactSection = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="problem">Marketing Problem (Optional)</Label>
+                      <Label htmlFor="message">Message *</Label>
                       <Textarea 
-                        id="problem" 
-                        name="problem" 
-                        value={formData.problem} 
+                        id="message" 
+                        name="message" 
+                        required
+                        value={formData.message} 
                         onChange={handleInputChange} 
                         className="mt-2" 
-                        rows={3} 
-                        placeholder="Tell us about your marketing challenges..." 
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="budget">Budget (Optional)</Label>
-                        <Input 
-                          id="budget" 
-                          name="budget" 
-                          value={formData.budget} 
-                          onChange={handleInputChange} 
-                          className="mt-2" 
-                          placeholder="e.g. ₹5-10 Lakhs" 
-                        />
-                      </div>
-
-                      <div>
-                        <Label htmlFor="startDate">Expected Start Date (Optional)</Label>
-                        <Input 
-                          id="startDate" 
-                          name="startDate" 
-                          type="date" 
-                          value={formData.startDate} 
-                          onChange={handleInputChange} 
-                          className="mt-2" 
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="agency">Current Marketing Agency (Optional)</Label>
-                      <Input 
-                        id="agency" 
-                        name="agency" 
-                        value={formData.agency} 
-                        onChange={handleInputChange} 
-                        className="mt-2" 
-                        placeholder="Do you currently work with any agency?" 
+                        rows={5} 
+                        placeholder="Tell us about your requirements..." 
                       />
                     </div>
 
@@ -205,7 +127,7 @@ const ContactSection = () => {
                       className="w-full border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
                       disabled={isLoading}
                     >
-                      {isLoading ? "Submitting..." : "Done"}
+                      {isLoading ? "Submitting..." : "Send Message"}
                     </Button>
                   </form>
                 </>
@@ -227,13 +149,8 @@ const ContactSection = () => {
                       setIsSubmitted(false);
                       setFormData({
                         name: '',
-                        company: '',
-                        phone: '',
                         email: '',
-                        problem: '',
-                        budget: '',
-                        startDate: '',
-                        agency: ''
+                        message: ''
                       });
                     }} 
                     className="mt-6"
