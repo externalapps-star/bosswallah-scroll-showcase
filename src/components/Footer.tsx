@@ -54,7 +54,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4 text-background">Contact Info</h4>
             <div className="space-y-2 text-background/80">
               <p>Email: brand@bosswallah.com</p>
-              <p>Phone: +91 XXXXX XXXXX</p>
+              <p>Phone: +91 7899571799</p>
               <p>Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
             </div>
           </div>
