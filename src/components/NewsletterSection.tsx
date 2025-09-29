@@ -20,37 +20,54 @@ const NewsletterSection = () => {
 
     setIsLoading(true);
 
-    const scriptURL = "https://script.google.com/a/macros/bosswallah.com/s/AKfycbzwWwVNDHzHp3FvaGl6jYhWAfO41-dwEtvgSFpwCLz3U9SSUG1YqzKUJDMdSoPuK8Olog/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbycDSL5d2ViQz-mSVG0zI_lVG78gORKYJeLmtXos3etDWzmXIctZIbjhuyGSjmUgjgmEQ/exec";
     const formData = {
       type: "newsletter",
       email: email
     };
 
     try {
-      console.log("Newsletter data being sent:", formData);
-      
       const response = await fetch(scriptURL, {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json;charset=UTF-8" },
         body: JSON.stringify(formData)
       });
       
-      // With no-cors, we can't read response, so assume success if no error thrown
+      const text = await response.text();
+      console.log('raw server response:', text);
       
-      toast({
-        title: "Successfully Subscribed!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-      
-      setEmail("");
+      let json;
+      try {
+        json = JSON.parse(text);
+      } catch (err) {
+        console.error('JSON parse error', err, text);
+        toast({
+          title: "Subscription Failed",
+          description: "Server returned unexpected response. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (json.result === 'success') {
+        toast({
+          title: "Successfully Subscribed!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+        setEmail("");
+      } else {
+        toast({
+          title: "Subscription Failed",
+          description: json.error || "Unknown error occurred.",
+          variant: "destructive",
+        });
+        console.error('Server error', json);
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Fetch error:", error);
       toast({
-        title: "Subscription Failed",
-        description: "Oops! Something went wrong. Please try again.",
+        title: "Network Error",
+        description: "Network or CORS error. Please try again.",
         variant: "destructive",
       });
     } finally {

@@ -9,8 +9,13 @@ import { toast } from "@/components/ui/use-toast";
 const ContactSection = () => {
   const [formData, setFormData] = useState({
     name: '',
+    companyName: '',
+    contactNumber: '',
     email: '',
-    message: ''
+    marketingProblem: '',
+    budget: '',
+    expectedStartDate: '',
+    currentAgency: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -26,39 +31,61 @@ const ContactSection = () => {
     e.preventDefault();
     setIsLoading(true);
 
-    const scriptURL = "https://script.google.com/a/macros/bosswallah.com/s/AKfycbzwWwVNDHzHp3FvaGl6jYhWAfO41-dwEtvgSFpwCLz3U9SSUG1YqzKUJDMdSoPuK8Olog/exec";
+    const scriptURL = "https://script.google.com/macros/s/AKfycbycDSL5d2ViQz-mSVG0zI_lVG78gORKYJeLmtXos3etDWzmXIctZIbjhuyGSjmUgjgmEQ/exec";
     const submitData = {
       type: "form",
       name: formData.name,
+      companyName: formData.companyName,
+      contactNumber: formData.contactNumber,
       email: formData.email,
-      message: formData.message
+      marketingProblem: formData.marketingProblem,
+      budget: formData.budget,
+      expectedStartDate: formData.expectedStartDate,
+      currentAgency: formData.currentAgency
     };
 
     try {
-      console.log("Contact form data being sent:", submitData);
-      
       const response = await fetch(scriptURL, {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json;charset=UTF-8" },
         body: JSON.stringify(submitData)
       });
       
-      // With no-cors, we can't read response, so assume success if no error thrown
+      const text = await response.text();
+      console.log('raw server response:', text);
       
-      toast({
-        title: "Form Submitted!",
-        description: "Thank you for your consultation request.",
-      });
-      
-      setIsSubmitted(true);
+      let json;
+      try {
+        json = JSON.parse(text);
+      } catch (err) {
+        console.error('JSON parse error', err, text);
+        toast({
+          title: "Submission Failed",
+          description: "Server returned unexpected response. Please try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+
+      if (json.result === 'success') {
+        toast({
+          title: "Form Submitted!",
+          description: "Thank you for your consultation request.",
+        });
+        setIsSubmitted(true);
+      } else {
+        toast({
+          title: "Submission Failed",
+          description: json.error || "Unknown error occurred.",
+          variant: "destructive",
+        });
+        console.error('Server error', json);
+      }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Fetch error:", error);
       toast({
-        title: "Submission Failed",
-        description: "Oops! Something went wrong. Please try again.",
+        title: "Network Error",
+        description: "Network or CORS error. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -86,43 +113,112 @@ const ContactSection = () => {
               {!isSubmitted ? (
                 <>
                   <form onSubmit={handleSubmit} className="space-y-6">
-                    <div>
-                      <Label htmlFor="name">Name *</Label>
-                      <Input 
-                        id="name" 
-                        name="name" 
-                        required 
-                        value={formData.name} 
-                        onChange={handleInputChange} 
-                        className="mt-2" 
-                      />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="name">Name *</Label>
+                        <Input 
+                          id="name" 
+                          name="name" 
+                          required 
+                          value={formData.name} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="companyName">Company Name *</Label>
+                        <Input 
+                          id="companyName" 
+                          name="companyName" 
+                          required 
+                          value={formData.companyName} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="contactNumber">Contact Number *</Label>
+                        <Input 
+                          id="contactNumber" 
+                          name="contactNumber" 
+                          type="tel"
+                          required 
+                          value={formData.contactNumber} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="email">Email Address *</Label>
+                        <Input 
+                          id="email" 
+                          name="email" 
+                          type="email"
+                          required 
+                          value={formData.email} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                          placeholder="your@email.com"
+                        />
+                      </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="email">Email Address *</Label>
-                      <Input 
-                        id="email" 
-                        name="email" 
-                        type="email"
-                        required 
-                        value={formData.email} 
-                        onChange={handleInputChange} 
-                        className="mt-2" 
-                        placeholder="your@email.com"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="message">Message *</Label>
+                      <Label htmlFor="marketingProblem">Marketing Problem *</Label>
                       <Textarea 
-                        id="message" 
-                        name="message" 
+                        id="marketingProblem" 
+                        name="marketingProblem" 
                         required
-                        value={formData.message} 
+                        value={formData.marketingProblem} 
                         onChange={handleInputChange} 
                         className="mt-2" 
-                        rows={5} 
-                        placeholder="Tell us about your requirements..." 
+                        rows={3} 
+                        placeholder="Describe your marketing challenges..." 
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div>
+                        <Label htmlFor="budget">Budget *</Label>
+                        <Input 
+                          id="budget" 
+                          name="budget" 
+                          required 
+                          value={formData.budget} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                          placeholder="e.g., $5,000 - $10,000"
+                        />
+                      </div>
+
+                      <div>
+                        <Label htmlFor="expectedStartDate">Expected Start Date *</Label>
+                        <Input 
+                          id="expectedStartDate" 
+                          name="expectedStartDate" 
+                          type="date"
+                          required 
+                          value={formData.expectedStartDate} 
+                          onChange={handleInputChange} 
+                          className="mt-2" 
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <Label htmlFor="currentAgency">Current Agency (Optional)</Label>
+                      <Input 
+                        id="currentAgency" 
+                        name="currentAgency" 
+                        value={formData.currentAgency} 
+                        onChange={handleInputChange} 
+                        className="mt-2" 
+                        placeholder="Name of your current marketing agency"
                       />
                     </div>
 
@@ -155,10 +251,15 @@ const ContactSection = () => {
                       setIsSubmitted(false);
                       setFormData({
                         name: '',
+                        companyName: '',
+                        contactNumber: '',
                         email: '',
-                        message: ''
+                        marketingProblem: '',
+                        budget: '',
+                        expectedStartDate: '',
+                        currentAgency: ''
                       });
-                    }} 
+                    }}
                     className="mt-6"
                   >
                     Submit Another Inquiry
