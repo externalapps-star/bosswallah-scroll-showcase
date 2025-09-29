@@ -13,16 +13,16 @@ const TopStrip = () => {
   return <div className="fixed top-0 left-0 right-0 z-50 bg-white text-foreground border-b border-border px-6 shadow-soft py-2">
       <div className="flex items-center justify-between max-w-full">
         {/* Logo */}
-        <div className="flex-shrink-0 w-[160px] h-14 flex items-center">
+        <div className="flex-shrink-0 w-[200px] h-20 flex items-center">
           <img 
             src={bossWallahLogo} 
             alt="Boss Wallah Media" 
-            className="h-14 w-auto object-contain bg-white p-1 rounded transition-none" 
+            className="h-20 w-auto object-contain bg-white p-1 rounded transition-none" 
             loading="eager"
             decoding="sync"
             style={{
-              minWidth: '150px',
-              maxWidth: '150px',
+              minWidth: '180px',
+              maxWidth: '180px',
               imageRendering: 'crisp-edges'
             }}
           />
