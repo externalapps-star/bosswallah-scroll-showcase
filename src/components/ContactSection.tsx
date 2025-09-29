@@ -27,8 +27,41 @@ const ContactSection = () => {
     });
   };
 
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validateContactNumber = (contactNumber: string) => {
+    // Remove all non-digit characters for validation
+    const digitsOnly = contactNumber.replace(/\D/g, '');
+    // Check if it's 10-15 digits (common phone number range)
+    return digitsOnly.length >= 10 && digitsOnly.length <= 15;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate email
+    if (!validateEmail(formData.email)) {
+      toast({
+        title: "Invalid Email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    // Validate contact number
+    if (!validateContactNumber(formData.contactNumber)) {
+      toast({
+        title: "Invalid Contact Number",
+        description: "Please enter a valid contact number (10-15 digits).",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     const scriptURL = "https://script.google.com/macros/s/AKfycbycDSL5d2ViQz-mSVG0zI_lVG78gORKYJeLmtXos3etDWzmXIctZIbjhuyGSjmUgjgmEQ/exec";
@@ -148,6 +181,9 @@ const ContactSection = () => {
                           value={formData.contactNumber} 
                           onChange={handleInputChange} 
                           className="mt-2" 
+                          placeholder="+1 (555) 123-4567"
+                          pattern="[\+]?[0-9\s\-\(\)]+"
+                          title="Please enter a valid phone number"
                         />
                       </div>
 
@@ -162,6 +198,8 @@ const ContactSection = () => {
                           onChange={handleInputChange} 
                           className="mt-2" 
                           placeholder="your@email.com"
+                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                          title="Please enter a valid email address"
                         />
                       </div>
                     </div>
