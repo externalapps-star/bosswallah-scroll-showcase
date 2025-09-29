@@ -19,12 +19,24 @@ const ContactSection = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [emailError, setEmailError] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+
+    // Real-time email validation
+    if (name === 'email') {
+      if (value && !validateEmail(value)) {
+        setEmailError('Please enter a valid email address');
+      } else {
+        setEmailError('');
+      }
+    }
   };
 
   const validateEmail = (email: string) => {
@@ -44,7 +56,16 @@ const ContactSection = () => {
     // For international numbers, check if it's 10-15 digits
     return digitsOnly.length >= 10 && digitsOnly.length <= 15;
   };
-
+    
+    // Check if there are any validation errors
+    if (emailError) {
+      toast({
+        title: "Form Error",
+        description: "Please fix the email address before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -212,11 +233,13 @@ const ContactSection = () => {
                           required 
                           value={formData.email} 
                           onChange={handleInputChange} 
-                          className="mt-2" 
+                          className={`mt-2 ${emailError ? 'border-red-500 focus:border-red-500' : ''}`}
                           placeholder="your@email.com"
-                          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                           title="Please enter a valid email address"
                         />
+                        {emailError && (
+                          <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                        )}
                       </div>
                     </div>
 
@@ -279,7 +302,7 @@ const ContactSection = () => {
                       variant="outline" 
                       size="lg" 
                       className="w-full border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300"
-                      disabled={isLoading}
+                      disabled={isLoading || !!emailError}
                     >
                       {isLoading ? "Submitting..." : "Send Message"}
                     </Button>
@@ -301,6 +324,7 @@ const ContactSection = () => {
                     variant="outline" 
                     onClick={() => {
                       setIsSubmitted(false);
+                      setEmailError('');
                       setFormData({
                         name: '',
                         companyName: '',
