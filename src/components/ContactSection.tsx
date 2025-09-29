@@ -2,9 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useState } from "react";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, CalendarIcon } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -14,7 +18,7 @@ const ContactSection = () => {
     email: '',
     marketingProblem: '',
     budget: '',
-    expectedStartDate: '',
+    expectedStartDate: null as Date | null,
     currentAgency: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -79,6 +83,25 @@ const ContactSection = () => {
       return;
     }
 
+    // Validate expected start date
+    if (!formData.expectedStartDate) {
+      toast({
+        title: "Date Required",
+        description: "Please select an expected start date.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (formData.expectedStartDate < new Date()) {
+      toast({
+        title: "Invalid Date",
+        description: "Expected start date cannot be in the past.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Validate contact number
     if (!validateContactNumber(formData.contactNumber)) {
       toast({
@@ -127,7 +150,7 @@ const ContactSection = () => {
       params.append('email', submitData.email);
       params.append('marketingProblem', submitData.marketingProblem);
       params.append('budget', submitData.budget);
-      params.append('expectedStartDate', submitData.expectedStartDate);
+      params.append('expectedStartDate', formData.expectedStartDate ? format(formData.expectedStartDate, 'yyyy-MM-dd') : '');
       params.append('currentAgency', submitData.currentAgency);
       
       const response = await fetch(scriptURL, {
@@ -273,15 +296,34 @@ const ContactSection = () => {
 
                       <div>
                         <Label htmlFor="expectedStartDate">Expected Start Date *</Label>
-                        <Input 
-                          id="expectedStartDate" 
-                          name="expectedStartDate" 
-                          type="date"
-                          required 
-                          value={formData.expectedStartDate} 
-                          onChange={handleInputChange} 
-                          className="mt-2" 
-                        />
+                        <Popover>
+                          <PopoverTrigger asChild>
+                            <Button
+                              variant="outline"
+                              className={cn(
+                                "w-full mt-2 justify-start text-left font-normal",
+                                !formData.expectedStartDate && "text-muted-foreground"
+                              )}
+                            >
+                              <CalendarIcon className="mr-2 h-4 w-4" />
+                              {formData.expectedStartDate ? (
+                                format(formData.expectedStartDate, "PPP")
+                              ) : (
+                                <span>Pick a start date</span>
+                              )}
+                            </Button>
+                          </PopoverTrigger>
+                          <PopoverContent className="w-auto p-0" align="start">
+                            <Calendar
+                              mode="single"
+                              selected={formData.expectedStartDate}
+                              onSelect={(date) => setFormData({...formData, expectedStartDate: date})}
+                              disabled={(date) => date < new Date()}
+                              initialFocus
+                              className={cn("p-3 pointer-events-auto")}
+                            />
+                          </PopoverContent>
+                        </Popover>
                       </div>
                     </div>
 
@@ -332,7 +374,7 @@ const ContactSection = () => {
                         email: '',
                         marketingProblem: '',
                         budget: '',
-                        expectedStartDate: '',
+                        expectedStartDate: null,
                         currentAgency: ''
                       });
                     }}
