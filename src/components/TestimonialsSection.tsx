@@ -32,10 +32,10 @@ const TestimonialsSection = () => {
   return <section id="testimonials" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
             Customer <span className="gradient-text">Speak</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Hear from brands that have achieved remarkable success with our campaigns
           </p>
         </div>
@@ -84,7 +84,7 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Quote */}
-                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-lg transition-colors duration-300 ${
+                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg transition-colors duration-300 ${
                     isActive || isMiddle ? 'text-foreground' : 'text-muted-foreground'
                   }`}>
                     "{testimonial.quote}"
@@ -92,10 +92,10 @@ const TestimonialsSection = () => {
 
                   {/* Author */}
                   <div className="border-t border-border pt-6 mt-auto">
-                    <div className={`font-semibold transition-colors duration-300 ${
+                    <div className={`text-base md:text-base font-semibold transition-colors duration-300 ${
                       isActive || isMiddle ? 'text-primary' : 'text-foreground'
                     }`}>{testimonial.author}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.company}</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">{testimonial.company}</div>
                   </div>
                 </div>
               </div>
