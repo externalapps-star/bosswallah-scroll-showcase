@@ -94,7 +94,7 @@ const CampaignsSection = () => {
                 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground">
+                  <h3 className="text-base md:text-xl font-bold mb-3 text-foreground">
                     {campaign.title}
                   </h3>
                   <p className="text-sm md:text-lg text-muted-foreground mb-6 leading-relaxed">
