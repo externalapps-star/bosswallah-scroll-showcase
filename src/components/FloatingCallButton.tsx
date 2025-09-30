@@ -13,7 +13,7 @@ const FloatingCallButton = () => {
                 <span className="sm:hidden">Let's Connect</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent side="left" className="max-w-[200px] sm:max-w-xs p-2 sm:p-4 bg-gradient-to-br from-card via-card to-muted border-2 border-primary/20 shadow-brand rounded-xl backdrop-blur-sm">
+            <TooltipContent side="left" className="max-w-[160px] sm:max-w-xs p-1.5 sm:p-4 bg-gradient-to-br from-card via-card to-muted border-2 border-primary/20 shadow-brand rounded-xl backdrop-blur-sm">
               <div className="relative">
                 {/* Subtle glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur opacity-30"></div>
