@@ -102,7 +102,7 @@ const InstagramPage = () => {
           <div className="space-y-12">
             {channels.map((languageGroup) => (
               <div key={languageGroup.language}>
-                <h2 className="text-2xl font-bold mb-6 text-foreground flex items-center">
+                <h2 className="text-sm font-bold mb-6 text-foreground flex items-center">
                   <span className="w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-full mr-4"></span>
                   {languageGroup.language}
                 </h2>
