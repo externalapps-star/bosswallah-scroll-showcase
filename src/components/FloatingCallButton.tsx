@@ -3,7 +3,7 @@ import { Calendar } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 const FloatingCallButton = () => {
   return <TooltipProvider>
-      <div className="fixed bottom-8 right-8 z-50">
+      <div className="fixed bottom-4 right-4 sm:bottom-8 sm:right-8 z-50">
         <div className="relative">
           <Tooltip delayDuration={300}>
             <TooltipTrigger asChild>
