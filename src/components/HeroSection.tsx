@@ -61,7 +61,7 @@ const HeroSection = ({
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between h-full">
           {/* Left-aligned content */}
-          <div className="max-w-4xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 w-full">
+          <div className="max-w-full sm:max-w-4xl mt-8 sm:mt-6 md:mt-8 lg:mt-12 w-full px-2 sm:px-0">
             {/* "Accelerate Your Brand" - Mobile optimized */}
             <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight sm:leading-none mb-3 sm:mb-4 break-words sm:whitespace-nowrap">
               Accelerate Your Brand
