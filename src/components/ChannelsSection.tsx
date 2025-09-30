@@ -400,14 +400,14 @@ const ChannelsSection = () => {
                 <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
                   <div className="overflow-hidden">
-                  <TabsList className="grid grid-cols-4 gap-1 text-xs md:text-sm md:grid-cols-7 md:gap-0">
-                    <TabsTrigger value="all" className="min-w-fit px-3">All</TabsTrigger>
-                    <TabsTrigger value="Telugu" className="min-w-fit px-3">Telugu</TabsTrigger>
-                    <TabsTrigger value="Tamil" className="min-w-fit px-3">Tamil</TabsTrigger>
-                    <TabsTrigger value="Kannada" className="min-w-fit px-3">Kannada</TabsTrigger>
-                    <TabsTrigger value="Malayalam" className="min-w-fit px-3">Malayalam</TabsTrigger>
-                    <TabsTrigger value="Hindi" className="min-w-fit px-3">Hindi</TabsTrigger>
-                    <TabsTrigger value="English" className="min-w-fit px-3">English</TabsTrigger>
+                  <TabsList className="flex w-full overflow-x-auto gap-1 text-xs md:text-sm md:grid md:grid-cols-7 md:gap-0 scrollbar-hide scroll-smooth">
+                    <TabsTrigger value="all" className="flex-shrink-0 min-w-fit px-3">All</TabsTrigger>
+                    <TabsTrigger value="Telugu" className="flex-shrink-0 min-w-fit px-3">Telugu</TabsTrigger>
+                    <TabsTrigger value="Tamil" className="flex-shrink-0 min-w-fit px-3">Tamil</TabsTrigger>
+                    <TabsTrigger value="Kannada" className="flex-shrink-0 min-w-fit px-3">Kannada</TabsTrigger>
+                    <TabsTrigger value="Malayalam" className="flex-shrink-0 min-w-fit px-3">Malayalam</TabsTrigger>
+                    <TabsTrigger value="Hindi" className="flex-shrink-0 min-w-fit px-3">Hindi</TabsTrigger>
+                    <TabsTrigger value="English" className="flex-shrink-0 min-w-fit px-3">English</TabsTrigger>
                   </TabsList>
                   </div>
 
