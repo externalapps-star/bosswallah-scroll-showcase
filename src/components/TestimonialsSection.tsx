@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
             return (
               <div 
                 key={index} 
-                className={`group relative transition-all duration-700 transform flex-none w-[85vw] md:w-auto snap-start ${
+                className={`group relative transition-all duration-700 transform flex-none w-[75vw] md:w-auto snap-start ${
                   isActive ? 'scale-105 z-10' : 'scale-100'
                 } ${isMiddle ? 'md:scale-110' : ''}`}
               >
