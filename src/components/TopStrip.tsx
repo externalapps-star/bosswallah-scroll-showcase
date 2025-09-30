@@ -81,8 +81,8 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
 
       {/* Second Row - Mobile Message */}
       <div className="md:hidden mt-2 text-center">
-        <p className="text-xs font-medium">
-          <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-lg">#1</span> <span className="text-[#F05C25] font-bold text-lg">Social Media Platform in South India</span>
+        <p className="text-[10px] font-medium leading-tight">
+          <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-sm">#1</span> <span className="text-[#F05C25] font-bold text-sm">Social Media Platform in South India</span>
         </p>
       </div>
     </div>;
