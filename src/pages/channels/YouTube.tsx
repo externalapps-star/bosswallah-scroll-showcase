@@ -86,7 +86,7 @@ const YouTubePage = () => {
               <h1 className="text-4xl md:text-5xl font-bold text-foreground">
                 YouTube <span className="gradient-text">Channels</span>
               </h1>
-              <p className="text-xl text-muted-foreground">14 active channels across 6 languages</p>
+              <p className="text-sm md:text-lg text-muted-foreground">14 active channels across 6 languages</p>
             </div>
           </div>
         </div>
