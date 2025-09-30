@@ -8,10 +8,9 @@ import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
 interface TopStripProps {
   mobileMenuOpen?: boolean;
   setMobileMenuOpen?: (open: boolean) => void;
-  navigationItems?: Array<{ label: string; action: () => void }>;
 }
 
-const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems = [] }: TopStripProps) => {
+const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) => {
   const openWhatsApp = () => {
     // Replace with your actual WhatsApp business number
     const phoneNumber = "919876543210"; // Format: country code + number (no spaces or special chars)
@@ -19,6 +18,23 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
+
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    if (setMobileMenuOpen) setMobileMenuOpen(false);
+  };
+
+  const navigationItems = [
+    { label: "Home", id: "home" },
+    { label: "About", id: "about" },
+    { label: "Channels", id: "channels" },
+    { label: "Campaigns", id: "campaigns" },
+    { label: "Testimonials", id: "testimonials" },
+    { label: "News", id: "news" },
+    { label: "Blogs", id: "blogs" },
+    { label: "Newsletter", id: "newsletter" },
+    { label: "Consult", id: "contact" }
+  ];
   return <div className="fixed top-0 left-0 right-0 z-50 bg-white text-foreground border-b border-border px-6 shadow-soft py-2">
       {/* First Row - Logo and WhatsApp + Hamburger Menu */}
       <div className="flex items-center justify-between max-w-full">
@@ -63,11 +79,8 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
                   {navigationItems.map((item, index) => (
                     <button 
                       key={index} 
-                      onClick={() => {
-                        item.action();
-                        setMobileMenuOpen(false);
-                      }} 
-                      className="block w-full text-left text-white hover:text-[#F05C25] py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm"
+                      onClick={() => scrollToSection(item.id)} 
+                      className="block w-full text-left text-white hover:text-[#F05C25] py-2 px-3 rounded hover:bg-white/10 transition-colors text-xs"
                     >
                       {item.label}
                     </button>

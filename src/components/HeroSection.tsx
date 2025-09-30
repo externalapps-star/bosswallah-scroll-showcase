@@ -46,7 +46,6 @@ const HeroSection = ({
       <TopStrip 
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}
-        navigationItems={navigationItems}
       />
       <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e] pt-20">
         {/* Dark background overlay */}
