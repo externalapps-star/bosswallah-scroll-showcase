@@ -415,7 +415,7 @@ const ChannelsSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
                         <div key={idx}>
-                          <h4 className="text-sm md:text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                          <h4 className="text-sm font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
                           <div className="space-y-3">
                             {languageGroup.channels.map((channel, channelIdx) => (
                               <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
