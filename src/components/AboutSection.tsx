@@ -9,11 +9,11 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-foreground">
+            <h2 className="text-2xl md:text-5xl font-bold mb-8 text-foreground whitespace-nowrap">
               About <span className="gradient-text">Boss Wallah</span>
             </h2>
             
-            <div className="text-lg leading-relaxed space-y-6 text-muted-foreground">
+            <div className="text-sm md:text-lg leading-relaxed space-y-6 text-muted-foreground">
               <p>
                 Boss Wallah Media is India's leading social media and production platform, powering brand impact at scale across regional markets. With a dynamic community of <strong className="text-accent">18M+ followers</strong> and <strong className="text-accent">330M+ monthly views</strong> on YouTube, Facebook, and Instagram, Boss Wallah Media delivers integrated campaigns, production services, and influencer-style content for sectors like finance, health, tech, e-commerce, and digital products.
               </p>
@@ -36,33 +36,33 @@ const AboutSection = () => {
 
           {/* Visual Stats Grid/Infographic */}
           <div className="space-y-8">
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-3 md:gap-6">
               {/* Followers */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">18M+</div>
-                <div className="text-muted-foreground font-medium">Followers</div>
-                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
+              <div className="bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border border-border text-center">
+                <div className="text-2xl md:text-5xl font-bold gradient-text mb-1 md:mb-2">18M+</div>
+                <div className="text-xs md:text-base text-muted-foreground font-medium">Followers</div>
+                <div className="w-8 md:w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-2 md:mt-4"></div>
               </div>
               
               {/* Monthly Views */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">330M+</div>
-                <div className="text-muted-foreground font-medium">Monthly Views</div>
-                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
+              <div className="bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border border-border text-center">
+                <div className="text-2xl md:text-5xl font-bold gradient-text mb-1 md:mb-2">330M+</div>
+                <div className="text-xs md:text-base text-muted-foreground font-medium">Monthly Views</div>
+                <div className="w-8 md:w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-2 md:mt-4"></div>
               </div>
               
               {/* Studios */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">6</div>
-                <div className="text-muted-foreground font-medium">Full-Scale Studios</div>
-                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
+              <div className="bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border border-border text-center">
+                <div className="text-2xl md:text-5xl font-bold gradient-text mb-1 md:mb-2">6</div>
+                <div className="text-xs md:text-base text-muted-foreground font-medium">Full-Scale Studios</div>
+                <div className="w-8 md:w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-2 md:mt-4"></div>
               </div>
               
               {/* Videos Weekly */}
-              <div className="bg-card rounded-3xl p-8 shadow-soft border border-border text-center">
-                <div className="text-5xl font-bold gradient-text mb-2">200+</div>
-                <div className="text-muted-foreground font-medium">Videos Weekly</div>
-                <div className="w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-4"></div>
+              <div className="bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft border border-border text-center">
+                <div className="text-2xl md:text-5xl font-bold gradient-text mb-1 md:mb-2">200+</div>
+                <div className="text-xs md:text-base text-muted-foreground font-medium">Videos Weekly</div>
+                <div className="w-8 md:w-16 h-1 bg-gradient-to-r from-primary to-accent rounded-full mx-auto mt-2 md:mt-4"></div>
               </div>
             </div>
           </div>
