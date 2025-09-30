@@ -399,14 +399,14 @@ const ChannelsSection = () => {
 
                 <div className="p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="grid w-full grid-cols-7 text-xs md:text-sm">
-                    <TabsTrigger value="all">All</TabsTrigger>
-                    <TabsTrigger value="Telugu">Telugu</TabsTrigger>
-                    <TabsTrigger value="Tamil">Tamil</TabsTrigger>
-                    <TabsTrigger value="Kannada">Kannada</TabsTrigger>
-                    <TabsTrigger value="Malayalam">Malayalam</TabsTrigger>
-                    <TabsTrigger value="Hindi">Hindi</TabsTrigger>
-                    <TabsTrigger value="English">English</TabsTrigger>
+                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide">
+                    <TabsTrigger value="all" className="flex-shrink-0">All</TabsTrigger>
+                    <TabsTrigger value="Telugu" className="flex-shrink-0">Telugu</TabsTrigger>
+                    <TabsTrigger value="Tamil" className="flex-shrink-0">Tamil</TabsTrigger>
+                    <TabsTrigger value="Kannada" className="flex-shrink-0">Kannada</TabsTrigger>
+                    <TabsTrigger value="Malayalam" className="flex-shrink-0">Malayalam</TabsTrigger>
+                    <TabsTrigger value="Hindi" className="flex-shrink-0">Hindi</TabsTrigger>
+                    <TabsTrigger value="English" className="flex-shrink-0">English</TabsTrigger>
                   </TabsList>
 
                   <TabsContent value="all" className="mt-8">
