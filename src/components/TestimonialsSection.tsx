@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,7 +47,62 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid with Auto-scroll */}
-        <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mx-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-4 -mx-4 md:mx-0 px-4 md:px-0 max-w-7xl">
+        <div className="relative">
+          {/* Mobile: Single card with arrows */}
+          <div className="md:hidden relative">
+            {/* Left Arrow */}
+            <button
+              onClick={() => setCurrentIndex((currentIndex - 1 + testimonials.length) % testimonials.length)}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-card border-2 border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-all"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={() => setCurrentIndex((currentIndex + 1) % testimonials.length)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-card border-2 border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-all"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size={20} />
+            </button>
+
+            {/* Single Card Display */}
+            <div className="px-12">
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className={`transition-all duration-500 ${
+                    index === currentIndex ? 'block' : 'hidden'
+                  }`}
+                >
+                  <div className="relative z-10 bg-card rounded-3xl p-6 shadow-soft border border-border h-full flex flex-col">
+                    {/* Rating */}
+                    <div className="flex space-x-1 mb-6">
+                      {[...Array(testimonial.rating)].map((_, i) => 
+                        <div key={i} className="w-5 h-5 text-lg text-primary">★</div>
+                      )}
+                    </div>
+
+                    {/* Quote */}
+                    <blockquote className="mb-6 leading-relaxed italic flex-1 text-xs text-foreground">
+                      "{testimonial.quote}"
+                    </blockquote>
+
+                    {/* Author */}
+                    <div className="border-t border-border pt-6 mt-auto">
+                      <div className="text-base font-semibold text-primary">{testimonial.author}</div>
+                      <div className="text-xs text-muted-foreground">{testimonial.company}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Grid layout */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
           {testimonials.map((testimonial, index) => {
             const isMiddle = index === 1;
             const isActive = index === currentIndex;
@@ -54,9 +110,9 @@ const TestimonialsSection = () => {
             return (
               <div 
                 key={index} 
-                className={`group relative transition-all duration-700 transform flex-none w-[calc(100%-2rem)] md:w-auto snap-center ${
-                  isActive ? 'z-10 md:scale-105' : 'md:scale-100'
-                } ${isMiddle ? 'md:scale-110' : ''}`}
+                className={`group relative transition-all duration-700 transform ${
+                  isActive ? 'z-10 scale-105' : 'scale-100'
+                } ${isMiddle ? 'scale-110' : ''}`}
               >
                 {/* Animated Border for Middle Card */}
                 {isMiddle && (
@@ -101,6 +157,7 @@ const TestimonialsSection = () => {
               </div>
             );
           })}
+        </div>
         </div>
         
         {/* Indicator Dots */}
