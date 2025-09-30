@@ -214,7 +214,7 @@ const ChannelsSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
           
-          <div className="relative flex md:grid md:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto px-6 py-2 md:p-8 overflow-x-auto md:overflow-x-visible scrollbar-hide snap-x snap-mandatory md:snap-none scroll-smooth">
+          <div className="relative flex md:grid md:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto px-6 py-2 md:p-8 overflow-x-auto md:overflow-x-visible scrollbar-hide snap-x snap-mandatory md:snap-none scroll-smooth" style={{ WebkitOverflowScrolling: 'touch', scrollBehavior: 'smooth' }}>
             {platforms.map((platform) => {
               const IconComponent = platform.icon;
               const isSelected = selectedPlatform === platform.id;
