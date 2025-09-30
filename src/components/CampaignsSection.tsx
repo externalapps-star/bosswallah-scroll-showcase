@@ -48,10 +48,10 @@ const CampaignsSection = () => {
     <section id="campaigns" className="section-padding bg-gradient-subtle">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
             Marketing <span className="gradient-text">Campaigns</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Tailored strategies for every business goal and market segment
           </p>
         </div>
@@ -94,10 +94,10 @@ const CampaignsSection = () => {
                 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
+                  <h3 className="text-lg md:text-xl font-bold mb-3 text-foreground">
                     {campaign.title}
                   </h3>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-sm md:text-lg text-muted-foreground mb-6 leading-relaxed">
                     {campaign.description}
                   </p>
                   
