@@ -154,10 +154,10 @@ const NewsSection = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
               Trending <span className="gradient-text">News</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Stay updated with the latest insights, trends, and strategies from Boss Wallah
             </p>
           </div>
