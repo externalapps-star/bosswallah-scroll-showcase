@@ -198,7 +198,7 @@ const ChannelsSection = () => {
 
   return (
     <section id="channels" className="section-padding bg-background">
-      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-2 md:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
             Our Social Media <span className="gradient-text">Channels</span>
@@ -214,14 +214,14 @@ const ChannelsSection = () => {
           <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-accent/5 rounded-3xl"></div>
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.15)_1px,transparent_0)] [background-size:20px_20px] opacity-30"></div>
           
-          <div className="relative flex md:grid md:grid-cols-3 gap-3 md:gap-8 max-w-7xl mx-auto p-4 md:p-8 overflow-x-auto md:overflow-x-visible scrollbar-hide snap-x snap-mandatory md:snap-none">
+          <div className="relative flex md:grid md:grid-cols-3 gap-2 md:gap-8 max-w-7xl mx-auto p-2 md:p-8 overflow-x-auto md:overflow-x-visible scrollbar-hide snap-x snap-mandatory md:snap-none">
             {platforms.map((platform) => {
               const IconComponent = platform.icon;
               const isSelected = selectedPlatform === platform.id;
               return (
                 <div
                   key={platform.name}
-                  className="group cursor-pointer flex-none w-[90vw] md:w-auto snap-start"
+                  className="group cursor-pointer flex-none w-[88vw] md:w-auto snap-start"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
                   {/* Brand-Themed Card with Authentic Colors */}
