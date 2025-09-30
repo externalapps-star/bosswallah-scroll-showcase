@@ -64,7 +64,7 @@ const FacebookPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-gradient-subtle py-8">
+      <div className="bg-gradient-subtle py-4 md:py-8">
         <div className="container-custom">
           <Button 
             variant="ghost" 
