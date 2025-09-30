@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import whatsappIcon from "@/assets/whatsapp-icon-new.png";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
@@ -12,6 +12,24 @@ interface TopStripProps {
 
 const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) => {
   const [activeSection, setActiveSection] = useState("home");
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node) && setMobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    if (mobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [mobileMenuOpen, setMobileMenuOpen]);
 
   // Track active section
   useEffect(() => {
@@ -96,7 +114,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
           
           {/* Mobile hamburger menu - only visible on mobile */}
           {setMobileMenuOpen && (
-            <div className="md:hidden">
+            <div className="md:hidden" ref={menuRef}>
               <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-[#1a1a2e] hover:text-[#755292] p-2 transition-colors">
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
