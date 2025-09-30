@@ -419,13 +419,13 @@ const ChannelsSection = () => {
                           <div className="space-y-3">
                             {languageGroup.channels.map((channel, channelIdx) => (
                               <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
-                                 <CardContent className="p-3 md:p-4">
+                                 <CardContent className="p-3">
                                    <div className="flex items-center justify-between gap-3">
-                                     <div className="flex md:flex-col items-center md:items-start gap-2 md:gap-0 flex-1 min-w-0">
-                                       <h5 className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate md:truncate-none">
+                                     <div className="flex items-center gap-2 flex-1 min-w-0">
+                                       <h5 className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate">
                                          {channel.name}
                                        </h5>
-                                       <div className={`inline-flex items-center px-2 py-0.5 md:py-1 rounded-full text-xs font-medium whitespace-nowrap md:mt-1 ${getCategoryColor(channel.category)}`}>
+                                       <div className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium whitespace-nowrap ${getCategoryColor(channel.category)}`}>
                                          {channel.category}
                                        </div>
                                      </div>
@@ -433,7 +433,7 @@ const ChannelsSection = () => {
                                        size="sm"
                                        variant="ghost"
                                        onClick={() => window.open(channel.url, '_blank')}
-                                       className="shrink-0 md:ml-2"
+                                       className="shrink-0"
                                      >
                                        <ExternalLink size={14} />
                                      </Button>
