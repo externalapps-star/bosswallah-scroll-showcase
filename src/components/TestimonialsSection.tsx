@@ -77,7 +77,7 @@ const TestimonialsSection = () => {
                     index === currentIndex ? 'block' : 'hidden'
                   }`}
                 >
-                  <div className="relative z-10 bg-card rounded-3xl p-6 shadow-soft border border-border h-full flex flex-col">
+                  <div className="relative z-10 bg-card rounded-3xl p-6 shadow-soft border border-border h-[280px] flex flex-col">
                     {/* Rating */}
                     <div className="flex space-x-1 mb-6">
                       {[...Array(testimonial.rating)].map((_, i) => 
@@ -123,7 +123,7 @@ const TestimonialsSection = () => {
                   </div>
                 )}
                 
-                <div className={`relative z-10 bg-card rounded-3xl p-8 shadow-soft transition-all duration-700 border h-full flex flex-col ${
+                <div className={`relative z-10 bg-card rounded-3xl p-8 shadow-soft transition-all duration-700 border h-[320px] flex flex-col ${
                   isMiddle 
                     ? 'border-transparent hover:shadow-brand' 
                     : isActive 
