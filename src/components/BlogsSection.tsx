@@ -133,7 +133,7 @@ const BlogsSection = () => {
                 </Card>)}
 
               {/* First Regular Card - Takes 1/3 width */}
-              {filteredNews.slice(1, 2).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
+              {filteredNews.slice(1, 2).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-accent/20 md:border-transparent hover:border-accent/60 md:hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
                     <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
@@ -167,7 +167,7 @@ const BlogsSection = () => {
 
             {/* Second Line - 3 Regular Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-              {filteredNews.slice(2, 5).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-transparent hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
+              {filteredNews.slice(2, 5).map((item, index) => <Card key={item.id} className="group cursor-pointer transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 border-2 border-accent/20 md:border-transparent hover:border-accent/60 md:hover:border-primary/30 bg-card/50 backdrop-blur-sm overflow-hidden hover-scale h-80 flex flex-col" onClick={() => window.open(item.url, '_blank')}>
                   <div className="relative overflow-hidden">
                     <img src={item.thumbnail} alt={item.title} className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-110" />
                     <div className="absolute top-3 left-3">
