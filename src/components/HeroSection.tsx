@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import TopStrip from "./TopStrip";
+
 interface HeroSectionProps {
   hideSideNavigation?: boolean;
 }
+
 const HeroSection = ({
   hideSideNavigation = false
 }: HeroSectionProps) => {
@@ -39,30 +41,21 @@ const HeroSection = ({
       behavior: 'smooth'
     })
   }];
-  return <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e]">
-      {/* Dark background overlay */}
-      
-
-      {/* Top left "Media Services" */}
-      <div className="absolute top-24 left-8 z-20">
+  return (
+    <>
+      <TopStrip 
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        navigationItems={navigationItems}
+      />
+      <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e] pt-20">
+        {/* Dark background overlay */}
         
-      </div>
 
-      {/* Mobile hamburger menu */}
-      <div className="lg:hidden absolute top-8 right-8 z-20">
-        <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-white p-2">
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-        
-        {mobileMenuOpen && <div className="absolute top-12 right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px]">
-            {navigationItems.map((item, index) => <button key={index} onClick={() => {
-          item.action();
-          setMobileMenuOpen(false);
-        }} className="block w-full text-left text-white hover:text-purple-400 py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm">
-                {item.label}
-              </button>)}
-          </div>}
-      </div>
+        {/* Top left "Media Services" */}
+        <div className="absolute top-24 left-8 z-20">
+          
+        </div>
 
       {/* Main content and navigation container */}
       <div className="relative z-10 flex-1">
@@ -106,6 +99,8 @@ const HeroSection = ({
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
         </div>
       </div>
-    </section>;
+      </section>
+    </>
+  );
 };
 export default HeroSection;
