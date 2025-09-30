@@ -400,14 +400,14 @@ const ChannelsSection = () => {
                 <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
                   <div>
-                  <TabsList className="grid grid-cols-4 gap-2 text-xs md:text-sm md:grid-cols-7 md:gap-0 h-auto p-2">
-                    <TabsTrigger value="all" className="px-1.5 py-1.5 text-xs md:text-sm">All</TabsTrigger>
-                    <TabsTrigger value="Telugu" className="px-1 py-1.5 text-xs md:text-sm">Telugu</TabsTrigger>
-                    <TabsTrigger value="Tamil" className="px-1 py-1.5 text-xs md:text-sm">Tamil</TabsTrigger>
-                    <TabsTrigger value="Kannada" className="px-1 py-1.5 text-xs md:text-sm">Kannada</TabsTrigger>
-                    <TabsTrigger value="Malayalam" className="px-0.5 py-1.5 text-xs md:text-sm">Malayalam</TabsTrigger>
-                    <TabsTrigger value="Hindi" className="px-1 py-1.5 text-xs md:text-sm">Hindi</TabsTrigger>
-                    <TabsTrigger value="English" className="px-1 py-1.5 text-xs md:text-sm">English</TabsTrigger>
+                  <TabsList className="grid grid-cols-4 gap-2 text-[10px] md:text-sm md:grid-cols-7 md:gap-0 h-auto p-2">
+                    <TabsTrigger value="all" className="px-1.5 py-1.5 text-[10px] md:text-sm">All</TabsTrigger>
+                    <TabsTrigger value="Telugu" className="px-1 py-1.5 text-[10px] md:text-sm">Telugu</TabsTrigger>
+                    <TabsTrigger value="Tamil" className="px-1 py-1.5 text-[10px] md:text-sm">Tamil</TabsTrigger>
+                    <TabsTrigger value="Kannada" className="px-1 py-1.5 text-[10px] md:text-sm">Kannada</TabsTrigger>
+                    <TabsTrigger value="Malayalam" className="px-0.5 py-1.5 text-[9px] md:text-sm">Malayalam</TabsTrigger>
+                    <TabsTrigger value="Hindi" className="px-1 py-1.5 text-[10px] md:text-sm">Hindi</TabsTrigger>
+                    <TabsTrigger value="English" className="px-1 py-1.5 text-[10px] md:text-sm">English</TabsTrigger>
                   </TabsList>
                   </div>
 
