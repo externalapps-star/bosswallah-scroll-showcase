@@ -60,11 +60,11 @@ const NewsModal = ({
           </div>
 
           {/* Navigation Arrows */}
-          {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 md:h-10 md:w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
+          {onPrevious && <Button variant="ghost" size="icon" onClick={onPrevious} className="absolute left-1 md:left-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 md:h-10 md:w-10 rounded-full bg-transparent md:bg-gradient-to-r md:from-primary md:via-accent md:to-primary text-primary md:text-primary-foreground border-2 border-transparent md:border-white/20 shadow-none md:shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronLeft size={14} className="md:w-4 md:h-4" />
             </Button>}
           
-          {onNext && <Button variant="ghost" size="icon" onClick={onNext} className="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 md:h-10 md:w-10 rounded-full bg-gradient-to-r from-primary via-accent to-primary text-primary-foreground border-2 border-white/20 shadow-lg transition-all duration-300 hover:scale-110">
+          {onNext && <Button variant="ghost" size="icon" onClick={onNext} className="absolute right-1 md:right-2 top-1/2 -translate-y-1/2 z-10 h-8 w-8 md:h-10 md:w-10 rounded-full bg-transparent md:bg-gradient-to-r md:from-primary md:via-accent md:to-primary text-primary md:text-primary-foreground border-2 border-transparent md:border-white/20 shadow-none md:shadow-lg transition-all duration-300 hover:scale-110">
               <ChevronRight size={14} className="md:w-4 md:h-4" />
             </Button>}
 
