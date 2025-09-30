@@ -22,18 +22,18 @@ const FloatingCallButton = () => {
             </TooltipTrigger>
             <TooltipContent 
               side="left" 
-              className="max-w-xs p-4 bg-gradient-to-br from-card via-card to-muted border-2 border-primary/20 shadow-brand rounded-xl backdrop-blur-sm"
+              className="max-w-[200px] sm:max-w-xs p-2 sm:p-4 bg-gradient-to-br from-card via-card to-muted border-2 border-primary/20 shadow-brand rounded-xl backdrop-blur-sm"
             >
               <div className="relative">
                 {/* Subtle glow effect */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-accent/20 rounded-lg blur opacity-30"></div>
                 <div className="relative">
-                  <p className="text-sm font-medium text-foreground leading-relaxed">
-                    📅 <span className="gradient-text font-bold">Book a time that works for you</span> and let's discuss your marketing goals in detail.
+                  <p className="text-xs sm:text-sm font-medium text-foreground leading-relaxed">
+                    📅 <span className="gradient-text font-bold">Book a consultation</span> to discuss your marketing goals.
                   </p>
-                  <div className="flex items-center mt-2 text-xs text-muted-foreground">
-                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse mr-2"></div>
-                    Free consultation • 30 minutes
+                  <div className="flex items-center mt-1 sm:mt-2 text-[10px] sm:text-xs text-muted-foreground">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-primary rounded-full animate-pulse mr-1 sm:mr-2"></div>
+                    Free consultation • 30 min
                   </div>
                 </div>
               </div>
