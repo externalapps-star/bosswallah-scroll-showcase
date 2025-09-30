@@ -59,7 +59,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
               </button>
               
               {mobileMenuOpen && (
-                <div className="absolute top-full right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px] shadow-lg">
+                <div className="absolute top-full right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px] max-h-[70vh] overflow-y-auto shadow-lg">
                   {navigationItems.map((item, index) => (
                     <button 
                       key={index} 
