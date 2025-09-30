@@ -62,14 +62,14 @@ const Footer = () => {
 
         {/* Bottom */}
         <div className="border-t border-background/20 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-background/60 text-sm">
+          <p className="text-background/60 text-xs">
             © {currentYear} Boss Wallah Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="https://bosswallah.com/privacypolicy?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-sm transition-colors">
+            <a href="https://bosswallah.com/privacypolicy?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Privacy Policy
             </a>
-            <a href="https://bosswallah.com/user-agreement?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-sm transition-colors">
+            <a href="https://bosswallah.com/user-agreement?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Terms of Use
             </a>
           </div>
