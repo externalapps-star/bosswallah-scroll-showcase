@@ -107,7 +107,7 @@ const YouTubePage = () => {
                   {languageGroup.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="bg-card rounded-xl p-4 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer hover-scale"
+                      className="bg-card rounded-lg p-3 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer hover-scale"
                       onClick={() => {
                         const link = document.createElement('a');
                         link.href = channel.url;
@@ -118,19 +118,19 @@ const YouTubePage = () => {
                         document.body.removeChild(link);
                       }}
                     >
-                      <div className="flex items-center justify-end mb-3">
-                        <div className={`px-2 py-1 rounded-full text-xs font-medium ${getCategoryColor(channel.category)}`}>
+                      <div className="flex items-center justify-end mb-2">
+                        <div className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${getCategoryColor(channel.category)}`}>
                           {channel.category}
                         </div>
                       </div>
                       
-                      <h3 className="font-semibold text-foreground mb-2 text-sm group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="font-semibold text-foreground mb-1.5 text-xs group-hover:text-primary transition-colors leading-tight">
                         {channel.name}
                       </h3>
                       
-                      <div className="flex items-center text-primary font-medium text-sm group-hover:text-accent transition-colors">
+                      <div className="flex items-center text-primary font-medium text-[11px] group-hover:text-accent transition-colors">
                         Watch Channel
-                        <ExternalLink size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                        <ExternalLink size={14} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
                       </div>
                     </div>
                   ))}
