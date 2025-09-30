@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import whatsappIcon from "@/assets/whatsapp-icon-new.png";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
@@ -11,6 +11,27 @@ interface TopStripProps {
 }
 
 const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) => {
+  const [activeSection, setActiveSection] = useState("home");
+
+  // Track active section
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "channels", "campaigns", "testimonials", "news", "blogs", "newsletter", "contact"];
+      for (const sectionId of sections) {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 100 && rect.bottom >= 100) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const openWhatsApp = () => {
     // Replace with your actual WhatsApp business number
     const phoneNumber = "919876543210"; // Format: country code + number (no spaces or special chars)
@@ -34,6 +55,12 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
     { label: "Blogs", id: "blogs" },
     { label: "Newsletter", id: "newsletter" },
     { label: "Consult", id: "contact" }
+  ];
+
+  const socialLinks = [
+    { icon: Youtube, href: "/channels/youtube", color: "text-red-500" },
+    { icon: Facebook, href: "/channels/facebook", color: "text-blue-600" },
+    { icon: Instagram, href: "/channels/instagram", color: "text-pink-500" }
   ];
   return <div className="fixed top-0 left-0 right-0 z-50 bg-white text-foreground border-b border-border px-6 shadow-soft py-2">
       {/* First Row - Logo and WhatsApp + Hamburger Menu */}
@@ -80,11 +107,42 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
                     <button 
                       key={index} 
                       onClick={() => scrollToSection(item.id)} 
-                      className="block w-full text-left text-white hover:text-[#F05C25] py-2 px-3 rounded hover:bg-white/10 transition-colors text-xs"
+                      className={`block w-full text-left py-2 px-3 rounded transition-colors text-xs ${
+                        activeSection === item.id 
+                          ? 'bg-[#F05C25] text-white font-medium' 
+                          : 'text-white hover:text-[#F05C25] hover:bg-white/10'
+                      }`}
                     >
                       {item.label}
                     </button>
                   ))}
+                  
+                  {/* Contact Information */}
+                  <div className="mt-4 pt-4 border-t border-gray-600 space-y-3">
+                    <div className="space-y-2">
+                      <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                        <Phone className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-xs">+91 7899571799</span>
+                      </a>
+                      <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                        <Mail className="h-4 w-4 flex-shrink-0" />
+                        <span className="text-xs">brand@bosswallah.com</span>
+                      </a>
+                    </div>
+
+                    {/* Social Icons */}
+                    <div className="flex space-x-4 pt-1">
+                      {socialLinks.map((social, index) => (
+                        <a 
+                          key={index}
+                          href={social.href} 
+                          className={`text-gray-400 hover:${social.color} transition-colors`}
+                        >
+                          <social.icon className="h-5 w-5" />
+                        </a>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
