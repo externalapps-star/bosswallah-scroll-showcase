@@ -175,7 +175,7 @@ const NewsSection = () => {
 
                     {/* Content */}
                     <div className="flex-1 min-w-0">
-                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 text-sm mb-1">
+                      <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2 text-xs md:text-sm mb-1">
                         {item.title}
                       </h3>
                     </div>
