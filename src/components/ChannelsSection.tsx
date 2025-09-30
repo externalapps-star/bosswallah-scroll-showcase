@@ -397,9 +397,10 @@ const ChannelsSection = () => {
                   </Button>
                 </div>
 
-                <div className="px-0 py-4 md:p-8">
+                <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 px-4 py-2 md:px-0 md:py-0">
+                  <div className="overflow-hidden">
+                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 md:gap-0">
                     <TabsTrigger value="all" className="flex-shrink-0 min-w-fit px-3">All</TabsTrigger>
                     <TabsTrigger value="Telugu" className="flex-shrink-0 min-w-fit px-3">Telugu</TabsTrigger>
                     <TabsTrigger value="Tamil" className="flex-shrink-0 min-w-fit px-3">Tamil</TabsTrigger>
@@ -408,8 +409,9 @@ const ChannelsSection = () => {
                     <TabsTrigger value="Hindi" className="flex-shrink-0 min-w-fit px-3">Hindi</TabsTrigger>
                     <TabsTrigger value="English" className="flex-shrink-0 min-w-fit px-3">English</TabsTrigger>
                   </TabsList>
+                  </div>
 
-                  <TabsContent value="all" className="mt-8 px-4 md:px-0">
+                  <TabsContent value="all" className="mt-8">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
                         <div key={idx}>
@@ -447,7 +449,7 @@ const ChannelsSection = () => {
 
                   {/* Language-specific tabs */}
                   {["Telugu", "Tamil", "Kannada", "Malayalam", "Hindi", "English"].map((language) => (
-                    <TabsContent key={language} value={language} className="mt-8 px-4 md:px-0">
+                    <TabsContent key={language} value={language} className="mt-8">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {channelData[selectedPlatform as keyof typeof channelData]
                           ?.filter(languageGroup => languageGroup.language === language)
