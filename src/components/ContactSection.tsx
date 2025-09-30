@@ -196,10 +196,10 @@ const ContactSection = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
               Book a <span className="gradient-text">Consulting</span> <span className="gradient-text">Call</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               We pride ourselves on being a business savvy media house that understands 
               that we need to deliver what matters to our customers.
             </p>

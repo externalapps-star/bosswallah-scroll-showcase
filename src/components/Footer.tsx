@@ -9,10 +9,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold mb-4 gradient-text">
+            <h3 className="text-lg md:text-2xl font-bold mb-4 gradient-text">
               Boss Wallah Media
             </h3>
-            <p className="text-background/80 leading-relaxed mb-6 max-w-md text-justify">
+            <p className="text-xs md:text-base text-background/80 leading-relaxed mb-6 max-w-md text-justify">
               Boss Wallah Media is #1 Social Media Platform in South India, reaching 18M+ followers and 330M+ monthly viewers across YouTube, Facebook, and Instagram. With six studios and a creative team delivering 200+ multilingual videos a week, Boss Wallah Media drives high-ROI campaigns for national and international brands alike. From social media boosts to influencer-style branded content, Boss Wallah Media is the go-to partner for brands seeking scale and impact especially in India's southern markets.
             </p>
             
@@ -20,30 +20,30 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4 text-background">Quick Links</h4>
+            <h4 className="text-sm md:text-base font-semibold mb-4 text-background">Quick Links</h4>
             <nav className="space-y-2">
-              <a href="#about" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#about" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 About Us
               </a>
-              <a href="#channels" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#channels" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Our Channels
               </a>
-              <a href="#campaigns" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#campaigns" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Marketing Campaigns
               </a>
-              <a href="#testimonials" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#testimonials" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Testimonials
               </a>
-              <a href="#news" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#news" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 News
               </a>
-              <a href="#blogs" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#blogs" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Blogs
               </a>
-              <a href="#newsletter" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#newsletter" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Newsletter
               </a>
-              <a href="#contact" className="block text-background/80 hover:text-primary transition-colors">
+              <a href="#contact" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
                 Consult
               </a>
             </nav>
@@ -51,11 +51,11 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-semibold mb-4 text-background">Contact Info</h4>
+            <h4 className="text-sm md:text-base font-semibold mb-4 text-background">Contact Info</h4>
             <div className="space-y-2 text-background/80">
-              <p>Email: brand@bosswallah.com</p>
-              <p>Phone: +91 7899571799</p>
-              <p>Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
+              <p className="text-xs md:text-base">Email: brand@bosswallah.com</p>
+              <p className="text-xs md:text-base">Phone: +91 7899571799</p>
+              <p className="text-xs md:text-base">Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
             </div>
           </div>
         </div>

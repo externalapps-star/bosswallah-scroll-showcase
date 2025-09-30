@@ -75,10 +75,10 @@ const NewsletterSection = () => {
         <div className="max-w-2xl mx-auto text-center">
           {!isSubscribed ? (
             <>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
                 Subscribe to Our <span className="gradient-text">Newsletter</span>
               </h2>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-sm md:text-lg text-muted-foreground mb-8">
                 Get the latest insights, tips, and updates on digital marketing, 
                 business growth strategies, and exclusive content delivered straight to your inbox.
               </p>
@@ -108,13 +108,13 @@ const NewsletterSection = () => {
           ) : (
             <div className="py-8">
               <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
                 <span className="gradient-text">Thank You!</span>
               </h2>
-              <p className="text-xl text-muted-foreground mb-6">
+              <p className="text-sm md:text-xl text-muted-foreground mb-6">
                 🎉 You are now subscribed to our newsletter!
               </p>
-              <p className="text-lg text-muted-foreground mb-8">
+              <p className="text-sm md:text-lg text-muted-foreground mb-8">
                 Get ready to receive the latest insights, tips, and updates on digital marketing 
                 and business growth strategies delivered straight to your inbox.
               </p>
