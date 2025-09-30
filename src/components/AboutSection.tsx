@@ -13,7 +13,7 @@ const AboutSection = () => {
               About <span className="gradient-text">Boss Wallah</span>
             </h2>
             
-            <div className="text-sm md:text-lg leading-relaxed space-y-6 text-muted-foreground">
+            <div className="text-sm md:text-lg leading-relaxed space-y-6 text-muted-foreground text-justify">
               <p>
                 Boss Wallah Media is India's leading social media and production platform, powering brand impact at scale across regional markets. With a dynamic community of <strong className="text-accent">18M+ followers</strong> and <strong className="text-accent">330M+ monthly views</strong> on YouTube, Facebook, and Instagram, Boss Wallah Media delivers integrated campaigns, production services, and influencer-style content for sectors like finance, health, tech, e-commerce, and digital products.
               </p>
