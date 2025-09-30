@@ -400,7 +400,7 @@ const ChannelsSection = () => {
                 <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
                   <div className="overflow-hidden">
-                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 md:gap-0">
+                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 md:gap-0 pl-4 pr-4 md:pl-0 md:pr-0">
                     <TabsTrigger value="all" className="flex-shrink-0 min-w-fit px-3">All</TabsTrigger>
                     <TabsTrigger value="Telugu" className="flex-shrink-0 min-w-fit px-3">Telugu</TabsTrigger>
                     <TabsTrigger value="Tamil" className="flex-shrink-0 min-w-fit px-3">Tamil</TabsTrigger>
