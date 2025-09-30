@@ -9,7 +9,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <div>
-            <h2 className="text-2xl md:text-5xl font-bold mb-8 text-foreground whitespace-nowrap">
+            <h2 className="text-2xl md:text-5xl font-bold mb-4 md:mb-8 text-foreground whitespace-nowrap">
               About <span className="gradient-text">Boss Wallah</span>
             </h2>
             

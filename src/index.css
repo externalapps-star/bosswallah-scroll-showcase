@@ -125,7 +125,7 @@
 @layer components {
   /* Professional section spacing - reduced */
   .section-padding {
-    @apply py-8 px-4;
+    @apply py-4 px-4 md:py-8;
   }
 
   /* Container for full width content with consistent padding */

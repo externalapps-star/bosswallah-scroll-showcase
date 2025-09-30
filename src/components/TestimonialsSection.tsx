@@ -32,8 +32,8 @@ const TestimonialsSection = () => {
 
   return <section id="testimonials" className="section-padding bg-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
+        <div className="text-center mb-8 md:mb-16">
+          <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-6 text-foreground whitespace-nowrap">
             Customer <span className="gradient-text">Speak</span>
           </h2>
           <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">
