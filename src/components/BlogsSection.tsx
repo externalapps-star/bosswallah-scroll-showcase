@@ -89,10 +89,10 @@ const BlogsSection = () => {
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           {/* Header */}
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
               Latest <span className="gradient-text">Blogs</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Thoughtful articles to keep you informed and inspired</p>
+            <p className="text-sm md:text-xl text-muted-foreground max-w-3xl mx-auto">Thoughtful articles to keep you informed and inspired</p>
           </div>
 
 
@@ -117,11 +117,11 @@ const BlogsSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-accent via-primary to-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-700 origin-center" />
                     
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-lg">
+                    <h3 className="font-bold text-foreground mb-2 group-hover:text-accent transition-colors duration-300 line-clamp-2 text-base md:text-lg">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {item.excerpt}
                     </p>
 
@@ -149,11 +149,11 @@ const BlogsSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                     
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2 text-lg">
+                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base md:text-lg">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {item.excerpt}
                     </p>
 
@@ -183,11 +183,11 @@ const BlogsSection = () => {
                     {/* Animated border accent */}
                     <div className="absolute inset-x-0 bottom-0 h-1 bg-gradient-to-r from-primary via-accent to-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                     
-                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2 text-lg">
+                    <h3 className="font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-2 text-base md:text-lg">
                       {item.title}
                     </h3>
                     
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-3 line-clamp-2 group-hover:text-muted-foreground/80 transition-colors duration-300">
                       {item.excerpt}
                     </p>
 
