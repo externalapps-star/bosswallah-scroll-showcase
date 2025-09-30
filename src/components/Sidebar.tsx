@@ -82,8 +82,8 @@ const Sidebar = ({
     color: "text-pink-500"
   }];
   return <>
-    {/* Floating Hamburger Menu - Center Left - Hidden on mobile */}
-    <div className="hidden lg:block">
+    {/* Floating Hamburger Menu - Center Left - Desktop and Tablet */}
+    <div className="hidden sm:block">
       {!isMenuOpen && <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40">
           <Menu className="h-6 w-6" />
         </Button>}
@@ -147,8 +147,8 @@ const Sidebar = ({
         </>}
     </div>
 
-    {/* Mobile Sidebar */}
-    <div className="lg:hidden">
+    {/* Mobile Sidebar - Mobile only */}
+    <div className="sm:hidden">
       <Sheet>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="fixed top-4 right-4 z-50 h-10 w-10 rounded-full bg-background/80 backdrop-blur-sm border border-border">
