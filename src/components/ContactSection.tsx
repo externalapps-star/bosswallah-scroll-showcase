@@ -213,33 +213,33 @@ const ContactSection = () => {
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="name">Name *</Label>
+                        <Label htmlFor="name" className="text-sm">Name *</Label>
                         <Input 
                           id="name" 
                           name="name" 
                           required 
                           value={formData.name} 
                           onChange={handleInputChange} 
-                          className="mt-2" 
+                          className="mt-2 text-sm" 
                         />
                       </div>
 
                       <div>
-                        <Label htmlFor="companyName">Company Name *</Label>
+                        <Label htmlFor="companyName" className="text-sm">Company Name *</Label>
                         <Input 
                           id="companyName" 
                           name="companyName" 
                           required 
                           value={formData.companyName} 
                           onChange={handleInputChange} 
-                          className="mt-2" 
+                          className="mt-2 text-sm" 
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="contactNumber">Contact Number *</Label>
+                        <Label htmlFor="contactNumber" className="text-sm">Contact Number *</Label>
                         <Input 
                           id="contactNumber" 
                           name="contactNumber" 
@@ -247,14 +247,14 @@ const ContactSection = () => {
                           required 
                           value={formData.contactNumber} 
                           onChange={handleInputChange} 
-                          className="mt-2" 
+                          className="mt-2 text-sm" 
                           placeholder="9876543210 (Indian format) or +1-555-123-4567 (International)"
                           title="Enter 10 digits for Indian numbers or full international format"
                         />
                       </div>
 
                       <div>
-                        <Label htmlFor="email">Email Address *</Label>
+                        <Label htmlFor="email" className="text-sm">Email Address *</Label>
                         <Input 
                           id="email" 
                           name="email" 
@@ -262,25 +262,25 @@ const ContactSection = () => {
                           required 
                           value={formData.email} 
                           onChange={handleInputChange} 
-                          className={`mt-2 ${emailError ? 'border-red-500 focus:border-red-500' : ''}`}
+                          className={`mt-2 text-sm ${emailError ? 'border-red-500 focus:border-red-500' : ''}`}
                           placeholder="your@email.com"
                           title="Please enter a valid email address"
                         />
                         {emailError && (
-                          <p className="text-red-500 text-sm mt-1">{emailError}</p>
+                          <p className="text-red-500 text-xs mt-1">{emailError}</p>
                         )}
                       </div>
                     </div>
 
                     <div>
-                      <Label htmlFor="marketingProblem">Marketing Problem *</Label>
+                      <Label htmlFor="marketingProblem" className="text-sm">Marketing Problem *</Label>
                       <Textarea 
                         id="marketingProblem" 
                         name="marketingProblem" 
                         required
                         value={formData.marketingProblem} 
                         onChange={handleInputChange} 
-                        className="mt-2" 
+                        className="mt-2 text-sm" 
                         rows={3} 
                         placeholder="Describe your marketing challenges..." 
                       />
@@ -288,26 +288,26 @@ const ContactSection = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
-                        <Label htmlFor="budget">Budget *</Label>
+                        <Label htmlFor="budget" className="text-sm">Budget *</Label>
                         <Input 
                           id="budget" 
                           name="budget" 
                           required 
                           value={formData.budget} 
                           onChange={handleInputChange} 
-                          className="mt-2" 
+                          className="mt-2 text-sm" 
                           placeholder="e.g., $5,000 - $10,000"
                         />
                       </div>
 
                       <div>
-                        <Label htmlFor="expectedStartDate">Expected Start Date *</Label>
+                        <Label htmlFor="expectedStartDate" className="text-sm">Expected Start Date *</Label>
                         <Popover>
                           <PopoverTrigger asChild>
                             <Button
                               variant="outline"
                               className={cn(
-                                "w-full mt-2 justify-start text-left font-normal",
+                                "w-full mt-2 justify-start text-left font-normal text-sm",
                                 !formData.expectedStartDate && "text-muted-foreground"
                               )}
                             >
@@ -334,13 +334,13 @@ const ContactSection = () => {
                     </div>
 
                     <div>
-                      <Label htmlFor="currentAgency">Current Agency (Optional)</Label>
+                      <Label htmlFor="currentAgency" className="text-sm">Current Agency (Optional)</Label>
                       <Input 
                         id="currentAgency" 
                         name="currentAgency" 
                         value={formData.currentAgency} 
                         onChange={handleInputChange} 
-                        className="mt-2" 
+                        className="mt-2 text-sm" 
                         placeholder="Name of your current marketing agency"
                       />
                     </div>
@@ -350,7 +350,7 @@ const ContactSection = () => {
                       variant="outline" 
                       size="lg" 
                       className={cn(
-                        "w-full border-2 transition-all duration-300",
+                        "w-full border-2 transition-all duration-300 text-sm",
                         emailError || !formData.email || !validateEmail(formData.email)
                           ? "border-gray-300 text-gray-400 bg-gray-100 cursor-not-allowed opacity-50"
                           : "border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground"
