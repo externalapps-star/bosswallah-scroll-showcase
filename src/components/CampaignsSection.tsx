@@ -56,32 +56,32 @@ const CampaignsSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto">
           {campaigns.map((campaign, index) => (
             <div
               key={campaign.title}
-              className="group relative bg-card rounded-3xl p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col hover:bg-gradient-to-br hover:from-orange-50/80 hover:to-amber-50/60 dark:hover:from-orange-950/30 dark:hover:to-amber-950/20 overflow-hidden"
+              className="group relative bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col hover:bg-gradient-to-br hover:from-orange-50/80 hover:to-amber-50/60 dark:hover:from-orange-950/30 dark:hover:to-amber-950/20 overflow-hidden"
             >
               {/* Animated Border */}
-              <div className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
-                  <div className="w-full h-full bg-card rounded-3xl"></div>
+              <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
+                  <div className="w-full h-full bg-card rounded-2xl md:rounded-3xl"></div>
                 </div>
               </div>
-              <div className="relative z-10 flex items-start space-x-6">
+              <div className="relative z-10 flex items-start space-x-3 md:space-x-6">
                 {/* Campaign Icon */}
                 <div className="flex-shrink-0">
-                  <div className={`w-16 h-16 rounded-2xl overflow-hidden shadow-lg flex items-center justify-center ${
+                  <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl overflow-hidden shadow-lg flex items-center justify-center ${
                     campaign.icon === "podcast" || campaign.icon === "camera" || campaign.icon === "event"
                       ? "bg-black" 
                       : ""
                   }`}>
                     {campaign.icon === "podcast" ? (
-                      <Podcast className="w-8 h-8 text-orange-500" />
+                      <Podcast className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
                     ) : campaign.icon === "camera" ? (
-                      <Camera className="w-8 h-8 text-orange-500" />
+                      <Camera className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
                     ) : campaign.icon === "event" ? (
-                      <Calendar className="w-8 h-8 text-orange-500" />
+                      <Calendar className="w-6 h-6 md:w-8 md:h-8 text-orange-500" />
                     ) : (
                       <img 
                         src={campaign.icon as string} 
@@ -93,20 +93,20 @@ const CampaignsSection = () => {
                 </div>
                 
                 {/* Content */}
-                <div className="flex-1">
-                  <h3 className="text-base md:text-xl font-bold mb-3 text-foreground">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base md:text-xl font-bold mb-2 md:mb-3 text-foreground">
                     {campaign.title}
                   </h3>
-                  <p className="text-sm md:text-lg text-muted-foreground mb-6 leading-relaxed">
+                  <p className="text-xs md:text-lg text-muted-foreground mb-3 md:mb-6 leading-relaxed">
                     {campaign.description}
                   </p>
                   
                   {/* Features */}
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 md:space-y-2">
                     {campaign.features.map((feature) => (
-                      <div key={feature} className="flex items-center space-x-3">
-                        <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0"></div>
-                        <span className="text-sm text-muted-foreground">{feature}</span>
+                      <div key={feature} className="flex items-center space-x-2 md:space-x-3">
+                        <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full flex-shrink-0"></div>
+                        <span className="text-xs md:text-sm text-muted-foreground">{feature}</span>
                       </div>
                     ))}
                   </div>
