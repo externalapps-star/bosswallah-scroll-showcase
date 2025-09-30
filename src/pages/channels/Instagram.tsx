@@ -102,7 +102,7 @@ const InstagramPage = () => {
           <div className="space-y-12">
             {channels.map((languageGroup) => (
               <div key={languageGroup.language}>
-                <h2 className="text-sm font-bold mb-6 text-foreground flex items-center">
+                <h2 className="text-sm md:text-2xl font-bold mb-6 text-foreground flex items-center">
                   <span className="w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-full mr-4"></span>
                   {languageGroup.language}
                 </h2>
@@ -111,7 +111,7 @@ const InstagramPage = () => {
                   {languageGroup.channels.map((channel) => (
                     <div
                       key={channel.name}
-                      className="bg-card rounded-lg p-3 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer hover-scale"
+                      className="bg-card rounded-lg md:rounded-xl p-3 md:p-6 shadow-soft hover:shadow-brand transition-all duration-300 border border-border group cursor-pointer hover-scale"
                       onClick={() => {
                         const link = document.createElement('a');
                         link.href = channel.url;
@@ -122,19 +122,19 @@ const InstagramPage = () => {
                         document.body.removeChild(link);
                       }}
                     >
-                      <div className="flex items-center justify-end mb-2">
-                        <div className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${getCategoryColor(channel.category)}`}>
+                      <div className="flex items-center justify-end mb-2 md:mb-4">
+                        <div className={`px-2 md:px-3 py-0.5 md:py-1 rounded-full text-[10px] md:text-xs font-medium ${getCategoryColor(channel.category)}`}>
                           {channel.category}
                         </div>
                       </div>
                       
-                      <h3 className="font-semibold text-foreground mb-1.5 text-xs group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="font-semibold text-foreground mb-1.5 md:mb-3 text-xs md:text-lg group-hover:text-primary transition-colors leading-tight">
                         {channel.name}
                       </h3>
                       
-                      <div className="flex items-center text-primary font-medium text-[11px] group-hover:text-accent transition-colors">
+                      <div className="flex items-center text-primary font-medium text-[11px] md:text-sm group-hover:text-accent transition-colors">
                         Visit Profile
-                        <ExternalLink size={14} className="ml-1.5 group-hover:translate-x-1 transition-transform" />
+                        <ExternalLink size={14} className="ml-1.5 md:ml-2 group-hover:translate-x-1 transition-transform md:w-5 md:h-5" />
                       </div>
                     </div>
                   ))}
