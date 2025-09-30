@@ -457,28 +457,28 @@ const ChannelsSection = () => {
                           <div key={idx} className="col-span-full">
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                               {languageGroup.channels.map((channel, channelIdx) => (
-                                <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
-                                  <CardContent className="p-4">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex-1">
-                                        <h5 className="text-sm md:text-base font-medium text-foreground group-hover:text-primary transition-colors">
-                                          {channel.name}
-                                        </h5>
-                                        <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
-                                          {channel.category}
-                                        </div>
-                                      </div>
-                                      <Button
-                                        size="sm"
-                                        variant="ghost"
-                                        onClick={() => window.open(channel.url, '_blank')}
-                                        className="ml-2"
-                                      >
-                                        <ExternalLink size={14} />
-                                      </Button>
-                                    </div>
-                                  </CardContent>
-                                </Card>
+                                 <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
+                                   <CardContent className="p-3 md:p-4">
+                                     <div className="flex items-center justify-between gap-3">
+                                       <div className="flex items-center md:flex-col md:items-start gap-2 flex-1 min-w-0">
+                                         <h5 className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors truncate">
+                                           {channel.name}
+                                         </h5>
+                                         <div className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium whitespace-nowrap md:mt-1 ${getCategoryColor(channel.category)}`}>
+                                           {channel.category}
+                                         </div>
+                                       </div>
+                                       <Button
+                                         size="sm"
+                                         variant="ghost"
+                                         onClick={() => window.open(channel.url, '_blank')}
+                                         className="shrink-0"
+                                       >
+                                         <ExternalLink size={14} />
+                                       </Button>
+                                     </div>
+                                   </CardContent>
+                                 </Card>
                               ))}
                             </div>
                           </div>
