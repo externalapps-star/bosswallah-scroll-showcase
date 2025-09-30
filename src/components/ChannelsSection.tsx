@@ -221,7 +221,7 @@ const ChannelsSection = () => {
               return (
                 <div
                   key={platform.name}
-                  className="group cursor-pointer flex-none w-[calc(90vw-8px)] md:w-auto snap-start"
+                  className="group cursor-pointer flex-none w-[calc(80vw-8px)] md:w-auto snap-start"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
                   {/* Brand-Themed Card with Authentic Colors */}
