@@ -54,12 +54,12 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
           {/* Mobile hamburger menu - only visible on mobile */}
           {setMobileMenuOpen && (
             <div className="md:hidden">
-              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-foreground p-2">
+              <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-[#1a1a2e] hover:text-[#755292] p-2 transition-colors">
                 {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
               
               {mobileMenuOpen && (
-                <div className="absolute top-full right-0 bg-white/95 backdrop-blur-md border border-gray-300 rounded-lg p-4 min-w-[200px] shadow-lg">
+                <div className="absolute top-full right-0 bg-[#1a1a2e]/95 backdrop-blur-md border border-gray-700 rounded-lg p-4 min-w-[200px] shadow-lg">
                   {navigationItems.map((item, index) => (
                     <button 
                       key={index} 
@@ -67,7 +67,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen, navigationItems =
                         item.action();
                         setMobileMenuOpen(false);
                       }} 
-                      className="block w-full text-left text-foreground hover:text-[#755292] py-2 px-3 rounded hover:bg-gray-100 transition-colors text-sm"
+                      className="block w-full text-left text-white hover:text-[#F05C25] py-2 px-3 rounded hover:bg-white/10 transition-colors text-sm"
                     >
                       {item.label}
                     </button>
