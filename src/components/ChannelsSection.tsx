@@ -397,9 +397,9 @@ const ChannelsSection = () => {
                   </Button>
                 </div>
 
-                <div className="p-8">
+                <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 pl-2 md:pl-0">
+                  <TabsList className="flex w-full overflow-x-auto text-xs md:text-sm md:grid md:grid-cols-7 scrollbar-hide scroll-smooth gap-1 px-4 md:px-0">
                     <TabsTrigger value="all" className="flex-shrink-0 min-w-fit px-3">All</TabsTrigger>
                     <TabsTrigger value="Telugu" className="flex-shrink-0 min-w-fit px-3">Telugu</TabsTrigger>
                     <TabsTrigger value="Tamil" className="flex-shrink-0 min-w-fit px-3">Tamil</TabsTrigger>
