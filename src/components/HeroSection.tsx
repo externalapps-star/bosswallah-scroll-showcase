@@ -79,31 +79,8 @@ const HeroSection = ({
               #1 Social Media Platform in South India
             </p>
             
-            {/* Connect CTA Button */}
-            <div className="mb-6 sm:mb-8">
-              <Button 
-                variant="default" 
-                size="lg"
-                className="bg-gradient-to-r from-primary via-accent to-primary hover:from-primary/90 hover:via-accent/90 hover:to-primary/90 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 hover:scale-105"
-                onClick={() => window.open('https://calendar.app.google/E7d7wnoCdBbLwJrL9', '_blank')}
-              >
-                Let's Connect
-              </Button>
-            </div>
-
-            {/* Scroll indicator - smaller and placed after CTA */}
-            <div className="flex justify-center">
-              <div className="animate-bounce cursor-pointer" onClick={() => document.getElementById('about')?.scrollIntoView({
-                behavior: 'smooth'
-              })}>
-                <div className="w-4 h-6 border-2 border-white/50 rounded-full flex justify-center hover:border-white/70 transition-colors">
-                  <div className="w-0.5 h-2 bg-white/50 rounded-full mt-1"></div>
-                </div>
-              </div>
-            </div>
-            
             {/* "Boss Wallah Media" with gradient - Mobile optimized */}
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4 mt-8">
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4">
               <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
                 Boss Wallah Media
               </span>
@@ -113,6 +90,14 @@ const HeroSection = ({
       </div>
       </div>
 
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer z-10" onClick={() => document.getElementById('about')?.scrollIntoView({
+      behavior: 'smooth'
+    })}>
+        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center hover:border-white/70 transition-colors">
+          <div className="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+        </div>
+      </div>
       </section>
     </>
   );
