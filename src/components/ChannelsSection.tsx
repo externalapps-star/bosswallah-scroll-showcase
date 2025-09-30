@@ -228,16 +228,16 @@ const ChannelsSection = () => {
                   <div className={`relative overflow-hidden bg-card rounded-2xl transition-all duration-500 border-2 h-full flex flex-col shadow-lg ${
                     platform.name === 'YouTube' ? (
                       isSelected 
-                        ? 'border-red-500 shadow-red-500/30 scale-105 shadow-2xl' 
-                        : 'border-red-200 dark:border-red-800 group-hover:border-red-400 group-hover:shadow-red-500/20 group-hover:scale-102 group-hover:shadow-xl'
+                        ? 'border-red-500 shadow-red-500/30 md:scale-105 shadow-2xl' 
+                        : 'border-red-200 dark:border-red-800 group-hover:border-red-400 group-hover:shadow-red-500/20 md:group-hover:scale-102 group-hover:shadow-xl'
                     ) : platform.name === 'Facebook' ? (
                       isSelected 
-                        ? 'border-blue-500 shadow-blue-500/30 scale-105 shadow-2xl' 
-                        : 'border-blue-200 dark:border-blue-800 group-hover:border-blue-400 group-hover:shadow-blue-500/20 group-hover:scale-102 group-hover:shadow-xl'
+                        ? 'border-blue-500 shadow-blue-500/30 md:scale-105 shadow-2xl' 
+                        : 'border-blue-200 dark:border-blue-800 group-hover:border-blue-400 group-hover:shadow-blue-500/20 md:group-hover:scale-102 group-hover:shadow-xl'
                     ) : (
                       isSelected 
-                        ? 'border-pink-500 shadow-pink-500/30 scale-105 shadow-2xl' 
-                        : 'border-pink-200 dark:border-pink-800 group-hover:border-pink-400 group-hover:shadow-pink-500/20 group-hover:scale-102 group-hover:shadow-xl'
+                        ? 'border-pink-500 shadow-pink-500/30 md:scale-105 shadow-2xl' 
+                        : 'border-pink-200 dark:border-pink-800 group-hover:border-pink-400 group-hover:shadow-pink-500/20 md:group-hover:scale-102 group-hover:shadow-xl'
                     )
                   }`}>
                     
