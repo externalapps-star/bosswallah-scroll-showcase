@@ -80,7 +80,7 @@ const HeroSection = ({
             </p>
             
             {/* "Boss Wallah Media" with gradient - Mobile optimized */}
-            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4">
+            <h2 className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4 whitespace-nowrap">
               <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
                 Boss Wallah Media
               </span>
