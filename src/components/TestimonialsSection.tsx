@@ -55,7 +55,7 @@ const TestimonialsSection = () => {
               <div 
                 key={index} 
                 className={`group relative transition-all duration-700 transform flex-none w-[calc(100%-2rem)] md:w-auto snap-center ${
-                  isActive ? 'scale-105 z-10' : 'scale-100'
+                  isActive ? 'z-10 md:scale-105' : 'md:scale-100'
                 } ${isMiddle ? 'md:scale-110' : ''}`}
               >
                 {/* Animated Border for Middle Card */}
