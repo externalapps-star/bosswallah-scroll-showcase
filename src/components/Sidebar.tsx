@@ -82,8 +82,8 @@ const Sidebar = ({
     color: "text-pink-500"
   }];
   return <>
-    {/* Floating Hamburger Menu - Center Left */}
-    <div>
+    {/* Floating Hamburger Menu - Center Left - Hidden on mobile */}
+    <div className="hidden lg:block">
       {!isMenuOpen && <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="fixed top-1/2 left-4 transform -translate-y-1/2 h-12 w-12 rounded-full border-2 border-primary/30 bg-primary/10 text-primary z-40">
           <Menu className="h-6 w-6" />
         </Button>}
