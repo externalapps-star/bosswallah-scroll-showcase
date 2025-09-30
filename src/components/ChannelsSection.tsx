@@ -384,7 +384,7 @@ const ChannelsSection = () => {
                     <div className="absolute bottom-4 left-10 w-5 h-5 border border-white/10 rounded-full"></div>
                   </div>
                   
-                  <h3 className="text-3xl font-bold text-white relative z-10">
+                  <h3 className="text-xl md:text-3xl font-bold text-white relative z-10">
                     {platforms.find(p => p.id === selectedPlatform)?.name} Channels
                   </h3>
                   <Button
@@ -399,7 +399,7 @@ const ChannelsSection = () => {
 
                 <div className="p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <TabsList className="grid w-full grid-cols-7">
+                  <TabsList className="grid w-full grid-cols-7 text-xs md:text-sm">
                     <TabsTrigger value="all">All</TabsTrigger>
                     <TabsTrigger value="Telugu">Telugu</TabsTrigger>
                     <TabsTrigger value="Tamil">Tamil</TabsTrigger>
@@ -413,14 +413,14 @@ const ChannelsSection = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                       {channelData[selectedPlatform as keyof typeof channelData]?.map((languageGroup, idx) => (
                         <div key={idx}>
-                          <h4 className="text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
+                          <h4 className="text-sm md:text-lg font-semibold mb-4 text-foreground">{languageGroup.language}</h4>
                           <div className="space-y-3">
                             {languageGroup.channels.map((channel, channelIdx) => (
                               <Card key={channelIdx} className="group hover:shadow-md transition-all duration-300">
                                 <CardContent className="p-4">
                                   <div className="flex items-center justify-between">
                                     <div className="flex-1">
-                                      <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                      <h5 className="text-sm md:text-base font-medium text-foreground group-hover:text-primary transition-colors">
                                         {channel.name}
                                       </h5>
                                       <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
@@ -459,7 +459,7 @@ const ChannelsSection = () => {
                                   <CardContent className="p-4">
                                     <div className="flex items-center justify-between">
                                       <div className="flex-1">
-                                        <h5 className="font-medium text-foreground group-hover:text-primary transition-colors">
+                                        <h5 className="text-sm md:text-base font-medium text-foreground group-hover:text-primary transition-colors">
                                           {channel.name}
                                         </h5>
                                         <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
