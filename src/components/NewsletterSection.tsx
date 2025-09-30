@@ -70,7 +70,7 @@ const NewsletterSection = () => {
   };
 
   return (
-    <section className="py-8 md:py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
+    <section className="py-12 md:py-20 bg-gradient-to-br from-primary/5 to-secondary/5">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto text-center">
           {!isSubscribed ? (
