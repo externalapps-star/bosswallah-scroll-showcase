@@ -221,7 +221,7 @@ const ChannelsSection = () => {
               return (
                 <div
                   key={platform.name}
-                  className="group cursor-pointer flex-none w-[85vw] md:w-auto snap-start"
+                  className="group cursor-pointer flex-none w-[90vw] md:w-auto snap-start"
                   onClick={() => setSelectedPlatform(isSelected ? null : platform.id)}
                 >
                   {/* Brand-Themed Card with Authentic Colors */}
@@ -283,7 +283,7 @@ const ChannelsSection = () => {
                     </div>
                     
                     {/* Content Section */}
-                    <div className="flex-1 p-6 flex flex-col">
+                    <div className="flex-1 p-3 md:p-6 flex flex-col">
                       
                       {/* Platform Title */}
                       <h3 className={`text-2xl font-bold mb-3 ${
