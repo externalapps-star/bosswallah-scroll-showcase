@@ -66,28 +66,36 @@ const HeroSection = ({
 
       {/* Main content and navigation container */}
       <div className="relative z-10 flex-1">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-full">
-            {/* Left-aligned content */}
-            <div className="max-w-4xl mt-8 lg:mt-12">
-              {/* "Accelerate Your" in white */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-none mb-4 whitespace-nowrap">Accelerate Your Brand</h1>
-              
-              {/* "Brand Growth" with gradient */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8">
-                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Growth With</span>
-              </h1>
-              
-              {/* Subtitle */}
-              <p className="text-gray-400 text-lg md:text-xl lg:text-2xl xl:text-3xl mb-8 lg:mb-12 max-w-4xl leading-relaxed">#1 Social Media Platform in South India</p>
-              
-              {/* "With Boss Wallah Media" with gradient */}
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-6 md:mb-8 -mt-4">
-                <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">Boss Wallah Media</span>
-              </h2>
-            </div>
+      <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-full">
+          {/* Left-aligned content */}
+          <div className="max-w-4xl mt-4 sm:mt-6 md:mt-8 lg:mt-12 w-full">
+            {/* "Accelerate Your Brand" - Mobile optimized */}
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white leading-tight sm:leading-none mb-3 sm:mb-4 break-words sm:whitespace-nowrap">
+              Accelerate Your Brand
+            </h1>
+            
+            {/* "Growth With" with gradient - Mobile optimized */}
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8">
+              <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
+                Growth With
+              </span>
+            </h1>
+            
+            {/* Subtitle - Mobile optimized */}
+            <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 sm:mb-8 lg:mb-12 max-w-full sm:max-w-4xl leading-relaxed px-1 sm:px-0">
+              #1 Social Media Platform in South India
+            </p>
+            
+            {/* "Boss Wallah Media" with gradient - Mobile optimized */}
+            <h2 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4">
+              <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
+                Boss Wallah Media
+              </span>
+            </h2>
           </div>
         </div>
+      </div>
       </div>
 
       {/* Scroll indicator */}
