@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
         </div>
 
         {/* Testimonials Grid with Auto-scroll */}
-        <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-4">
+        <div className="flex overflow-x-auto md:grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 max-w-7xl mx-auto snap-x snap-mandatory scroll-smooth scrollbar-hide pb-4 px-4 md:px-0">
           {testimonials.map((testimonial, index) => {
             const isMiddle = index === 1;
             const isActive = index === currentIndex;
@@ -54,7 +54,7 @@ const TestimonialsSection = () => {
             return (
               <div 
                 key={index} 
-                className={`group relative transition-all duration-700 transform flex-none w-[75vw] md:w-auto snap-start ${
+                className={`group relative transition-all duration-700 transform flex-none w-[calc(100vw-2rem)] md:w-auto snap-center ${
                   isActive ? 'scale-105 z-10' : 'scale-100'
                 } ${isMiddle ? 'md:scale-110' : ''}`}
               >
