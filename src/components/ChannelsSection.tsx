@@ -422,7 +422,7 @@ const ChannelsSection = () => {
                                 <CardContent className="p-4">
                                   <div className="flex items-center justify-between">
                                     <div className="flex-1">
-                                      <h5 className="text-sm font-medium text-foreground group-hover:text-primary transition-colors">
+                                      <h5 className="text-xs md:text-sm font-medium text-foreground group-hover:text-primary transition-colors">
                                         {channel.name}
                                       </h5>
                                       <div className={`inline-flex items-center px-2 py-1 rounded-full text-xs font-medium mt-1 ${getCategoryColor(channel.category)}`}>
