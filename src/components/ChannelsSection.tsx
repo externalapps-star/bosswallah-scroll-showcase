@@ -399,8 +399,8 @@ const ChannelsSection = () => {
 
                 <div className="p-4 md:p-8">
                   <Tabs defaultValue="all" className="w-full">
-                  <div className="overflow-hidden">
-                  <TabsList className="grid grid-cols-4 gap-1 text-xs md:text-sm md:grid-cols-7 md:gap-0">
+                  <div>
+                  <TabsList className="grid grid-cols-4 gap-1 text-xs md:text-sm md:grid-cols-7 md:gap-0 h-auto">
                     <TabsTrigger value="all" className="min-w-fit px-3">All</TabsTrigger>
                     <TabsTrigger value="Telugu" className="min-w-fit px-3">Telugu</TabsTrigger>
                     <TabsTrigger value="Tamil" className="min-w-fit px-3">Tamil</TabsTrigger>
