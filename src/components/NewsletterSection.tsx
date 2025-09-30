@@ -75,7 +75,7 @@ const NewsletterSection = () => {
         <div className="max-w-2xl mx-auto text-center">
           {!isSubscribed ? (
             <>
-              <h2 className="text-2xl md:text-5xl font-bold mb-6 text-foreground whitespace-nowrap">
+              <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-6 mt-4 md:mt-0 text-foreground whitespace-nowrap">
                 Subscribe to Our <span className="gradient-text">Newsletter</span>
               </h2>
               <p className="text-sm md:text-lg text-muted-foreground mb-8">
