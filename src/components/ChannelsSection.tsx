@@ -286,7 +286,7 @@ const ChannelsSection = () => {
                     <div className="flex-1 p-3 md:p-6 flex flex-col">
                       
                       {/* Platform Title */}
-                      <h3 className={`text-2xl font-bold mb-3 ${
+                      <h3 className={`text-lg md:text-2xl font-bold mb-3 ${
                         platform.name === 'YouTube' 
                           ? 'text-red-600 dark:text-red-400' 
                           : platform.name === 'Facebook'
@@ -297,14 +297,14 @@ const ChannelsSection = () => {
                       </h3>
                       
                       {/* Channel Count with Brand Colors */}
-                      <div className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold mb-4 w-fit ${
+                      <div className={`inline-flex items-center px-2 md:px-4 py-1 md:py-2 rounded-full text-xs md:text-sm font-semibold mb-4 w-fit ${
                         platform.name === 'YouTube' 
                           ? 'bg-red-50 text-red-700 border border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800' 
                           : platform.name === 'Facebook'
                           ? 'bg-blue-50 text-blue-700 border border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
                           : 'bg-pink-50 text-pink-700 border border-pink-200 dark:bg-pink-900/20 dark:text-pink-300 dark:border-pink-800'
                       }`}>
-                        <div className={`w-2 h-2 rounded-full mr-2 ${
+                        <div className={`w-1.5 md:w-2 h-1.5 md:h-2 rounded-full mr-1 md:mr-2 ${
                           platform.name === 'YouTube' ? 'bg-red-500' :
                           platform.name === 'Facebook' ? 'bg-blue-500' : 'bg-pink-500'
                         }`}></div>
@@ -312,14 +312,14 @@ const ChannelsSection = () => {
                       </div>
                       
                       {/* Description */}
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-6 flex-1">
+                      <p className="text-muted-foreground text-xs md:text-sm leading-relaxed mb-6 flex-1">
                         {platform.description}
                       </p>
                       
                       {/* Action Buttons */}
                       <div className="space-y-3">
                         <button 
-                          className={`w-full py-3 px-4 rounded-lg font-medium text-sm transition-all duration-300 ${
+                          className={`w-full py-2 md:py-3 px-3 md:px-4 rounded-lg font-medium text-xs md:text-sm transition-all duration-300 ${
                             isSelected 
                               ? `text-white ${
                                   platform.name === 'YouTube' ? 'bg-red-600 hover:bg-red-700' :
