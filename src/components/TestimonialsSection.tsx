@@ -173,7 +173,7 @@ const TestimonialsSection = () => {
           <div className="overflow-hidden" ref={emblaRef}>
             <div className="flex">
               {Array.from({ length: totalGroups }).map((_, groupIndex) => (
-                <div key={groupIndex} className="flex-[0_0_100%] min-w-0">
+                <div key={groupIndex} className="flex-[0_0_100%] min-w-0 px-2">
                   <div className="grid grid-cols-3 gap-6 lg:gap-8">
                     {testimonials.slice(groupIndex * 3, groupIndex * 3 + 3).map((testimonial, index) => {
                       const actualIndex = groupIndex * 3 + index;
@@ -182,15 +182,13 @@ const TestimonialsSection = () => {
                       return (
                         <div
                           key={actualIndex}
-                          className={`transition-all duration-500 transform ${
-                            isHighlighted ? 'scale-105' : 'scale-100'
-                          }`}
+                          className="p-2"
                         >
                           <div
                             className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border min-h-[360px] flex flex-col ${
                               isHighlighted
-                                ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5'
-                                : 'border-border'
+                                ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5 scale-105'
+                                : 'border-border scale-100'
                             }`}
                           >
                             <div className="flex space-x-1 mb-3">
