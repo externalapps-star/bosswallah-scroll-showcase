@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="mb-6 leading-relaxed italic flex-1 text-xs text-foreground">
+                    <blockquote className="mb-6 leading-relaxed italic flex-1 text-xs text-foreground text-justify">
                       "{testimonial.quote}"
                     </blockquote>
 
@@ -112,7 +112,7 @@ const TestimonialsSection = () => {
                 key={index} 
                 className={`group relative transition-all duration-700 transform ${
                   isActive ? 'z-10 scale-105' : 'scale-100'
-                } ${isMiddle ? 'scale-110' : ''}`}
+                }`}
               >
                 {/* Animated Border for Middle Card */}
                 {isMiddle && (
@@ -140,7 +140,7 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Quote */}
-                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg transition-colors duration-300 ${
+                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg text-justify transition-colors duration-300 ${
                     isActive || isMiddle ? 'text-foreground' : 'text-muted-foreground'
                   }`}>
                     "{testimonial.quote}"
