@@ -185,7 +185,7 @@ const TestimonialsSection = () => {
                           className="py-3 px-2"
                         >
                           <div
-                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[340px] flex flex-col ${
+                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[420px] flex flex-col ${
                               isHighlighted
                                 ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5 scale-105'
                                 : 'border-border scale-100'
@@ -205,7 +205,7 @@ const TestimonialsSection = () => {
                             </div>
 
                             <blockquote
-                              className={`mb-4 leading-[1.6] text-[12px] text-left flex-1 overflow-hidden line-clamp-[12] transition-colors duration-300 ${
+                              className={`mb-4 leading-[1.6] text-[12px] text-left flex-1 transition-colors duration-300 ${
                                 isHighlighted ? 'text-foreground' : 'text-muted-foreground'
                               }`}
                             >
