@@ -119,10 +119,13 @@ const Sidebar = ({
               {/* Footer with contact details */}
               <div className="p-4 border-t border-border/10 space-y-3">
                 <div className="space-y-2">
-                  <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
-                    <Phone className="h-4 w-4 flex-shrink-0" />
-                    <span className="text-sm">+91 7899571799</span>
-                  </a>
+                  <div className="space-y-1">
+                    <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                      <Phone className="h-4 w-4 flex-shrink-0" />
+                      <span className="text-sm">+91 7899571799</span>
+                    </a>
+                    <p className="text-[10px] text-gray-500 ml-7 italic">For business & marketing enquiries only</p>
+                  </div>
                   <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                     <Mail className="h-4 w-4 flex-shrink-0" />
                     <span className="text-sm">brand@bosswallah.com</span>
@@ -174,10 +177,13 @@ const Sidebar = ({
             {/* Footer */}
             <div className="p-6 border-t border-border/10 space-y-4">
               <div className="space-y-3">
-                <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400">
-                  <Phone className="h-4 w-4" />
-                  <span className="text-sm">+91 7899571799</span>
-                </a>
+                <div className="space-y-1">
+                  <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400">
+                    <Phone className="h-4 w-4" />
+                    <span className="text-sm">+91 7899571799</span>
+                  </a>
+                  <p className="text-[10px] text-gray-500 ml-7 italic">For business & marketing enquiries only</p>
+                </div>
                 <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400">
                   <Mail className="h-4 w-4" />
                   <span className="text-sm">brand@bosswallah.com</span>
