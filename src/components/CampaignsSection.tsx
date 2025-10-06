@@ -19,10 +19,10 @@ const CampaignsSection = () => {
       icon: revenueIcon
     },
     {
-      title: "Event Launch Program",
-      description: "Companies that want to create an intense 3 month campaign:",
-      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
-      icon: "event"
+      title: "SocialLift",
+      description: "We create, optimize, and grow social media video channels from scratch:",
+      features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth (GEO, AEO)", "Sustained Channel Health"],
+      icon: "podcast"
     },
     {
       title: "Brand Building Campaigns",
@@ -31,10 +31,10 @@ const CampaignsSection = () => {
       icon: brandBuildingIcon
     },
     {
-      title: "SocialLift",
-      description: "We create, optimize, and grow social media video channels from scratch:",
-      features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth", "Sustained Channel Health"],
-      icon: "podcast"
+      title: "Event Launch Program",
+      description: "Companies that want to create an intense 3 month campaign:",
+      features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
+      icon: "event"
     },
     {
       title: "Video Content Production",
