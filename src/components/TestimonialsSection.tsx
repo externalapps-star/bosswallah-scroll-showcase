@@ -114,21 +114,10 @@ const TestimonialsSection = () => {
                   isActive ? 'z-10 scale-105' : 'scale-100'
                 }`}
               >
-                {/* Animated Border for Middle Card */}
-                {isMiddle && (
-                  <div className="absolute inset-0 rounded-3xl opacity-100 transition-opacity duration-500">
-                    <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
-                      <div className="w-full h-full bg-card rounded-3xl"></div>
-                    </div>
-                  </div>
-                )}
-                
                 <div className={`relative z-10 bg-card rounded-3xl p-8 shadow-soft transition-all duration-700 border h-[320px] flex flex-col ${
-                  isMiddle 
-                    ? 'border-transparent hover:shadow-brand' 
-                    : isActive 
-                      ? 'border-primary/40 shadow-brand hover:shadow-brand' 
-                      : 'border-border hover:shadow-brand'
+                  isActive 
+                    ? 'border-primary/40 shadow-brand hover:shadow-brand' 
+                    : 'border-border hover:shadow-brand'
                 } ${isActive ? 'bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
                   {/* Rating */}
                   <div className="flex space-x-1 mb-6">
