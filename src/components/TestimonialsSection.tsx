@@ -86,7 +86,7 @@ const TestimonialsSection = () => {
                     </div>
 
                     {/* Quote */}
-                    <blockquote className="mb-6 leading-relaxed italic flex-1 text-xs text-foreground text-justify">
+                    <blockquote className="mb-6 leading-relaxed italic flex-1 text-xs text-foreground text-left">
                       "{testimonial.quote}"
                     </blockquote>
 
@@ -129,7 +129,7 @@ const TestimonialsSection = () => {
                   </div>
 
                   {/* Quote */}
-                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg text-justify transition-colors duration-300 ${
+                  <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg text-left transition-colors duration-300 ${
                     isActive || isMiddle ? 'text-foreground' : 'text-muted-foreground'
                   }`}>
                     "{testimonial.quote}"
