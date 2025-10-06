@@ -156,18 +156,18 @@ const TestimonialsSection = () => {
         <div className="hidden md:block relative">
           <button
             onClick={scrollPrev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-6 z-20 bg-card border-2 border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-white transition-all"
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Previous group"
           >
-            <ChevronLeft size={24} />
+            <ChevronLeft size={36} strokeWidth={2.5} />
           </button>
 
           <button
             onClick={scrollNext}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-6 z-20 bg-card border-2 border-border rounded-full p-3 shadow-lg hover:bg-primary hover:text-white transition-all"
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Next group"
           >
-            <ChevronRight size={24} />
+            <ChevronRight size={36} strokeWidth={2.5} />
           </button>
 
           <div className="overflow-hidden py-4" ref={emblaRef}>
