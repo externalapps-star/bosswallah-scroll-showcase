@@ -116,21 +116,21 @@ const TestimonialsSection = () => {
               >
                 <div className={`relative z-10 bg-card rounded-3xl p-8 shadow-soft transition-all duration-700 border h-[320px] flex flex-col ${
                   isActive 
-                    ? 'border-primary/40 shadow-brand hover:shadow-brand' 
+                    ? 'border-primary/40 shadow-brand hover:shadow-brand bg-gradient-to-br from-primary/5 to-accent/5' 
                     : 'border-border hover:shadow-brand'
-                } ${isActive ? 'bg-gradient-to-br from-primary/5 to-accent/5' : ''}`}>
+                }`}>
                   {/* Rating */}
                   <div className="flex space-x-1 mb-6">
                     {[...Array(testimonial.rating)].map((_, i) => 
                       <div key={i} className={`w-5 h-5 text-lg transition-colors duration-300 ${
-                        isActive || isMiddle ? 'text-primary' : 'text-accent'
+                        isActive ? 'text-primary' : 'text-accent'
                       }`}>★</div>
                     )}
                   </div>
 
                   {/* Quote */}
                   <blockquote className={`mb-6 leading-relaxed italic flex-1 text-xs md:text-lg text-left transition-colors duration-300 ${
-                    isActive || isMiddle ? 'text-foreground' : 'text-muted-foreground'
+                    isActive ? 'text-foreground' : 'text-muted-foreground'
                   }`}>
                     "{testimonial.quote}"
                   </blockquote>
@@ -138,7 +138,7 @@ const TestimonialsSection = () => {
                   {/* Author */}
                   <div className="border-t border-border pt-6 mt-auto">
                     <div className={`text-base md:text-base font-semibold transition-colors duration-300 ${
-                      isActive || isMiddle ? 'text-primary' : 'text-foreground'
+                      isActive ? 'text-primary' : 'text-foreground'
                     }`}>{testimonial.author}</div>
                     <div className="text-xs md:text-sm text-muted-foreground">{testimonial.company}</div>
                   </div>
