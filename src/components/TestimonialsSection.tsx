@@ -235,19 +235,37 @@ const TestimonialsSection = () => {
 
         {/* Indicator Dots */}
         <div className="flex justify-center space-x-2 mt-8">
-          {Array.from({ length: totalGroups }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => {
-                if (emblaApi) emblaApi.scrollTo(index);
-              }}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentGroupIndex
-                  ? 'bg-primary scale-125'
-                  : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
-              }`}
-            />
-          ))}
+          {/* Mobile: Show dot for each card */}
+          <div className="md:hidden flex space-x-2">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentHighlightIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentHighlightIndex
+                    ? 'bg-primary scale-125'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
+          </div>
+          
+          {/* Desktop: Show dot for each group */}
+          <div className="hidden md:flex space-x-2">
+            {Array.from({ length: totalGroups }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => {
+                  if (emblaApi) emblaApi.scrollTo(index);
+                }}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentGroupIndex
+                    ? 'bg-primary scale-125'
+                    : 'bg-muted-foreground/30 hover:bg-muted-foreground/50'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
