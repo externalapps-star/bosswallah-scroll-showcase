@@ -72,6 +72,9 @@ const Footer = () => {
             <a href="https://bosswallah.com/user-agreement?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Terms of Use
             </a>
+            <a href="https://bosswallah.com/refund-cancellation?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
+              Refund & Cancellation
+            </a>
           </div>
         </div>
       </div>
