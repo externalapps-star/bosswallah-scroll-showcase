@@ -111,21 +111,21 @@ const TestimonialsSection = () => {
         <div className="md:hidden relative">
           <button
             onClick={() => setCurrentGroupIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-card border-2 border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-all"
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Previous testimonial"
           >
-            <ChevronLeft size={20} />
+            <ChevronLeft size={32} strokeWidth={2.5} />
           </button>
 
           <button
             onClick={() => setCurrentGroupIndex((prev) => (prev + 1) % testimonials.length)}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-card border-2 border-border rounded-full p-2 shadow-lg hover:bg-primary hover:text-white transition-all"
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Next testimonial"
           >
-            <ChevronRight size={20} />
+            <ChevronRight size={32} strokeWidth={2.5} />
           </button>
 
-          <div className="px-12">
+          <div className="px-10">
             {testimonials.map((testimonial, index) => (
                 <div
                   key={index}
