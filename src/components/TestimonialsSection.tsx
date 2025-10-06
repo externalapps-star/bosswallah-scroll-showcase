@@ -170,7 +170,7 @@ const TestimonialsSection = () => {
             <ChevronRight size={24} />
           </button>
 
-          <div className="overflow-hidden" ref={emblaRef}>
+          <div className="overflow-hidden py-4" ref={emblaRef}>
             <div className="flex">
               {Array.from({ length: totalGroups }).map((_, groupIndex) => (
                 <div key={groupIndex} className="flex-[0_0_100%] min-w-0 px-2">
@@ -182,10 +182,10 @@ const TestimonialsSection = () => {
                       return (
                         <div
                           key={actualIndex}
-                          className="p-2"
+                          className="py-3 px-2"
                         >
                           <div
-                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border min-h-[360px] flex flex-col ${
+                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[340px] flex flex-col ${
                               isHighlighted
                                 ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5 scale-105'
                                 : 'border-border scale-100'
@@ -205,7 +205,7 @@ const TestimonialsSection = () => {
                             </div>
 
                             <blockquote
-                              className={`mb-4 leading-relaxed text-[12px] text-left flex-1 transition-colors duration-300 ${
+                              className={`mb-4 leading-[1.6] text-[12px] text-left flex-1 overflow-hidden line-clamp-[12] transition-colors duration-300 ${
                                 isHighlighted ? 'text-foreground' : 'text-muted-foreground'
                               }`}
                             >
