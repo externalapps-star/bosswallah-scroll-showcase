@@ -186,7 +186,7 @@ const TestimonialsSection = () => {
                             </div>
 
                             <blockquote
-                              className={`mb-6 leading-relaxed text-sm lg:text-base text-left flex-1 transition-colors duration-300 ${
+                              className={`mb-6 leading-relaxed text-[12px] text-left flex-1 transition-colors duration-300 ${
                                 isInView ? 'text-foreground' : 'text-muted-foreground'
                               }`}
                             >
