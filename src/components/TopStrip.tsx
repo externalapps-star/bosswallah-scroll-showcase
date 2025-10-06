@@ -143,7 +143,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
                           <Phone className="h-4 w-4 flex-shrink-0" />
                           <span className="text-xs">+91 7899571799</span>
                         </a>
-                        <p className="text-[9px] text-[#F05C25] ml-7 italic mt-0.5 leading-tight">[For business & marketing enquiries only]</p>
+                        <p className="text-[8px] text-[#F05C25] ml-7 italic mt-0.5 leading-tight">[For business & marketing enquiries only]</p>
                       </div>
                       <a href="mailto:brand@bosswallah.com" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                         <Mail className="h-4 w-4 flex-shrink-0" />
