@@ -66,13 +66,13 @@ const Footer = () => {
             © {currentYear} Boss Wallah Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="https://bosswallah.com/privacypolicy?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
+            <a href="https://bosswallah.com/privacy-policy" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Privacy Policy
             </a>
-            <a href="https://bosswallah.com/user-agreement?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
+            <a href="https://bosswallah.com/terms-of-use" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Terms of Use
             </a>
-            <a href="https://bosswallah.com/refund-cancellation?lang=en" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
+            <a href="https://bosswallah.com/refund-cancellation-policy" target="_blank" rel="noopener noreferrer" className="text-background/60 hover:text-primary text-xs transition-colors">
               Refund & Cancellation
             </a>
           </div>
