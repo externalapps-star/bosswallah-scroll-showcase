@@ -110,7 +110,7 @@ const TestimonialsSection = () => {
         {/* Mobile: Single card carousel */}
         <div className="md:hidden relative">
           <button
-            onClick={() => setCurrentGroupIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+            onClick={() => setCurrentHighlightIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
             className="absolute left-2 top-1/2 -translate-y-1/2 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Previous testimonial"
           >
@@ -118,7 +118,7 @@ const TestimonialsSection = () => {
           </button>
 
           <button
-            onClick={() => setCurrentGroupIndex((prev) => (prev + 1) % testimonials.length)}
+            onClick={() => setCurrentHighlightIndex((prev) => (prev + 1) % testimonials.length)}
             className="absolute right-2 top-1/2 -translate-y-1/2 z-20 text-primary hover:text-primary/80 transition-all"
             aria-label="Next testimonial"
           >
