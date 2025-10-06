@@ -185,7 +185,7 @@ const TestimonialsSection = () => {
                           className="py-3 px-2"
                         >
                           <div
-                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[400px] flex flex-col ${
+                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[385px] flex flex-col ${
                               isHighlighted
                                 ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5 scale-105'
                                 : 'border-border scale-100'
