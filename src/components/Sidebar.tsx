@@ -3,10 +3,12 @@ import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
+
 interface SidebarProps {
   isMenuOpen: boolean;
   setIsMenuOpen: (open: boolean) => void;
 }
+
 const Sidebar = ({
   isMenuOpen,
   setIsMenuOpen
@@ -31,6 +33,7 @@ const Sidebar = ({
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -40,6 +43,7 @@ const Sidebar = ({
       setIsMenuOpen(false);
     }
   };
+
   const navigationItems = [{
     label: "Home",
     id: "home"
@@ -68,6 +72,7 @@ const Sidebar = ({
     label: "Consult",
     id: "contact"
   }];
+
   const socialLinks = [{
     icon: Youtube,
     href: "/channels/youtube",
@@ -81,6 +86,7 @@ const Sidebar = ({
     href: "/channels/instagram",
     color: "text-pink-500"
   }];
+
   return <>
     {/* Floating Hamburger Menu - Center Left - Desktop and Tablet */}
     <div className="hidden sm:block">
@@ -158,15 +164,15 @@ const Sidebar = ({
             <Menu className="h-5 w-5" />
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="p-0 w-80">
-          <div className="flex flex-col h-full bg-[#1a1a2e]">
+        <SheetContent side="left" className="p-0 w-80 h-full">
+          <div className="flex flex-col h-full bg-[#1a1a2e] overflow-hidden">
             {/* Header */}
-            <div className="p-6 border-b border-border/10">
+            <div className="p-4 border-b border-border/10 flex-shrink-0">
               <h2 className="text-white text-lg font-semibold">Menu</h2>
             </div>
             
             {/* Navigation */}
-            <div className="flex-1 p-6">
+            <div className="flex-1 p-4 overflow-y-auto">
               <nav className="space-y-2">
                 {navigationItems.map(item => <button key={item.id} onClick={() => scrollToSection(item.id)} className="block w-full text-left px-4 py-3 rounded-lg text-white hover:bg-white/10 transition-colors">
                     {item.label}
@@ -175,7 +181,7 @@ const Sidebar = ({
             </div>
             
             {/* Footer */}
-            <div className="p-6 border-t border-border/10 space-y-4">
+            <div className="p-4 border-t border-border/10 space-y-4 flex-shrink-0 pb-6">
               <div className="space-y-3">
                 <div>
                   <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400">
@@ -207,4 +213,5 @@ const Sidebar = ({
     </div>
   </>;
 };
+
 export default Sidebar;
