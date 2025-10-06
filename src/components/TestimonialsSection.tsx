@@ -4,10 +4,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 
 const TestimonialsSection = () => {
+  const [currentHighlightIndex, setCurrentHighlightIndex] = useState(0);
   const [currentGroupIndex, setCurrentGroupIndex] = useState(0);
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start" },
-    [Autoplay({ delay: 5000, stopOnInteraction: true })]
+    []
   );
   
   const testimonials = [
@@ -62,6 +63,7 @@ const TestimonialsSection = () => {
 
     const onSelect = () => {
       setCurrentGroupIndex(emblaApi.selectedScrollSnap());
+      setCurrentHighlightIndex(emblaApi.selectedScrollSnap() * 3);
     };
 
     emblaApi.on("select", onSelect);
@@ -71,6 +73,25 @@ const TestimonialsSection = () => {
       emblaApi.off("select", onSelect);
     };
   }, [emblaApi]);
+
+  // Auto-highlight individual cards, then scroll to next group
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentHighlightIndex((prev) => {
+        const nextIndex = (prev + 1) % testimonials.length;
+        const nextGroup = Math.floor(nextIndex / 3);
+        
+        // If we're moving to a new group, scroll the carousel
+        if (nextGroup !== currentGroupIndex && emblaApi) {
+          emblaApi.scrollTo(nextGroup);
+        }
+        
+        return nextIndex;
+      });
+    }, 3000); // Highlight each card for 3 seconds
+
+    return () => clearInterval(timer);
+  }, [testimonials.length, currentGroupIndex, emblaApi]);
 
   const totalGroups = Math.ceil(testimonials.length / 3);
 
@@ -106,27 +127,27 @@ const TestimonialsSection = () => {
 
           <div className="px-12">
             {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className={`transition-all duration-500 ${
-                  index === currentGroupIndex ? 'block' : 'hidden'
-                }`}
-              >
-                <div className="bg-card rounded-3xl p-6 shadow-soft border border-primary/40 min-h-[400px] flex flex-col">
-                  <div className="flex space-x-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <div key={i} className="w-5 h-5 text-lg text-primary">★</div>
-                    ))}
-                  </div>
-                  <blockquote className="mb-6 leading-relaxed text-sm text-foreground text-left flex-1">
-                    "{testimonial.quote}"
-                  </blockquote>
-                  <div className="border-t border-border pt-4 mt-auto">
-                    <div className="text-sm font-semibold text-primary">{testimonial.author}</div>
-                    <div className="text-xs text-muted-foreground">{testimonial.company}</div>
+                <div
+                  key={index}
+                  className={`transition-all duration-500 ${
+                    index === currentHighlightIndex ? 'block' : 'hidden'
+                  }`}
+                >
+                  <div className="bg-card rounded-3xl p-5 shadow-soft border border-primary/40 min-h-[320px] flex flex-col">
+                    <div className="flex space-x-1 mb-3">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <div key={i} className="w-4 h-4 text-base text-primary">★</div>
+                      ))}
+                    </div>
+                    <blockquote className="mb-4 leading-relaxed text-xs text-foreground text-left flex-1">
+                      "{testimonial.quote}"
+                    </blockquote>
+                    <div className="border-t border-border pt-3 mt-auto">
+                      <div className="text-sm font-semibold text-primary">{testimonial.author}</div>
+                      <div className="text-xs text-muted-foreground">{testimonial.company}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
             ))}
           </div>
         </div>
@@ -156,28 +177,28 @@ const TestimonialsSection = () => {
                   <div className="grid grid-cols-3 gap-6 lg:gap-8">
                     {testimonials.slice(groupIndex * 3, groupIndex * 3 + 3).map((testimonial, index) => {
                       const actualIndex = groupIndex * 3 + index;
-                      const isInView = groupIndex === currentGroupIndex;
+                      const isHighlighted = actualIndex === currentHighlightIndex;
                       
                       return (
                         <div
                           key={actualIndex}
-                          className={`transition-all duration-700 transform ${
-                            isInView ? 'scale-100 opacity-100' : 'scale-95 opacity-50'
+                          className={`transition-all duration-500 transform ${
+                            isHighlighted ? 'scale-105' : 'scale-100'
                           }`}
                         >
                           <div
-                            className={`bg-card rounded-3xl p-6 shadow-soft transition-all duration-700 border min-h-[480px] flex flex-col ${
-                              isInView
+                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border min-h-[360px] flex flex-col ${
+                              isHighlighted
                                 ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5'
                                 : 'border-border'
                             }`}
                           >
-                            <div className="flex space-x-1 mb-4">
+                            <div className="flex space-x-1 mb-3">
                               {[...Array(testimonial.rating)].map((_, i) => (
                                 <div
                                   key={i}
-                                  className={`w-5 h-5 text-lg transition-colors duration-300 ${
-                                    isInView ? 'text-primary' : 'text-accent'
+                                  className={`w-4 h-4 text-base transition-colors duration-300 ${
+                                    isHighlighted ? 'text-primary' : 'text-accent'
                                   }`}
                                 >
                                   ★
@@ -186,17 +207,17 @@ const TestimonialsSection = () => {
                             </div>
 
                             <blockquote
-                              className={`mb-6 leading-relaxed text-[12px] text-left flex-1 transition-colors duration-300 ${
-                                isInView ? 'text-foreground' : 'text-muted-foreground'
+                              className={`mb-4 leading-relaxed text-[12px] text-left flex-1 transition-colors duration-300 ${
+                                isHighlighted ? 'text-foreground' : 'text-muted-foreground'
                               }`}
                             >
                               "{testimonial.quote}"
                             </blockquote>
 
-                            <div className="border-t border-border pt-4 mt-auto">
+                            <div className="border-t border-border pt-3 mt-auto">
                               <div
                                 className={`text-sm font-semibold transition-colors duration-300 ${
-                                  isInView ? 'text-primary' : 'text-foreground'
+                                  isHighlighted ? 'text-primary' : 'text-foreground'
                                 }`}
                               >
                                 {testimonial.author}
