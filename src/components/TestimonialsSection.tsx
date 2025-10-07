@@ -133,19 +133,15 @@ const TestimonialsSection = () => {
                     index === currentHighlightIndex ? 'block' : 'hidden'
                   }`}
                 >
-                  <div className="bg-card rounded-3xl p-5 shadow-soft border border-primary/40 min-h-[320px] flex flex-col">
+                  <div className="bg-card rounded-3xl p-5 shadow-soft border border-primary/40 min-h-[280px] flex flex-col">
                     <div className="flex space-x-1 mb-3">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <div key={i} className="w-4 h-4 text-base text-primary">★</div>
                       ))}
                     </div>
-                    <blockquote className="mb-4 leading-relaxed text-xs text-foreground text-left flex-1">
-                      "{testimonial.quote}"
+                    <blockquote className="leading-relaxed text-xs text-foreground text-left flex-1">
+                      {testimonial.quote}
                     </blockquote>
-                    <div className="border-t border-border pt-3 mt-auto">
-                      <div className="text-sm font-semibold text-primary">{testimonial.author}</div>
-                      <div className="text-xs text-muted-foreground">{testimonial.company}</div>
-                    </div>
                   </div>
                 </div>
             ))}
@@ -185,7 +181,7 @@ const TestimonialsSection = () => {
                           className="py-3 px-2"
                         >
                           <div
-                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[294px] flex flex-col ${
+                            className={`bg-card rounded-3xl p-5 shadow-soft transition-all duration-500 border h-[240px] flex flex-col ${
                               isHighlighted
                                 ? 'border-primary/40 shadow-brand bg-gradient-to-br from-primary/5 to-accent/5 scale-105'
                                 : 'border-border scale-100'
@@ -205,23 +201,12 @@ const TestimonialsSection = () => {
                             </div>
 
                             <blockquote
-                              className={`mb-4 leading-[1.6] text-[12px] text-left flex-1 transition-colors duration-300 ${
+                              className={`leading-[1.6] text-[12px] text-left flex-1 transition-colors duration-300 ${
                                 isHighlighted ? 'text-foreground' : 'text-muted-foreground'
                               }`}
                             >
-                              "{testimonial.quote}"
+                              {testimonial.quote}
                             </blockquote>
-
-                            <div className="border-t border-border pt-3 mt-auto">
-                              <div
-                                className={`text-sm font-semibold transition-colors duration-300 ${
-                                  isHighlighted ? 'text-primary' : 'text-foreground'
-                                }`}
-                              >
-                                {testimonial.author}
-                              </div>
-                              <div className="text-xs text-muted-foreground">{testimonial.company}</div>
-                            </div>
                           </div>
                         </div>
                       );
