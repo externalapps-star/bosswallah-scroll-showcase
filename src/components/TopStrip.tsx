@@ -85,18 +85,20 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
       <div className="flex items-center justify-between max-w-full">
         {/* Logo */}
         <div className="flex-shrink-0 w-[220px] h-14 flex items-center">
-          <img 
-            src={bossWallahLogo} 
-            alt="Boss Wallah Media" 
-            className="h-14 w-auto object-contain bg-white p-1 rounded transition-none" 
-            loading="eager"
-            decoding="sync"
-            style={{
-              minWidth: '200px',
-              maxWidth: '200px',
-              imageRendering: 'crisp-edges'
-            }}
-          />
+          <button onClick={() => scrollToSection('home')} className="cursor-pointer">
+            <img 
+              src={bossWallahLogo} 
+              alt="Boss Wallah Media" 
+              className="h-14 w-auto object-contain bg-white p-1 rounded transition-none" 
+              loading="eager"
+              decoding="sync"
+              style={{
+                minWidth: '200px',
+                maxWidth: '200px',
+                imageRendering: 'crisp-edges'
+              }}
+            />
+          </button>
         </div>
 
         {/* Desktop Message - Hidden on mobile */}
