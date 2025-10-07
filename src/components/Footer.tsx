@@ -56,7 +56,7 @@ const Footer = () => {
               <p className="text-xs md:text-base">Email: brand@bosswallah.com</p>
               <div className="space-y-0.5">
                 <p className="text-xs md:text-base">Phone: +91 7899571799</p>
-                <p className="text-[10px] text-[#F05C25] italic">[For business & marketing enquiries only]</p>
+                <p className="text-[10px] text-[#F05C25] italic font-bold">[For business & marketing enquiries only]</p>
               </div>
               <p className="text-xs md:text-base">Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
             </div>
