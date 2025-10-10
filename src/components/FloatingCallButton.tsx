@@ -7,7 +7,7 @@ const FloatingCallButton = () => {
         <div className="relative">
           <Tooltip delayDuration={300}>
             <TooltipTrigger asChild>
-              <Button variant="cta" size="lg" className="relative rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 px-4 py-2 sm:px-8 sm:py-4 h-auto text-xs sm:text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary border-2 border-white/20" onClick={() => window.open('https://calendly.com/d/cw48-mxp-ckx', '_blank')}>
+              <Button variant="cta" size="lg" className="relative rounded-full shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-110 px-4 py-2 sm:px-8 sm:py-4 h-auto text-xs sm:text-xl font-bold bg-gradient-to-r from-primary via-accent to-primary border-2 border-white/20" onClick={() => window.open('https://calendar.app.google/E7d7wnoCdBbLwJrL9', '_blank')}>
                 <Calendar className="w-4 h-4 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                 <span className="hidden sm:inline">Let's Connect</span>
                 <span className="sm:hidden">Let's Connect</span>
