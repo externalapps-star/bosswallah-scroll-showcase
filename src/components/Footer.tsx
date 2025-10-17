@@ -12,9 +12,7 @@ const Footer = () => {
             <h3 className="text-lg md:text-2xl font-bold mb-4 gradient-text">
               Boss Wallah Media
             </h3>
-            <p className="text-xs md:text-base text-background/80 leading-relaxed mb-6 max-w-md text-justify">
-              Boss Wallah Media is #1 Social Media Platform in South India, reaching 18M+ followers and 330M+ monthly viewers across YouTube, Facebook, and Instagram. With six studios and a creative team delivering 200+ multilingual videos a week, Boss Wallah Media drives high-ROI campaigns for national and international brands alike. From social media boosts to influencer-style branded content, Boss Wallah Media is the go-to partner for brands seeking scale and impact especially in India's southern markets.
-            </p>
+            <p className="text-xs md:text-base text-background/80 leading-relaxed mb-6 max-w-md text-justify">Boss Wallah Media is #1 Social Media Platform in India, reaching 18M+ followers and 330M+ monthly viewers across YouTube, Facebook, and Instagram. With six studios and a creative team delivering 200+ multilingual videos a week, Boss Wallah Media drives high-ROI campaigns for national and international brands alike. From social media boosts to influencer-style branded content, Boss Wallah Media is the go-to partner for brands seeking scale and impact especially in India's southern markets.</p>
             
           </div>
 
