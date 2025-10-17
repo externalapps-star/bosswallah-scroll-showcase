@@ -74,11 +74,6 @@ const HeroSection = ({
               </span>
             </h1>
             
-            {/* Subtitle - Mobile optimized */}
-            <p className="text-gray-400 text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl mb-6 sm:mb-8 lg:mb-12 max-w-full sm:max-w-4xl leading-relaxed px-1 sm:px-0">
-              #1 Social Media Platform in South India
-            </p>
-            
             {/* "Boss Wallah Media" with gradient - Mobile optimized */}
             <h2 className="text-4xl xs:text-5xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-none mb-4 sm:mb-6 md:mb-8 -mt-2 sm:-mt-4 whitespace-nowrap">
               <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">

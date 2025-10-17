@@ -105,7 +105,7 @@ export class NewsService {
         },
         {
           id: 3,
-          date: "2024-07-29",
+          date: "2024-10-03",
           title: "Financial Planning for Beginners: A Simple Guide to Start in 2025",
           excerpt: "Master the basics of financial planning with this comprehensive beginner's guide. Learn about setting financial goals, creating budgets, building emergency funds, and making smart investment decisions for a secure financial future.",
           content: "Financial planning starts with understanding the basics, setting clear financial goals, and creating a budget that works. Learn about building emergency funds, exploring investment options like mutual funds and stocks, and establishing a strong financial foundation. The guide covers understanding the basics, setting your financial goals, creating a budget that works, building a strong financial foundation, planning for the future, and frequently asked questions.",
@@ -118,7 +118,7 @@ export class NewsService {
         },
         {
           id: 4,
-          date: "2024-08-29",
+          date: "2024-10-06",
           title: "How to Save Money Daily in India: Proven Techniques That Anyone Can Follow",
           excerpt: "Discover practical money-saving techniques that work in the Indian context. From daily spending habits to smart financial decisions, learn proven methods to build wealth consistently.",
           content: "Track your spending to understand where money goes - the first step to savings. Create a daily savings plan starting small (₹50-100/day) following the 50/30/20 budgeting rule. Adopt smart habits like cooking at home, using public transport, avoiding impulse buying, and shopping in bulk. Automate your savings using auto-transfers, round-up apps, and split your salary into goal-based accounts. Invest wisely by building an emergency fund, starting SIPs, and using high-interest accounts to grow wealth.",
@@ -131,7 +131,7 @@ export class NewsService {
         },
         {
           id: 5,
-          date: "2024-07-29",
+          date: "2024-10-10",
           title: "Top 10 Agri Startup Ideas for Entrepreneurs in 2025",
           excerpt: "Explore profitable agriculture startup opportunities in 2025. From tech-driven solutions to modern farming business models, discover ideas with high ROI potential and scalability in India's evolving agricultural sector.",
           content: "Agriculture is evolving with tech-driven agri startups making farming smarter and more profitable. Entrepreneurs are turning traditional farming into modern agri-business models. The article explores 10 profitable and trending agri startup ideas for 2025, discussing investment, scalability, and monthly income potential for each startup. Tables and infographics are used to simplify and present data clearly.",

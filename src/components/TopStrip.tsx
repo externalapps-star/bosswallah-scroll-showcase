@@ -101,7 +101,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
         {/* Desktop Message - Hidden on mobile */}
         <div className="hidden md:flex flex-1 justify-center">
           <p className="text-sm md:text-base font-medium">
-            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> <span className="text-[#F05C25] font-bold text-3xl">Social Media Platform in South India</span>
+            <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-3xl">#1</span> <span className="text-[#F05C25] font-bold text-3xl">Social Media Platform in India</span>
           </p>
         </div>
 
@@ -173,7 +173,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
       {/* Second Row - Mobile Message */}
       <div className="md:hidden mt-2 text-center">
         <p className="text-[10px] font-medium leading-tight">
-          <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-sm">#1</span> <span className="text-[#F05C25] font-bold text-sm">Social Media Platform in South India</span>
+          <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent font-bold text-sm">#1</span> <span className="text-[#F05C25] font-bold text-sm">Social Media Platform in India</span>
         </p>
       </div>
     </div>;
