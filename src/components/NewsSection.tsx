@@ -55,7 +55,7 @@ const NewsSection = () => {
             readTime: "3 min read",
             author: "Boss Wallah Blogs",
             tags: ["YouTube", "Business Network", "South India"],
-            url: "https://blog.bosswallah.com/boss-wallah-becomes-south-indias-no-1-youtube-business-network/"
+            url: "https://bosswallah.ai/blog/press-release/boss-wallah-becomes-south-indias-no-1-youtube-business-network/"
           },
           {
             id: 9998,

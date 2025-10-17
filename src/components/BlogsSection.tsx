@@ -202,7 +202,7 @@ const BlogsSection = () => {
 
           {/* Read More Articles CTA */}
           <div className="text-center">
-            <Button variant="outline" size="lg" onClick={() => window.open('https://blog.bosswallah.com/', '_blank')} className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300">
+            <Button variant="outline" size="lg" onClick={() => window.open('https://bosswallah.com/blog/', '_blank')} className="group border-2 border-primary text-primary bg-transparent hover:bg-gradient-to-r hover:from-primary hover:via-accent hover:to-primary hover:text-primary-foreground hover:border-primary/20 active:bg-gradient-to-r active:from-primary active:via-accent active:to-primary active:text-primary-foreground transition-all duration-300">
               <BookOpen size={18} className="mr-2" />
               Read More Articles
             </Button>
