@@ -7,6 +7,9 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfUse from "./pages/TermsOfUse";
+import RefundCancellationPolicy from "./pages/RefundCancellationPolicy";
 import YouTubePage from "./pages/channels/YouTube";
 import FacebookPage from "./pages/channels/Facebook";
 import InstagramPage from "./pages/channels/Instagram";
@@ -23,6 +26,9 @@ const App = () => (
           <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/refund-cancellation-policy" element={<RefundCancellationPolicy />} />
             <Route path="/channels/youtube" element={<YouTubePage />} />
             <Route path="/channels/facebook" element={<FacebookPage />} />
             <Route path="/channels/instagram" element={<InstagramPage />} />
