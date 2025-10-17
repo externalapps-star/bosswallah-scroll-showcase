@@ -88,7 +88,7 @@ export class NewsService {
           readTime: "8 min read",
           author: "Bhoomireddy Hemalatha",
           tags: ["instagram", "social media", "growth"],
-          url: "https://blog.bosswallah.com/how-to-grow-instagram-from-zero-followers-step-by-step-guide/"
+          url: "https://bosswallah.com/blog/creator-hub/how-to-grow-instagram-from-zero-followers-step-by-step-guide/"
         },
         {
           id: 2,
@@ -101,7 +101,7 @@ export class NewsService {
           readTime: "7 min read",
           author: "Bhoomireddy Hemalatha",
           tags: ["instagram", "business", "strategy"],
-          url: "https://blog.bosswallah.com/how-to-grow-your-instagram-business-account-a-proven-strategy-for-2025/"
+          url: "https://bosswallah.com/blog/creator-hub/how-to-grow-your-instagram-business-account-a-proven-strategy-for-2025/"
         },
         {
           id: 3,
@@ -114,7 +114,7 @@ export class NewsService {
           readTime: "9 min read", 
           author: "Sandesh NL",
           tags: ["finance", "planning", "investment"],
-          url: "https://blog.bosswallah.com/financial-planning-for-beginners/"
+          url: "https://bosswallah.com/blog/finance/financial-planning-for-beginners/"
         },
         {
           id: 4,
@@ -127,7 +127,7 @@ export class NewsService {
           readTime: "6 min read",
           author: "Prateek S",
           tags: ["savings", "money", "budgeting"],
-          url: "https://blog.bosswallah.com/how-to-save-money-daily-in-india-proven-techniques-that-anyone-can-follow/"
+          url: "https://bosswallah.com/blog/finance/how-to-save-money-daily-in-india-proven-techniques-that-anyone-can-follow/"
         },
         {
           id: 5,
@@ -140,7 +140,7 @@ export class NewsService {
           readTime: "8 min read",
           author: "Prateek S", 
           tags: ["agriculture", "startup", "farming"],
-          url: "https://blog.bosswallah.com/agri-startups/"
+          url: "https://bosswallah.com/blog/local-business/farming/agri-startups/"
         }];
 
       return latestNews;
