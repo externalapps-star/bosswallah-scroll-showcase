@@ -67,11 +67,9 @@ const HeroSection = ({
               Accelerate Your Brand
             </h1>
             
-            {/* "Growth With" with gradient - Mobile optimized */}
-            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8">
-              <span className="bg-gradient-to-r from-[#755292] to-[#F05C25] bg-clip-text text-transparent">
-                Growth With
-              </span>
+            {/* "Growth With" - Mobile optimized */}
+            <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight sm:leading-none mb-4 sm:mb-6 md:mb-8 text-white">
+              Growth With
             </h1>
             
             {/* "Boss Wallah Media" with gradient - Mobile optimized */}
