@@ -51,10 +51,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
   }, []);
 
   const openWhatsApp = () => {
-    const phoneNumber = "917899571799"; // Format: country code + number (no spaces or special chars)
-    const message = "Hi! I'm interested in learning more about your services.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    window.open('https://calendly.com/d/ctcn-pgy-jxt', '_blank');
   };
 
   const scrollToSection = (sectionId: string) => {
