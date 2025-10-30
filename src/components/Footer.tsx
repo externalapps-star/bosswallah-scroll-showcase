@@ -6,7 +6,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-foreground text-background">
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="text-lg md:text-2xl font-bold mb-4 gradient-text">
@@ -59,13 +59,7 @@ const Footer = () => {
               <p className="text-xs md:text-base">Languages: Telugu, Tamil, Kannada, Malayalam, Hindi, English</p>
             </div>
           </div>
-        </div>
 
-        {/* Our Network - Second Row */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
-          <div className="md:col-span-2"></div>
-          <div></div>
-          
           {/* Our Network */}
           <div>
             <h4 className="text-sm md:text-base font-semibold mb-4 text-background">Our Network</h4>
