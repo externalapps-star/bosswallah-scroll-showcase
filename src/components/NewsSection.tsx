@@ -7,12 +7,11 @@ import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } fro
 import { NewsService } from "@/services/NewsService";
 
 // Import generated thumbnails
-import newsThumbEcommerce from "@/assets/news-thumb-ecommerce.jpg";
-import newsThumbFood from "@/assets/news-thumb-food.jpg";
-import newsThumbFranchise from "@/assets/news-thumb-franchise.jpg";
-import newsThumbBurger from "@/assets/news-thumb-burger.jpg";
-import newsThumbCoffee from "@/assets/news-thumb-coffee.jpg";
-import newsThumbBusiness from "@/assets/news-thumb-business.jpg";
+import blogUgcVideoFormula from "@/assets/blog-ugc-video-formula-new.png";
+import blogFmcgBrand from "@/assets/blog-fmcg-brand-new.png";
+import blogHealthcareMarketing from "@/assets/blog-healthcare-marketing-new.jpg";
+import blogYoutubeCollaborations from "@/assets/blog-youtube-collaborations-new.jpg";
+import blogFashionBrandsTier2 from "@/assets/blog-fashion-brands-tier2-new.png";
 import youtubeAiThumbnail from "@/assets/youtube-ai-thumbnail.png";
 import facelessInfluencersThumbnail from "@/assets/faceless-influencers-thumbnail.png";
 
@@ -51,7 +50,7 @@ const NewsSection = () => {
             excerpt: "South India's most powerful multi-language business learning platform crosses 13 million subscribers and dominates with over 200 million monthly views.",
             content: "Boss Wallah, India's most inclusive entrepreneurship learning platform, has become South India's #1 YouTube network for multi-language business content. With 13M+ subscribers and 200M+ monthly views across 14 channels, it delivers practical business knowledge in Telugu, Tamil, Kannada, Malayalam, Hindi, and English. The ecosystem includes core business, Academy, and Farming channels—reaching Tier 2/3 towns, farmers, homemakers, and youth. Unlike single-language creators, Boss Wallah spans all four major South Indian languages at scale. Its mobile app integrates content, community, mentorship, and structured learning. Boss Wallah is redefining how South India learns to start and grow businesses.",
             category: "Digital Skills",
-            thumbnail: newsThumbBusiness,
+            thumbnail: blogUgcVideoFormula,
             readTime: "3 min read",
             author: "Boss Wallah Blogs",
             tags: ["YouTube", "Business Network", "South India"],
@@ -64,7 +63,7 @@ const NewsSection = () => {
             excerpt: "Boss Wallah has reported a fivefold surge in video views on Facebook within just six months, scaling from 30 million in March to 150 million in August 2025.",
             content: "Boss Wallah, India's #1 entrepreneurship platform, has seen Facebook video views surge 5X in six months—from 30M in March to 150M in August 2025. Unlike YouTube's younger audience, Facebook growth is driven by people in their 30s and 40s, seeking practical advice on business, money, and financial independence. This mirrors India's broader shift, where non-metro demand is growing 2.5X faster than metros (Nielsen 2024). Boss Wallah's business, finance, and farming content is powering one of the most engaged entrepreneurial communities online. With 18M+ followers and 330M+ monthly views across platforms, Boss Wallah Media is scaling content nationwide. The platform is doubling down on Facebook to serve ambitious Indians and help brands reach this motivated audience.",
             category: "Digital Skills",
-            thumbnail: newsThumbEcommerce,
+            thumbnail: blogFmcgBrand,
             readTime: "3 min read",
             author: "PRNewswire",
             tags: ["Facebook", "Growth", "Social Media"],
@@ -106,7 +105,7 @@ const NewsSection = () => {
         // Map thumbnails to the fetched news
         const newsWithThumbnails = latestNews.map((item, index) => ({
           ...item,
-          thumbnail: [newsThumbFranchise, newsThumbBurger, newsThumbCoffee, newsThumbFood][index % 4]
+          thumbnail: [blogUgcVideoFormula, blogFmcgBrand, blogHealthcareMarketing, blogYoutubeCollaborations, blogFashionBrandsTier2][index % 5]
         }));
         
         // Combine trending articles with second row content and other news
