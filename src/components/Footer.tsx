@@ -61,6 +61,25 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Our Network - Second Row */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-8">
+          <div className="md:col-span-2"></div>
+          <div></div>
+          
+          {/* Our Network */}
+          <div>
+            <h4 className="text-sm md:text-base font-semibold mb-4 text-background">Our Network</h4>
+            <div className="space-y-2">
+              <a href="https://bosswallah.ai" target="_blank" rel="noopener noreferrer" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
+                Bosswallah.ai
+              </a>
+              <a href="https://funnl.ai" target="_blank" rel="noopener noreferrer" className="block text-xs md:text-base text-background/80 hover:text-primary transition-colors">
+                FunnL.ai
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Bottom */}
         <div className="border-t border-background/20 mt-6 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-background/60 text-xs">
