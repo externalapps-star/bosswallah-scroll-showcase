@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react";
+import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram, Link } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
@@ -140,15 +140,15 @@ const Sidebar = ({
 
                 {/* Social Icons */}
                 <div className="flex space-x-4 pt-1">
-                  <a href={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
+                  <Link to={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
                     <Youtube className="h-5 w-5" />
-                  </a>
-                  <a href={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
+                  </Link>
+                  <Link to={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
                     <Facebook className="h-5 w-5" />
-                  </a>
-                  <a href={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
+                  </Link>
+                  <Link to={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
                     <Instagram className="h-5 w-5" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -196,15 +196,15 @@ const Sidebar = ({
                 </a>
               </div>
               <div className="flex space-x-4 pt-2">
-                <a href={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
+                <Link to={socialLinks[0].href} className="text-gray-400 hover:text-red-500 transition-colors">
                   <Youtube className="h-5 w-5" />
-                </a>
-                <a href={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
+                </Link>
+                <Link to={socialLinks[1].href} className="text-gray-400 hover:text-blue-600 transition-colors">
                   <Facebook className="h-5 w-5" />
-                </a>
-                <a href={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
+                </Link>
+                <Link to={socialLinks[2].href} className="text-gray-400 hover:text-pink-500 transition-colors">
                   <Instagram className="h-5 w-5" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
