@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import youtubeIcon from "@/assets/youtube-logo.png";
 import facebookIcon from "@/assets/facebook-logo.png";
 import instagramIcon from "@/assets/instagram-logo.png";
+import { Link } from "react-router-dom";
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   return <footer className="bg-foreground text-background">
@@ -80,15 +81,15 @@ const Footer = () => {
             © {currentYear} Boss Wallah Technologies. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="/privacy-policy" className="text-background/60 hover:text-primary text-xs transition-colors">
+            <Link to="/privacy-policy" className="text-background/60 hover:text-primary text-xs transition-colors">
               Privacy Policy
-            </a>
-            <a href="/terms-of-use" className="text-background/60 hover:text-primary text-xs transition-colors">
+            </Link>
+            <Link to="/terms-of-use" className="text-background/60 hover:text-primary text-xs transition-colors">
               Terms of Use
-            </a>
-            <a href="/refund-cancellation-policy" className="text-background/60 hover:text-primary text-xs transition-colors">
+            </Link>
+            <Link to="/refund-cancellation-policy" className="text-background/60 hover:text-primary text-xs transition-colors">
               Refund & Cancellation
-            </a>
+            </Link>
           </div>
         </div>
       </div>
