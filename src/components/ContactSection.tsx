@@ -380,8 +380,7 @@ const ContactSection = () => {
                     variant="default"
                     size="lg"
                     onClick={() => {
-                      const message = encodeURIComponent(`Hi Boss Wallah! I just submitted a consultation form. My name is ${formData.name} from ${formData.companyName}. Looking forward to discussing my marketing needs.`);
-                      window.open(`https://wa.me/918123405371?text=${message}`, '_blank');
+                      window.open('https://api.whatsapp.com/send/?phone=918123405371&text=Hi%21+I%27m+interested+in+learning+more+about+your+services.&type=phone_number&app_absent=0', '_blank');
                     }}
                     className="mb-4 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none"
                   >
