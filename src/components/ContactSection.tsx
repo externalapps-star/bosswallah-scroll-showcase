@@ -5,10 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useState } from "react";
-import { CheckCircle, CalendarIcon } from "lucide-react";
+import { CheckCircle, CalendarIcon, MessageCircle } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import whatsappIcon from "@/assets/whatsapp-icon-new.png";
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
@@ -370,9 +371,24 @@ const ContactSection = () => {
                   <p className="text-muted-foreground mb-4">
                     Your inquiry has been successfully submitted.
                   </p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-6">
                     Boss Wallah will contact you soon to discuss your requirements.
                   </p>
+                  
+                  {/* WhatsApp Button */}
+                  <Button 
+                    variant="default"
+                    size="lg"
+                    onClick={() => {
+                      const message = encodeURIComponent(`Hi Boss Wallah! I just submitted a consultation form. My name is ${formData.name} from ${formData.companyName}. Looking forward to discussing my marketing needs.`);
+                      window.open(`https://wa.me/918123405371?text=${message}`, '_blank');
+                    }}
+                    className="mb-4 bg-[#25D366] hover:bg-[#20BD5A] text-white border-none"
+                  >
+                    <img src={whatsappIcon} alt="WhatsApp" className="h-5 w-5 mr-2" />
+                    Continue on WhatsApp
+                  </Button>
+                  
                   <Button 
                     variant="outline" 
                     onClick={() => {
@@ -389,7 +405,7 @@ const ContactSection = () => {
                         currentAgency: ''
                       });
                     }}
-                    className="mt-6"
+                    className="mt-2"
                   >
                     Submit Another Inquiry
                   </Button>

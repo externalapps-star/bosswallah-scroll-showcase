@@ -135,9 +135,9 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
                   <div className="mt-4 pt-4 border-t border-gray-600 space-y-3">
                     <div className="space-y-2">
                       <div>
-                        <a href="tel:+917899571799" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
+                        <a href="tel:+918123405371" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors">
                           <Phone className="h-4 w-4 flex-shrink-0" />
-                          <span className="text-xs">+91 7899571799</span>
+                          <span className="text-xs">+91 8123405371</span>
                         </a>
                         <p className="text-[8px] text-[#F05C25] ml-7 italic mt-0.5 leading-tight">[For business & marketing enquiries only]</p>
                       </div>
