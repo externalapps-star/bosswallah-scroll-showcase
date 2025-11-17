@@ -80,7 +80,7 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
       {/* First Row - Logo and WhatsApp + Hamburger Menu */}
       <div className="flex items-center justify-between max-w-full">
         {/* Logo */}
-        <div className="flex-shrink-0 w-[220px] h-14 flex items-center">
+        <div className="flex-shrink-0 w-[280px] h-14 flex items-center">
           <img 
             src={bossWallahLogo} 
             alt="Boss Wallah Media" 
@@ -88,8 +88,8 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
             loading="eager"
             decoding="sync"
             style={{
-              minWidth: '200px',
-              maxWidth: '200px',
+              minWidth: '260px',
+              maxWidth: '260px',
               imageRendering: 'crisp-edges'
             }}
           />
