@@ -90,7 +90,11 @@ const TopStrip = ({ mobileMenuOpen = false, setMobileMenuOpen }: TopStripProps) 
             style={{
               minWidth: '320px',
               maxWidth: '320px',
-              imageRendering: 'crisp-edges'
+              imageRendering: '-webkit-optimize-contrast',
+              filter: 'contrast(1.1) brightness(1.05)',
+              WebkitFontSmoothing: 'none',
+              backfaceVisibility: 'hidden',
+              transform: 'translateZ(0)'
             }}
           />
         </div>
