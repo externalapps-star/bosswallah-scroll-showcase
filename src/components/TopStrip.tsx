@@ -3,7 +3,7 @@ import { Menu, X, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react
 import { useState, useEffect, useRef } from "react";
 
 import whatsappIcon from "@/assets/whatsapp-icon-new.png";
-import bossWallahLogo from "@/assets/boss-wallah-logo.svg";
+import bossWallahLogo from "@/assets/boss-wallah-logo-new.jpg";
 
 interface TopStripProps {
   mobileMenuOpen?: boolean;
