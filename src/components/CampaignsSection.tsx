@@ -74,13 +74,13 @@ const CampaignsSection = () => {
                 loop 
                 muted 
                 playsInline
-                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+                className="absolute top-0 left-0 w-full h-full object-cover z-0"
               >
                 <source src={campaign.video} type="video/mp4" />
               </video>
               
-              {/* Dark overlay */}
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-50/80 to-amber-50/60 dark:from-orange-950/30 dark:to-amber-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[1]"></div>
+              {/* Dark overlay for text readability */}
+              <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[1]"></div>
               {/* Animated Border */}
               <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2]">
                 <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
