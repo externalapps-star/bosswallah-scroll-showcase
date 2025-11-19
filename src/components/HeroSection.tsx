@@ -48,8 +48,19 @@ const HeroSection = ({
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e] pt-20">
-        {/* Dark background overlay */}
+        {/* Background Video */}
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        >
+          <source src="/videos/hero-background.mp4" type="video/mp4" />
+        </video>
         
+        {/* Dark overlay for text readability */}
+        <div className="absolute top-0 left-0 w-full h-full bg-black/50 z-[1]"></div>
 
         {/* Top left "Media Services" */}
         <div className="absolute top-24 left-8 z-20">
