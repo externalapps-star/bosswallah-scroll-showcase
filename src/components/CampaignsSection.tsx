@@ -10,37 +10,43 @@ const CampaignsSection = () => {
       title: "India Entry Program",
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah:",
       features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
-      icon: indiaEntryIcon
+      icon: indiaEntryIcon,
+      video: "/videos/india-entry.mp4"
     },
     {
       title: "Revenue Generation Campaigns",
       description: "Given Boss Wallah's strength in reaching middle-income audiences:",
       features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
-      icon: revenueIcon
+      icon: revenueIcon,
+      video: "/videos/revenue-generation.mp4"
     },
     {
       title: "SocialLift",
       description: "We create, optimize, and grow social media video channels from scratch:",
       features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth (GEO, AEO)", "Sustained Channel Health"],
-      icon: "podcast"
+      icon: "podcast",
+      video: "/videos/social-lift.mp4"
     },
     {
       title: "Brand Building Campaigns",
       description: "Younger brands engage Boss Wallah for long term sustained campaigns:",
       features: ["Long-term Strategy", "Brand Identity & Sustained Growth", "Community Building", "BOSScast (Leadership Brand Building)"],
-      icon: brandBuildingIcon
+      icon: brandBuildingIcon,
+      video: "/videos/brand-building.mp4"
     },
     {
       title: "Event Launch Program",
       description: "Companies that want to create an intense 3 month campaign:",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
-      icon: "event"
+      icon: "event",
+      video: "/videos/event-launch.mp4"
     },
     {
       title: "Video Content Production",
       description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease:",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
-      icon: "camera"
+      icon: "camera",
+      video: "/videos/video-production.mp4"
     }
   ];
 
@@ -60,10 +66,23 @@ const CampaignsSection = () => {
           {campaigns.map((campaign, index) => (
             <div
               key={campaign.title}
-              className="group relative bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col hover:bg-gradient-to-br hover:from-orange-50/80 hover:to-amber-50/60 dark:hover:from-orange-950/30 dark:hover:to-amber-950/20 overflow-hidden"
+              className="group relative bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col overflow-hidden"
             >
+              {/* Background Video */}
+              <video 
+                autoPlay 
+                loop 
+                muted 
+                playsInline
+                className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-0 group-hover:opacity-30 transition-opacity duration-500"
+              >
+                <source src={campaign.video} type="video/mp4" />
+              </video>
+              
+              {/* Dark overlay */}
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-orange-50/80 to-amber-50/60 dark:from-orange-950/30 dark:to-amber-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[1]"></div>
               {/* Animated Border */}
-              <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2]">
                 <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
                   <div className="w-full h-full bg-card rounded-2xl md:rounded-3xl"></div>
                 </div>
