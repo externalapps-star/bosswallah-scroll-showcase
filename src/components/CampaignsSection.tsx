@@ -11,21 +11,21 @@ const CampaignsSection = () => {
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah:",
       features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
       icon: indiaEntryIcon,
-      video: "/videos/india-entry.mp4?v=2"
+      video: "/videos/india-entry.mp4?v=3"
     },
     {
       title: "Revenue Generation Campaigns",
       description: "Given Boss Wallah's strength in reaching middle-income audiences:",
       features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
       icon: revenueIcon,
-      video: "/videos/revenue-generation.mp4?v=2"
+      video: "/videos/revenue-generation.mp4?v=3"
     },
     {
       title: "SocialLift",
       description: "We create, optimize, and grow social media video channels from scratch:",
       features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth (GEO, AEO)", "Sustained Channel Health"],
       icon: "podcast",
-      video: "/videos/social-lift.mp4?v=2"
+      video: "/videos/social-lift.mp4?v=3"
     },
     {
       title: "Brand Building Campaigns",
