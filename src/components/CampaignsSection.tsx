@@ -11,42 +11,42 @@ const CampaignsSection = () => {
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah:",
       features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
       icon: indiaEntryIcon,
-      video: "/videos/india-entry.mp4"
+      video: "/videos/india-entry.mp4?v=2"
     },
     {
       title: "Revenue Generation Campaigns",
       description: "Given Boss Wallah's strength in reaching middle-income audiences:",
       features: ["Direct Sales Focus", "Conversion Optimization", "Lead Generation", "Revenue Tracking"],
       icon: revenueIcon,
-      video: "/videos/revenue-generation.mp4"
+      video: "/videos/revenue-generation.mp4?v=2"
     },
     {
       title: "SocialLift",
       description: "We create, optimize, and grow social media video channels from scratch:",
       features: ["Assessment, Consulting, Complete Setup", "Video Content that Connects", "Optimized for Growth (GEO, AEO)", "Sustained Channel Health"],
       icon: "podcast",
-      video: "/videos/social-lift.mp4"
+      video: "/videos/social-lift.mp4?v=2"
     },
     {
       title: "Brand Building Campaigns",
       description: "Younger brands engage Boss Wallah for long term sustained campaigns:",
       features: ["Long-term Strategy", "Brand Identity & Sustained Growth", "Community Building", "BOSScast (Leadership Brand Building)"],
       icon: brandBuildingIcon,
-      video: "/videos/brand-building.mp4"
+      video: "/videos/brand-building.mp4?v=2"
     },
     {
       title: "Event Launch Program",
       description: "Companies that want to create an intense 3 month campaign:",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
       icon: "event",
-      video: "/videos/event-launch.mp4"
+      video: "/videos/event-launch.mp4?v=2"
     },
     {
       title: "Video Content Production",
       description: "Boss Wallah's studios empower entrepreneurs and brands to produce high-quality content with ease:",
       features: ["6 State-of-the-art Studios", "Audio & Video Ready", "Creator-friendly Setup", "Professional Editing Support"],
       icon: "camera",
-      video: "/videos/video-production.mp4"
+      video: "/videos/video-production.mp4?v=2"
     }
   ];
 
