@@ -11,7 +11,7 @@ const CampaignsSection = () => {
       description: "Global brands that want to reach a middle income, business-savvy audience work with Boss Wallah:",
       features: ["Market Entry Strategy", "Audience Analysis", "Cultural Adaptation", "ROI Tracking"],
       icon: indiaEntryIcon,
-      video: "/videos/india-entry.mp4?v=3"
+      video: "/videos/india-entry.mp4?v=4"
     },
     {
       title: "Revenue Generation Campaigns",
