@@ -57,7 +57,7 @@ const HeroSection = ({
           preload="auto"
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
         >
-          <source src="/videos/hero-background.mp4" type="video/mp4" />
+          <source src="/videos/hero-background.mp4?v=2" type="video/mp4" />
         </video>
         
         {/* Dark overlay for text readability */}
