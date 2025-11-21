@@ -39,7 +39,7 @@ const CampaignsSection = () => {
       description: "Companies that want to create an intense 3 month campaign:",
       features: ["3-Month Intensive", "Multi-Channel Approach", "Event Marketing", "Performance Metrics"],
       icon: "event",
-      video: "/videos/event-launch.mp4?v=2"
+      video: "/videos/event-launch.mp4?v=5"
     },
     {
       title: "Video Content Production",
