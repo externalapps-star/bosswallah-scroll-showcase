@@ -54,6 +54,8 @@ const HeroSection = ({
           loop 
           muted 
           playsInline
+          preload="auto"
+          poster="/videos/hero-background.mp4"
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
