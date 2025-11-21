@@ -7,11 +7,11 @@ import { Clock, Calendar, User, ArrowRight, BookOpen, ExternalLink, Filter } fro
 import { NewsService } from "@/services/NewsService";
 
 // Import blog thumbnails
-import blogUgcVideoFormula from "@/assets/blog-ugc-video-formula-new.png";
-import blogFmcgBrand from "@/assets/blog-fmcg-brand-new.png";
-import blogHealthcareMarketing from "@/assets/blog-healthcare-marketing-new.jpg";
-import blogYoutubeCollaborations from "@/assets/blog-youtube-collaborations-new.jpg";
-import blogFashionBrandsTier2 from "@/assets/blog-fashion-brands-tier2-new.png";
+import blogScaleUgcCreators from "@/assets/blog-scale-ugc-creators.jpg";
+import blogUgcSupportCosts from "@/assets/blog-ugc-support-costs.png";
+import blogLongFormUgc from "@/assets/blog-long-form-ugc.png";
+import blogUgcOutperformAds from "@/assets/blog-ugc-outperform-ads.png";
+import blogSmallCreatorsCollaborate from "@/assets/blog-small-creators-collaborate.png";
 interface NewsItem {
   id: number;
   date: string;
@@ -33,27 +33,76 @@ const BlogsSection = () => {
   const [newsItems, setNewsItems] = useState<NewsItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch latest news on component mount
+  // Static blog posts
   useEffect(() => {
-    const fetchNews = async () => {
-      setIsLoading(true);
-      try {
-        const latestNews = await NewsService.fetchNewsFromBossWallah();
-        // Map thumbnails to the fetched news
-        const newsWithThumbnails = latestNews.map((item, index) => ({
-          ...item,
-          thumbnail: [blogUgcVideoFormula, blogFmcgBrand, blogHealthcareMarketing, blogYoutubeCollaborations, blogFashionBrandsTier2][index % 5]
-        }));
-        setNewsItems(newsWithThumbnails);
-      } catch (error) {
-        console.error('Error fetching news:', error);
-        // Fallback to static news if fetch fails
-        setNewsItems([]);
-      } finally {
-        setIsLoading(false);
+    const staticBlogs: NewsItem[] = [
+      {
+        id: 1,
+        date: "2025-11-19",
+        title: "How to Scale UGC Creators for Monthly Content Calendars Without Losing Authenticity",
+        excerpt: "Scaling UGC is not about increasing quantity. It is about increasing creators while keeping the creativity fresh.",
+        content: "If you are a brand that wants to publish consistent content, you already know the struggle...",
+        category: "Video & UGC Production",
+        thumbnail: blogScaleUgcCreators,
+        readTime: "5 min read",
+        author: "Prateek S",
+        tags: ["UGC", "Content Strategy"],
+        url: "https://bosswallah.com/blog/video-ugc-production/how-to-scale-ugc-creators-for-monthly-content-calendars-without-losing-authenticity/"
+      },
+      {
+        id: 2,
+        date: "2025-11-19",
+        title: "How UGC Videos Reduce Customer Support Costs by Pre-Answering Buyer Questions",
+        excerpt: "UGC videos have now become the unofficial assistants every support team secretly dreams of.",
+        content: "Every brand wants two things: more customers and fewer questions from those customers...",
+        category: "Video & UGC Production",
+        thumbnail: blogUgcSupportCosts,
+        readTime: "5 min read",
+        author: "Prateek S",
+        tags: ["UGC", "Customer Support"],
+        url: "https://bosswallah.com/blog/video-ugc-production/how-ugc-videos-reduce-customer-support-costs-by-pre-answering-buyer-questions/"
+      },
+      {
+        id: 3,
+        date: "2025-11-19",
+        title: "How Brands Are Using Long Form UGC Instead of Testimonials to Increase Conversions",
+        excerpt: "Long-form UGC is replacing traditional testimonials as the new trust-building engine.",
+        content: "There was a time when brands proudly displayed short testimonials as proof of quality...",
+        category: "Video & UGC Production",
+        thumbnail: blogLongFormUgc,
+        readTime: "4 min read",
+        author: "Prateek S",
+        tags: ["UGC", "Conversions"],
+        url: "https://bosswallah.com/blog/video-ugc-production/how-brands-are-using-long-form-ugc-instead-of-testimonials-to-increase-conversions/"
+      },
+      {
+        id: 4,
+        date: "2025-11-19",
+        title: "Why UGC Videos Outperform Studio Ads in High-Consideration B2B Industries",
+        excerpt: "When the stakes are high, people do not want glamour. They want the truth.",
+        content: "If you have spent even a week in B2B marketing, you already know that buyers do not get influenced easily...",
+        category: "Video & UGC Production",
+        thumbnail: blogUgcOutperformAds,
+        readTime: "5 min read",
+        author: "Prateek S",
+        tags: ["UGC", "B2B Marketing"],
+        url: "https://bosswallah.com/blog/video-ugc-production/why-ugc-videos-outperform-studio-ads-in-high-consideration-b2b-industries/"
+      },
+      {
+        id: 5,
+        date: "2025-11-19",
+        title: "How Small Creators Can Collaborate With Big Creators Without Paying",
+        excerpt: "You can still collaborate with big creators without spending money. It takes strategy, effort, and a little charm.",
+        content: "Every small creator dreams of that one big collaboration that changes everything...",
+        category: "Creator Hub",
+        thumbnail: blogSmallCreatorsCollaborate,
+        readTime: "4 min read",
+        author: "Prateek S",
+        tags: ["Creator", "Collaboration"],
+        url: "https://bosswallah.com/blog/creator-hub/how-small-creators-can-collaborate-with-big-creators-without-paying/"
       }
-    };
-    fetchNews();
+    ];
+    setNewsItems(staticBlogs);
   }, []);
   const categories = ["All", "Creator Hub", "Finance", "Local Business"];
   const handleReadMore = (news: any) => {
