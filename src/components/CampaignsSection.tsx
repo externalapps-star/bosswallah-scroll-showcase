@@ -80,7 +80,7 @@ const CampaignsSection = () => {
               </video>
               
               {/* Dark overlay for text readability */}
-              <div className="absolute top-0 left-0 w-full h-full bg-black/60 z-[1]"></div>
+              <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-[1]"></div>
               {/* Animated Border */}
               <div className="absolute inset-0 rounded-2xl md:rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-[2]">
                 <div className="absolute inset-0 rounded-2xl md:rounded-3xl bg-gradient-to-r from-primary via-accent to-primary bg-size-200 animate-gradient-x p-0.5">
