@@ -116,7 +116,7 @@ const CampaignsSection = () => {
                   <h3 className="text-base md:text-xl font-bold mb-2 md:mb-3 text-foreground">
                     {campaign.title}
                   </h3>
-                  <p className="text-xs md:text-lg text-muted-foreground mb-3 md:mb-6 leading-relaxed">
+                  <p className="text-xs md:text-lg text-foreground mb-3 md:mb-6 leading-relaxed drop-shadow-lg">
                     {campaign.description}
                   </p>
                   
@@ -125,7 +125,7 @@ const CampaignsSection = () => {
                     {campaign.features.map((feature) => (
                       <div key={feature} className="flex items-center space-x-2 md:space-x-3">
                         <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-primary rounded-full flex-shrink-0"></div>
-                        <span className="text-xs md:text-sm text-muted-foreground">{feature}</span>
+                        <span className="text-xs md:text-sm text-foreground drop-shadow-lg">{feature}</span>
                       </div>
                     ))}
                   </div>
