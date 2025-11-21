@@ -1,33 +1,10 @@
 import { Podcast, Camera, Calendar } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
 import indiaEntryIcon from "@/assets/india-entry-icon.jpg";
 import eventCampaignIcon from "@/assets/event-campaign-icon.jpg";
 import brandBuildingIcon from "@/assets/brand-building-icon.jpg";
 import revenueIcon from "@/assets/revenue-icon.jpg";
 
 const CampaignsSection = () => {
-  const [visibleVideos, setVisibleVideos] = useState<Set<number>>(new Set());
-  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = parseInt(entry.target.getAttribute('data-index') || '0');
-          if (entry.isIntersecting) {
-            setVisibleVideos(prev => new Set(prev).add(index));
-          }
-        });
-      },
-      { rootMargin: '50px' }
-    );
-
-    videoRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => observer.disconnect();
-  }, []);
   const campaigns = [
     {
       title: "India Entry Program",
@@ -91,22 +68,16 @@ const CampaignsSection = () => {
               key={campaign.title}
               className="group relative bg-card rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-soft hover:shadow-brand transition-all duration-500 border-2 border-border h-full flex flex-col overflow-hidden"
             >
-              {/* Background fallback */}
-              <div className="absolute top-0 left-0 w-full h-full bg-[#1a1a2e] z-0"></div>
-              
               {/* Background Video */}
               <video 
-                ref={el => videoRefs.current[index] = el}
-                data-index={index}
                 autoPlay 
                 loop 
                 muted 
                 playsInline
-                preload={index < 2 ? "auto" : "metadata"}
+                preload="auto"
                 className="absolute top-0 left-0 w-full h-full object-cover z-0"
-                style={{ opacity: visibleVideos.has(index) ? 1 : 0, transition: 'opacity 0.5s' }}
               >
-                {visibleVideos.has(index) && <source src={campaign.video} type="video/mp4" />}
+                <source src={campaign.video} type="video/mp4" />
               </video>
               
               {/* Dark overlay for text readability */}
