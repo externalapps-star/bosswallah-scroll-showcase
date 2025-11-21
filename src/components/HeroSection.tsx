@@ -48,6 +48,9 @@ const HeroSection = ({
         setMobileMenuOpen={setMobileMenuOpen}
       />
       <section className="relative h-screen flex items-center justify-between overflow-hidden bg-[#1a1a2e] pt-20">
+        {/* Background fallback */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[#1a1a2e] z-0"></div>
+        
         {/* Background Video */}
         <video 
           autoPlay 
@@ -55,8 +58,8 @@ const HeroSection = ({
           muted 
           playsInline
           preload="auto"
-          poster="/videos/hero-background.mp4"
           className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          style={{ opacity: 1 }}
         >
           <source src="/videos/hero-background.mp4" type="video/mp4" />
         </video>
